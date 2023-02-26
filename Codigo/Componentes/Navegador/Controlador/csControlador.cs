@@ -1,4 +1,8 @@
-﻿using System;
+﻿//REVISADO
+//Velvet Eunice Samayoa Aguilar
+// 0901-19-6128
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +18,7 @@ namespace NavegadorControlador
  
     public class csControlador
     {
-        Sentencias sn = new Sentencias();
+        Sentencias sentencia = new Sentencias();
         
         Seguridad_Controlador.Controlador cnseg = new Seguridad_Controlador.Controlador();
 
@@ -25,13 +29,13 @@ namespace NavegadorControlador
         public void llenartablaa(string ntabla, DataGridView tabla)//Funcion para llenar tabla
         {
             try
-            {
-                OdbcDataAdapter dt = sn.llenartabla(ntabla);
+            { //
+                OdbcDataAdapter dt = sentencia.llenartabla(ntabla);
                 DataTable table = new DataTable();
                 dt.Fill(table);
                 tabla.DataSource = table;
             }
-           catch(Exception e)
+           catch(Exception e) // se notificará al usuario el tipo de error
             {
                 MessageBox.Show("Error:" +e);
             }
@@ -48,7 +52,7 @@ namespace NavegadorControlador
                 posicionamiento = tabla.CurrentRow.Index;
             }
 
-            catch (Exception e)
+            catch (Exception e) // se notificará al usuario el tipo de error
             {
                 MessageBox.Show("Error:" + e);
             }
@@ -62,7 +66,7 @@ namespace NavegadorControlador
 
                 if(permiso != 0)
                 {
-                    OdbcDataAdapter dt = sn.llenartabla(ntabla);
+                    OdbcDataAdapter dt = sentencia.llenartabla(ntabla);
                     DataTable table = new DataTable();
                     dt.Fill(table);
                     tabla.DataSource = table;
@@ -77,7 +81,7 @@ namespace NavegadorControlador
                 }
                 else
                 {
-                    OdbcDataAdapter dt = sn.llenartabla(ntabla);
+                    OdbcDataAdapter dt = sentencia.llenartabla(ntabla);
                     DataTable table = new DataTable();
                     dt.Fill(table);
                     tabla.DataSource = table;
@@ -86,7 +90,7 @@ namespace NavegadorControlador
                 
             }
 
-            catch (Exception e)
+            catch (Exception e) // se notificará al usuario el tipo de error
             {
                 MessageBox.Show("Error:" + e);
             }
@@ -95,7 +99,7 @@ namespace NavegadorControlador
         {
             try
             {
-                OdbcDataAdapter dt = sn.llenartabla(ntabla);
+                OdbcDataAdapter dt = sentencia.llenartabla(ntabla);
                 DataTable table = new DataTable();
                 dt.Fill(table);
                 
@@ -109,7 +113,7 @@ namespace NavegadorControlador
                 }
             }
 
-            catch (Exception e)
+            catch (Exception e) // se notificará al usuario el tipo de error
             {
                 MessageBox.Show("Error:" + e);
             }
@@ -136,7 +140,7 @@ namespace NavegadorControlador
                
 
             }
-            catch (Exception e)
+            catch (Exception e) // se notificará al usuario el tipo de error
             {
                 MessageBox.Show("Error:" + e);
             }
@@ -153,22 +157,22 @@ namespace NavegadorControlador
                 foreach (var txt in control.Controls)
                 {
                     if (txt is TextBox)
-                    {
+                    {// limpiara los textbox que se encuentren en pantalla
                         ((TextBox)txt).Clear();
                     }
                     else if (txt is ComboBox)
-                    {
+                    {// limpiara los combobox que se encuentren en pantalla
                         ((ComboBox)txt).SelectedItem = 0;
                     }
                     else if (txt is CheckBox)
-                    {
+                    { // limpiara los checkbox que se encuentren en pantalla
                         ((CheckBox)txt).Checked = false;
                     }
                 }
             }
             
 
-            catch (Exception e)
+            catch (Exception e) // se notificará al usuario el tipo de error
             {
                 MessageBox.Show("Error:" + e);
             }
@@ -181,15 +185,15 @@ namespace NavegadorControlador
                 foreach (var txt in control.Controls)
                 {
                     if (txt is TextBox)
-                    {
+                    { //habilitara los textbox que esten en pantalla 
                         ((TextBox)txt).Enabled = true;
                     }
                     else if (txt is ComboBox)
-                    {
+                    {//habilitara los Combobox que esten en pantalla
                         ((ComboBox)txt).Enabled = true;
                     }
                     else if (txt is CheckBox)
-                    {
+                    {//habilitara los checkbox que esten en pantalla
                         ((CheckBox)txt).Enabled = true;
                     }
                     else if (txt is DateTimePicker)
@@ -200,7 +204,7 @@ namespace NavegadorControlador
             }
             
 
-            catch (Exception e)
+            catch (Exception e) // se notificará al usuario el tipo de error
             {
                 MessageBox.Show("Error:" + e);
             }
@@ -214,15 +218,15 @@ namespace NavegadorControlador
                 foreach (var txt in control.Controls)
                 {
                     if (txt is TextBox)
-                    {
+                    { //deja inactivos los textbox que esten en pantalla 
                         ((TextBox)txt).Enabled = false;
                     }
                     else if (txt is ComboBox)
-                    {
+                    {//deja inactivos los Combobox que esten en pantalla
                         ((ComboBox)txt).Enabled = false;
                     }
                     else if (txt is CheckBox)
-                    {
+                    {//deja inactivos los textbox que esten en pantalla
                         ((CheckBox)txt).Enabled = false;
                     }
                     else if (txt is DateTimePicker)
@@ -232,7 +236,7 @@ namespace NavegadorControlador
                 }
             }
             
-            catch (Exception e)
+            catch (Exception e) // se notificará al usuario el tipo de error
             {
                 MessageBox.Show("Error:" + e);
             }
@@ -245,7 +249,7 @@ namespace NavegadorControlador
                 textbox[0].Enabled = false;
                 textbox[1].Focus();
             }
-            catch (Exception e)
+            catch (Exception e) // se notificará al usuario el tipo de error
             {
                 MessageBox.Show("Error:" + e);
             }
@@ -263,19 +267,19 @@ namespace NavegadorControlador
                     int fin = (tabla.Rows.Count - 2); ;
                     int posicion;
 
-                    if (mover.Equals("i"))
+                    if (mover.Equals("i")) // mueve al inicio
                     {
                         posicion = 0;
                         tabla.CurrentCell = tabla.Rows[posicion].Cells[tabla.CurrentCell.ColumnIndex];
 
                     }
-                    else if (mover.Equals("f"))
+                    else if (mover.Equals("f")) // mueve hacia el final
                     {
                         posicion = fin;
                         tabla.CurrentCell = tabla.Rows[posicion].Cells[tabla.CurrentCell.ColumnIndex];
 
                     }
-                    else if (mover.Equals("b"))
+                    else if (mover.Equals("b")) // mueve uno en uno
                     {
                         mov = tabla.CurrentRow.Index - 1;
                         if (mov >= 0)
@@ -298,7 +302,7 @@ namespace NavegadorControlador
                 }
                 
             }
-            catch(Exception e)
+            catch(Exception e) // se notificará al usuario el tipo de error
             {
                 MessageBox.Show("Error: " + e);
             }
@@ -318,21 +322,16 @@ namespace NavegadorControlador
                     string campo = textbox[0].Tag.ToString();
                     int clave = int.Parse(textbox[0].Text);
 
-                    sn.eliminar(clave, campo, tabla.Tag.ToString());
+                    sentencia.eliminar(clave, campo, tabla.Tag.ToString());
                     cnseg.setBtitacora(idApp, "Eliminar");
                     MessageBox.Show("Dato Eliminado");
                     bloquearbotonesGC(botones, true);
                     desactivar(control);
-                    /*for (int x = 0; x < textbox.Length; x++)
-                    {
-                        textbox[x].Enabled = false;
-
-
-                    }*/
+                
                 }
                 
             }
-            catch (Exception e)
+            catch (Exception e) // se notificará al usuario el tipo de error
             {
                 MessageBox.Show("Error: " + e);
             }
@@ -369,24 +368,20 @@ namespace NavegadorControlador
 
                     }
 
-                    sn.insertar(dato, tipo, tabla.Tag.ToString());
-                    
+                    sentencia.insertar(dato, tipo, tabla.Tag.ToString());
+                    //verificara que si existan registros en los textbox
                     cnseg.setBtitacora(idApp, "Guardar");
                     MessageBox.Show("Dato Insertado");
                     bloquearbotonesGC(botones, true);
                     desactivar(control);
-                    /*for (int x = 0; x < textbox.Length; x++)
-                    {
-                        textbox[x].Enabled = false;
-                    }*/
-
+                   
                 }
                 else if (autorizazcion == "no")
                 {
 
                 }
             }
-            catch (Exception e)
+            catch (Exception e) // se notificará al usuario el tipo de error
             {
                 MessageBox.Show("Error: " + e);
             }
@@ -408,7 +403,7 @@ namespace NavegadorControlador
                 int permiso = comprobacionvacio(tabla);
                 if(permiso != 0)
                 {
-                    string resultado = sn.buscarid(tabla.Tag.ToString(), textbox[0].Tag.ToString());
+                    string resultado = sentencia.buscarid(tabla.Tag.ToString(), textbox[0].Tag.ToString());
                     incremento = Convert.ToInt32(resultado) + 1;
                     textbox[0].Text = incremento.ToString();
                 }
@@ -421,7 +416,7 @@ namespace NavegadorControlador
                 
 
             }
-            catch (Exception e)
+            catch (Exception e) // se notificará al usuario el tipo de error
             {
                 MessageBox.Show("Error: " + e);
             }
@@ -431,7 +426,7 @@ namespace NavegadorControlador
         }
 
         public void actualizar(TextBox[] textbox, DataGridView tabla, IconButton[] botones, string idApp, Control control)//Crea cadenas de datos para la actualizacion
-        {
+        {//Crea cadenas de datos para la actualizacion
             try
             {
                 int permiso = comprobacionvacio(tabla);
@@ -473,15 +468,12 @@ namespace NavegadorControlador
 
                         }
 
-                        sn.actualizar(dato, condicion, tabla.Tag.ToString());
+                        sentencia.actualizar(dato, condicion, tabla.Tag.ToString());
                         cnseg.setBtitacora(idApp, "Modificar");
                         MessageBox.Show("Dato actualizado");
                         bloquearbotonesGC(botones, true);
                         desactivar(control);
-                        /*for (int x = 0; x < textbox.Length; x++)
-                        {
-                            textbox[x].Enabled = false;
-                        }*/
+                     
                     }
 
                 
@@ -489,7 +481,7 @@ namespace NavegadorControlador
 
                 }
             }
-            catch (Exception e)
+            catch (Exception e) // se notificará al usuario el tipo de error
             {
                 MessageBox.Show("Error: " + e);
             }
@@ -515,7 +507,7 @@ namespace NavegadorControlador
 
                 
             }
-            catch (Exception e)
+            catch (Exception e) // se notificará al usuario el tipo de error
             {
                 MessageBox.Show("Error: " + e);
             }
@@ -542,7 +534,7 @@ namespace NavegadorControlador
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception e) // se notificará al usuario el tipo de error
             {
                 MessageBox.Show("Error: " + e);
             }
@@ -557,7 +549,7 @@ namespace NavegadorControlador
 
             try
             {
-                OdbcDataAdapter dt = sn.buscarnombretabla2(tabla.Tag.ToString(), textbox.Length, BD);
+                OdbcDataAdapter dt = sentencia.buscarnombretabla2(tabla.Tag.ToString(), textbox.Length, BD);
                 DataTable table = new DataTable();
                 dt.Fill(table);
                 string[] datos = new string[textbox.Length];
@@ -586,7 +578,7 @@ namespace NavegadorControlador
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception e) // se notificará al usuario el tipo de error
             {
                
             }
@@ -604,7 +596,7 @@ namespace NavegadorControlador
                 
                 int conteo = 0;
                 string[] datos = new string[textbox.Length];
-                datos = sn.comprobaciondellenado(tabla.Tag.ToString(), textbox[0].Tag.ToString(), textbox[0].Text, textbox.Length);
+                datos = sentencia.comprobaciondellenado(tabla.Tag.ToString(), textbox[0].Tag.ToString(), textbox[0].Text, textbox.Length);
 
                 for (int x = 0; x < textbox.Length; x++)
                 {
@@ -627,7 +619,7 @@ namespace NavegadorControlador
                 }
 
             }
-            catch (Exception e)
+            catch (Exception e) // se notificará al usuario el tipo de error
             {
                 MessageBox.Show("Error: " + e);
             }
@@ -648,7 +640,7 @@ namespace NavegadorControlador
 
             try
             {
-                OdbcDataAdapter dt = sn.buscarnombretabla();
+                OdbcDataAdapter dt = sentencia.buscarnombretabla();
                 DataTable table = new DataTable();
                 dt.Fill(table);
 
@@ -670,7 +662,7 @@ namespace NavegadorControlador
                     Application.Exit();
                 }
             }
-            catch (Exception e)
+            catch (Exception e) 
             {
                 MessageBox.Show("Error: " + e);
             }
@@ -680,50 +672,19 @@ namespace NavegadorControlador
         public int comprobacionvacio(DataGridView tabla)
         {
             int resultado = 0;
-            resultado = sn.estadotabla(tabla.Tag.ToString());
+            resultado = sentencia.estadotabla(tabla.Tag.ToString());
 
             return resultado;
         }
      
-        /*
-        public void bloqueobtn(IconButton[] boton)//Metodo para evaluar el nombre de la tabla
-        {
-            string[] seguridad = new string[7];
-            seguridad = sn.buscarseguridad(8,2000);
-            int [] evaluacion = new int [7];
-            
-
-            try
-            { 
-                for (int x = 0; x < 7; x++)
-                {
-                    evaluacion[x] = Convert.ToInt32(seguridad[x]);
-                    if (evaluacion[x] == 0)
-                    {
-                        boton[x-2].Enabled = false;
-
-
-
-                    }
-                }
-
-
-
-
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Error: " + e);
-            }
-        }*/
 
         public void reporte(string id1)
         {
             
                 string ubicacion1 = "";
                 string estado1 = "";
-                estado1 = sn.reporteestado(id1);
-                ubicacion1 = sn.reporteestado1(id1);
+                estado1 = sentencia.reporteestado(id1);
+                ubicacion1 = sentencia.reporteestado1(id1);
             if (estado1 == "Visible")
             {
                CapaVistaReporteria.visualizar b = new CapaVistaReporteria.visualizar(ubicacion1);
