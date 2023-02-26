@@ -19,46 +19,16 @@ namespace CapaVistaReporteria
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
-
-                bool abierto = false;
-                foreach (Form f in Application.OpenForms)
-                {
-                    if (f.Text == "inicio")
-                    {
-                        abierto = true;
-                        f.Focus();
-                        break;
-                    }
-                }
-                if (abierto == false)
-                {
-                    Inicio rep = new Inicio();
-                    rep.MdiParent = this;
-                    rep.Show();
-                }
-                
-            
+                 Inicio rep = new Inicio();
+                 rep.MdiParent = this;
+                 rep.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            bool abierto = false;
-            foreach (Form f in Application.OpenForms)
-            {
-                if (f.Text == "reporteria_usuario")
-                {
-                    abierto = true;
-                    f.Focus();
-                    break;
-                }
-            }
-            if (abierto == false)
-            {
                 reporteria_usuario rep = new reporteria_usuario();
                 rep.MdiParent = this;
                 rep.Show();
-            }
         }
     }
 }

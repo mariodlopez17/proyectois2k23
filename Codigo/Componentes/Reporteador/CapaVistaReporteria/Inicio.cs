@@ -6,15 +6,14 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms.ComponentModel;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+
 
 namespace CapaVistaReporteria
 {
     public partial class Inicio : Form
     {
-        string connectionString = @"Server=colchoneria.mysql.database.azure.com;Database=colchoneria;Uid=administrador;Pwd=Jm123456;";
-        int idregistro =0;
         public Inicio()
         {
             InitializeComponent();
@@ -23,6 +22,7 @@ namespace CapaVistaReporteria
 
         private void btn_examinar_Click(object sender, EventArgs e)
         {
+                 
             OpenFileDialog v1 = new OpenFileDialog();
             v1.Filter = "All files (*.*)|*.*";
             if (v1.ShowDialog() == DialogResult.OK)
