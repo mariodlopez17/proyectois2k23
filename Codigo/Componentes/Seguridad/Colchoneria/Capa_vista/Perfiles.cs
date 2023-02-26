@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Seguridad_Controlador;
-
+//Comentado por George Mayén 25/02/2023
 namespace Vista_Seguridad
 {
     public partial class Perfiles : Form
@@ -21,7 +21,7 @@ namespace Vista_Seguridad
         {
             InitializeComponent();
         }
-
+        //Método que limpia los textbox, elimina el contenido que había
         public void limpiar()
         {
             txtbuscar.Text = "";
@@ -30,6 +30,7 @@ namespace Vista_Seguridad
             txtnombre.Text = "";
         }
 
+        //Método que muestra 1 en el textbox estado si el checkbox se ha checkeado, en caso contrario indica 0 en el textbox estado
         public void checkbox()
         {
             if (checkBox1.Checked)
@@ -42,17 +43,20 @@ namespace Vista_Seguridad
             }
         }
 
+        //Método que oculta el formulario
         private void button8_Click(object sender, EventArgs e)
         {
            
             this.Hide();
         }
 
+        //Método que llama a mandar al método limpiar
         private void button2_Click(object sender, EventArgs e) //Boton Nuevo
         {
             limpiar();
         }
-
+        //Método que valida si no se han llenado los textbox muestra un mensaje que indica que complete la información, en caso contrario llama al método  checkbox,
+        //los textbox ingresados se guardan en un arreglo de textbox y se crea un perfil de acuerdo al id que se haya ingresado y se guarda en la bitacora
         private void button3_Click(object sender, EventArgs e) //Boton Ingresar
         {
             if (txtdescripcion.Text == "" || txtnombre.Text == "")
@@ -72,11 +76,14 @@ namespace Vista_Seguridad
 
         }
 
+        //Método que oculta el txtestado
         private void Perfiles_Load(object sender, EventArgs e)
         {
             txtestado.Visible = false;
         }
 
+        //Método que valida si no se han llenado los textbox muestra un mensaje que indica que complete la información, en caso contrario llama al método  checkbox,
+        //los textbox ingresados se guardan en un arreglo de textbox y se actualizan estos datos de acuerdo al id que se haya ingresado y se guarda en la bitacora
         private void button4_Click(object sender, EventArgs e) //Boton Actualizar
         {
             if (txtdescripcion.Text == "" || txtnombre.Text == "")
@@ -97,6 +104,8 @@ namespace Vista_Seguridad
             }
         }
 
+        //Método que muestra un mensaje para eliminar un registro, si se confirma se procece a eliminar al usuario de acuerdo al id ingresado y limpia los textbox
+        //en caso contrario limpia los textbox 
         private void button7_Click(object sender, EventArgs e) //Boton Eliminar
         {
             string message = "Deseas Eliminar el Registro?";
@@ -119,6 +128,7 @@ namespace Vista_Seguridad
             }
         }
 
+        //Método que muestra el formulario de ayuda perfiles
         private void button6_Click(object sender, EventArgs e)
         {
             AyudaPerfiles b = new AyudaPerfiles();

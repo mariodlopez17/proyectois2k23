@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Seguridad_Controlador;
-
+//Comentado por George Mayén 25/02/2023
 namespace Vista_Seguridad
 {
     public partial class Aplicacion : Form
@@ -21,6 +21,7 @@ namespace Vista_Seguridad
             InitializeComponent();
         }
 
+        //Método que valida si el checkbox se ha chequeado muestra en txtact 1, en caso contrario 0
         public void checkbox()
         {
             if (checkBox1.Checked)
@@ -32,7 +33,7 @@ namespace Vista_Seguridad
                 txtact.Text = "0";
             }
         }
-
+        //Método que limpia los textbox
         public void limpiar()
         {
            
@@ -42,13 +43,14 @@ namespace Vista_Seguridad
             txtact.Text = "";
             idapp.Text = "";
         }
-
+        //Método que oculta el formulario
         private void button7_Click(object sender, EventArgs e)
         {
             
             this.Hide();
         }
 
+        //Método que limpia los textbox
         private void button3_Click(object sender, EventArgs e)
         {
             txtact.Text = "";
@@ -57,7 +59,8 @@ namespace Vista_Seguridad
             txtNombre.Text = "";
 
         }
-
+        //Método que valida si completa la información, si no la completa muestra un mensaje indicando que debe completarla,
+        //en caso contrario registra la aplicación de acuerdo al id de la aplicación ingresado
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             if (txtDescripcion.Text == "" || txtNombre.Text == "" || idapp.Text=="")
@@ -77,6 +80,7 @@ namespace Vista_Seguridad
         
         }
 
+        //Método que busca la aplicación de acuero al id
         private void button1_Click(object sender, EventArgs e)
         {
             checkbox();
@@ -86,7 +90,8 @@ namespace Vista_Seguridad
             //string num = txtBusacar.Tag.ToString();
             cn.buscar(textbox, table, valor1, campo);
         }
-
+        //Método que valida si completa la información, si no la completa muestra un mensaje indicando que debe completarla,
+        //en caso contrario actualiza la aplicación de acuerdo al id de la aplicación ingresado
         private void button4_Click(object sender, EventArgs e)
         {
             if (txtDescripcion.Text == "" || txtNombre.Text == "")
@@ -109,6 +114,7 @@ namespace Vista_Seguridad
             
         }
 
+        //Método que muestra un mensaje de eliminación y si se responde con si, elimina el registro de acuerdo al id de la aplicación
         private void button5_Click(object sender, EventArgs e)
         {
             string message = "Deseas Eliminar el Registro?";
@@ -132,6 +138,7 @@ namespace Vista_Seguridad
             
         }
 
+        //Método que llama al formulario indicado
         private void button6_Click(object sender, EventArgs e)
         {
             ayudaaplicacion b = new ayudaaplicacion();

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Seguridad_Controlador;
 
-
+//Comentado por George Mayén 25/02/2023
 namespace Vista_Seguridad
 {
     public partial class ListAplicaciones : Form
@@ -22,12 +22,14 @@ namespace Vista_Seguridad
             InitializeComponent();
         }
 
+        //Método que llena la lista de aplicaciones de acuerdo a los tag
         private void ListAplicaciones_Load(object sender, EventArgs e)
         {
             cn.llenarListAplicaciones(listAplicacionesDB.Tag.ToString(), listAplicacionesDB);
             //desabilitar();
         }
 
+        //Método utilizado para obtener las aplicaciones del perfil de acuerdo al id que se tenga en caso contrario muestra un mensaje de error
         public string getIds()
         {
             try
@@ -55,6 +57,7 @@ namespace Vista_Seguridad
             return res;
         }
 
+        //Méotod que muestra el valor obtenido o id
         public string muestraIds()
         {
             string info = txtIds.Text;
@@ -63,6 +66,7 @@ namespace Vista_Seguridad
         }
 
 
+        //Método que llama al método getIds
         private void listAplicacionesDB_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             getIds();
@@ -75,7 +79,7 @@ namespace Vista_Seguridad
             MessageBox.Show("Valor optenido es :  " + txtIds.Text);
             this.Hide();*/
         }
-
+        //Método que llama al m´´etodo meustraIds
         private void button2_Click(object sender, EventArgs e)
         { 
             muestraIds();

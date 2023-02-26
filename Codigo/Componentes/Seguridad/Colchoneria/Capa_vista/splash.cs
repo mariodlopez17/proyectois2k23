@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+//Comentado por George Mayén 25/02/2023
 namespace Vista_Seguridad
 {
     public partial class splash : Form
@@ -17,6 +17,7 @@ namespace Vista_Seguridad
             InitializeComponent();
         }
 
+        //Método quemuestra una barra con su porcentaje y cuando llega al máximo que es un 100% muestra el formulario de login
         private void timer1_Tick(object sender, EventArgs e)
         {
             progressBar1.Increment(5);

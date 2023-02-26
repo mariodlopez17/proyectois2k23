@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Seguridad_Controlador;
-
+//Comentado por George Mayén 25/02/2023
 namespace Vista_Seguridad
 {
     public partial class AsignacionModuloAplicacion : Form
@@ -19,19 +19,19 @@ namespace Vista_Seguridad
         {
             InitializeComponent();
         }
-
+        //Método que limpia los textbox
         public void limpiar()
         {
             txtCadenas.Text = "";
             txtIdAplicacion.Text = "";
             txtIdModulo.Text = "";
         }
-
+        //Método que oculta el id del perfil
         public void ocultar()
         {
             txtIdAplicacion.Visible = false;
         }
-
+        //Método que obtiene las aplicaciones del perfil de acuerdo al textbox de perfil que se ingrese 
         public void getIds()
         {
             try
@@ -54,7 +54,7 @@ namespace Vista_Seguridad
                 Console.WriteLine(ex.Message.ToString() + " \nError en obtener las aplicaciones del perfil");
             }
         }
-
+        //Método que obtiene las aplicaciones del perfil de acuerdo al textbox de perfil que se ingrese 
         public void getId()
         {
             try
@@ -68,13 +68,13 @@ namespace Vista_Seguridad
                 Console.WriteLine(ex.Message.ToString() + " \nError en obtener las aplicaciones del perfil");
             }
         }
-
+        //Método para actualizar el grid de acuerdo al id del usuario que ingresemos
         public void actualizardatagriew()
         {
             string id = txtIdModulo.Text; 
             cn.llenarListApliUsuariosstring(listAplicacionPerfil.Tag.ToString(), listAplicacionPerfil, id);
         }
-
+        //Método que llena la lista de aplicaciones y de modulos y posteriormente oculta
         private void AsignacionModuloAplicacion_Load(object sender, EventArgs e)
         {
             cn.llenarListAplicaciones(listAplicacionesDB.Tag.ToString(), listAplicacionesDB);
@@ -82,12 +82,12 @@ namespace Vista_Seguridad
             Size = new Size(593, 379);
             ocultar();
         }
-
+        //Método que llama al método getIds
         private void listAplicacionesDB_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             getIds();
         }
-
+        //Método que asigna un modulo de aplicacion de acuerdo al id y posteriormente se registra en nuestro datagridview y lo actualiza
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             char[] delimiterChars = { ',' };
@@ -109,7 +109,7 @@ namespace Vista_Seguridad
             //593; 379
             Size = new Size(593, 379);
         }
-
+        //Método que hace visible la lista de aplicaciones
         private void button2_Click(object sender, EventArgs e)
         {
             ListModulo.Visible = false;
@@ -126,7 +126,7 @@ namespace Vista_Seguridad
                 Size = new Size(593, 379);
             }
         }
-
+         //Método que hace visible la lista de aplicaciones
         private void button1_Click(object sender, EventArgs e)
         {
             listAplicacionesDB.Visible = false;
@@ -143,12 +143,13 @@ namespace Vista_Seguridad
                 Size = new Size(593, 379);
             }
         }
-
+        //Método que llama al método getId
         private void ListModulo_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             getId();
         }
 
+        //Método que busca el módulo de acuerdo al id y lo actualiza en el datagridview
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             string texto = txtIdModulo.Text;
@@ -164,7 +165,7 @@ namespace Vista_Seguridad
             }
             
         }
-
+        //Método que muestra un mensaje de eliminación y si se responde con si, elimina el registro de acuerdo al modulo de la aplicación
         private void listAplicacionPerfil_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             string message = "Deseas Eliminar el Registro?";
@@ -192,6 +193,7 @@ namespace Vista_Seguridad
             }
         }
 
+        //Método que llama al formulario indicado
         private void button6_Click(object sender, EventArgs e)
         {
             AyudaAsignacionModuloAplicacion b = new AyudaAsignacionModuloAplicacion();

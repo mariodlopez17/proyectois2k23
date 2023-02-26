@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Seguridad_Controlador;
 
-
+//Comentado por George Mayén 25/02/2023
 namespace Vista_Seguridad
 {
     public partial class Login : Form
@@ -30,7 +30,7 @@ namespace Vista_Seguridad
         
 
 
-
+        //Método quye valida si el usuario y contraseña es correcta y se registra este valor en la bitacora
         public void login()
         {
             if (cn.validarLogin(TBusuario.Text, Controlador.SetHash(TBcontrasena.Text)))
@@ -85,12 +85,13 @@ namespace Vista_Seguridad
         }
 
 
-
+        //Método que llama al método login
         private void button1_Click(object sender, EventArgs e)
         {
             login();  
         }
 
+        //Método checkbox: si se ha chequeado el estado del txtestado pasa a 1, de lo contrario pasa a 0
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked == true)
@@ -105,7 +106,7 @@ namespace Vista_Seguridad
                 TBcontrasena.PasswordChar = '*';
             }
         }
-
+        //Método muestra el formulario de recuperación
         private void button2_Click(object sender, EventArgs e)
         {
             recuperacion b = new recuperacion();
@@ -116,7 +117,7 @@ namespace Vista_Seguridad
         {
             
         }
-
+        //Método que se sale de la aplicación
         private void pictureBox4_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
