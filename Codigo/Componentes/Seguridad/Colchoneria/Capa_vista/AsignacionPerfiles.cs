@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Seguridad_Controlador;
-
+//Comentado por George Mayén 25/02/2023
 namespace Vista_Seguridad
 {
     public partial class AsignacionPerfiles : Form
@@ -22,6 +22,7 @@ namespace Vista_Seguridad
             InitializeComponent();
         }
 
+        //Método que limpia los textbox
         public void limpiar()
         {
             txtCadenas.Text = "";
@@ -29,11 +30,13 @@ namespace Vista_Seguridad
             txtIdPerfil.Text = "";
         }
 
+        //Método que oculta el id del perfil
         public void ocultar()
         {
             txtIdPerfil.Visible = false;
         }
 
+        //Método que obtiene las aplicaciones del perfil de acuerdo al textbox de perfil que se ingrese 
         public void getIds()
         {
             try
@@ -56,7 +59,7 @@ namespace Vista_Seguridad
                 Console.WriteLine(ex.Message.ToString() + " \nError en obtener las aplicaciones del perfil");
             }
         }
-
+        //Método que obtiene las aplicaciones del perfil de acuerdo al textbox de perfil que se ingrese 
         public void getId()
         {
             try
@@ -71,19 +74,21 @@ namespace Vista_Seguridad
             }
         }
 
+        //Método para actualizar el grid de acuerdo al id del usuario que ingresemos
         public void actualizardatagriew()
         {
             string id = txtIdUsuario.Text;
             cn.llenarListApliUsuariosstring(listPerfilUsuario.Tag.ToString(), listPerfilUsuario, id);
         }
 
+        //Método que oculta el formulario
         private void button5_Click(object sender, EventArgs e)
         {
             
             this.Hide();
         }
 
-
+        //Método que agrega un perfil de acuerdo al id y posteriormente se registra en nuestro datagridview y lo actualiza
         private void btnAgregar_Click(object sender, EventArgs e)
         {
 
@@ -107,6 +112,7 @@ namespace Vista_Seguridad
             Size = new Size(663, 369);
         }
 
+        //Método que asigna perfiles 
         private void AsignacionPerfiles_Load(object sender, EventArgs e)
         {
             cn.llenarListPerfiles(listPerfilesDB.Tag.ToString(), listPerfilesDB);
@@ -115,6 +121,7 @@ namespace Vista_Seguridad
             ocultar();
         }
 
+        //Método que actualiza el datagridview de acuerdo al id de usuario que se ingrese
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             string texto = txtIdUsuario.Text;
@@ -131,12 +138,12 @@ namespace Vista_Seguridad
             
            
         }
-
+        //Método que llama al método getIds
         private void listAplicacionesDB_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             getIds();
         }
-
+        //Método que muestra la lista de los usuarios 
         private void button2_Click(object sender, EventArgs e)
         {
             ListUsuario.Visible = false;
@@ -152,7 +159,7 @@ namespace Vista_Seguridad
                 Size = new Size(663, 369);
             }
         }
-
+        //Método que muestra la lista de los usuarios 
         private void button1_Click(object sender, EventArgs e)
         {
             listPerfilesDB.Visible = false;
@@ -174,6 +181,7 @@ namespace Vista_Seguridad
             getId();
         }
 
+        //Método que muestra un mensaje de eliminación y si se responde con si, elimina el registro de acuerdo al perfil 
         private void listPerfilUsuario_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             string message = "Deseas Eliminar el Registro?";
@@ -198,6 +206,7 @@ namespace Vista_Seguridad
             }
         }
 
+        //Método que llama al formulario indicado
         private void button6_Click(object sender, EventArgs e)
         {
             AyudaAsignacionPerfilesUsuario b = new AyudaAsignacionPerfilesUsuario();

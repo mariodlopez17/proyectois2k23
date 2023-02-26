@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Seguridad_Controlador;
 
-
+//Comentado por George Mayén 25/02/2023
 namespace Vista_Seguridad
 {
     public partial class Cambio : Form
@@ -21,6 +21,7 @@ namespace Vista_Seguridad
         string table = "tbl_usuarios";
         Controlador cn = new Controlador();
 
+        //Método que limpia los textbox
         private void limpiar()
         {
             txtBusqueda.Text = "";
@@ -28,7 +29,7 @@ namespace Vista_Seguridad
         }
 
 
-
+        //Método utilizado para modificar contraseña de acuerdo al id que se ha ingresado y posteriormente limpia los textbox
         private void button1_Click(object sender, EventArgs e)
         {
             TextBox[] textbox = { txtcontraseña };
@@ -39,7 +40,7 @@ namespace Vista_Seguridad
             cn.setBtitacora("1201", "Modifico Contraseña");
             limpiar();
         }
-
+        //Mëtodo para asignar un valor, si se ha chequeado asigna '\0', en caso contrario '*'
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked == true)

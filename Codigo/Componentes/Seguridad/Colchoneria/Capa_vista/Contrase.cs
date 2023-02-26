@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Seguridad_Controlador;
-
+//Comentado por George Mayén 25/02/2023
 namespace Vista_Seguridad
 {
     public partial class Contrase : Form
@@ -20,7 +20,7 @@ namespace Vista_Seguridad
 
         Controlador cn = new Controlador();
 
-
+        //Método que valida el usuario y contraseña del login y de acuerdo a eso muestra el formulario de cambio, en caso contrario muestra un mensaje de error
         public void autenticar()
         {
             if (cn.validarLogin(TBusuario.Text, Controlador.SetHash(TBcontrasena.Text)))
@@ -38,14 +38,14 @@ namespace Vista_Seguridad
         }
 
 
-
+        //Método que llama al método autenticar
         private void button1_Click(object sender, EventArgs e)
         {
             autenticar();
             
 
         }
-
+        //Mëtodo para asignar un valor, si se ha chequeado asigna '\0', en caso contrario '*'
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked == true)
@@ -61,6 +61,7 @@ namespace Vista_Seguridad
             }
         }
 
+        //Método que muestra el formulario de ayuda contraseña 
         private void btnAyuda_Click(object sender, EventArgs e)
         {
             AyudaContraseña b = new AyudaContraseña();
