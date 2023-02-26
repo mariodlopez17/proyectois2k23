@@ -6,12 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//Comentado por Luis Torres 26/02/2023
 namespace Modelo_Seguridad
 {
     public class Sentencias
     {
         Conexion con = new Conexion();
 
+        //Metodo para obtener datos de la tabla usuario
         public string[] queryLogin(string user)
         {
             string[] Campos = new string[300];
@@ -34,6 +36,7 @@ namespace Modelo_Seguridad
             return Campos;
         }
 
+        //Metodo para recuperacion de respuesta en la tabla usuario
         public string[] queryRecuperacion(string user)
         {
             string[] Campos = new string[300];
@@ -57,10 +60,7 @@ namespace Modelo_Seguridad
         }
 
 
-
-
-
-
+        //Metodo para insercion de datos en bitacora
         public void insertBitacora(string values)
         {
             string campos = "fk_id_usuario, fk_id_aplicacion, fecha_bitacora, hora_bitacora, host_bitacora, ip_bitacora, accion_bitacora";
@@ -69,6 +69,7 @@ namespace Modelo_Seguridad
             cmd.ExecuteNonQuery();
         }
 
+        //Metodo para seleccion de nombre de la apliacion segun su codigo de la tabla aplicaciones
         public string queryNombreApp(string app)
         {
             string nombreApp = "";
@@ -89,6 +90,7 @@ namespace Modelo_Seguridad
             return nombreApp;
         }
 
+        //Metodo para selecion de perfiles de usuario 
         public int[] getPerfilesUsuario(string user)
         {
             int[] perfiles = new int[100];
@@ -112,6 +114,7 @@ namespace Modelo_Seguridad
             return perfiles;
         }
 
+        //Metodo para seleccion de perfiles de aplicacion
         public int[] getPerfilAplicacion(int perfil)
         {
             int[] modulos = new int[300];
@@ -133,7 +136,7 @@ namespace Modelo_Seguridad
             }
             return modulos;
         }
-
+        //Metodo para seleccion de id apliacion segun perfil y id aplicacion
         public Boolean getAuthPerfilAplicacion(int perfil, int idApp)
         {
             Boolean result = false;
@@ -157,6 +160,7 @@ namespace Modelo_Seguridad
             return result;
         }
 
+        //Metodo para la seleccion del id del modulo segun el id de aplicacion
         public int getModuloAplicacion(int aplicacion)
         {
             int idModulo = 0;
@@ -179,6 +183,7 @@ namespace Modelo_Seguridad
             return idModulo;
         }
 
+        //Metodo para seleccion de permisos para los botones segun el perfil y aplicacion
         public int[] getPermisos(int perfil, int aplicacion)
         {
             int[] permisos = new int[5];
@@ -205,7 +210,7 @@ namespace Modelo_Seguridad
             return permisos;
         }
 
-
+        //Metodo para seleccion de usuario y contraseña segun datos ingresados
         public OdbcDataAdapter buscarlogin(string tabla, string dato1, string dato2)
         {
             
@@ -214,6 +219,7 @@ namespace Modelo_Seguridad
             return dataTable;
         }
 
+        //Metodo para insertar en cualquier tabla
         public void insertar(string dato, string tipo, string tabla)
         {
             string sql = "insert into " + tabla + "(" + tipo + ") values (" + dato + ")";
@@ -232,6 +238,8 @@ namespace Modelo_Seguridad
             
         }
 
+
+        //Metodo para seleccion de todos los datos de una tabla
         public void busqueda(TextBox[] textbox, string tabla,int num, string condicion)
         {
             string sql = "Select *from " + tabla + " where "+ condicion +" " + num+ ";" ;
@@ -241,6 +249,7 @@ namespace Modelo_Seguridad
 
         }
 
+        //Metodo para seleccionar el campo pregunta en la tabla usuarios
         public string getPregunta(string username)
         {
             string pregunta = "";
@@ -261,7 +270,7 @@ namespace Modelo_Seguridad
             return pregunta;
         }
 
-
+        //Metodo para obtener las aplicaciones segun perfil
         public string[] buscarusua(string username)
         {
             string[] permisos = new string[10];
@@ -294,7 +303,7 @@ namespace Modelo_Seguridad
 
         }
 
-
+        //Metodo para selecionar todos los datos de una tabla
         public OdbcDataAdapter llenarTbl(string tabla)// metodo  que obtinene el contenio de una tabla
         {
             //string para almacenar los campos de OBTENERCAMPOS y utilizar el 1ro
@@ -303,7 +312,7 @@ namespace Modelo_Seguridad
             return dataTable;
         }
        
-
+        //Metodo para actualizar cualquier registro de una tabla
         public void actualizar(string dato, string condicion, string tabla,int num)
         {
 
@@ -313,6 +322,7 @@ namespace Modelo_Seguridad
 
         }
 
+        //Metodo para eliminar cualquire dato de una tabla
         public void eliminar(string tabla,string condicion,int campo)
         {
 
@@ -327,6 +337,7 @@ namespace Modelo_Seguridad
             }
         }
 
+        //Metodo para eliminar cualquier dato de una tabla con doble condicion
         public void eliminarAsiganaciones(string tabla, string condicion1, int campo1, string condicion2, int campo2)
         {
             try
@@ -345,7 +356,7 @@ namespace Modelo_Seguridad
         }
 
 
-
+        //Metodo para actulizar cualquier tabla
         public void actualizarcontra(string dato, string condicion, string tabla, string usu)
         {
 
@@ -355,7 +366,7 @@ namespace Modelo_Seguridad
 
         }
 
-
+        //Metodo para llenar una tabla completa
         public OdbcDataAdapter llenartabla(string tabla)
         {
             string sql = "select * from " + tabla + ";";
@@ -363,6 +374,7 @@ namespace Modelo_Seguridad
             return datatable;
         }
 
+        //Metodo para selecionar todos los campos de una tabla segun el id de usuario
         public OdbcDataAdapter selectList(string tabla, string campo)
         {
             string sql = "select *from " + tabla + " where fk_id_usuario = " +campo+ ";";
@@ -370,6 +382,7 @@ namespace Modelo_Seguridad
             return dataTable;
         }
 
+        //Metodo para seleccionar permisos de aplicaciones segun el usuario
         public OdbcDataAdapter selectPerfilUsuario(string tabla, string campo)
         {
             string sql = "select *from tbl_permisosaplicacionesusuario where fk_id_usuario = " + campo + ";";
@@ -377,6 +390,7 @@ namespace Modelo_Seguridad
             return dataTable;
         }
 
+        //Metodo para seleccionar todas las apliaciones
         public OdbcDataAdapter llenarListaAplicaciones(string tabla)
         {
             string sql = "Select pk_id_aplicacion as ID, nombre_aplicacion as Nombre, descripcion_aplicacion as Descripcion from  " + tabla + ";";
@@ -384,6 +398,7 @@ namespace Modelo_Seguridad
             return datatable;
         }
 
+        //Metodo para seleccionar todos los modulos
         public OdbcDataAdapter llenarListaModulos(string tabla)
         {
             string sql = "select pk_id_modulos as Modulo, nombre_modulo as Nombre, descripcion_modulo as Descripcion from " + tabla + ";";
@@ -391,6 +406,7 @@ namespace Modelo_Seguridad
             return datatable;
         }
 
+        //Metodo para seleccionar todos los usuarios
         public OdbcDataAdapter llenarListaUsuarios(string tabla)
         {
             string sql = "Select pk_id_usuario as ID, nombre_usuario as nombre, username_usuario as Usuario from " + tabla + ";";
@@ -398,6 +414,7 @@ namespace Modelo_Seguridad
             return datatable;
         }
 
+        //Metodo para seleccionar todos los usuarios dependiendo del id
         public OdbcDataAdapter llenarListaApliUsuario(string tabla,string id)
         {
             string sql = "Select *from "+ tabla + " where ID = "+ id + " ;";
@@ -405,6 +422,7 @@ namespace Modelo_Seguridad
             return datatable;
         }
 
+        //Metodo para seleccionar todos los perfiles
         public OdbcDataAdapter llenarListaPerfiles(string tabla)
         {
             string sql = "Select pk_id_perfil as ID, nombre_perfil as Nombre, descripcion_perfil as Descripcion from  " + tabla + ";";
