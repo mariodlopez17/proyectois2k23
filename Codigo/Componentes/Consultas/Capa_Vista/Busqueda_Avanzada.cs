@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Odbc;
-
+//comentado por samuel benitez
 namespace Capa_VistaConsultas
 {
     // Josue Amaya 0901-19-12421
@@ -21,7 +21,7 @@ namespace Capa_VistaConsultas
         String datobuscar = "";
         String buscaren = "";
         String cadenaB = "";
-
+        //muestra la busqueda avanzada 
         public Busqueda_Avanzada()
         {
             InitializeComponent();
@@ -30,6 +30,7 @@ namespace Capa_VistaConsultas
 
         }
 
+        //muestra la interfaz grafica
         private void CargoCombo(ComboBox cbo_buscaren)
         {
             OdbcConnection con = new OdbcConnection("Dsn=Colchoneria");
@@ -39,11 +40,13 @@ namespace Capa_VistaConsultas
             con.Close();
         }
 
+        //boton en donde se cancela la busqueda 
         private void btn_SalirBA_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        //boton para una nueva busqueda
         private void bnt_nuevaBA_Click(object sender, EventArgs e)
         {
             panelResultado.Visible = false;
@@ -56,9 +59,10 @@ namespace Capa_VistaConsultas
         private void btn_BuscarBA_Click(object sender, EventArgs e)
         {
             tableN = cbo_buscaren.Text;
-            BuscarBA(tableN,dgvDato);
+            BuscarBA(tableN, dgvDato);
         }
 
+        //se muestra al usuario informacion por medio de la tabla  
         public void BuscarBA(string tableN, DataGridView dgvDato)
         {
             DataTable dt = new DataTable();
@@ -76,6 +80,7 @@ namespace Capa_VistaConsultas
             }
         }
 
+        //se dibuja el marco del formulario
         private void pnl_BuscarBA_Paint(object sender, PaintEventArgs e)
         {
             CargarColumnas(cbox_columnas, tableN);
@@ -91,6 +96,7 @@ namespace Capa_VistaConsultas
             cadenaB = "";
         }
 
+        //muestra la interfaz grafica
         public void CargarColumnas(ComboBox cbox_columnas, String tableN)
         {
             cbox_columnas.Items.Clear();
@@ -107,7 +113,7 @@ namespace Capa_VistaConsultas
                 }
             }
         }
-
+        //busqueda especifica por medio de atributo 
         public void BuscaPor(string datobuscar, string buscaren, string tableN)
         {
             DataTable dt = new DataTable();
@@ -141,3 +147,4 @@ namespace Capa_VistaConsultas
         }
     }
 }
+
