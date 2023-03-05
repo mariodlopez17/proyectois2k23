@@ -61,5 +61,14 @@ namespace CapaControladorReporteria
             sentencias.eliminarReporte(idReporte.Text);
             return 1;
         }
+        public void ModReporteria(string ruta, string nombre_archivo, string aplicacion, string estado, string id)
+        {
+            //esta variables nos sirven para que la ruta no salga con vasura
+            string exc = @"\\";
+            string orgn = @"\";
+            ruta = ruta.Replace(orgn, exc);
+            //aqui con los datos que recibimos de la capavista a hora la mandamos a la funicon ModificarReporte en sentencias.cs
+            sentencias.ModificarReporte(ruta, nombre_archivo, aplicacion, estado, id);
+        }
     }
 }
