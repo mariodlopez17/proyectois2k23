@@ -70,5 +70,13 @@ namespace CapaControladorReporteria
             //aqui con los datos que recibimos de la capavista a hora la mandamos a la funicon ModificarReporte en sentencias.cs
             sentencias.ModificarReporte(ruta, nombre_archivo, aplicacion, estado, id);
         }
+
+        public DataTable queryReporteria(TextBox query)
+        {
+                OdbcDataAdapter data2 = sentencias.queryReportes(query.Text);
+                DataTable tabla2 = new DataTable();
+                data2.Fill(tabla2);
+                return tabla2;
+        }
     }
 }

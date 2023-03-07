@@ -71,8 +71,15 @@ namespace CapaModeloReporteria
             {
                 Console.WriteLine("Error en CapaModeloReporteria --> Sentencias" + e);
             }
+        }
 
+        public OdbcDataAdapter queryReportes(string query)
+        {
+            string sql = "SELECT * FROM " + tabla_reporteria + " WHERE ruta LIKE '%" + query + "%' OR nombre_archivo LIKE '%" + query + "%';";
+            MessageBox.Show(sql);
 
+            OdbcDataAdapter dataTable = new OdbcDataAdapter(sql, conexion.conexion());
+            return dataTable;
         }
     }
 }
