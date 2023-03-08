@@ -61,14 +61,28 @@ namespace CapaControladorReporteria
             sentencias.eliminarReporte(idReporte.Text);
             return 1;
         }
-        public void ModReporteria(string ruta, string nombre_archivo, string aplicacion, string estado, string id)
+        public int ModReporteria(string ruta, string nombre_archivo, string aplicacion, string estado, TextBox idReporte)
         {
             //esta variables nos sirven para que la ruta no salga con vasura
-            string exc = @"\\";
+
+            /*string exc = @"\\";
             string orgn = @"\";
-            ruta = ruta.Replace(orgn, exc);
+            ruta = ruta.Replace(orgn, exc);*/
+
+            if (string.IsNullOrEmpty(idReporte.Text))
+            {
+                MessageBox.Show("El campo no puede estar vacío", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            //luego rectificamos que el usuario quiere barrar el reporte
+            DialogResult result = MessageBox.Show("¿Desea Modificar el reporte #" + idReporte.Text + "?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.No)
+            {
+                MessageBox.Show("No se modifico el registro", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
             //aqui con los datos que recibimos de la capavista a hora la mandamos a la funicon ModificarReporte en sentencias.cs
-            sentencias.ModificarReporte(ruta, nombre_archivo, aplicacion, estado, id);
+            sentencias.ModificarReporte(ruta, nombre_archivo, aplicacion, estado, idReporte.Text);
+            return 1;
         }
 
         public DataTable queryReporteria(TextBox query)

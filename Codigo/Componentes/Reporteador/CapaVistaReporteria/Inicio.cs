@@ -122,7 +122,8 @@ namespace CapaVistaReporteria
         private void btn_modificar_Click(object sender, EventArgs e)
         {
             //aqui recibimos los nuevos datos en los diferente txtbox y se lo mandamos a la funcion ModReporteador que esta en controlador.cs
-           controlador.ModReporteria(txt_ruta.Text, txt_nombre.Text, txt_aplicacion.Text,txt_estado.Text, idReporte.Text);
+            controlador.ModReporteria(txt_ruta.Text, txt_nombre.Text, txt_aplicacion.Text,txt_estado.Text, idReporte);
+            actualizarVistaReportes();
         }
 
         private void cargarCategorias()
