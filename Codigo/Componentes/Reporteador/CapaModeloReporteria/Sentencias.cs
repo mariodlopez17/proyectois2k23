@@ -50,15 +50,10 @@ namespace CapaModeloReporteria
                 Console.WriteLine(ex.Message.ToString() + " \nNo se puede eliminar el registro "+id_reporte+" en la tabla "+tabla_reporteria);
             }
         }
-        public void ModificarReporte(string ruta, string nombre_archivo, string aplicacion, string estado, string id)
+        public void ModificarReporte(string ruta, string nombre_archivo, string aplicacion, string estado, string id_reporte)
         {
             //aqui con los datos recibidos le mandamos la instruccion a la base de datos para poder lo modificar lo buscamos por id
-            string sql = "UPDATE" + tabla_reporteria + "SET" +
-                         "ruta = '" + ruta + "'," +
-                         "nombre_archivo = '" + nombre_archivo + "'," +
-                         "aplicacion = '" + aplicacion + "'," +
-                         "estado = '" + estado + "' " +
-                         "WHERE (idReporte = '" + id + "');";
+            string sql = "UPDATE " + tabla_reporteria + " SET " + "ruta = '" + ruta + "'," + " nombre_archivo = '" + nombre_archivo + "'," + " aplicacion = '" + aplicacion + "'," + " estado = '" + estado + "' " + " WHERE (idregistro = '" + id_reporte + "');";
 
             //aqui estamos haciendo la comprobacion de que si uvo una coneccion con la base de datos
             try
