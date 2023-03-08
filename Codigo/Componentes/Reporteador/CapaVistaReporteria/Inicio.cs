@@ -47,7 +47,7 @@ namespace CapaVistaReporteria
                     {
                         if (i < words.Length - 1)
                         {
-                            db += words[i] + '\\';
+                            db += words[i] + '\\'+ '\\';
                         }
                         else
                         {
@@ -74,11 +74,6 @@ namespace CapaVistaReporteria
         private void btn_ver_reporte_Click(object sender, EventArgs e)
         {
         }
-        void GridFill()
-        {
-
-        }
-
 
         private void btn_actualizar_Click(object sender, EventArgs e)
         {
