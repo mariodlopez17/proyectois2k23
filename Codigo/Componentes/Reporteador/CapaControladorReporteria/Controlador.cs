@@ -63,16 +63,13 @@ namespace CapaControladorReporteria
         }
         public int ModReporteria(string ruta, string nombre_archivo, string aplicacion, string estado, TextBox idReporte)
         {
-            //esta variables nos sirven para que la ruta no salga con vasura
-
-            /*string exc = @"\\";
-            string orgn = @"\";
-            ruta = ruta.Replace(orgn, exc);*/
-
-            if (string.IsNullOrEmpty(idReporte.Text))
+            //se valida que el textbox no este vacio o con espacios en blanco
+            if (string.IsNullOrEmpty(idReporte.Text) || string.IsNullOrEmpty(ruta) || string.IsNullOrEmpty(nombre_archivo) ||
+                string.IsNullOrEmpty(aplicacion) || string.IsNullOrEmpty(estado))
             {
-                MessageBox.Show("El campo no puede estar vacío", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Existen campos vacios, revise y vuelva a intentarlo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
             //luego rectificamos que el usuario quiere barrar el reporte
             DialogResult result = MessageBox.Show("¿Desea Modificar el reporte #" + idReporte.Text + "?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No)

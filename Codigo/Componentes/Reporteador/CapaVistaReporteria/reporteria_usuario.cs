@@ -48,9 +48,9 @@ namespace CapaVistaReporteria
             {
                 txt_nombre.Text = tbl_regreporteria.CurrentRow.Cells[2].Value.ToString();
                 txt_ruta.Text = tbl_regreporteria.CurrentRow.Cells[1].Value.ToString();
-                estado = tbl_regreporteria.CurrentRow.Cells[4].Value.ToString();
+                estado = tbl_regreporteria.CurrentRow.Cells[4].Value.ToString().ToLower();
 
-                if (estado.Equals("Visible"))
+                if (estado.Equals("visible"))
                 {
                     btn_VerReporte.Enabled = true;
                 }
@@ -63,8 +63,9 @@ namespace CapaVistaReporteria
 
         private void button2_Click(object sender, EventArgs e)
         {
+
             //si el reporte tiene estado visible entonces se ejecuta otra forma para mostrar el reporte
-            if (estado.Equals("Visible"))
+            if (estado.Equals("visible"))
             {
                 string ruta = txt_ruta.Text;
                 visualizar newFormVisualizar = new visualizar(ruta);

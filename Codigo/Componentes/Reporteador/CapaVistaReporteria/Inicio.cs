@@ -15,6 +15,7 @@ namespace CapaVistaReporteria
     public partial class Inicio : Form
     {
         CapaControladorReporteria.Controlador controlador = new CapaControladorReporteria.Controlador();
+        Boolean confirmRuta = true;
         public Inicio()
         {
             InitializeComponent();
@@ -60,6 +61,7 @@ namespace CapaVistaReporteria
                     }
                 }
                 txt_ruta.Text = db;
+                confirmRuta = false;
             }
         }
 
@@ -68,7 +70,7 @@ namespace CapaVistaReporteria
             string[] datosReporte = { txt_ruta.Text, txt_nombre.Text, txt_aplicacion.Text, txt_estado.Text };
             controlador.guardarReporte(datosReporte);
             actualizarVistaReportes();
-
+            confirmRuta = true;
         }
 
         private void btn_ver_reporte_Click(object sender, EventArgs e)
@@ -89,6 +91,7 @@ namespace CapaVistaReporteria
         {
             controlador.borrar_reporte(idReporte);
             actualizarVistaReportes();
+            confirmRuta = true;
         }
 
         void Clear()
@@ -122,8 +125,13 @@ namespace CapaVistaReporteria
         private void btn_modificar_Click(object sender, EventArgs e)
         {
             //aqui recibimos los nuevos datos en los diferente txtbox y se lo mandamos a la funcion ModReporteador que esta en controlador.cs
+            if (confirmRuta)
+            {
+                txt_ruta.Text = txt_ruta.Text.Replace("\\", "\\\\");
+            }
             controlador.ModReporteria(txt_ruta.Text, txt_nombre.Text, txt_aplicacion.Text,txt_estado.Text, idReporte);
             actualizarVistaReportes();
+            confirmRuta = true;
         }
 
         private void cargarCategorias()
