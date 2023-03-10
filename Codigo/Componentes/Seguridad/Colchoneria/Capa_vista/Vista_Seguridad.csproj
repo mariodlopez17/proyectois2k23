@@ -47,6 +47,9 @@
     <Reference Include="eCryptography, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Eramake.eCryptography.1.1.6\lib\net45\eCryptography.dll</HintPath>
     </Reference>
+    <Reference Include="NavegadorVista">
+      <HintPath>..\..\..\Navegador\Vista\bin\Debug\NavegadorVista.dll</HintPath>
+    </Reference>
     <Reference Include="Seguridad_Controlador">
       <HintPath>..\Capa_controlador\bin\Debug\Seguridad_Controlador.dll</HintPath>
     </Reference>
