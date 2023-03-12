@@ -75,6 +75,21 @@ namespace CapaVistaReporteria
 
         private void btn_ver_reporte_Click(object sender, EventArgs e)
         {
+            // creamos una variable para que se le asigne lo que esta escrito en el estado del reporte
+            string estado;
+            estado = Convert.ToString(txt_estado.Text);
+
+            // aqui realizamos una comprobacion de ver si el reporte esta en estado visible y el usuario lo pueda ver si no esta visible entonces le saldra un mensaje al usuario
+            if (estado == "Visible")
+            {
+                string ruta = txt_ruta.Text;
+                visualizar ver = new visualizar(ruta);
+                ver.Show();
+            }
+            else
+            {
+                MessageBox.Show("Reporte No_visible");
+            }
         }
 
         private void btn_actualizar_Click(object sender, EventArgs e)
