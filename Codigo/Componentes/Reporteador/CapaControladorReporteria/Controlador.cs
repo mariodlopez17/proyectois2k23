@@ -89,5 +89,11 @@ namespace CapaControladorReporteria
                 data2.Fill(tabla2);
                 return tabla2;
         }
+
+        public List<string> listadoAplicaciones()
+        {
+            List<string> applicationCodes = sentencias.getAplicaciones();
+            return applicationCodes;
+        }
     }
 }

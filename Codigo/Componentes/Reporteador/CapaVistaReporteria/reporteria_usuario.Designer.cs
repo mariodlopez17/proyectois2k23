@@ -81,10 +81,14 @@ namespace CapaVistaReporteria
             // 
             // tbl_regreporteria
             // 
+            this.tbl_regreporteria.AllowUserToAddRows = false;
+            this.tbl_regreporteria.AllowUserToDeleteRows = false;
+            this.tbl_regreporteria.AllowUserToOrderColumns = true;
             this.tbl_regreporteria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tbl_regreporteria.Location = new System.Drawing.Point(60, 53);
             this.tbl_regreporteria.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbl_regreporteria.Name = "tbl_regreporteria";
+            this.tbl_regreporteria.ReadOnly = true;
             this.tbl_regreporteria.RowHeadersWidth = 62;
             this.tbl_regreporteria.Size = new System.Drawing.Size(888, 523);
             this.tbl_regreporteria.TabIndex = 8;

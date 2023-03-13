@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Odbc;
 using System.Linq;
 using System.Text;
@@ -16,10 +17,18 @@ namespace CapaModeloReporteria
         public OdbcDataAdapter DisplayReportes()// metodo  que obtinene el contenio de la tabla reportes
         {
             string sql = "SELECT * FROM " + tabla_reporteria + "  ;";
-            OdbcDataAdapter dataTable = new OdbcDataAdapter(sql, conexion.conexion());
+            OdbcDataAdapter dataTable = new OdbcDataAdapter();
+            try
+            {
+                dataTable = new OdbcDataAdapter(sql, conexion.conexion());
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + " \nNo se pudo consultar la tabla " + tabla_reporteria);
+            }
             return dataTable;
         }
-
         public void registrarReporte(string datos)
         {
             //la variable campos es una variable plana donde se ponen los nombres de las columnas para guardar el reporte
@@ -35,7 +44,6 @@ namespace CapaModeloReporteria
                 Console.WriteLine(ex.Message.ToString() + " \nNo se pudo guardar el registro en la tabla " + tabla_reporteria);
             }
         }
-
         public void eliminarReporte(string id_reporte)
         {
             //funcion para eliminar el reporte seleccionado, donde se utiliza la tabla declarada globalmente y el numero de reporte que se pasa por parametro.
@@ -67,7 +75,6 @@ namespace CapaModeloReporteria
                 Console.WriteLine("Error en CapaModeloReporteria --> Sentencias" + e);
             }
         }
-
         public OdbcDataAdapter queryReportes(string query)
         {
             string sql = "SELECT * FROM " + tabla_reporteria + " WHERE ruta LIKE '%" + query + "%' OR nombre_archivo LIKE '%" + query + "%';";
@@ -75,6 +82,33 @@ namespace CapaModeloReporteria
 
             OdbcDataAdapter dataTable = new OdbcDataAdapter(sql, conexion.conexion());
             return dataTable;
+        }
+        public List<string> getAplicaciones()
+        {
+            string query = "SELECT pk_id_aplicacion, estado_aplicacion FROM tbl_aplicaciones;";
+            List<string> applicationCodes = new List<string>();
+
+            try
+            {
+                OdbcDataAdapter dataTable = new OdbcDataAdapter(query, conexion.conexion());
+                DataTable table = new DataTable();
+                dataTable.Fill(table);
+
+                foreach (DataRow row in table.Rows)
+                {
+                    if (row["estado_aplicacion"].ToString().Equals("1"))
+                    {
+                        string codigoAplicacion = row["pk_id_aplicacion"].ToString();
+                        applicationCodes.Add(codigoAplicacion);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + " \nNo se pudo consultar la tabla " + tabla_reporteria);
+            }
+
+            return applicationCodes;
         }
     }
 }
