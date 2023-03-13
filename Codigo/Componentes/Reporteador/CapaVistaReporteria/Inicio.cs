@@ -21,6 +21,7 @@ namespace CapaVistaReporteria
             InitializeComponent();
             actualizarVistaReportes();
             cargarCategorias();
+            cargarEstados();
         }
 
         private void actualizarVistaReportes()
@@ -76,11 +77,10 @@ namespace CapaVistaReporteria
         private void btn_ver_reporte_Click(object sender, EventArgs e)
         {
             // creamos una variable para que se le asigne lo que esta escrito en el estado del reporte
-            string estado;
-            estado = Convert.ToString(txt_estado.Text);
+            string estado = txt_estado.Text.ToLower();
 
             // aqui realizamos una comprobacion de ver si el reporte esta en estado visible y el usuario lo pueda ver si no esta visible entonces le saldra un mensaje al usuario
-            if (estado == "Visible")
+            if (estado == "visible")
             {
                 string ruta = txt_ruta.Text;
                 visualizar ver = new visualizar(ruta);
@@ -151,7 +151,16 @@ namespace CapaVistaReporteria
 
         private void cargarCategorias()
         {
-            
+            List<string> applicationCodes = controlador.listadoAplicaciones();
+            txt_aplicacion.DataSource = applicationCodes;
         }
+        private void cargarEstados()
+        {
+            List<string> estados = new List<string>();
+            estados.Add("visible");
+            estados.Add("no visible");
+            txt_estado.DataSource = estados;
+        }
+
     }
 }

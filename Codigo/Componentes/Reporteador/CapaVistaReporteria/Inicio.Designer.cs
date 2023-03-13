@@ -180,7 +180,7 @@ namespace CapaVistaReporteria
             // 
             // txt_aplicacion
             // 
-            this.txt_aplicacion.FormattingEnabled = true;
+            this.txt_aplicacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txt_aplicacion.Location = new System.Drawing.Point(602, 177);
             this.txt_aplicacion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_aplicacion.Name = "txt_aplicacion";
@@ -199,6 +199,7 @@ namespace CapaVistaReporteria
             // 
             // txt_estado
             // 
+            this.txt_estado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txt_estado.FormattingEnabled = true;
             this.txt_estado.Items.AddRange(new object[] {
             "No_visible",
