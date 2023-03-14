@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Capa_ControladorConsultas;
 using System.Data.Odbc;
-
-
+// hacer busqueda inteligente
+//Menu busqueda inteligente comentado por mario lopez
 namespace Capa_VistaConsultas
 {
-  
+  // Se inicia la conexion a ODBC
     public partial class Busqueda : Form
     {
        
@@ -28,7 +28,7 @@ namespace Capa_VistaConsultas
 
             panel13.Enabled = false;
             panel15.Enabled = false;
-            // groupBox3.Enabled = false;
+            groupBox3.Enabled = false;
             groupBox6.Enabled = false;
             groupBox4.Enabled = false;
             groupBox5.Enabled = false;
@@ -37,6 +37,7 @@ namespace Capa_VistaConsultas
         }
         string consulta = "";
 
+        //Se carga la tabla específica
         public void CargarTablas(ComboBox comboBox1)
         {
             OdbcConnection con = new OdbcConnection("Dsn=Colchoneria");
@@ -48,10 +49,8 @@ namespace Capa_VistaConsultas
 
 
 
-
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            // Jonathan Xuyá 0901-19-
             //boton agregar de creacion de consulta
 
             Capa_ControladorConsultas.csControldor crud = new Capa_ControladorConsultas.csControldor();
@@ -60,7 +59,7 @@ namespace Capa_VistaConsultas
             if (resultado)
 
             {
-                MessageBox.Show("Datos guardados");
+                MessageBox.Show("Datos guardados correctamente");
             }
 
             textBox1.Text = (txtNombreConsulta.Text + "+" + cboTabla.Text + "+" + comboBox11.Text + "+" + textBox11.Text + "+");
@@ -250,6 +249,7 @@ namespace Capa_VistaConsultas
 
         }
 
+        //Editar campos seleccionados
         private void cboAgruparEDITAR_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cboAgruparEditar.SelectedIndex == 1)
@@ -264,6 +264,7 @@ namespace Capa_VistaConsultas
             }
         }
 
+        //Agregar y editar Busqueda compleja
         private void btnAgregarAgruparOrdenarEDITAR_Click(object sender, EventArgs e)
         {
             //Joselyne Rivera 0901-17-05
@@ -275,7 +276,7 @@ namespace Capa_VistaConsultas
                 MessageBox.Show("Datos guardados");
             }
         }
-
+        //Guarda los datos de busqueda compleja
         private void btnAgregarComparacionEDITAR_Click(object sender, EventArgs e)
         {
             //Diana Victores 9959-19-1471
@@ -287,7 +288,7 @@ namespace Capa_VistaConsultas
                 MessageBox.Show("Datos guardados");
             }
         }
-
+        
         private void btnagregarCONSULTACOMPLEJAEDITAR_Click(object sender, EventArgs e)
         {
             // Joselyne Rivera 0901-18-
@@ -299,7 +300,7 @@ namespace Capa_VistaConsultas
                 MessageBox.Show("Datos guardados");
             }
         }
-
+        //verifica las condiciones
         private void chkcondicioneseditar_CheckedChanged(object sender, EventArgs e)
         {
             if (chkcondicioneseditar.Checked == true)
@@ -318,7 +319,7 @@ namespace Capa_VistaConsultas
 
         }
 
-
+        //Agrega consulta simple
         private void btnAgregarCONSULTASIMPLE_Click(object sender, EventArgs e)
         {
             // Diana Victores 9959-19-1471
@@ -361,7 +362,7 @@ namespace Capa_VistaConsultas
             //Diana Victores - Joselyne Rivera 
             actualizaconsultas2(txtNombreConsultaBusquedaElimar.Text);
         }
-
+        //Actualiza las consultas
         private void btnActualizarBUSCARyELIMINAR_Click(object sender, EventArgs e)
         {
             //Joselyne Rivera 0901-17-05
@@ -388,7 +389,7 @@ namespace Capa_VistaConsultas
         {
 
         }
-
+        //realiza las consultas a la base de datos especificadas por el usuario
         private void iconButton6_Click(object sender, EventArgs e)
         {
             // Jonathan Xuyá 0901-19-
@@ -413,7 +414,7 @@ namespace Capa_VistaConsultas
         {
 
         }
-
+        //Confirma que se han chequeado los campos
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -435,7 +436,7 @@ namespace Capa_VistaConsultas
 
 
         }
-
+        //no sirve
         public void habilitaciones()
         {
             panel15.Enabled = false;
@@ -449,7 +450,7 @@ namespace Capa_VistaConsultas
         {
 
         }
-
+        //saca la cadena generada por la cunsulta
         private void comboBox9_SelectedIndexChanged(object sender, EventArgs e)
         {
             cboQueryy.SelectedIndex = cboQueryy.SelectedIndex;
@@ -478,7 +479,7 @@ namespace Capa_VistaConsultas
             txtTablaConsulta.Text = cbonombrebuscar.SelectedItem.ToString();
             groupBox2.Enabled = true;
         }
-
+        //Seleccionar tabla
         private void cboTabla_SelectedIndexChanged(object sender, EventArgs e)
         {
             tablabusqueda = "";
@@ -490,7 +491,7 @@ namespace Capa_VistaConsultas
             CargarColumnas(comboBox11, comboBox12, comboBox15, comboBox17, tablabusqueda);
 
         }
-
+        //carga las columnas de las tablas
         private void CargarColumnas(ComboBox comboBox1, ComboBox comboBox2, ComboBox comboBox3, ComboBox comboBox4, string @string)
         {
             DataTable dt = new DataTable();
@@ -532,7 +533,7 @@ namespace Capa_VistaConsultas
         {
 
         }
-
+        //Las tablas de los datos en las consultas simples
         private void cboTablaConsultaSimple_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             tablabusqueda = "";
@@ -624,6 +625,7 @@ namespace Capa_VistaConsultas
 
         }
 
+        //resetea los campos especificos
         private void btnCancelarAgruparOrdenarEDITAR_Click(object sender, EventArgs e)
         {
             //Joselyne Rivera 0901-17-05
@@ -631,7 +633,7 @@ namespace Capa_VistaConsultas
             cboAgruparEditar.ResetText();
             cboCampoAgruparEditar.ResetText();
         }
-
+        //resetea los campos especificos al cancelar en consultacomplejaeditar
         private void btnCancelarCONSULTACOMPLEJAEDITAR_Click(object sender, EventArgs e)
         {
             // Joselyne Rivera 0901-17-05
@@ -641,7 +643,7 @@ namespace Capa_VistaConsultas
 //cbocompand.ResetText();
             txtvalorConsultaComplejaEDITAR.Clear();
         }
-
+        //resetea los campos especificos al cancelar en comparacioneditar
         private void txtcancelarComparacionEDITAR_Click(object sender, EventArgs e)
         {
             // Diana Victores 9959-19-1471
@@ -651,7 +653,7 @@ namespace Capa_VistaConsultas
          //   cbocompwhere.ResetText();
             txtValorComparacionEDITAR.Clear();
         }
-
+        //resetea los campos especificos al cancelar en consultasimple
         private void btnCancelarCONSULTASIMPLE_Click(object sender, EventArgs e)
         {
             // Diana Victores 9959-19-1471
@@ -663,6 +665,7 @@ namespace Capa_VistaConsultas
             txtTablaConsulta.Clear();
         }
 
+        //Limpia los campos al hacer click en iconButton1_Clic
         private void iconButton1_Click(object sender, EventArgs e)
         {
             //Diana Victores 9959-19-1471
@@ -685,7 +688,7 @@ namespace Capa_VistaConsultas
             cboCampoAgruparEditar.ResetText();
             txtCadenaGeneradaEDITAR.Clear();
         }
-
+        //boton de editar consulta simple
         private void btneditar_Click(object sender, EventArgs e)
         {
             //Diana Victores 9959-19-1471
@@ -768,7 +771,7 @@ namespace Capa_VistaConsultas
            // Help.ShowHelp(this, "AyudaConsulta.chm", "ConsultaAvanzada.html");
 
         }
-
+        //Carga las consultas en la tabla
         public void CargarConsultas(ComboBox cboQueryy)
         {
             con.Open();

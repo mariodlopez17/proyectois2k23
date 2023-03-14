@@ -8,6 +8,7 @@ using System.Data.Odbc;
 using System.Data;
 using System.Windows.Forms;
 
+//Capa controlador comentado por azael sierra
 namespace Capa_ControladorConsultas 
 {
     public class csControldor
@@ -15,7 +16,7 @@ namespace Capa_ControladorConsultas
         Sentencias sn = new Sentencias();
         //rellena tabla controlador
 
-        //datagread
+        //rellena el datadridview con datos de la tabla tbl_consultainteligente
         public DataTable llenartb2()
         {
             string consulta = "select * from tbl_consultainteligente";
@@ -24,6 +25,7 @@ namespace Capa_ControladorConsultas
             dt.Fill(table);
             return table;
         }
+        //rellena el datadridview con datos de la tabla tbl_consultainteligente en donde el nombre de consulta es la variable "condicion"
         public DataTable llenartb3(string condicion)
         {
             string consulta = "select * from tbl_consultainteligente where nombre_consulta= " + '"' + condicion + '"';
@@ -33,14 +35,14 @@ namespace Capa_ControladorConsultas
             return table;
         }
 
-
+        //elimina una columna de la tabla tbl_consultainteligente en donde el nombre de consulta es la variable "condicion"
         public void ejecutarconsulta(string condicion)
         {
             string sql = "DELETE FROM tbl_consultainteligente where nombre_consulta = " + '"' + condicion + '"' + ";";
             Console.WriteLine(sql);
             sn.insertarconsulta(sql);
         }
-
+        //edita una tabla con los datos especificados
         public void editarconsulta(string nombre_consulta, string tabla_consulta, string campos_consulta, string alias_consulta)
         {
             string sql = "update" +
@@ -48,7 +50,7 @@ namespace Capa_ControladorConsultas
             Console.WriteLine(sql);
             sn.insertarconsulta(sql);
         }
-
+        
         //Josue Amaya
         public DataTable BuscarBA(string tableN, DataTable dt)
         {
@@ -66,7 +68,7 @@ namespace Capa_ControladorConsultas
             con.Close();
             return dt;
         }
-
+        //Edita la tabla tbl_consultainteligente1 con los datos especificos
         public void editarconsulta1(string operador_consulta, string campos_consultas, string valor_consultas, string PkId)
         {
             string sql = "update" +
@@ -74,7 +76,7 @@ namespace Capa_ControladorConsultas
             Console.WriteLine(sql);
             sn.insertarconsulta(sql);
         }
-
+        //Edita la tabla tbl_consultainteligente2 con los datos especificos
         public void editarconsulta2(string ordernar_consulta, string campo_consulta)
         {
             string sql = "update" +
