@@ -20,10 +20,7 @@ namespace Vista_Seguridad
         {
             InitializeComponent();
         }
-        private void Usuario_Load(object sender, EventArgs e)
-        {}
-        private void txtestado_TextChanged(object sender, EventArgs e)
-        {}
+      
 
      
         private void navegador1_Load_1(object sender, EventArgs e)

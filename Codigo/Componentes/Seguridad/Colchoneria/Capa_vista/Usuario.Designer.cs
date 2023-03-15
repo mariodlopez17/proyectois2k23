@@ -273,7 +273,7 @@ namespace Vista_Seguridad
             this.Name = "Usuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Usuario";
-            this.Load += new System.EventHandler(this.Usuario_Load);
+            
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_usuario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

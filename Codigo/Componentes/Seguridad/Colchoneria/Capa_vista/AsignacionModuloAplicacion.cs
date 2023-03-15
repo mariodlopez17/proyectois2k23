@@ -19,13 +19,7 @@ namespace Vista_Seguridad
         {
             InitializeComponent();
         }
-        //Método que limpia los textbox
-        public void limpiar()
-        {
-            txtCadenas.Text = "";
-            txtIdAplicacion.Text = "";
-            txtIdModulo.Text = "";
-        }
+        
         //Método que oculta el id del perfil
         public void ocultar()
         {
@@ -103,7 +97,8 @@ namespace Vista_Seguridad
             string message = "Registro Guardado";
 
             actualizardatagriew();
-            limpiar();
+            TextBox[] textBoxes = { txtCadenas, txtIdAplicacion , txtIdModulo };
+            cn.limpiarTextbox(textBoxes);
             MessageBox.Show(message);
             cn.setBtitacora("1101", "Asigno Modulo-Aplicacion");
             //593; 379
@@ -161,7 +156,8 @@ namespace Vista_Seguridad
             else
             {
                 actualizardatagriew();
-                limpiar();
+                TextBox[] textBoxes = { txtCadenas, txtIdAplicacion, txtIdModulo };
+                cn.limpiarTextbox(textBoxes);
             }
             
         }
@@ -189,7 +185,8 @@ namespace Vista_Seguridad
             }
             else
             {
-                limpiar();
+                TextBox[] textBoxes = { txtCadenas, txtIdAplicacion, txtIdModulo };
+                cn.limpiarTextbox(textBoxes);
             }
         }
 

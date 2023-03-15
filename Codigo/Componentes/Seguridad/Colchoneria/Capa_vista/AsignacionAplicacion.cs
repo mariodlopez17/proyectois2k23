@@ -22,11 +22,7 @@ namespace Vista_Seguridad
             InitializeComponent();
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-            this.Hide();
-        }
+      
 
         //Método que valida si los checkbox se han chequeado, el textbox de este se muestra en 1, en caso contrario se muestra en 0
         public void checks()
@@ -37,34 +33,7 @@ namespace Vista_Seguridad
             if (chBoxBuscar.Checked) { txtBuscar.Text = "1"; } else { txtBuscar.Text = "0"; }
             if (chBoxImprimir.Checked) { txtImprimir.Text = "1"; } else { txtImprimir.Text = "0"; }
         }
-        //Método que limpia los textbox y checkbox
-        public void limpiar()
-        {
-            chBoxGuardar.Checked = false;
-            chBoxModificar.Checked = false;
-            chBoxEliminar.Checked = false;
-            chBoxBuscar.Checked = false;
-            chBoxImprimir.Checked = false;
-            txtBuscar.Text = "";
-            txtEliminar.Text = "";
-            txtGuardar.Text = "";
-            txtIdAplicacion.Text = "";
-            txtIdUsuario.Text = "";
-            txtImprimir.Text = "";
-            txtModificar.Text = "";
-            txtCadenas.Text = "";
-        }
-        //Método que oculta los textbox
-        public void desabilitar()
-        {
-            txtBuscar.Visible = false;
-            txtEliminar.Visible = false;
-            txtGuardar.Visible = false;
-            txtImprimir.Visible = false;
-            txtModificar.Visible = false;
-            txtIdAplicacion.Visible = false;
-            ListUsuarios.Visible = false;
-        }
+        
         //Método que actualiza el datagridview de acuerdo al id del usuario
         public void actualizardatagriew()
         {
@@ -130,17 +99,17 @@ namespace Vista_Seguridad
             MessageBox.Show(message);
             listAplicacionesDB.Visible = false;
             Size = new Size(672, 466);
-            limpiar();
-        }
+            CheckBox[] checkBoxes = { chBoxGuardar, chBoxModificar, chBoxEliminar, chBoxBuscar, chBoxImprimir };
+            cn.limpiarCheckbox(checkBoxes);
+            TextBox[] textBoxes = { txtBuscar, txtEliminar, txtGuardar, txtIdAplicacion, txtIdUsuario, txtImprimir, txtModificar, txtCadenas };
+            cn.limpiarTextbox(textBoxes);
+            }
 
         //Método que chequea todos los checkbox
         private void button2_Click(object sender, EventArgs e)
         {
-            chBoxGuardar.Checked = true;
-            chBoxModificar.Checked = true;
-            chBoxEliminar.Checked = true;
-            chBoxBuscar.Checked = true;
-            chBoxImprimir.Checked = true;
+            CheckBox[] checkBoxes = { chBoxGuardar, chBoxModificar, chBoxEliminar, chBoxBuscar, chBoxImprimir };
+            cn.marcarCheckbox(checkBoxes);
         }
 
         //Método que llena las lsitas de las aplicaciones, usuarios
@@ -151,7 +120,9 @@ namespace Vista_Seguridad
             ListUsuarios.Visible = false;
             listAplicacionesDB.Visible = false;
             Size = new Size(672,466);
-            desabilitar();
+            TextBox[] textBoxes = { txtBuscar, txtEliminar, txtGuardar, txtImprimir, txtModificar, txtIdAplicacion };
+            cn.desabilitarTextbox(textBoxes);
+            ListUsuarios.Visible = false;
         }
 
         //Método que llama al método actualizardatagridview

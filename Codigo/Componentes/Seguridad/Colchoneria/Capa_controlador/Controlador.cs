@@ -427,5 +427,45 @@ namespace Seguridad_Controlador
             string[] men = sn.buscarusua(username);
             MessageBox.Show(" hola " + men[0]);
         }
+
+        public void limpiarTextbox(TextBox[] textBoxes)
+        {
+            for(int x = 0; x < textBoxes.Length; x++)
+            {
+                textBoxes[x].Clear();
+            }
+        }
+
+        public void limpiarCheckbox(CheckBox[] checkBoxes)
+        {
+            for (int x = 0; x < checkBoxes.Length; x++)
+            {
+                checkBoxes[x].Checked = false;
+            }
+        }
+
+        public void marcarCheckbox(CheckBox[] checkBoxes)
+        {
+            for (int x = 0; x < checkBoxes.Length; x++)
+            {
+                checkBoxes[x].Checked = true;
+            }
+        }
+
+        public void desabilitarTextbox(TextBox[] textBoxes)
+        {
+            for(int x= 0; x < textBoxes.Length; x++)
+            {
+                textBoxes[x].Visible = false;
+            }
+        }
+
+        public void habilitarTextbox(TextBox[] textBoxes)
+        {
+            for (int x = 0; x < textBoxes.Length; x++)
+            {
+                textBoxes[x].Visible = true;
+            }
+        }
     }
 }
