@@ -155,7 +155,7 @@ namespace Vista_Seguridad
             this.Name = "Perfiles";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Perfiles";
-            this.Load += new System.EventHandler(this.Perfiles_Load);
+          
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_perfiles)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
