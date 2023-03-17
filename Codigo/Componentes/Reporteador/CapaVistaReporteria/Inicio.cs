@@ -76,25 +76,40 @@ namespace CapaVistaReporteria
 
         private void btn_ver_reporte_Click(object sender, EventArgs e)
         {
-            // creamos una variable para que se le asigne lo que esta escrito en el estado del reporte
-            string estado = txt_estado.Text.ToLower();
+            if (!string.IsNullOrEmpty(idReporte.Text))
+            {
+                // creamos una variable para que se le asigne lo que esta escrito en el estado del reporte
+                string estado = txt_estado.Text.ToLower();
 
-            // aqui realizamos una comprobacion de ver si el reporte esta en estado visible y el usuario lo pueda ver si no esta visible entonces le saldra un mensaje al usuario
-            if (estado == "visible")
-            {
-                string ruta = txt_ruta.Text;
-                visualizar ver = new visualizar(ruta);
-                ver.Show();
-            }
-            else
-            {
-                MessageBox.Show("Reporte No_visible");
+                // aqui realizamos una comprobacion de ver si el reporte esta en estado visible y el usuario lo pueda ver si no esta visible entonces le saldra un mensaje al usuario
+                if (estado == "visible")
+                {
+                    string ruta = txt_ruta.Text;
+                    visualizar ver = new visualizar(ruta);
+                    ver.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Reporte No_visible");
+                }
             }
         }
 
         private void btn_actualizar_Click(object sender, EventArgs e)
         {
 
+            actualizarVistaReportes();
+            cargarCategorias();
+
+            btn_guardar.Enabled = true;
+            btn_modificar.Enabled = false;
+            btn_eliminar.Enabled = false;
+
+            idReporte.Text = "";
+            txt_ruta.Text = "";
+            txt_nombre.Text = "";
+            txt_aplicacion.SelectedIndex = 0;
+            txt_estado.SelectedIndex = 0;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -151,6 +166,8 @@ namespace CapaVistaReporteria
 
         private void cargarCategorias()
         {
+            List<string> limpiarTexbox = new List<string>();
+            txt_aplicacion.DataSource = limpiarTexbox;
             List<string> applicationCodes = controlador.listadoAplicaciones();
             txt_aplicacion.DataSource = applicationCodes;
         }
