@@ -155,7 +155,7 @@ namespace Vista_Seguridad
             this.Name = "Aplicacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Aplicacion";
-            this.Load += new System.EventHandler(this.Aplicacion_Load);
+           
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_modulos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

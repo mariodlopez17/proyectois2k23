@@ -183,12 +183,6 @@
     <Compile Include="Contrase.Designer.cs">
       <DependentUpon>Contrase.cs</DependentUpon>
     </Compile>
-    <Compile Include="ListAplicaciones.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ListAplicaciones.Designer.cs">
-      <DependentUpon>ListAplicaciones.cs</DependentUpon>
-    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,12 +207,6 @@
     <Compile Include="Modulos.Designer.cs">
       <DependentUpon>Modulos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Navegador_seg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Navegador_seg.Designer.cs">
-      <DependentUpon>Navegador_seg.cs</DependentUpon>
-    </Compile>
     <Compile Include="Perfiles.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -230,12 +218,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="prueba.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="prueba.Designer.cs">
-      <DependentUpon>prueba.cs</DependentUpon>
     </Compile>
     <Compile Include="recuperacion.cs">
       <SubType>Form</SubType>
@@ -311,9 +293,6 @@
     <EmbeddedResource Include="Contrase.resx">
       <DependentUpon>Contrase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ListAplicaciones.resx">
-      <DependentUpon>ListAplicaciones.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -326,18 +305,12 @@
     <EmbeddedResource Include="Modulos.resx">
       <DependentUpon>Modulos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Navegador_seg.resx">
-      <DependentUpon>Navegador_seg.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Perfiles.resx">
       <DependentUpon>Perfiles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="prueba.resx">
-      <DependentUpon>prueba.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="recuperacion.resx">
       <DependentUpon>recuperacion.cs</DependentUpon>

@@ -21,6 +21,10 @@ namespace Vista_Seguridad
         {
             InitializeComponent();
         }
+<<<<<<< HEAD
+=======
+      
+>>>>>>> 97b1b389dec9630a7b118fef8ef0abc81dba91a7
 
 
         //Métoco validaringre: llama al métoco checks y checkbox, luego verifica si los datos están vaciós para mostrar un mensaje que indica que debe completar la información

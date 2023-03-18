@@ -40,15 +40,7 @@ namespace Vista_Seguridad
 
 
         }
-        //Método que oculta los paneles
-        private void customizeDesing()
-        {
-           
-            panelTranportes.Visible = false;
-            PanelAuditoria.Visible = false;
-            panelayuda.Visible = false;
-            panelseguridad.Visible = false;
-        }
+        
         //Validaciones que si son visibles los panales los oculta
         private void hideSubMenu()
         {
@@ -183,9 +175,6 @@ namespace Vista_Seguridad
             b.Show();
         }
 
-        private void MenuSeguridad_Load(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

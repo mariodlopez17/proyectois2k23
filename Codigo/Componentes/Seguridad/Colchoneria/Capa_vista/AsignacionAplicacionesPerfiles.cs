@@ -32,33 +32,8 @@ namespace Vista_Seguridad
             if (chBoxBuscar.Checked) { txtBuscar.Text = "1"; } else { txtBuscar.Text = "0"; }
             if (chBoxImprimir.Checked) { txtImprimir.Text = "1"; } else { txtImprimir.Text = "0"; }
         }
-        //Método que limpia los textbox y checkbox
-        public void limpiar()
-        {
-            chBoxGuardar.Checked = false;
-            chBoxModificar.Checked = false;
-            chBoxEliminar.Checked = false;
-            chBoxBuscar.Checked = false;
-            chBoxImprimir.Checked = false;
-            txtBuscar.Text = "";
-            txtEliminar.Text = "";
-            txtGuardar.Text = "";
-            txtIdAplicacion.Text = "";
-            txtIdPerfil.Text = "";
-            txtImprimir.Text = "";
-            txtModificar.Text = "";
-            txtCadenas.Text = "";
-        }
-        //Método que oculta los textbox
-        public void desabilitar()
-        {
-            txtBuscar.Visible = false;
-            txtEliminar.Visible = false;
-            txtGuardar.Visible = false;
-            txtImprimir.Visible = false;
-            txtModificar.Visible = false;
-            txtIdAplicacion.Visible = false;
-        }
+        
+      
         //Método que obtiene las aplicaciones del perfil de acuerdo al textbox de cadenas que se ingrese 
         public void getIds()
         {
@@ -125,7 +100,10 @@ namespace Vista_Seguridad
             }
             string message = "Registro Guardado";
             actualizardatagriew();
-            limpiar();
+            CheckBox[] checkBoxes = { chBoxGuardar, chBoxModificar, chBoxEliminar, chBoxBuscar, chBoxImprimir };
+            cn.limpiarCheckbox(checkBoxes);
+            TextBox[] textBoxes = { txtBuscar, txtEliminar, txtGuardar, txtIdAplicacion, txtIdPerfil,  txtImprimir, txtModificar, txtCadenas };
+            cn.limpiarTextbox(textBoxes);
             MessageBox.Show(message);
             cn.setBtitacora("1102", "Asigno Aplicacion-Perfil");
             Size = new Size(623, 455);
@@ -136,7 +114,15 @@ namespace Vista_Seguridad
             cn.llenarListAplicaciones(listAplicacionesDB.Tag.ToString(), listAplicacionesDB);
             cn.llenarListPerfiles(ListaPerfil.Tag.ToString(), ListaPerfil);
             Size = new Size(623, 455);
-            desabilitar();
+            txtBuscar.Visible = false;
+            txtEliminar.Visible = false;
+            txtGuardar.Visible = false;
+            txtImprimir.Visible = false;
+            txtModificar.Visible = false;
+            txtIdAplicacion.Visible = false;
+            TextBox[] textBoxes = { txtBuscar, txtEliminar, txtGuardar, txtIdAplicacion, txtImprimir, txtModificar };
+            cn.desabilitarTextbox(textBoxes);
+            
         }
         //Método que actualiza el datagridview de acuerdo al id del perfil
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -151,18 +137,18 @@ namespace Vista_Seguridad
             else
             {
                 actualizardatagriew();
-                limpiar();
+                CheckBox[] checkBoxes = { chBoxGuardar, chBoxModificar, chBoxEliminar, chBoxBuscar, chBoxImprimir };
+                cn.limpiarCheckbox(checkBoxes);
+                TextBox[] textBoxes = { txtBuscar, txtEliminar, txtGuardar, txtIdAplicacion, txtIdPerfil, txtImprimir, txtModificar, txtCadenas };
+                cn.limpiarTextbox(textBoxes);
             }
             
         }
         //Método que chequea todos los checkbox
         private void btnAll_Click(object sender, EventArgs e)
         {
-            chBoxGuardar.Checked = true;
-            chBoxModificar.Checked = true;
-            chBoxEliminar.Checked = true;
-            chBoxBuscar.Checked = true;
-            chBoxImprimir.Checked = true;
+            CheckBox[] checkBoxes = { chBoxGuardar, chBoxModificar, chBoxEliminar, chBoxBuscar, chBoxImprimir };
+            cn.marcarCheckbox(checkBoxes);
         }
         //Método que llama al método getIds
         private void listAplicacionesDB_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -232,7 +218,10 @@ namespace Vista_Seguridad
             }
             else
             {
-                limpiar();
+                CheckBox[] checkBoxes = { chBoxGuardar, chBoxModificar, chBoxEliminar, chBoxBuscar, chBoxImprimir };
+                cn.limpiarCheckbox(checkBoxes);
+                TextBox[] textBoxes = { txtBuscar, txtEliminar, txtGuardar, txtIdAplicacion, txtIdPerfil, txtImprimir, txtModificar, txtCadenas };
+                cn.limpiarTextbox(textBoxes);
             }
         }
         //Método que muestra el fomulario indicado

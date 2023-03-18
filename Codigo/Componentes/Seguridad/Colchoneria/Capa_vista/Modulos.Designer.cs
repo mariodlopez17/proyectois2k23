@@ -88,7 +88,7 @@ namespace Vista_Seguridad
             this.label3.Size = new System.Drawing.Size(122, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "Nombre Modulo";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            
             // 
             // txtIdModulo
             // 
