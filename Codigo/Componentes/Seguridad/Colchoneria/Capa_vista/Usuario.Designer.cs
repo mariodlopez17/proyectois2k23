@@ -406,22 +406,7 @@ namespace Vista_Seguridad
             this.Name = "Usuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Usuario";
-<<<<<<< HEAD
-            this.Load += new System.EventHandler(this.Usuario_Load);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-=======
-            
-            ((System.ComponentModel.ISupportInitialize)(this.Dgv_usuario)).EndInit();
->>>>>>> 97b1b389dec9630a7b118fef8ef0abc81dba91a7
+
             this.ResumeLayout(false);
 
         }
