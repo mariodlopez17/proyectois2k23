@@ -47,6 +47,10 @@
     <Reference Include="eCryptography, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Eramake.eCryptography.1.1.6\lib\net45\eCryptography.dll</HintPath>
     </Reference>
+    <Reference Include="FontAwesome.Sharp, Version=6.1.1.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Navegador\Vista\bin\Debug\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
     <Reference Include="NavegadorVista">
       <HintPath>..\..\..\Navegador\Vista\bin\Debug\NavegadorVista.dll</HintPath>
     </Reference>
