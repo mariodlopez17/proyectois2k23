@@ -49,10 +49,11 @@ namespace Vista_Seguridad
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.TBusuario);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.groupBox1.Location = new System.Drawing.Point(16, 15);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(555, 201);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
@@ -63,7 +64,7 @@ namespace Vista_Seguridad
             // 
             this.TxtPa.Enabled = false;
             this.TxtPa.Location = new System.Drawing.Point(147, 107);
-            this.TxtPa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtPa.Margin = new System.Windows.Forms.Padding(4);
             this.TxtPa.Name = "TxtPa";
             this.TxtPa.Size = new System.Drawing.Size(235, 22);
             this.TxtPa.TabIndex = 7;
@@ -73,7 +74,7 @@ namespace Vista_Seguridad
             // TxtRe
             // 
             this.TxtRe.Location = new System.Drawing.Point(147, 159);
-            this.TxtRe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtRe.Margin = new System.Windows.Forms.Padding(4);
             this.TxtRe.Name = "TxtRe";
             this.TxtRe.Size = new System.Drawing.Size(235, 22);
             this.TxtRe.TabIndex = 6;
@@ -87,7 +88,7 @@ namespace Vista_Seguridad
             this.label3.Location = new System.Drawing.Point(15, 159);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 17);
+            this.label3.Size = new System.Drawing.Size(73, 16);
             this.label3.TabIndex = 5;
             this.label3.Text = "Respuesta";
             this.label3.UseWaitCursor = true;
@@ -98,27 +99,29 @@ namespace Vista_Seguridad
             this.label2.Location = new System.Drawing.Point(15, 107);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 17);
+            this.label2.Size = new System.Drawing.Size(122, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Pregunta Asociada";
             this.label2.UseWaitCursor = true;
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.button1.Location = new System.Drawing.Point(432, 76);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 28);
             this.button1.TabIndex = 2;
             this.button1.Text = "Validar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.UseWaitCursor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // TBusuario
             // 
             this.TBusuario.Location = new System.Drawing.Point(147, 49);
-            this.TBusuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TBusuario.Margin = new System.Windows.Forms.Padding(4);
             this.TBusuario.Name = "TBusuario";
             this.TBusuario.Size = new System.Drawing.Size(235, 22);
             this.TBusuario.TabIndex = 1;
@@ -132,7 +135,7 @@ namespace Vista_Seguridad
             this.label1.Location = new System.Drawing.Point(15, 49);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 17);
+            this.label1.Size = new System.Drawing.Size(54, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Usuario";
             this.label1.UseWaitCursor = true;
@@ -141,10 +144,11 @@ namespace Vista_Seguridad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.ClientSize = new System.Drawing.Size(583, 316);
             this.Controls.Add(this.groupBox1);
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "recuperacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "recuperacion";

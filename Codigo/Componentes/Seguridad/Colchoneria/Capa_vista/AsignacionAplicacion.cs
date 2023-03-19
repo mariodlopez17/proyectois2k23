@@ -179,5 +179,10 @@ namespace Vista_Seguridad
             AyudaAsignacionAplicacionUsuarios b = new AyudaAsignacionAplicacionUsuarios();
             b.Show();
         }
+
+        private void chBoxGuardar_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

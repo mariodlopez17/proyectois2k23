@@ -54,17 +54,19 @@ namespace Vista_Seguridad
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(153, 26);
+            this.label1.Location = new System.Drawing.Point(204, 32);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(361, 29);
+            this.label1.Size = new System.Drawing.Size(448, 36);
             this.label1.TabIndex = 1;
             this.label1.Text = "Asignacion de Perfiles a Usuario";
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(555, 3);
+            this.button6.Location = new System.Drawing.Point(740, 4);
+            this.button6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(82, 32);
+            this.button6.Size = new System.Drawing.Size(109, 39);
             this.button6.TabIndex = 33;
             this.button6.Text = "Ayuda";
             this.button6.UseVisualStyleBackColor = true;
@@ -81,18 +83,21 @@ namespace Vista_Seguridad
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.btnAgregar);
-            this.groupBox1.Location = new System.Drawing.Point(23, 80);
+            this.groupBox1.Location = new System.Drawing.Point(31, 98);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(614, 88);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(819, 108);
             this.groupBox1.TabIndex = 41;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(17, 45);
+            this.button1.Location = new System.Drawing.Point(23, 55);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(25, 24);
+            this.button1.Size = new System.Drawing.Size(33, 30);
             this.button1.TabIndex = 45;
             this.button1.Text = "?";
             this.button1.UseVisualStyleBackColor = true;
@@ -100,9 +105,10 @@ namespace Vista_Seguridad
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(237, 44);
+            this.button2.Location = new System.Drawing.Point(316, 54);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(25, 24);
+            this.button2.Size = new System.Drawing.Size(33, 30);
             this.button2.TabIndex = 44;
             this.button2.Text = "?";
             this.button2.UseVisualStyleBackColor = true;
@@ -110,17 +116,19 @@ namespace Vista_Seguridad
             // 
             // txtIdPerfil
             // 
-            this.txtIdPerfil.Location = new System.Drawing.Point(471, 46);
+            this.txtIdPerfil.Location = new System.Drawing.Point(628, 57);
+            this.txtIdPerfil.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtIdPerfil.Name = "txtIdPerfil";
-            this.txtIdPerfil.Size = new System.Drawing.Size(39, 20);
+            this.txtIdPerfil.Size = new System.Drawing.Size(51, 22);
             this.txtIdPerfil.TabIndex = 42;
             this.txtIdPerfil.Tag = "fk_id_perfil";
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(532, 11);
+            this.btnBuscar.Location = new System.Drawing.Point(709, 14);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(71, 29);
+            this.btnBuscar.Size = new System.Drawing.Size(95, 36);
             this.btnBuscar.TabIndex = 41;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -128,17 +136,19 @@ namespace Vista_Seguridad
             // 
             // txtIdUsuario
             // 
-            this.txtIdUsuario.Location = new System.Drawing.Point(48, 48);
+            this.txtIdUsuario.Location = new System.Drawing.Point(64, 59);
+            this.txtIdUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtIdUsuario.Name = "txtIdUsuario";
-            this.txtIdUsuario.Size = new System.Drawing.Size(172, 20);
+            this.txtIdUsuario.Size = new System.Drawing.Size(228, 22);
             this.txtIdUsuario.TabIndex = 40;
             this.txtIdUsuario.Tag = "fk_id_usuario";
             // 
             // txtCadenas
             // 
-            this.txtCadenas.Location = new System.Drawing.Point(268, 48);
+            this.txtCadenas.Location = new System.Drawing.Point(357, 59);
+            this.txtCadenas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtCadenas.Name = "txtCadenas";
-            this.txtCadenas.Size = new System.Drawing.Size(197, 20);
+            this.txtCadenas.Size = new System.Drawing.Size(261, 22);
             this.txtCadenas.TabIndex = 39;
             this.txtCadenas.Tag = "";
             // 
@@ -146,9 +156,10 @@ namespace Vista_Seguridad
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(103, 25);
+            this.label4.Location = new System.Drawing.Point(137, 31);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 20);
+            this.label4.Size = new System.Drawing.Size(79, 25);
             this.label4.TabIndex = 7;
             this.label4.Text = "Usuario";
             // 
@@ -156,17 +167,19 @@ namespace Vista_Seguridad
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(355, 25);
+            this.label2.Location = new System.Drawing.Point(473, 31);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 20);
+            this.label2.Size = new System.Drawing.Size(55, 25);
             this.label2.TabIndex = 3;
             this.label2.Text = "Perfil";
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(532, 46);
+            this.btnAgregar.Location = new System.Drawing.Point(709, 57);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(71, 29);
+            this.btnAgregar.Size = new System.Drawing.Size(95, 36);
             this.btnAgregar.TabIndex = 2;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -175,10 +188,11 @@ namespace Vista_Seguridad
             // listPerfilUsuario
             // 
             this.listPerfilUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.listPerfilUsuario.Location = new System.Drawing.Point(23, 174);
+            this.listPerfilUsuario.Location = new System.Drawing.Point(31, 214);
+            this.listPerfilUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listPerfilUsuario.Name = "listPerfilUsuario";
             this.listPerfilUsuario.RowHeadersWidth = 51;
-            this.listPerfilUsuario.Size = new System.Drawing.Size(614, 143);
+            this.listPerfilUsuario.Size = new System.Drawing.Size(819, 176);
             this.listPerfilUsuario.TabIndex = 43;
             this.listPerfilUsuario.Tag = "vista_Perfil_Usuario";
             this.listPerfilUsuario.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listPerfilUsuario_CellDoubleClick);
@@ -186,10 +200,11 @@ namespace Vista_Seguridad
             // listPerfilesDB
             // 
             this.listPerfilesDB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.listPerfilesDB.Location = new System.Drawing.Point(666, 4);
+            this.listPerfilesDB.Location = new System.Drawing.Point(888, 5);
+            this.listPerfilesDB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listPerfilesDB.Name = "listPerfilesDB";
             this.listPerfilesDB.RowHeadersWidth = 51;
-            this.listPerfilesDB.Size = new System.Drawing.Size(350, 314);
+            this.listPerfilesDB.Size = new System.Drawing.Size(467, 386);
             this.listPerfilesDB.TabIndex = 44;
             this.listPerfilesDB.Tag = "tbl_perfiles";
             this.listPerfilesDB.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listAplicacionesDB_CellClick);
@@ -197,25 +212,28 @@ namespace Vista_Seguridad
             // ListUsuario
             // 
             this.ListUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ListUsuario.Location = new System.Drawing.Point(666, 3);
+            this.ListUsuario.Location = new System.Drawing.Point(888, 4);
+            this.ListUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ListUsuario.Name = "ListUsuario";
             this.ListUsuario.RowHeadersWidth = 51;
-            this.ListUsuario.Size = new System.Drawing.Size(350, 315);
+            this.ListUsuario.Size = new System.Drawing.Size(467, 388);
             this.ListUsuario.TabIndex = 45;
             this.ListUsuario.Tag = "tbl_usuarios";
             this.ListUsuario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListUsuario_CellClick);
             // 
             // AsignacionPerfiles
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1024, 330);
+            this.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.ClientSize = new System.Drawing.Size(1365, 406);
             this.Controls.Add(this.ListUsuario);
             this.Controls.Add(this.listPerfilesDB);
             this.Controls.Add(this.listPerfilUsuario);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "AsignacionPerfiles";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AsignacionPerfiles";

@@ -86,9 +86,9 @@ namespace Vista_Seguridad
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Location = new System.Drawing.Point(33, 80);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(819, 108);
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
@@ -97,7 +97,7 @@ namespace Vista_Seguridad
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(15, 52);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(33, 30);
             this.button3.TabIndex = 44;
@@ -108,7 +108,7 @@ namespace Vista_Seguridad
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(343, 53);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(33, 30);
             this.button2.TabIndex = 43;
@@ -119,7 +119,7 @@ namespace Vista_Seguridad
             // txtCadenas
             // 
             this.txtCadenas.Location = new System.Drawing.Point(384, 57);
-            this.txtCadenas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCadenas.Margin = new System.Windows.Forms.Padding(4);
             this.txtCadenas.Name = "txtCadenas";
             this.txtCadenas.Size = new System.Drawing.Size(231, 22);
             this.txtCadenas.TabIndex = 42;
@@ -128,7 +128,7 @@ namespace Vista_Seguridad
             // btnBuscar
             // 
             this.btnBuscar.Location = new System.Drawing.Point(709, 14);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(95, 36);
             this.btnBuscar.TabIndex = 41;
@@ -139,7 +139,7 @@ namespace Vista_Seguridad
             // txtIdAplicacion
             // 
             this.txtIdAplicacion.Location = new System.Drawing.Point(648, 57);
-            this.txtIdAplicacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIdAplicacion.Margin = new System.Windows.Forms.Padding(4);
             this.txtIdAplicacion.Name = "txtIdAplicacion";
             this.txtIdAplicacion.Size = new System.Drawing.Size(31, 22);
             this.txtIdAplicacion.TabIndex = 40;
@@ -148,7 +148,7 @@ namespace Vista_Seguridad
             // txtIdUsuario
             // 
             this.txtIdUsuario.Location = new System.Drawing.Point(56, 57);
-            this.txtIdUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIdUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.txtIdUsuario.Name = "txtIdUsuario";
             this.txtIdUsuario.Size = new System.Drawing.Size(225, 22);
             this.txtIdUsuario.TabIndex = 39;
@@ -179,7 +179,7 @@ namespace Vista_Seguridad
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(709, 57);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(95, 36);
             this.button1.TabIndex = 2;
@@ -190,7 +190,7 @@ namespace Vista_Seguridad
             // button6
             // 
             this.button6.Location = new System.Drawing.Point(743, 15);
-            this.button6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button6.Margin = new System.Windows.Forms.Padding(4);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(109, 43);
             this.button6.TabIndex = 32;
@@ -201,7 +201,7 @@ namespace Vista_Seguridad
             // btnAll
             // 
             this.btnAll.Location = new System.Drawing.Point(701, 39);
-            this.btnAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAll.Margin = new System.Windows.Forms.Padding(4);
             this.btnAll.Name = "btnAll";
             this.btnAll.Size = new System.Drawing.Size(87, 36);
             this.btnAll.TabIndex = 9;
@@ -213,7 +213,7 @@ namespace Vista_Seguridad
             // 
             this.ListaAsiganacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ListaAsiganacion.Location = new System.Drawing.Point(16, 320);
-            this.ListaAsiganacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ListaAsiganacion.Margin = new System.Windows.Forms.Padding(4);
             this.ListaAsiganacion.Name = "ListaAsiganacion";
             this.ListaAsiganacion.RowHeadersWidth = 51;
             this.ListaAsiganacion.Size = new System.Drawing.Size(836, 191);
@@ -234,9 +234,9 @@ namespace Vista_Seguridad
             this.groupBox4.Controls.Add(this.chBoxGuardar);
             this.groupBox4.Controls.Add(this.btnAll);
             this.groupBox4.Location = new System.Drawing.Point(16, 207);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox4.Size = new System.Drawing.Size(836, 106);
             this.groupBox4.TabIndex = 37;
             this.groupBox4.TabStop = false;
@@ -245,7 +245,7 @@ namespace Vista_Seguridad
             // txtImprimir
             // 
             this.txtImprimir.Location = new System.Drawing.Point(564, 50);
-            this.txtImprimir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtImprimir.Margin = new System.Windows.Forms.Padding(4);
             this.txtImprimir.Name = "txtImprimir";
             this.txtImprimir.Size = new System.Drawing.Size(35, 22);
             this.txtImprimir.TabIndex = 42;
@@ -256,7 +256,7 @@ namespace Vista_Seguridad
             this.chBoxImprimir.AutoSize = true;
             this.chBoxImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chBoxImprimir.Location = new System.Drawing.Point(444, 46);
-            this.chBoxImprimir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chBoxImprimir.Margin = new System.Windows.Forms.Padding(4);
             this.chBoxImprimir.Name = "chBoxImprimir";
             this.chBoxImprimir.Size = new System.Drawing.Size(123, 33);
             this.chBoxImprimir.TabIndex = 5;
@@ -266,7 +266,7 @@ namespace Vista_Seguridad
             // txtBuscar
             // 
             this.txtBuscar.Location = new System.Drawing.Point(401, 73);
-            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(33, 22);
             this.txtBuscar.TabIndex = 41;
@@ -277,7 +277,7 @@ namespace Vista_Seguridad
             this.chBoxBuscar.AutoSize = true;
             this.chBoxBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chBoxBuscar.Location = new System.Drawing.Point(277, 65);
-            this.chBoxBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chBoxBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.chBoxBuscar.Name = "chBoxBuscar";
             this.chBoxBuscar.Size = new System.Drawing.Size(109, 33);
             this.chBoxBuscar.TabIndex = 4;
@@ -287,7 +287,7 @@ namespace Vista_Seguridad
             // txtEliminar
             // 
             this.txtEliminar.Location = new System.Drawing.Point(401, 23);
-            this.txtEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.txtEliminar.Name = "txtEliminar";
             this.txtEliminar.Size = new System.Drawing.Size(33, 22);
             this.txtEliminar.TabIndex = 40;
@@ -298,7 +298,7 @@ namespace Vista_Seguridad
             this.chBoxEliminar.AutoSize = true;
             this.chBoxEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chBoxEliminar.Location = new System.Drawing.Point(277, 23);
-            this.chBoxEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chBoxEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.chBoxEliminar.Name = "chBoxEliminar";
             this.chBoxEliminar.Size = new System.Drawing.Size(123, 33);
             this.chBoxEliminar.TabIndex = 3;
@@ -308,7 +308,7 @@ namespace Vista_Seguridad
             // txtModificar
             // 
             this.txtModificar.Location = new System.Drawing.Point(213, 65);
-            this.txtModificar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtModificar.Margin = new System.Windows.Forms.Padding(4);
             this.txtModificar.Name = "txtModificar";
             this.txtModificar.Size = new System.Drawing.Size(37, 22);
             this.txtModificar.TabIndex = 39;
@@ -319,7 +319,7 @@ namespace Vista_Seguridad
             this.chBoxModificar.AutoSize = true;
             this.chBoxModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chBoxModificar.Location = new System.Drawing.Point(76, 65);
-            this.chBoxModificar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chBoxModificar.Margin = new System.Windows.Forms.Padding(4);
             this.chBoxModificar.Name = "chBoxModificar";
             this.chBoxModificar.Size = new System.Drawing.Size(134, 33);
             this.chBoxModificar.TabIndex = 2;
@@ -329,7 +329,7 @@ namespace Vista_Seguridad
             // txtGuardar
             // 
             this.txtGuardar.Location = new System.Drawing.Point(213, 23);
-            this.txtGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.txtGuardar.Name = "txtGuardar";
             this.txtGuardar.Size = new System.Drawing.Size(31, 22);
             this.txtGuardar.TabIndex = 38;
@@ -340,18 +340,19 @@ namespace Vista_Seguridad
             this.chBoxGuardar.AutoSize = true;
             this.chBoxGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chBoxGuardar.Location = new System.Drawing.Point(76, 23);
-            this.chBoxGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chBoxGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.chBoxGuardar.Name = "chBoxGuardar";
             this.chBoxGuardar.Size = new System.Drawing.Size(122, 33);
             this.chBoxGuardar.TabIndex = 1;
             this.chBoxGuardar.Text = "Guardar";
             this.chBoxGuardar.UseVisualStyleBackColor = true;
+            this.chBoxGuardar.CheckedChanged += new System.EventHandler(this.chBoxGuardar_CheckedChanged);
             // 
             // listAplicacionesDB
             // 
             this.listAplicacionesDB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.listAplicacionesDB.Location = new System.Drawing.Point(888, 57);
-            this.listAplicacionesDB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listAplicacionesDB.Margin = new System.Windows.Forms.Padding(4);
             this.listAplicacionesDB.Name = "listAplicacionesDB";
             this.listAplicacionesDB.RowHeadersWidth = 51;
             this.listAplicacionesDB.Size = new System.Drawing.Size(467, 454);
@@ -363,7 +364,7 @@ namespace Vista_Seguridad
             // 
             this.ListUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ListUsuarios.Location = new System.Drawing.Point(888, 41);
-            this.ListUsuarios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ListUsuarios.Margin = new System.Windows.Forms.Padding(4);
             this.ListUsuarios.Name = "ListUsuarios";
             this.ListUsuarios.RowHeadersWidth = 51;
             this.ListUsuarios.Size = new System.Drawing.Size(467, 470);
@@ -384,7 +385,7 @@ namespace Vista_Seguridad
             this.Controls.Add(this.button6);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AsignacionAplicacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AsignacionAplicacion";
