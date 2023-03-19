@@ -84,25 +84,33 @@ namespace Vista_Seguridad
         //Método que asigna un modulo de aplicacion de acuerdo al id y posteriormente se registra en nuestro datagridview y lo actualiza
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            char[] delimiterChars = { ',' };
-            string text = txtCadenas.Text;
-            string[] words = text.Split(delimiterChars);
-
-            foreach (var word in words)
+            if (txtIdModulo.Text == "" || txtCadenas.Text == "")
             {
-                txtIdAplicacion.Text = word;
-                TextBox[] textbox = { txtIdModulo, txtIdAplicacion };
-                cn.ingresar(textbox, table);
+                MessageBox.Show("Porfavor llene los campos necesarios");
             }
-            string message = "Registro Guardado";
+            else
+            {
 
-            actualizardatagriew();
-            TextBox[] textBoxes = { txtCadenas, txtIdAplicacion , txtIdModulo };
-            cn.limpiarTextbox(textBoxes);
-            MessageBox.Show(message);
-            cn.setBtitacora("1101", "Asigno Modulo-Aplicacion");
-            //593; 379
-            Size = new Size(593, 379);
+                char[] delimiterChars = { ',' };
+                string text = txtCadenas.Text;
+                string[] words = text.Split(delimiterChars);
+
+                foreach (var word in words)
+                {
+                    txtIdAplicacion.Text = word;
+                    TextBox[] textbox = { txtIdModulo, txtIdAplicacion };
+                    cn.ingresar(textbox, table);
+                }
+                string message = "Registro Guardado";
+
+                actualizardatagriew();
+                TextBox[] textBoxes = { txtCadenas, txtIdAplicacion, txtIdModulo };
+                cn.limpiarTextbox(textBoxes);
+                MessageBox.Show(message);
+                cn.setBtitacora("1101", "Asigno Modulo-Aplicacion");
+                //593; 379
+                Size = new Size(593, 379);
+            }
         }
         //Método que hace visible la lista de aplicaciones
         private void button2_Click(object sender, EventArgs e)

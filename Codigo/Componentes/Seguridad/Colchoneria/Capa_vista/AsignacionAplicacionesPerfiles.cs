@@ -87,6 +87,12 @@ namespace Vista_Seguridad
         //Método que ingresa los registros de acuerdo al id de la aplicación
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            if(txtIdPerfil.Text == "" || txtCadenas.Text == "")
+            {
+                MessageBox.Show("Porfavor llene todos los campos");
+            }
+            else
+            { 
             checks();
             char[] delimiterChars = { ',' };
             string text = txtCadenas.Text;
@@ -107,6 +113,7 @@ namespace Vista_Seguridad
             MessageBox.Show(message);
             cn.setBtitacora("1102", "Asigno Aplicacion-Perfil");
             Size = new Size(623, 455);
+            }
         }
         //Método que llena las lsitas de las aplicaciones, usuarios
         private void AsignacionAplicacionesPerfiles_Load(object sender, EventArgs e)

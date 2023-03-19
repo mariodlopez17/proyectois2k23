@@ -83,27 +83,34 @@ namespace Vista_Seguridad
         //Método que ingresa los registros de acuerdo al id de la aplicación
         private void button1_Click(object sender, EventArgs e)
         {
-            checks();
-            char[] delimiterChars = { ',' };
-            string text = txtCadenas.Text;
-            string[] words = text.Split(delimiterChars);
-
-            foreach (var word in words)
+            if(txtIdUsuario.Text == "" || txtCadenas.Text == "" || txtIdAplicacion.Text == "")
             {
-                txtIdAplicacion.Text = word;
-                TextBox[] textbox = { txtIdUsuario, txtIdAplicacion, txtGuardar, txtEliminar, txtModificar, txtBuscar, txtImprimir };
-                cn.ingresar(textbox, table);
+                MessageBox.Show("Porfavor llene los campos necesarios");
             }
-            string message = "Registro Guardado";
-            actualizardatagriew();
-            MessageBox.Show(message);
-            listAplicacionesDB.Visible = false;
-            Size = new Size(672, 466);
-            CheckBox[] checkBoxes = { chBoxGuardar, chBoxModificar, chBoxEliminar, chBoxBuscar, chBoxImprimir };
-            cn.limpiarCheckbox(checkBoxes);
-            TextBox[] textBoxes = { txtBuscar, txtEliminar, txtGuardar, txtIdAplicacion, txtIdUsuario, txtImprimir, txtModificar, txtCadenas };
-            cn.limpiarTextbox(textBoxes);
+            else
+            {
+                checks();
+                char[] delimiterChars = { ',' };
+                string text = txtCadenas.Text;
+                string[] words = text.Split(delimiterChars);
+
+                foreach (var word in words)
+                {
+                    txtIdAplicacion.Text = word;
+                    TextBox[] textbox = { txtIdUsuario, txtIdAplicacion, txtGuardar, txtEliminar, txtModificar, txtBuscar, txtImprimir };
+                    cn.ingresar(textbox, table);
+                }
+                string message = "Registro Guardado";
+                actualizardatagriew();
+                MessageBox.Show(message);
+                listAplicacionesDB.Visible = false;
+                Size = new Size(672, 466);
+                CheckBox[] checkBoxes = { chBoxGuardar, chBoxModificar, chBoxEliminar, chBoxBuscar, chBoxImprimir };
+                cn.limpiarCheckbox(checkBoxes);
+                TextBox[] textBoxes = { txtBuscar, txtEliminar, txtGuardar, txtIdAplicacion, txtIdUsuario, txtImprimir, txtModificar, txtCadenas };
+                cn.limpiarTextbox(textBoxes);
             }
+        }
 
         //Método que chequea todos los checkbox
         private void button2_Click(object sender, EventArgs e)
