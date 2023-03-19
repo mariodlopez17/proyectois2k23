@@ -428,7 +428,7 @@ namespace Seguridad_Controlador
             MessageBox.Show(" hola " + men[0]);
         }
 
-        public void limpiarTextbox(TextBox[] textBoxes)
+        public void limpiarTextbox(TextBox[] textBoxes)//Metodo para limpiar textbox
         {
             for(int x = 0; x < textBoxes.Length; x++)
             {
@@ -436,7 +436,7 @@ namespace Seguridad_Controlador
             }
         }
 
-        public void limpiarCheckbox(CheckBox[] checkBoxes)
+        public void limpiarCheckbox(CheckBox[] checkBoxes)//Metodo para desmarcar checkbox
         {
             for (int x = 0; x < checkBoxes.Length; x++)
             {
@@ -444,7 +444,7 @@ namespace Seguridad_Controlador
             }
         }
 
-        public void marcarCheckbox(CheckBox[] checkBoxes)
+        public void marcarCheckbox(CheckBox[] checkBoxes)//Metodo para marcar checkbox
         {
             for (int x = 0; x < checkBoxes.Length; x++)
             {
@@ -452,19 +452,22 @@ namespace Seguridad_Controlador
             }
         }
 
-        public void desabilitarTextbox(TextBox[] textBoxes)
+        public void desabilitarTextbox(TextBox[] textBoxes)//Metodo para desabilitar textbox
         {
             for(int x= 0; x < textBoxes.Length; x++)
             {
                 textBoxes[x].Visible = false;
             }
         }
-
-        public void habilitarTextbox(TextBox[] textBoxes)
+               
+        public void llenarTexboxtUsuarios(string tabla, TextBox[] textbox, string id)//Metodo para llenar textbox 
         {
-            for (int x = 0; x < textBoxes.Length; x++)
+            OdbcDataAdapter dt = sn.llenarTblUsuarios(tabla, id);
+            DataTable table = new DataTable();
+            dt.Fill(table);
+            for (int x = 0; x < table.Columns.Count; x++)
             {
-                textBoxes[x].Visible = true;
+                textbox[x].Text = table.Rows[0][x].ToString();
             }
         }
     }

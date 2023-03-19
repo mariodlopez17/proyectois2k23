@@ -74,6 +74,7 @@ namespace Vista_Seguridad
                 checkbox();
                 TextBox[] textbox = { txtnombre, txtapellido, txtcontraseña, txtusername, txtemail, txtestado, TxtPAA, TxtPA };
                 txtcontraseña.Text = Seguridad_Controlador.Controlador.SetHash(txtcontraseña.Text);
+                TxtPA.Text = Seguridad_Controlador.Controlador.SetHash(TxtPA.Text);
                 int valor1 = int.Parse(txtBusqueda.Text);
                 string campo = "pk_id_usuario = ";
                 cn.actualizar(textbox, table, campo, valor1);
@@ -181,12 +182,12 @@ namespace Vista_Seguridad
             b.Show();
         }
 
-        private void btnInsert_Click(object sender, EventArgs e)
+        private void btnInsert_Click(object sender, EventArgs e)//Metodo para ingresar datos del formulario
         {
             validaringre();
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void btnDelete_Click(object sender, EventArgs e)//Metodo para elminar el formulario
         {
             string message = "Deseas Eliminar el Registro?";
             string title = "Eliminar Registro";
@@ -220,15 +221,45 @@ namespace Vista_Seguridad
             }
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
+        private void btnModificar_Click(object sender, EventArgs e)//Metodo par modificar el formulario
         {
             validaractua();
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)//Metodo par ocultar el formulario
         {
             this.Hide();
         }
 
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Usuario_Load_1(object sender, EventArgs e)//Metodo para llenar datagriedview
+        {
+            dataGridView1.DataSource = cn.llenarTbl(table);
+        }
+
+        private void btnConsultar_Click(object sender, EventArgs e)//Metodo para buscar id
+        {
+            TextBox[] textbox = { txtnombre, txtapellido, txtusername, txtcontraseña, txtemail, txtestado, TxtPAA, TxtPA };
+            int valor1 = int.Parse(txtBusqueda.Text);
+            string campo = "pk_id_usuario = ";
+            cn.buscar(textbox, table, valor1, campo);
+            cn.llenarTexboxtUsuarios(table, textbox, txtBusqueda.Text);
+
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)//Metodo para llenar datagridview
+        {
+            dataGridView1.DataSource =  cn.llenarTbl(table);
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)//Metodo para limpiar textbox
+        {
+            TextBox[] textbox = { txtnombre, txtapellido, txtusername, txtcontraseña, txtemail, txtestado, TxtPAA, TxtPA };
+            cn.limpiarTextbox(textbox);
+        }
     }
 }
