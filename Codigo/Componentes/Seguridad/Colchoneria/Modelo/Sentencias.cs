@@ -430,5 +430,13 @@ namespace Modelo_Seguridad
             return datatable;
         }
 
+        public OdbcDataAdapter llenarTblUsuarios(string tabla, string id)// metodo  que obtinene el contenio de una tabla
+        {
+            //string para almacenar los campos de OBTENERCAMPOS y utilizar el 1ro
+            string sql = "SELECT nombre_usuario, apellido_usuario, username_usuario, password_usuario, email_usuario, estado_usuario, pregunta, respuesta FROM " + tabla + " where pk_id_usuario = '" + id + "';";
+            OdbcDataAdapter dataTable = new OdbcDataAdapter(sql, con.conexion());
+            return dataTable;
+        }
+
     }
 }

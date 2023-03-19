@@ -84,26 +84,32 @@ namespace Vista_Seguridad
         //Método que agrega un perfil de acuerdo al id y posteriormente se registra en nuestro datagridview y lo actualiza
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-
-            char[] delimiterChars = { ',' };
-            string text = txtCadenas.Text;
-            string[] words = text.Split(delimiterChars);
-
-            foreach (var word in words)
+            if (txtIdUsuario.Text == "" || txtCadenas.Text == "")
             {
-                txtIdPerfil.Text = word;
-                TextBox[] textbox = { txtIdPerfil, txtIdUsuario };
-                cn.ingresar(textbox, table);
+                MessageBox.Show("Porfavor llene los campos necesarios");
             }
-            string message = "Registro Guardado";
-            actualizardatagriew();
-            TextBox[] textBoxes = { txtCadenas, txtIdUsuario, txtIdPerfil };
-            cn.limpiarTextbox(textBoxes);
-            MessageBox.Show(message);
-            cn.setBtitacora("1103", "Asigno Perfil-Aplicacion");
-            listPerfilesDB.Visible = false;
-            //663; 369
-            Size = new Size(663, 369);
+            else
+            {
+                char[] delimiterChars = { ',' };
+                string text = txtCadenas.Text;
+                string[] words = text.Split(delimiterChars);
+
+                foreach (var word in words)
+                {
+                    txtIdPerfil.Text = word;
+                    TextBox[] textbox = { txtIdPerfil, txtIdUsuario };
+                    cn.ingresar(textbox, table);
+                }
+                string message = "Registro Guardado";
+                actualizardatagriew();
+                TextBox[] textBoxes = { txtCadenas, txtIdUsuario, txtIdPerfil };
+                cn.limpiarTextbox(textBoxes);
+                MessageBox.Show(message);
+                cn.setBtitacora("1103", "Asigno Perfil-Aplicacion");
+                listPerfilesDB.Visible = false;
+                //663; 369
+                Size = new Size(663, 369);
+            }
         }
 
         //Método que asigna perfiles 
