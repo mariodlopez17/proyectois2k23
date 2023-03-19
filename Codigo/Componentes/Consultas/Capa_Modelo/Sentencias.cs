@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Odbc;
-
+//capa modelo sentencias comentado por azael sierra
 namespace Capa_ModeloConsultas
 {
     public class Sentencias
