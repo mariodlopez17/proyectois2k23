@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Seguridad_Controlador;
-
+//Comentado por George Mayén 25/02/2023
 namespace Vista_Seguridad
 {
     public partial class AsignacionAplicacion : Form
@@ -22,12 +22,9 @@ namespace Vista_Seguridad
             InitializeComponent();
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
+      
 
-            this.Hide();
-        }
-
+        //Método que valida si los checkbox se han chequeado, el textbox de este se muestra en 1, en caso contrario se muestra en 0
         public void checks()
         {
             if (chBoxGuardar.Checked) { txtGuardar.Text = "1"; } else { txtGuardar.Text = "0"; }
@@ -36,40 +33,15 @@ namespace Vista_Seguridad
             if (chBoxBuscar.Checked) { txtBuscar.Text = "1"; } else { txtBuscar.Text = "0"; }
             if (chBoxImprimir.Checked) { txtImprimir.Text = "1"; } else { txtImprimir.Text = "0"; }
         }
-
-        public void limpiar()
-        {
-            chBoxGuardar.Checked = false;
-            chBoxModificar.Checked = false;
-            chBoxEliminar.Checked = false;
-            chBoxBuscar.Checked = false;
-            chBoxImprimir.Checked = false;
-            txtBuscar.Text = "";
-            txtEliminar.Text = "";
-            txtGuardar.Text = "";
-            txtIdAplicacion.Text = "";
-            txtIdUsuario.Text = "";
-            txtImprimir.Text = "";
-            txtModificar.Text = "";
-            txtCadenas.Text = "";
-        }
-
-        public void desabilitar()
-        {
-            txtBuscar.Visible = false;
-            txtEliminar.Visible = false;
-            txtGuardar.Visible = false;
-            txtImprimir.Visible = false;
-            txtModificar.Visible = false;
-            txtIdAplicacion.Visible = false;
-            ListUsuarios.Visible = false;
-        }
+        
+        //Método que actualiza el datagridview de acuerdo al id del usuario
         public void actualizardatagriew()
         {
             string idUsuario = txtIdUsuario.Text;
             cn.llenarListApliUsuariosstring(ListaAsiganacion.Tag.ToString(), ListaAsiganacion,idUsuario);
         }
 
+        //Método que obtiene las aplicaciones del perfil de acuerdo al textbox de perfil que se ingrese 
         public void getIds()
         {
             try
@@ -93,6 +65,7 @@ namespace Vista_Seguridad
             }
         }
 
+        //Método que obtiene las aplicaciones del perfil de acuerdo al textbox de perfil que se ingrese 
         public void getIds2()
         {
             try
@@ -107,37 +80,46 @@ namespace Vista_Seguridad
             }
         }
 
+        //Método que ingresa los registros de acuerdo al id de la aplicación
         private void button1_Click(object sender, EventArgs e)
         {
-            checks();
-            char[] delimiterChars = { ',' };
-            string text = txtCadenas.Text;
-            string[] words = text.Split(delimiterChars);
-
-            foreach (var word in words)
+            if(txtIdUsuario.Text == "" || txtCadenas.Text == "" || txtIdAplicacion.Text == "")
             {
-                txtIdAplicacion.Text = word;
-                TextBox[] textbox = { txtIdUsuario, txtIdAplicacion, txtGuardar, txtEliminar, txtModificar, txtBuscar, txtImprimir };
-                cn.ingresar(textbox, table);
+                MessageBox.Show("Porfavor llene los campos necesarios");
             }
-            string message = "Registro Guardado";
-            actualizardatagriew();
-            MessageBox.Show(message);
-            listAplicacionesDB.Visible = false;
-            Size = new Size(672, 466);
-            limpiar();
+            else
+            {
+                checks();
+                char[] delimiterChars = { ',' };
+                string text = txtCadenas.Text;
+                string[] words = text.Split(delimiterChars);
+
+                foreach (var word in words)
+                {
+                    txtIdAplicacion.Text = word;
+                    TextBox[] textbox = { txtIdUsuario, txtIdAplicacion, txtGuardar, txtEliminar, txtModificar, txtBuscar, txtImprimir };
+                    cn.ingresar(textbox, table);
+                }
+                string message = "Registro Guardado";
+                actualizardatagriew();
+                MessageBox.Show(message);
+                listAplicacionesDB.Visible = false;
+                Size = new Size(672, 466);
+                CheckBox[] checkBoxes = { chBoxGuardar, chBoxModificar, chBoxEliminar, chBoxBuscar, chBoxImprimir };
+                cn.limpiarCheckbox(checkBoxes);
+                TextBox[] textBoxes = { txtBuscar, txtEliminar, txtGuardar, txtIdAplicacion, txtIdUsuario, txtImprimir, txtModificar, txtCadenas };
+                cn.limpiarTextbox(textBoxes);
+            }
         }
 
+        //Método que chequea todos los checkbox
         private void button2_Click(object sender, EventArgs e)
         {
-            chBoxGuardar.Checked = true;
-            chBoxModificar.Checked = true;
-            chBoxEliminar.Checked = true;
-            chBoxBuscar.Checked = true;
-            chBoxImprimir.Checked = true;
+            CheckBox[] checkBoxes = { chBoxGuardar, chBoxModificar, chBoxEliminar, chBoxBuscar, chBoxImprimir };
+            cn.marcarCheckbox(checkBoxes);
         }
 
-
+        //Método que llena las lsitas de las aplicaciones, usuarios
         private void AsignacionAplicacion_Load(object sender, EventArgs e)
         {
             cn.llenarListAplicaciones(listAplicacionesDB.Tag.ToString(), listAplicacionesDB);
@@ -145,15 +127,18 @@ namespace Vista_Seguridad
             ListUsuarios.Visible = false;
             listAplicacionesDB.Visible = false;
             Size = new Size(672,466);
-            desabilitar();
+            TextBox[] textBoxes = { txtBuscar, txtEliminar, txtGuardar, txtImprimir, txtModificar, txtIdAplicacion };
+            cn.desabilitarTextbox(textBoxes);
+            ListUsuarios.Visible = false;
         }
 
+        //Método que llama al método actualizardatagridview
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             //limpiar();
             actualizardatagriew();
         }
-
+        //Método que hace visible la lista de aplicaciones
         private void button2_Click_1(object sender, EventArgs e)
         {
             ListUsuarios.Visible = false;
@@ -170,12 +155,12 @@ namespace Vista_Seguridad
             }
             
         }
-
+        //Método que llama al método getIds
         private void listAplicacionesDB_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             getIds();
         }
-
+        //Método que hace visible las listas de las aplicaciones
         private void button3_Click(object sender, EventArgs e)
         {
             listAplicacionesDB.Visible = false;
@@ -190,16 +175,21 @@ namespace Vista_Seguridad
                 Size = new Size(672, 466);
             }
         }
-
+        //Método que llama al método de getIds2
         private void ListUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             getIds2();
         }
-
+        //Método que muestra el formulario indicado
         private void button6_Click(object sender, EventArgs e)
         {
             AyudaAsignacionAplicacionUsuarios b = new AyudaAsignacionAplicacionUsuarios();
             b.Show();
+        }
+
+        private void chBoxGuardar_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

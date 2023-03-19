@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Seguridad_Controlador;
-
+//Comentado por George Mayén 25/02/2023
 namespace Vista_Seguridad
 {
     public partial class Usuario : Form
@@ -22,6 +22,9 @@ namespace Vista_Seguridad
             InitializeComponent();
         }
 
+
+        //Métoco validaringre: llama al métoco checks y checkbox, luego verifica si los datos están vaciós para mostrar un mensaje que indica que debe completar la información
+        //de lo contrario ingresa los datos ingresados den los textbox en un arreglo de textbox y posteriormente envía el usuario y contraseña a un método que es el de setHash, esta acción se registra en la bitacora
         public void validaringre()
         {
             checks();
@@ -50,6 +53,9 @@ namespace Vista_Seguridad
 
         }
 
+
+        //Método validaractua: Valida si no se han llenado los textbox muestra un mensaje que indica que complete la información, en caso contrario llama al método checks, checkbox,
+        //los textbox ingresados se guardan en un arreglo de textbox y se actualizan estos datos de acuerdo al id que se haya ingresado
         public void validaractua()
         {
             checks();
@@ -68,16 +74,18 @@ namespace Vista_Seguridad
                 checkbox();
                 TextBox[] textbox = { txtnombre, txtapellido, txtcontraseña, txtusername, txtemail, txtestado, TxtPAA, TxtPA };
                 txtcontraseña.Text = Seguridad_Controlador.Controlador.SetHash(txtcontraseña.Text);
+                TxtPA.Text = Seguridad_Controlador.Controlador.SetHash(TxtPA.Text);
                 int valor1 = int.Parse(txtBusqueda.Text);
                 string campo = "pk_id_usuario = ";
                 cn.actualizar(textbox, table, campo, valor1);
                 cn.setBtitacora("1001", "Actualiza Usuario");
+                limpiar();
             }
 
         }
 
 
-
+        //Mëtodo limpiar: Limpia cada textbox, quitando los valores que tenía
         public void limpiar()
         {
             txtBusqueda.Text = "";
@@ -92,6 +100,7 @@ namespace Vista_Seguridad
             TxtPAA.Text = "";
         }
 
+        //Método checkbox: si se ha chequeado el estado del txtestado pasa a 1, de lo contrario pasa a 0
         public void checkbox()
         {
             if (checkBox1.Checked)
@@ -104,12 +113,9 @@ namespace Vista_Seguridad
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)// boton salir
-        {
-            
-            this.Hide();
-        }
+ 
 
+        //Método para validar si el valor obtenido en el combo box es igual al valor obtenido en el textbox
         public void checks()
         {
             string pregunta;
@@ -119,6 +125,7 @@ namespace Vista_Seguridad
 
         }
 
+        //Método que busca a un usuario a través del método buscarusu de acuerdo al dato que se ingrese 
         private void llenap()
         {
             string[] permisos = new string[10];
@@ -129,36 +136,58 @@ namespace Vista_Seguridad
 
         }
 
-
-        private void button3_Click(object sender, EventArgs e)//boton guardar
-        {
-            validaringre();
-        }
-
-        private void button1_Click(object sender, EventArgs e) //Boton Buscar
-        {
-            TextBox[] textbox = { txtnombre, txtapellido, txtcontraseña, txtusername, txtemail, txtestado };
-            int valor1 = int.Parse(txtBusqueda.Text);
-            string campo = "pk_id_usuario = ";
-            cn.buscar(textbox,table, valor1,campo);
-        }
-
-        private void button4_Click(object sender, EventArgs e) //boton modificar
-        {
-            validaractua();
-        }
-
+        //Método que llama al método limpiar
         private void button2_Click(object sender, EventArgs e)// boton nuevo
         {
             limpiar();
         }
 
+        //Método que oculta el estado
         private void Usuario_Load(object sender, EventArgs e)
         {
             txtestado.Visible = false;
         }
 
-        private void button7_Click(object sender, EventArgs e)// boton eliminar
+
+        private void txtestado_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //Método que llama al método de llenap
+ 
+
+
+        //Mëtodo para asignar un valor, si se ha chequeado asigna '\0', en caso contrario '*'
+        private void check_CheckedChanged(object sender, EventArgs e)
+        {
+            if (check.Checked == true)
+            {
+                // TBcontraseña.PasswordChar = '*';
+                txtcontraseña.PasswordChar = '\0';
+            }
+            else
+                      if (txtcontraseña.Text != "")
+            {
+                // TBcontraseña.PasswordChar = '\0';
+                txtcontraseña.PasswordChar = '*';
+            }
+        }
+
+        //Método que muestra el formulario de ayudausuario
+        private void button6_Click(object sender, EventArgs e)
+        {
+            ayudausuario b = new ayudausuario();
+            //b.MdiParent = this;
+            b.Show();
+        }
+
+        private void btnInsert_Click(object sender, EventArgs e)//Metodo para ingresar datos del formulario
+        {
+            validaringre();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)//Metodo para elminar el formulario
         {
             string message = "Deseas Eliminar el Registro?";
             string title = "Eliminar Registro";
@@ -192,37 +221,45 @@ namespace Vista_Seguridad
             }
         }
 
-        private void txtestado_TextChanged(object sender, EventArgs e)
+        private void btnModificar_Click(object sender, EventArgs e)//Metodo par modificar el formulario
+        {
+            validaractua();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)//Metodo par ocultar el formulario
+        {
+            this.Hide();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        private void Usuario_Load_1(object sender, EventArgs e)//Metodo para llenar datagriedview
         {
-            llenap();
+            dataGridView1.DataSource = cn.llenarTbl(table);
+        }
+
+        private void btnConsultar_Click(object sender, EventArgs e)//Metodo para buscar id
+        {
+            TextBox[] textbox = { txtnombre, txtapellido, txtusername, txtcontraseña, txtemail, txtestado, TxtPAA, TxtPA };
+            int valor1 = int.Parse(txtBusqueda.Text);
+            string campo = "pk_id_usuario = ";
+            cn.buscar(textbox, table, valor1, campo);
+            cn.llenarTexboxtUsuarios(table, textbox, txtBusqueda.Text);
 
         }
 
-        private void check_CheckedChanged(object sender, EventArgs e)
+        private void btnUpdate_Click(object sender, EventArgs e)//Metodo para llenar datagridview
         {
-            if (check.Checked == true)
-            {
-                // TBcontraseña.PasswordChar = '*';
-                txtcontraseña.PasswordChar = '\0';
-            }
-            else
-                      if (txtcontraseña.Text != "")
-            {
-                // TBcontraseña.PasswordChar = '\0';
-                txtcontraseña.PasswordChar = '*';
-            }
+            dataGridView1.DataSource =  cn.llenarTbl(table);
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)//Metodo para limpiar textbox
         {
-            ayudausuario b = new ayudausuario();
-            //b.MdiParent = this;
-            b.Show();
+            TextBox[] textbox = { txtnombre, txtapellido, txtusername, txtcontraseña, txtemail, txtestado, TxtPAA, TxtPA };
+            cn.limpiarTextbox(textbox);
         }
     }
 }

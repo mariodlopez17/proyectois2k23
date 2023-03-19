@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Seguridad_Controlador;
-
+//Comentado por George Mayén 25/02/2023
 namespace Vista_Seguridad
 {
     public partial class Bitacora : Form
@@ -21,6 +21,7 @@ namespace Vista_Seguridad
             InitializeComponent();
         }
 
+        //Método que actualiza el datagriedview de acuerdo a los datos obtenidos por las tablas
         public void actualizardatagriew()
         {
             DataTable dt = cn.llenarTbl(emp);
@@ -29,7 +30,7 @@ namespace Vista_Seguridad
         }
 
 
-
+        //Método que llama al método de actualizardatagriew
         private void button1_Click(object sender, EventArgs e)
         {
             actualizardatagriew();

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +15,11 @@ namespace Vista_Seguridad
         public AyudaAsignacionAplicacionUsuarios()
         {
             InitializeComponent();
+        }
+
+        private void pictureBoxAsignacion_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
