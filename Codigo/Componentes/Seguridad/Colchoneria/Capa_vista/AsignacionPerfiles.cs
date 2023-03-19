@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -207,6 +207,11 @@ namespace Vista_Seguridad
         {
             AyudaAsignacionPerfilesUsuario b = new AyudaAsignacionPerfilesUsuario();
             b.Show();
+        }
+
+        private void ListUsuario_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

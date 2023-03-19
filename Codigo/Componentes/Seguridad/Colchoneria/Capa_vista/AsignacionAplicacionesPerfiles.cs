@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -229,6 +229,11 @@ namespace Vista_Seguridad
         {
             AyudaAsignacionAplicacionesPerfiles b = new AyudaAsignacionAplicacionesPerfiles();
             b.Show();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

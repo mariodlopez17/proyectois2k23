@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +15,11 @@ namespace Vista_Seguridad
         public AyudaContraseña()
         {
             InitializeComponent();
+        }
+
+        private void pictureBoxContraseña_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
