@@ -286,12 +286,7 @@ namespace Modelo_Seguridad
                 while (reader.Read())
                 {
                     permisos[i] = reader["username_usuario"].ToString();
-                    /*permisos[i + 1] = int.Parse(reader.GetValue(1).ToString());
-                    permisos[i + 2] = int.Parse(reader.GetValue(2).ToString());
-                    permisos[i + 3] = int.Parse(reader.GetValue(3).ToString());
-                    permisos[i + 4] = int.Parse(reader.GetValue(4).ToString());
-                    permisos[i + 5] = int.Parse(reader.GetValue(5).ToString());
-                    permisos[i + 6] = int.Parse(reader.GetValue(6).ToString());*/
+
                 }
             }
             catch (Exception ex)
@@ -438,5 +433,11 @@ namespace Modelo_Seguridad
             return dataTable;
         }
 
+        public OdbcDataAdapter llenarbitacora(string[] fechas) //llenar bitacora
+        {
+            string sql = "Select pk_id_bitacora as ID, fk_id_usuario as Usuario, fk_id_aplicacion as Aplicacion, fecha_bitacora as Fecha, hora_bitacora as Hora, ip_bitacora as IP, accion_bitacora as Accion from  tbl_bitacoradeeventos where fecha_bitacora >= "+ fechas[0] + " and fecha_bitacora <= " + fechas[1] + " ;";
+            OdbcDataAdapter datatable = new OdbcDataAdapter(sql, con.conexion());
+            return datatable;
+        }
     }
 }

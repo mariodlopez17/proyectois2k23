@@ -21,19 +21,11 @@ namespace Vista_Seguridad
             InitializeComponent();
         }
 
-        //Método que actualiza el datagriedview de acuerdo a los datos obtenidos por las tablas
-        public void actualizardatagriew()
-        {
-            DataTable dt = cn.llenarTbl(emp);
-            datag.DataSource = dt;
-
-        }
-
-
         //Método que llama al método de actualizardatagriew
         private void button1_Click(object sender, EventArgs e)
         {
-            actualizardatagriew();
+            DateTimePicker[] dateTimePickers = { Dtp_inicio, Dtp_fin };
+            cn.filtroBitacora(dateTimePickers, datag);
         }
     }
 }
