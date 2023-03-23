@@ -470,5 +470,14 @@ namespace Seguridad_Controlador
                 textbox[x].Text = table.Rows[0][x].ToString();
             }
         }
+
+        public void filtroBitacora(DateTimePicker[] dateTimePickers, DataGridView tabla)
+        {
+            string[] fechas = { dateTimePickers[0].Value.ToString("yyyyMMdd"), dateTimePickers[1].Value.ToString("yyyyMMdd") };
+            OdbcDataAdapter dt = sn.llenarbitacora(fechas);
+            DataTable table = new DataTable();
+            dt.Fill(table);
+            tabla.DataSource = table;
+        }
     }
 }
