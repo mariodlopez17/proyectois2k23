@@ -109,5 +109,21 @@ namespace CapaModeloReporteria
 
             return applicationCodes;
         }
+        public int getMaxIdReport()
+        {
+            int idRegistro = 0;
+            string sql = "SELECT max(idRegistro) FROM " + tabla_reporteria + ";";
+            try
+            {
+                OdbcCommand cmd = new OdbcCommand(sql, conexion.conexion());
+                idRegistro = (int)cmd.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + " \nNo se pudo obtener el id del registro en la tabla " + tabla_reporteria);
+            }
+            return idRegistro;
+        }
+
     }
 }

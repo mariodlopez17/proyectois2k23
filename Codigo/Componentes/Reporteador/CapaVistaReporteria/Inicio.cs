@@ -22,12 +22,18 @@ namespace CapaVistaReporteria
             actualizarVistaReportes();
             cargarCategorias();
             cargarEstados();
+            getId();
         }
 
         private void actualizarVistaReportes()
         {
             DataTable data = controlador.MostrarReportes();
             tbl_regreporteria.DataSource = data;
+            tbl_regreporteria.Columns[0].HeaderText = "Id";
+            tbl_regreporteria.Columns[1].HeaderText = "Ruta";
+            tbl_regreporteria.Columns[2].HeaderText = "Nombre";
+            tbl_regreporteria.Columns[3].HeaderText = "Aplicación";
+            tbl_regreporteria.Columns[4].HeaderText = "Estado";
         }
 
         private void btn_examinar_Click(object sender, EventArgs e)
@@ -72,6 +78,7 @@ namespace CapaVistaReporteria
             controlador.guardarReporte(datosReporte);
             actualizarVistaReportes();
             confirmRuta = true;
+            getId();
         }
 
         private void btn_ver_reporte_Click(object sender, EventArgs e)
@@ -97,15 +104,14 @@ namespace CapaVistaReporteria
 
         private void btn_actualizar_Click(object sender, EventArgs e)
         {
-
             actualizarVistaReportes();
             cargarCategorias();
+            getId();
 
             btn_guardar.Enabled = true;
             btn_modificar.Enabled = false;
             btn_eliminar.Enabled = false;
 
-            idReporte.Text = "";
             txt_ruta.Text = "";
             txt_nombre.Text = "";
             txt_aplicacion.SelectedIndex = 0;
@@ -122,16 +128,17 @@ namespace CapaVistaReporteria
             controlador.borrar_reporte(idReporte);
             actualizarVistaReportes();
             confirmRuta = true;
+            getId();
         }
 
-        void Clear()
+        void getId()
         {
-            
+            idReporte.Text = controlador.getNextId();
         }
 
         private void Inicio_Load(object sender, EventArgs e)
         {
-            Clear();
+            
         }
 
         private void tabla_registro_DoubleClick(object sender, EventArgs e)
@@ -161,6 +168,7 @@ namespace CapaVistaReporteria
             }
             controlador.ModReporteria(txt_ruta.Text, txt_nombre.Text, txt_aplicacion.Text,txt_estado.Text, idReporte);
             actualizarVistaReportes();
+            getId();
             confirmRuta = true;
         }
 
