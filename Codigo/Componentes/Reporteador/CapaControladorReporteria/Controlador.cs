@@ -95,5 +95,12 @@ namespace CapaControladorReporteria
             List<string> applicationCodes = sentencias.getAplicaciones();
             return applicationCodes;
         }
+
+        public String getNextId()
+        {
+            int nextId = sentencias.getMaxIdReport();
+            nextId = nextId + 1;
+            return nextId.ToString();
+        }
     }
 }

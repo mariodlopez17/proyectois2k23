@@ -27,6 +27,11 @@ namespace CapaVistaReporteria
             //mostramos todos los reportes que hay en la base de datos y la desplegamos
             DataTable data = controlador.MostrarReportes();
             tbl_regreporteria.DataSource = data;
+            tbl_regreporteria.Columns[0].HeaderText = "Id";
+            tbl_regreporteria.Columns[1].HeaderText = "Ruta";
+            tbl_regreporteria.Columns[2].HeaderText = "Nombre";
+            tbl_regreporteria.Columns[3].HeaderText = "Aplicación";
+            tbl_regreporteria.Columns[4].HeaderText = "Estado";
         }
 
         private void button1_Click(object sender, EventArgs e)
