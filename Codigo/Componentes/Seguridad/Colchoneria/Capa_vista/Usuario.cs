@@ -9,153 +9,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Seguridad_Controlador;
+using NavegadorVista;
 //Comentado por George Mayén 25/02/2023
 namespace Vista_Seguridad
 {
     public partial class Usuario : Form
     {
-        string table = "tbl_usuarios";
+      
         Controlador cn = new Controlador();
+
 
         public Usuario()
         {
             InitializeComponent();
         }
 
-
-        //Métoco validaringre: llama al métoco checks y checkbox, luego verifica si los datos están vaciós para mostrar un mensaje que indica que debe completar la información
-        //de lo contrario ingresa los datos ingresados den los textbox en un arreglo de textbox y posteriormente envía el usuario y contraseña a un método que es el de setHash, esta acción se registra en la bitacora
-        public void validaringre()
-        {
-            checks();
-            checkbox();
-            if (txtusername.Text == "" || txtcontraseña.Text == "" || txtnombre.Text == "" || txtapellido.Text == "" || txtemail.Text == "" || TxtPAA.Text == "" || TxtPA.Text == "")
-            {
-
-                MessageBox.Show("Debe completar la informacion");
-
-
-
-            }
-            else
-            {
-                checks();
-                checkbox();
-                TextBox[] textbox = { txtnombre, txtapellido, txtcontraseña, txtusername, txtemail, txtestado, TxtPAA, TxtPA };
-                txtcontraseña.Text = Seguridad_Controlador.Controlador.SetHash(txtcontraseña.Text);
-                TxtPA.Text = Seguridad_Controlador.Controlador.SetHash(TxtPA.Text);
-                cn.ingresar(textbox, table);
-                cn.setBtitacora("1001", "Crea Nuevo Usuario");
-                string message = "Registro Guardado";
-                limpiar();
-                MessageBox.Show(message);
-            }
-
-        }
-
-
-        //Método validaractua: Valida si no se han llenado los textbox muestra un mensaje que indica que complete la información, en caso contrario llama al método checks, checkbox,
-        //los textbox ingresados se guardan en un arreglo de textbox y se actualizan estos datos de acuerdo al id que se haya ingresado
-        public void validaractua()
-        {
-            checks();
-            checkbox();
-            if (txtusername.Text == "" || txtcontraseña.Text == "" || txtnombre.Text == "" || txtapellido.Text == "" || txtemail.Text == "" || TxtPAA.Text == "" || TxtPA.Text == "")
-            {
-
-                MessageBox.Show("Debe completar la informacion");
-
-
-
-            }
-            else
-            {
-                checks();
-                checkbox();
-                TextBox[] textbox = { txtnombre, txtapellido, txtcontraseña, txtusername, txtemail, txtestado, TxtPAA, TxtPA };
-                txtcontraseña.Text = Seguridad_Controlador.Controlador.SetHash(txtcontraseña.Text);
-                TxtPA.Text = Seguridad_Controlador.Controlador.SetHash(TxtPA.Text);
-                int valor1 = int.Parse(txtBusqueda.Text);
-                string campo = "pk_id_usuario = ";
-                cn.actualizar(textbox, table, campo, valor1);
-                cn.setBtitacora("1001", "Actualiza Usuario");
-                limpiar();
-            }
-
-        }
-
-
-        //Mëtodo limpiar: Limpia cada textbox, quitando los valores que tenía
-        public void limpiar()
-        {
-            txtBusqueda.Text = "";
-            txtusername.Text = "";
-            txtcontraseña.Text = "";
-            txtnombre.Text = "";
-            txtapellido.Text = "";
-            txtemail.Text = "";
-            txtestado.Text = "";
-            CmbPA.Text = "";
-            TxtPA.Text = "";
-            TxtPAA.Text = "";
-        }
-
-        //Método checkbox: si se ha chequeado el estado del txtestado pasa a 1, de lo contrario pasa a 0
-        public void checkbox()
-        {
-            if (checkBox1.Checked)
-            {
-                txtestado.Text = "1";
-            }
-            else
-            {
-                txtestado.Text = "0";
-            }
-        }
-
- 
-
-        //Método para validar si el valor obtenido en el combo box es igual al valor obtenido en el textbox
-        public void checks()
-        {
-            string pregunta;
-            pregunta = CmbPA.Text;
-
-            TxtPAA.Text = pregunta;
-
-        }
-
-        //Método que busca a un usuario a través del método buscarusu de acuerdo al dato que se ingrese 
-        private void llenap()
-        {
-            string[] permisos = new string[10];
-            
-            //MessageBox.Show(message);
-            string[] dato = cn.buscarusu(txtBusqueda.Text);
-            MessageBox.Show(" hola "+ dato[0]);
-
-        }
-
-        //Método que llama al método limpiar
-        private void button2_Click(object sender, EventArgs e)// boton nuevo
-        {
-            limpiar();
-        }
-
-        //Método que oculta el estado
-        private void Usuario_Load(object sender, EventArgs e)
-        {
-            txtestado.Visible = false;
-        }
-
-
-        private void txtestado_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        //Método que llama al método de llenap
- 
 
 
         //Mëtodo para asignar un valor, si se ha chequeado asigna '\0', en caso contrario '*'
@@ -174,92 +42,76 @@ namespace Vista_Seguridad
             }
         }
 
-        //Método que muestra el formulario de ayudausuario
-        private void button6_Click(object sender, EventArgs e)
+        private void navegador1_Load(object sender, EventArgs e)//Aplicacion del navegador
         {
-            ayudausuario b = new ayudausuario();
-            //b.MdiParent = this;
-            b.Show();
+            NavegadorVista.Navegador.idApp = "1001";
+            navegador1.actual = this;
+            navegador1.tabla = dataGridView1;
+            TextBox[] Grupotextbox = { txtId,txtnombre, txtapellido, txtusername, txtcontraseña, txtemail, txtestado, TxtPAA, TxtPA };
+            TextBox[] Idtextbox = { txtId, txtnombre };
+            navegador1.textbox = Grupotextbox;
+            navegador1.textboxi = Idtextbox;
+            navegador1.cargar(dataGridView1, Grupotextbox, "colchoneria");
         }
 
-        private void btnInsert_Click(object sender, EventArgs e)//Metodo para ingresar datos del formulario
+        private void CmbPA_SelectedIndexChanged(object sender, EventArgs e)//cambio de valor de combobox a textbox
         {
-            validaringre();
+            TxtPAA.Text = CmbPA.SelectedItem.ToString();
+         
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)//Metodo para elminar el formulario
+        private void TxtPAA_TextChanged(object sender, EventArgs e)//cambio de valor de textbox a combobox
         {
-            string message = "Deseas Eliminar el Registro?";
-            string title = "Eliminar Registro";
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result = MessageBox.Show(message, title, buttons);
-            try
+           
+        }
+
+        void hashConstraseñas()//hash de contraseñas
+        {
+            if (txtcontraseña.Text.Length > 0 && TxtPA.Text.Length > 0)
             {
-
-
-                if (result == DialogResult.Yes)
-                {
-
-                    int campo = int.Parse(txtBusqueda.Text);
-                    string condicion = "pk_id_usuario = ";
-                    cn.eliminar(table, condicion, campo);
-                    cn.setBtitacora("1001", "Elimina un Usuario");
-                    string message1 = "Registro eliminado / Estado de usuario deshabilitado";
-                    limpiar();
-                    MessageBox.Show(message1);
-                }
-                else
-                {
-                    limpiar();
-                }
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show("No se puede eliminar por permisos asignados");
-                Console.WriteLine(ex.Message.ToString() + " \nNo se puede eliminar por permisos asignados");
+                string hashcontraseña = Seguridad_Controlador.Controlador.SetHash(txtcontraseña.Text);
+                string hashpregunta = Seguridad_Controlador.Controlador.SetHash(txtcontraseña.Text);
+                txtcontraseña.Text = hashcontraseña;
+                TxtPA.Text = hashpregunta;
+                
             }
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)//Metodo par modificar el formulario
+        void configuracionActulizacion()
         {
-            validaractua();
+           CmbPA.SelectedItem = TxtPAA.Text;
+           string hashcontraseña = Seguridad_Controlador.Controlador.GetHash(txtcontraseña.Text);
+           string hashpregunta = Seguridad_Controlador.Controlador.GetHash(txtcontraseña.Text);
+           txtcontraseña.Text = hashcontraseña;
+           TxtPA.Text = hashpregunta;
         }
 
-        private void btnExit_Click(object sender, EventArgs e)//Metodo par ocultar el formulario
+        private void btnverificar_Click(object sender, EventArgs e)
         {
-            this.Hide();
-        }
+            if(txtusername.Enabled == true)
+            {
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Usuario_Load_1(object sender, EventArgs e)//Metodo para llenar datagriedview
-        {
-            dataGridView1.DataSource = cn.llenarTbl(table);
-        }
-
-        private void btnConsultar_Click(object sender, EventArgs e)//Metodo para buscar id
-        {
-            TextBox[] textbox = { txtnombre, txtapellido, txtusername, txtcontraseña, txtemail, txtestado, TxtPAA, TxtPA };
-            int valor1 = int.Parse(txtBusqueda.Text);
-            string campo = "pk_id_usuario = ";
-            cn.buscar(textbox, table, valor1, campo);
-            cn.llenarTexboxtUsuarios(table, textbox, txtBusqueda.Text);
+                hashConstraseñas();
+            }
+       
 
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)//Metodo para llenar datagridview
+        private void button1_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource =  cn.llenarTbl(table);
+            if(txtusername.Enabled == false || txtnombre.Enabled == false)
+            {
+                configuracionActulizacion();
+            }
+           
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)//Metodo para limpiar textbox
+        private void Usuario_Load(object sender, EventArgs e)
         {
-            TextBox[] textbox = { txtnombre, txtapellido, txtusername, txtcontraseña, txtemail, txtestado, TxtPAA, TxtPA };
-            cn.limpiarTextbox(textbox);
+           
+           
         }
+
+       
     }
 }

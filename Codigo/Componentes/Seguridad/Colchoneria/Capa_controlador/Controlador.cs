@@ -227,16 +227,6 @@ namespace Seguridad_Controlador
             return false;
         }
 
-
-
-        //comentado por Jason Ortega 0901-19-22658 25/02/23
-        public DataTable buscarlogin(string tabla, string dato1, string dato2)
-        {
-            OdbcDataAdapter dt = sn.buscarlogin(tabla, dato1, dato2);
-            DataTable table = new DataTable();
-            dt.Fill(table);
-            return table;
-        }
         //comentado por Jason Ortega 0901-19-22658 25/02/23
 
         public void ingresar(TextBox[] textbox, string tabla/*, string app*/)//Crea cadenas de datos para la insercion
@@ -262,18 +252,7 @@ namespace Seguridad_Controlador
             sn.insertar(dato, tipo, tabla);
           //  setBtitacora(app, "Insertar");
         }
-        //comentado por Jason Ortega 0901-19-22658 25/02/23
-        public void buscar(TextBox[] textbox, string tabla,int num,string condicion) //Realiza busqueda segun el campo
-        {
-            // string message = "Registro de text Nombre " + tabla + " id " +  num + " ";
-            //MessageBox.Show(message);
-
-           
-
-            string campo = condicion;
-            sn.busqueda(textbox,tabla, num, campo);
-           // MessageBox.Show("Dato Encontrado");
-        }
+        
         //comentado por Jason Ortega 0901-19-22658 25/02/23
         public void actualizarcontra(TextBox[] textbox, string tabla, string campo, string usu) //actualiza contraseña de usuario
         {
@@ -290,58 +269,7 @@ namespace Seguridad_Controlador
             MessageBox.Show("Dato actualizado");
         }
         //comentado por Jason Ortega 0901-19-22658 25/02/23
-        public void actualizar(TextBox[] textbox, string tabla,string campo, int num) //actualiza los datos de una tabla en la base de datos
-        {
-            string dato = " ";
-            //string condicion = "(" + textbox[0].Tag.ToString() + " = '" + textbox[0].Text + "')";
-            string condicion = campo;
-
-            for (int x = 1; x < textbox.Length; x++)
-            {
-
-                if (x == textbox.Length - 1)
-                {
-                    dato += " " + textbox[x].Tag.ToString() + " = '" + textbox[x].Text + "' ";
-
-                }
-                else if (x == 1)
-                {
-                    dato += "SET " + textbox[x].Tag.ToString() + " = '" + textbox[x].Text + "', ";
-
-                }
-                else
-                {
-                    dato += " " + textbox[x].Tag.ToString() + " = '" + textbox[x].Text + "', ";
-
-                }
-
-            }
-
-            sn.actualizar(dato, condicion, tabla,num);
-            MessageBox.Show("Dato actualizado");
-        }
-        //comentado por Jason Ortega 0901-19-22658 25/02/23
-        public DataTable llenarTbl(string tabla)
-        {
-            OdbcDataAdapter dt = sn.llenarTbl(tabla);
-            DataTable table = new DataTable();
-            dt.Fill(table);
-            return table;
-        }
-
-        //comentado por Jason Ortega 0901-19-22658 25/02/23
-
-        public void eliminar(string tabla, string condicion,int campo) //elimina datos de una tabla
-        {
-            try
-            {
-                sn.eliminar(tabla,condicion,campo);
-            }catch (Exception ex)
-            {
-                MessageBox.Show("No se puede eliminar por permisos asignados");
-                Console.WriteLine(ex.Message.ToString() + " \nNo se puede eliminar por permisos asignados");
-            }
-        }
+        
         //comentado por Jason Ortega 0901-19-22658 25/02/23
         public void eliminarAsiganaciones(string tabla, string condicion1, int campo1, string condicion2, int campo2) //elimina asignaciones
         {
@@ -356,22 +284,7 @@ namespace Seguridad_Controlador
             }
         }
         //comentado por Jason Ortega 0901-19-22658 25/02/23
-        public void llenartablaa(string ntabla, DataGridView tabla) //llena tabla segun datos ingresados
-        {
-            OdbcDataAdapter dt = sn.llenartabla(ntabla);
-            DataTable table = new DataTable();
-            dt.Fill(table);
-            tabla.DataSource = table;
-        }
-
-        //comentado por Jason Ortega 0901-19-22658 25/02/23
-        public DataTable SelectList(string tabla,string campo) //Selecciona una lista de la base de datos
-        {
-            OdbcDataAdapter dt = sn.selectList(tabla, campo);
-            DataTable table = new DataTable();
-            dt.Fill(table);
-            return table;
-        }
+       
         //comentado por Jason Ortega 0901-19-22658 25/02/23
         public void llenarListAplicaciones(string ntabla, DataGridView tabla) //Llena la lista de aplicaciones
         {
@@ -420,14 +333,7 @@ namespace Seguridad_Controlador
             return sn.getPregunta(username);
         }
         //comentado por Jason Ortega 0901-19-22658 25/02/23
-        public string[] buscarusu(string username) //Busca informacion de usuario
-        {
-            return sn.buscarusua(username);
-
-            string[] men = sn.buscarusua(username);
-            MessageBox.Show(" hola " + men[0]);
-        }
-
+        
         public void limpiarTextbox(TextBox[] textBoxes)//Metodo para limpiar textbox
         {
             for(int x = 0; x < textBoxes.Length; x++)
@@ -457,17 +363,6 @@ namespace Seguridad_Controlador
             for(int x= 0; x < textBoxes.Length; x++)
             {
                 textBoxes[x].Visible = false;
-            }
-        }
-               
-        public void llenarTexboxtUsuarios(string tabla, TextBox[] textbox, string id)//Metodo para llenar textbox 
-        {
-            OdbcDataAdapter dt = sn.llenarTblUsuarios(tabla, id);
-            DataTable table = new DataTable();
-            dt.Fill(table);
-            for (int x = 0; x < table.Columns.Count; x++)
-            {
-                textbox[x].Text = table.Rows[0][x].ToString();
             }
         }
 
