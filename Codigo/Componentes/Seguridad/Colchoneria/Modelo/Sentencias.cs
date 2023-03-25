@@ -65,8 +65,12 @@ namespace Modelo_Seguridad
         {
             string campos = "fk_id_usuario, fk_id_aplicacion, fecha_bitacora, hora_bitacora, host_bitacora, ip_bitacora, accion_bitacora";
             string sql = "INSERT INTO tbl_bitacoraDeEventos (" + campos + ") values (" + values + ");";
-            OdbcCommand cmd = new OdbcCommand(sql, con.conexion());
-            cmd.ExecuteNonQuery();
+            try
+            {
+                OdbcCommand cmd = new OdbcCommand(sql, con.conexion());
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message.ToString() + " \nError en bitacora"); }
         }
 
         //Metodo para seleccion de nombre de la apliacion segun su codigo de la tabla aplicaciones
@@ -210,14 +214,6 @@ namespace Modelo_Seguridad
             return permisos;
         }
 
-        //Metodo para seleccion de usuario y contraseña segun datos ingresados
-        public OdbcDataAdapter buscarlogin(string tabla, string dato1, string dato2)
-        {
-            
-            string sql = "SELECT usuario, contra FROM " + tabla + " where usuario='" +dato1+ "' and contra='" +dato2+"';" ;
-            OdbcDataAdapter dataTable = new OdbcDataAdapter(sql, con.conexion());
-            return dataTable;
-        }
 
         //Metodo para insertar en cualquier tabla
         public void insertar(string dato, string tipo, string tabla)
@@ -236,17 +232,6 @@ namespace Modelo_Seguridad
 
 
             
-        }
-
-
-        //Metodo para seleccion de todos los datos de una tabla
-        public void busqueda(TextBox[] textbox, string tabla,int num, string condicion)
-        {
-            string sql = "Select *from " + tabla + " where "+ condicion +" " + num+ ";" ;
-            OdbcCommand cmd = new OdbcCommand(sql, con.conexion());
-            cmd.ExecuteNonQuery();
-            
-
         }
 
         //Metodo para seleccionar el campo pregunta en la tabla usuarios
@@ -269,68 +254,7 @@ namespace Modelo_Seguridad
             }
             return pregunta;
         }
-
-        //Metodo para obtener las aplicaciones segun perfil
-        public string[] buscarusua(string username)
-        {
-            string[] permisos = new string[10];
-            int i = 0;
-
-            
-            string sql = "SELECT pregunta FROM tbl_usuarios WHERE username_usuario='" + username + "';";
-
-            try
-            {
-                OdbcCommand command = new OdbcCommand(sql, con.conexion());
-                OdbcDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    permisos[i] = reader["username_usuario"].ToString();
-
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message.ToString() + " \nError en obtener las aplicaciones del perfil");
-            }
-            return permisos;
-
-
-        }
-
-        //Metodo para selecionar todos los datos de una tabla
-        public OdbcDataAdapter llenarTbl(string tabla)// metodo  que obtinene el contenio de una tabla
-        {
-            //string para almacenar los campos de OBTENERCAMPOS y utilizar el 1ro
-            string sql = "SELECT * FROM " + tabla + "  ;";
-            OdbcDataAdapter dataTable = new OdbcDataAdapter(sql, con.conexion());
-            return dataTable;
-        }
-       
-        //Metodo para actualizar cualquier registro de una tabla
-        public void actualizar(string dato, string condicion, string tabla,int num)
-        {
-
-            string sql = "Update " + tabla + " " + dato + " where " + condicion + " " + num+ "; ";
-            OdbcCommand cmd = new OdbcCommand(sql, con.conexion());
-            cmd.ExecuteNonQuery();
-
-        }
-
-        //Metodo para eliminar cualquire dato de una tabla
-        public void eliminar(string tabla,string condicion,int campo)
-        {
-
-            try{
-                
-                string sql = "delete from " + tabla + " where " + condicion + " " + campo + " ;";
-                OdbcCommand cmd = new OdbcCommand(sql, con.conexion());
-                cmd.ExecuteNonQuery(); }
-                catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message.ToString() + " \nNo se puede eliminar por permisos asignados");
-            }
-        }
+   
 
         //Metodo para eliminar cualquier dato de una tabla con doble condicion
         public void eliminarAsiganaciones(string tabla, string condicion1, int campo1, string condicion2, int campo2)
@@ -354,35 +278,18 @@ namespace Modelo_Seguridad
         //Metodo para actulizar cualquier tabla
         public void actualizarcontra(string dato, string condicion, string tabla, string usu)
         {
+            try
+            {
+                string sql = "Update " + tabla + " " + dato + " where " + condicion + " " + "'" + usu + "'" + "; ";
+                OdbcCommand cmd = new OdbcCommand(sql, con.conexion());
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + " \nNo se pudo actualizar con");
+            }
 
-            string sql = "Update " + tabla + " " + dato + " where " + condicion + " " +"'"+ usu +"'"+ "; ";
-            OdbcCommand cmd = new OdbcCommand(sql, con.conexion());
-            cmd.ExecuteNonQuery();
 
-        }
-
-        //Metodo para llenar una tabla completa
-        public OdbcDataAdapter llenartabla(string tabla)
-        {
-            string sql = "select * from " + tabla + ";";
-            OdbcDataAdapter datatable = new OdbcDataAdapter(sql, con.conexion());
-            return datatable;
-        }
-
-        //Metodo para selecionar todos los campos de una tabla segun el id de usuario
-        public OdbcDataAdapter selectList(string tabla, string campo)
-        {
-            string sql = "select *from " + tabla + " where fk_id_usuario = " +campo+ ";";
-            OdbcDataAdapter dataTable = new OdbcDataAdapter(sql, con.conexion());
-            return dataTable;
-        }
-
-        //Metodo para seleccionar permisos de aplicaciones segun el usuario
-        public OdbcDataAdapter selectPerfilUsuario(string tabla, string campo)
-        {
-            string sql = "select *from tbl_permisosaplicacionesusuario where fk_id_usuario = " + campo + ";";
-            OdbcDataAdapter dataTable = new OdbcDataAdapter(sql, con.conexion());
-            return dataTable;
         }
 
         //Metodo para seleccionar todas las apliaciones
@@ -425,13 +332,6 @@ namespace Modelo_Seguridad
             return datatable;
         }
 
-        public OdbcDataAdapter llenarTblUsuarios(string tabla, string id)// metodo  que obtinene el contenio de una tabla
-        {
-            //string para almacenar los campos de OBTENERCAMPOS y utilizar el 1ro
-            string sql = "SELECT nombre_usuario, apellido_usuario, username_usuario, password_usuario, email_usuario, estado_usuario, pregunta, respuesta FROM " + tabla + " where pk_id_usuario = '" + id + "';";
-            OdbcDataAdapter dataTable = new OdbcDataAdapter(sql, con.conexion());
-            return dataTable;
-        }
 
         public OdbcDataAdapter llenarbitacora(string[] fechas) //llenar bitacora
         {
