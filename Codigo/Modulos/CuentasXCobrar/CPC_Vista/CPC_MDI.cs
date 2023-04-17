@@ -30,5 +30,12 @@ namespace CPC_Vista
             mant_TipoPago.MdiParent = this;
             mant_TipoPago.Show();
         }
+
+        private void morasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Mant_moras mant_Moras = new Mant_moras();
+            mant_Moras.MdiParent = this;
+            mant_Moras.Show();
+        }
     }
 }
