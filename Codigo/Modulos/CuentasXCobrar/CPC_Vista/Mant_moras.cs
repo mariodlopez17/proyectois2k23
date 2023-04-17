@@ -22,7 +22,7 @@ namespace CPC_Vista
         {
             NavegadorVista.Navegador.idApp = "6005";
             TextBox[] Grupotextbox = { txt_id, txt_nombre, txtMonto };
-            TextBox[] Idtextbox = { txt_nombre, txtMonto };
+            TextBox[] Idtextbox = { txt_id, txt_nombre, txtMonto };
             navegador1.textbox = Grupotextbox;
             navegador1.tabla = tbl_moras;
             navegador1.textboxi = Idtextbox;
