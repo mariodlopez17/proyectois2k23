@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Seguridad_Controlador;
-
+//Comentado por George Mayén 25/02/2023
 namespace Vista_Seguridad
 {
     public partial class Menup : Form
     {
         Controlador cn = new Controlador();
 
+        //Método que guarda en un arreglo de tipo botón los botones que se tienen en el formulario. Se les da permiso a los diferentes botones de acuerdo a la función que realice este
         public Menup()
         {
             InitializeComponent();
@@ -32,7 +33,7 @@ namespace Vista_Seguridad
            
 
         }
-
+        //Método que ingresa un valor a la bitacora de acuerdo el módulo
         public void btnlogout_Click(object sender, EventArgs e)
         {
             MenuSeguridad b = new MenuSeguridad();
@@ -47,7 +48,7 @@ namespace Vista_Seguridad
               b.Show();
             cn.setBtitacora("2000", "Ingreso Logistica");*/
         }
-
+        //Método que ingresa un valor a la bitacora de acuerdo el módulo
         private void btnLogout_Click_1(object sender, EventArgs e)
         {
             Login b = new Login();
@@ -55,28 +56,28 @@ namespace Vista_Seguridad
             b.Show();
             this.Close();
         }
-
+        //Método que ingresa un valor a la bitacora de acuerdo el módulo
         private void btncompras_Click(object sender, EventArgs e)
         {
             /*ComprasVista.central_Compra b = new ComprasVista.central_Compra();
             b.Show();*/
             cn.setBtitacora("3000", "Ingreso Compras");
         }
-
+        //Método que ingresa un valor a la bitacora de acuerdo el módulo
         private void btnProduccion_Click(object sender, EventArgs e)
         {
             /*CapaVistaProduccion.inicio b = new CapaVistaProduccion.inicio();
            b.Show();*/
             cn.setBtitacora("5000", "Ingreso Produccion");
         }
-
+        //Método que ingresa un valor a la bitacora de acuerdo el módulo
         private void btnnominas_Click(object sender, EventArgs e)
         {
            /* CapaVistaNomina.MenuPrincipal b = new CapaVistaNomina.MenuPrincipal();
             b.Show();*/
             cn.setBtitacora("6000", "Ingreso Nominas");
         }
-
+        //Método que ingresa un valor a la bitacora de acuerdo el módulo
         private void btnBancos_Click(object sender, EventArgs e)
         {
            /*Vista_Bancos.Banco_Form b = new Vista_Bancos.Banco_Form();
@@ -84,6 +85,7 @@ namespace Vista_Seguridad
            cn.setBtitacora("7000", "Ingreso Bancos");
         }
 
+        //Método que ingresa un valor a la bitacora de acuerdo el módulo
         private void btnContabilidad_Click(object sender, EventArgs e)
         {
            /*Capa_VistaContabilidad.Nuevo_MDI b = new Capa_VistaContabilidad.Nuevo_MDI();

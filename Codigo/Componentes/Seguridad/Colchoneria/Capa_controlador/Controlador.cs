@@ -12,43 +12,45 @@ using System.Net;
 
 
 namespace Seguridad_Controlador
-{
+{   //comentado por Jason Ortega 0901-19-22658 25/02/23
     public class Controlador
     {
-
-        Sentencias sn = new Sentencias();
+        Sentencias sn = new Sentencias();  //se hace la conexion con la clase sentencia
 
         public static string Username;
 
         public static string idUser;
 
-        public static string SetHash(string inputString)
+        //comentado por Jason Ortega 0901-19-22658 25/02/23
+        public static string SetHash(string inputString) //recibe una cadena de entrada inputString
         {
             string hash = "x2";
             byte[] bytes = UTF8Encoding.UTF8.GetBytes(inputString);
             MD5 mD5 = MD5.Create();
             TripleDES tripleDES = TripleDES.Create();
-            tripleDES.Key = mD5.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash));
-            tripleDES.Mode = CipherMode.ECB;
+            tripleDES.Key = mD5.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash)); //Se crea objeto TripleDES y se establece su clave utilizando el valor hash
+            tripleDES.Mode = CipherMode.ECB; //se establece el modo de cifrado como ECB
             ICryptoTransform transform = tripleDES.CreateEncryptor();
-            byte[] output = transform.TransformFinalBlock(bytes, 0, bytes.Length);
-            return Convert.ToBase64String(output);
+            byte[] output = transform.TransformFinalBlock(bytes, 0, bytes.Length); // se cifra la matriz de byte de la cadena de entrada
+            return Convert.ToBase64String(output); //se convierte la matriz de bytes cifrada a una cadena Base64 y se devuelve como salida de la funcion
         }
 
+        //comentado por Jason Ortega 0901-19-22658 25/02/23
         public static string GetHash(string inputString)
         {
             string hash = "x2";
-            byte[] bytes = Convert.FromBase64String(inputString);
+            byte[] bytes = Convert.FromBase64String(inputString); // se convierte la cadena de entrada en una matriz de bytes utilizando el metodo FromBase64String
             MD5 mD5 = MD5.Create();
-            TripleDES tripleDES = TripleDES.Create();
-            tripleDES.Key = mD5.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash));
-            tripleDES.Mode = CipherMode.ECB;
-            ICryptoTransform transform = tripleDES.CreateDecryptor();
+            TripleDES tripleDES = TripleDES.Create(); 
+            tripleDES.Key = mD5.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash));//Se crea un objeto TripleDES y se establece su clave utilizando el valor hash 
+            tripleDES.Mode = CipherMode.ECB; //Se establece el modo de cifrado como ECB para el objeto TripleDES
+            ICryptoTransform transform = tripleDES.CreateDecryptor(); //se crea un objeto ICryptoTransform utilizando 
             byte[] output = transform.TransformFinalBlock(bytes, 0, bytes.Length);
             return UTF8Encoding.UTF8.GetString(output);
         }
 
-        public void setBtitacora(string aplicacion, string accion)
+        //comentado por Jason Ortega 0901-19-22658 25/02/23
+        public void setBtitacora(string aplicacion, string accion) //se crea un registro de bitacora con la informacion sobre las acciones realizadas por un usuario
         {
             string fechaActual = DateTime.Now.ToString("yyyy/MM/dd");
             string horaActual = DateTime.Now.ToString("HH:mm:ss");
@@ -60,12 +62,12 @@ namespace Seguridad_Controlador
             sn.insertBitacora(datos);
         }
 
-        public string getNombreAplicacion(string codigoApp)
+        public string getNombreAplicacion(string codigoApp) //obtiene el nombre de la aplicacion correspondiente a un codigo de aplicacion dado.
         {
             return sn.queryNombreApp(codigoApp);
         }
-
-        public Boolean getAccesoModulos(int moduloSolicitado)
+        //comentado por Jason Ortega 0901-19-22658 25/02/23
+        public Boolean getAccesoModulos(int moduloSolicitado)  //acceso a los modulo en funcion de los perfiles.
         {
             string idUsuario = GetHash(idUser);
             Boolean respuestAcceso= false;
@@ -120,15 +122,15 @@ namespace Seguridad_Controlador
 
             return respuestAcceso;
         }
-
-        public void deshabilitarApps(Button[] paneles)
+        //comentado por Jason Ortega 0901-19-22658 25/02/23
+        public void deshabilitarApps(Button[] paneles) //deshabilita los paneles 
         {
             for (int i = 0; i < paneles.Length; i++)
             {
                 paneles[i].Enabled = false;
             }
         }
-        public void getAccesoApp(int idApp, Button boton)
+        public void getAccesoApp(int idApp, Button boton) //Verifica si el usuario ingresado tiene acceso
         {
             string idUsuario = GetHash(idUser);
             int[] perfiles = sn.getPerfilesUsuario(idUsuario);
@@ -149,8 +151,8 @@ namespace Seguridad_Controlador
                 }
             }
         }
-
-        public int[] getPermisosAplicaion(string App)
+        //comentado por Jason Ortega 0901-19-22658 25/02/23
+        public int[] getPermisosAplicaion(string App) //da los permisos a una aplicacion 
         {
             int[] result = new int[5];
             int[] permisos = new int[5];
@@ -190,8 +192,8 @@ namespace Seguridad_Controlador
             }
             return permisos;
         }
-
-        public Boolean validarLogin(string username, string password)
+        //comentado por Jason Ortega 0901-19-22658 25/02/23
+        public Boolean validarLogin(string username, string password) //Valida en inicio de sesion del usuario
         {
             string[] datos = sn.queryLogin(username);
             for (int i = 0; i < datos.Length; i = i + 3)
@@ -207,8 +209,8 @@ namespace Seguridad_Controlador
             }
             return false;
         }
-
-        public Boolean validarRecuperacion(string username, string respuesta)
+        //comentado por Jason Ortega 0901-19-22658 25/02/23
+        public Boolean validarRecuperacion(string username, string respuesta) //valida la respuesta del usuario a una pregunta de seguridad
         {
             string[] datos = sn.queryRecuperacion(username);
             for (int i = 0; i < datos.Length; i = i + 3)
@@ -225,17 +227,7 @@ namespace Seguridad_Controlador
             return false;
         }
 
-
-
-
-        public DataTable buscarlogin(string tabla, string dato1, string dato2)
-        {
-            OdbcDataAdapter dt = sn.buscarlogin(tabla, dato1, dato2);
-            DataTable table = new DataTable();
-            dt.Fill(table);
-            return table;
-        }
-
+        //comentado por Jason Ortega 0901-19-22658 25/02/23
 
         public void ingresar(TextBox[] textbox, string tabla/*, string app*/)//Crea cadenas de datos para la insercion
         {
@@ -260,20 +252,9 @@ namespace Seguridad_Controlador
             sn.insertar(dato, tipo, tabla);
           //  setBtitacora(app, "Insertar");
         }
-
-        public void buscar(TextBox[] textbox, string tabla,int num,string condicion)
-        {
-            // string message = "Registro de text Nombre " + tabla + " id " +  num + " ";
-            //MessageBox.Show(message);
-
-           
-
-            string campo = condicion;
-            sn.busqueda(textbox,tabla, num, campo);
-           // MessageBox.Show("Dato Encontrado");
-        }
-
-        public void actualizarcontra(TextBox[] textbox, string tabla, string campo, string usu)
+        
+        //comentado por Jason Ortega 0901-19-22658 25/02/23
+        public void actualizarcontra(TextBox[] textbox, string tabla, string campo, string usu) //actualiza contraseña de usuario
         {
             string dato = " ";
 
@@ -287,61 +268,10 @@ namespace Seguridad_Controlador
             sn.actualizarcontra(dato, condicion, tabla, usu);
             MessageBox.Show("Dato actualizado");
         }
-
-        public void actualizar(TextBox[] textbox, string tabla,string campo, int num)
-        {
-            string dato = " ";
-            //string condicion = "(" + textbox[0].Tag.ToString() + " = '" + textbox[0].Text + "')";
-            string condicion = campo;
-
-            for (int x = 1; x < textbox.Length; x++)
-            {
-
-                if (x == textbox.Length - 1)
-                {
-                    dato += " " + textbox[x].Tag.ToString() + " = '" + textbox[x].Text + "' ";
-
-                }
-                else if (x == 1)
-                {
-                    dato += "SET " + textbox[x].Tag.ToString() + " = '" + textbox[x].Text + "', ";
-
-                }
-                else
-                {
-                    dato += " " + textbox[x].Tag.ToString() + " = '" + textbox[x].Text + "', ";
-
-                }
-
-            }
-
-            sn.actualizar(dato, condicion, tabla,num);
-            MessageBox.Show("Dato actualizado");
-        }
-
-        public DataTable llenarTbl(string tabla)
-        {
-            OdbcDataAdapter dt = sn.llenarTbl(tabla);
-            DataTable table = new DataTable();
-            dt.Fill(table);
-            return table;
-        }
+        //comentado por Jason Ortega 0901-19-22658 25/02/23
         
-
-
-        public void eliminar(string tabla, string condicion,int campo)
-        {
-            try
-            {
-                sn.eliminar(tabla,condicion,campo);
-            }catch (Exception ex)
-            {
-                MessageBox.Show("No se puede eliminar por permisos asignados");
-                Console.WriteLine(ex.Message.ToString() + " \nNo se puede eliminar por permisos asignados");
-            }
-        }
-
-        public void eliminarAsiganaciones(string tabla, string condicion1, int campo1, string condicion2, int campo2)
+        //comentado por Jason Ortega 0901-19-22658 25/02/23
+        public void eliminarAsiganaciones(string tabla, string condicion1, int campo1, string condicion2, int campo2) //elimina asignaciones
         {
             try
             {
@@ -353,57 +283,42 @@ namespace Seguridad_Controlador
                 Console.WriteLine(ex.Message.ToString() + " \nNo se puede eliminar por permisos asignados");
             }
         }
-
-        public void llenartablaa(string ntabla, DataGridView tabla)
-        {
-            OdbcDataAdapter dt = sn.llenartabla(ntabla);
-            DataTable table = new DataTable();
-            dt.Fill(table);
-            tabla.DataSource = table;
-        }
-
-
-        public DataTable SelectList(string tabla,string campo)
-        {
-            OdbcDataAdapter dt = sn.selectList(tabla, campo);
-            DataTable table = new DataTable();
-            dt.Fill(table);
-            return table;
-        }
-
-        public void llenarListAplicaciones(string ntabla, DataGridView tabla)
+        //comentado por Jason Ortega 0901-19-22658 25/02/23
+       
+        //comentado por Jason Ortega 0901-19-22658 25/02/23
+        public void llenarListAplicaciones(string ntabla, DataGridView tabla) //Llena la lista de aplicaciones
         {
             OdbcDataAdapter dt = sn.llenarListaAplicaciones(ntabla);
             DataTable table = new DataTable();
             dt.Fill(table);
             tabla.DataSource = table;
         }
-
-        public void llenarListModulo(string ntabla, DataGridView tabla)
+        //comentado por Jason Ortega 0901-19-22658 25/02/23
+        public void llenarListModulo(string ntabla, DataGridView tabla) //Llena la lista de modulos 
         {
             OdbcDataAdapter dt = sn.llenarListaModulos(ntabla);
             DataTable table = new DataTable();
             dt.Fill(table);
             tabla.DataSource = table;
         }
-
-        public void llenarListUsuarios(string ntabla, DataGridView tabla)
+        //comentado por Jason Ortega 0901-19-22658 25/02/23
+        public void llenarListUsuarios(string ntabla, DataGridView tabla) //Llena la lista de usuarios
         {
             OdbcDataAdapter dt = sn.llenarListaUsuarios(ntabla);
             DataTable table = new DataTable();
             dt.Fill(table);
             tabla.DataSource = table;
         }
-
-        public void llenarListApliUsuariosstring(string ntabla, DataGridView tabla,string id)
+        //comentado por Jason Ortega 0901-19-22658 25/02/23
+        public void llenarListApliUsuariosstring(string ntabla, DataGridView tabla,string id) //Llena la lista de aplicacion de usuario
         {
             OdbcDataAdapter dt = sn.llenarListaApliUsuario(ntabla, id);
             DataTable table = new DataTable();
             dt.Fill(table);
             tabla.DataSource = table;
         }
-
-        public void llenarListPerfiles(string ntabla, DataGridView tabla)
+        //comentado por Jason Ortega 0901-19-22658 25/02/23
+        public void llenarListPerfiles(string ntabla, DataGridView tabla) //Llena la lista de perfiles
         {
             OdbcDataAdapter dt = sn.llenarListaPerfiles(ntabla);
             DataTable table = new DataTable();
@@ -412,18 +327,52 @@ namespace Seguridad_Controlador
         }
 
 
-
-        public string llenarPregunta(string username)
+        //comentado por Jason Ortega 0901-19-22658 25/02/23
+        public string llenarPregunta(string username) //devuelve la pregunta de seguridad asociada con el usuario.
         {
             return sn.getPregunta(username);
         }
-
-        public string[] buscarusu(string username)
+        //comentado por Jason Ortega 0901-19-22658 25/02/23
+        
+        public void limpiarTextbox(TextBox[] textBoxes)//Metodo para limpiar textbox
         {
-            return sn.buscarusua(username);
+            for(int x = 0; x < textBoxes.Length; x++)
+            {
+                textBoxes[x].Clear();
+            }
+        }
 
-            string[] men = sn.buscarusua(username);
-            MessageBox.Show(" hola " + men[0]);
+        public void limpiarCheckbox(CheckBox[] checkBoxes)//Metodo para desmarcar checkbox
+        {
+            for (int x = 0; x < checkBoxes.Length; x++)
+            {
+                checkBoxes[x].Checked = false;
+            }
+        }
+
+        public void marcarCheckbox(CheckBox[] checkBoxes)//Metodo para marcar checkbox
+        {
+            for (int x = 0; x < checkBoxes.Length; x++)
+            {
+                checkBoxes[x].Checked = true;
+            }
+        }
+
+        public void desabilitarTextbox(TextBox[] textBoxes)//Metodo para desabilitar textbox
+        {
+            for(int x= 0; x < textBoxes.Length; x++)
+            {
+                textBoxes[x].Visible = false;
+            }
+        }
+
+        public void filtroBitacora(DateTimePicker[] dateTimePickers, DataGridView tabla)
+        {
+            string[] fechas = { dateTimePickers[0].Value.ToString("yyyyMMdd"), dateTimePickers[1].Value.ToString("yyyyMMdd") };
+            OdbcDataAdapter dt = sn.llenarbitacora(fechas);
+            DataTable table = new DataTable();
+            dt.Fill(table);
+            tabla.DataSource = table;
         }
     }
 }

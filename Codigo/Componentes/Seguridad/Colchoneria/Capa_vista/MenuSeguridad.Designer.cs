@@ -463,7 +463,7 @@ namespace Vista_Seguridad
             this.Name = "MenuSeguridad";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuSeguridad";
-            this.Load += new System.EventHandler(this.MenuSeguridad_Load);
+            
             this.panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelTranportes.ResumeLayout(false);

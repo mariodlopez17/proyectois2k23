@@ -47,6 +47,13 @@
     <Reference Include="eCryptography, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Eramake.eCryptography.1.1.6\lib\net45\eCryptography.dll</HintPath>
     </Reference>
+    <Reference Include="FontAwesome.Sharp, Version=6.1.1.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Navegador\Vista\bin\Debug\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="NavegadorVista">
+      <HintPath>..\..\..\Navegador\Vista\bin\Debug\NavegadorVista.dll</HintPath>
+    </Reference>
     <Reference Include="Seguridad_Controlador">
       <HintPath>..\Capa_controlador\bin\Debug\Seguridad_Controlador.dll</HintPath>
     </Reference>
@@ -98,12 +105,6 @@
     <Compile Include="AsignacionPerfiles.Designer.cs">
       <DependentUpon>AsignacionPerfiles.cs</DependentUpon>
     </Compile>
-    <Compile Include="ayudaaplicacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ayudaaplicacion.Designer.cs">
-      <DependentUpon>ayudaaplicacion.cs</DependentUpon>
-    </Compile>
     <Compile Include="AyudaAsignacionAplicacionesPerfiles.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,24 +141,6 @@
     <Compile Include="AyudaMenuSeguridad.Designer.cs">
       <DependentUpon>AyudaMenuSeguridad.cs</DependentUpon>
     </Compile>
-    <Compile Include="AyudaModulo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AyudaModulo.Designer.cs">
-      <DependentUpon>AyudaModulo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AyudaPerfiles.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AyudaPerfiles.Designer.cs">
-      <DependentUpon>AyudaPerfiles.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ayudausuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ayudausuario.Designer.cs">
-      <DependentUpon>ayudausuario.cs</DependentUpon>
-    </Compile>
     <Compile Include="Bitacora.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,12 +158,6 @@
     </Compile>
     <Compile Include="Contrase.Designer.cs">
       <DependentUpon>Contrase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ListAplicaciones.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ListAplicaciones.Designer.cs">
-      <DependentUpon>ListAplicaciones.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -206,12 +183,6 @@
     <Compile Include="Modulos.Designer.cs">
       <DependentUpon>Modulos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Navegador_seg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Navegador_seg.Designer.cs">
-      <DependentUpon>Navegador_seg.cs</DependentUpon>
-    </Compile>
     <Compile Include="Perfiles.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -223,12 +194,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="prueba.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="prueba.Designer.cs">
-      <DependentUpon>prueba.cs</DependentUpon>
     </Compile>
     <Compile Include="recuperacion.cs">
       <SubType>Form</SubType>
@@ -265,9 +230,6 @@
     <EmbeddedResource Include="AsignacionPerfiles.resx">
       <DependentUpon>AsignacionPerfiles.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ayudaaplicacion.resx">
-      <DependentUpon>ayudaaplicacion.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AyudaAsignacionAplicacionesPerfiles.resx">
       <DependentUpon>AyudaAsignacionAplicacionesPerfiles.cs</DependentUpon>
     </EmbeddedResource>
@@ -286,15 +248,6 @@
     <EmbeddedResource Include="AyudaMenuSeguridad.resx">
       <DependentUpon>AyudaMenuSeguridad.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AyudaModulo.resx">
-      <DependentUpon>AyudaModulo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AyudaPerfiles.resx">
-      <DependentUpon>AyudaPerfiles.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ayudausuario.resx">
-      <DependentUpon>ayudausuario.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Bitacora.resx">
       <DependentUpon>Bitacora.cs</DependentUpon>
     </EmbeddedResource>
@@ -303,9 +256,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Contrase.resx">
       <DependentUpon>Contrase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ListAplicaciones.resx">
-      <DependentUpon>ListAplicaciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -319,18 +269,12 @@
     <EmbeddedResource Include="Modulos.resx">
       <DependentUpon>Modulos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Navegador_seg.resx">
-      <DependentUpon>Navegador_seg.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Perfiles.resx">
       <DependentUpon>Perfiles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="prueba.resx">
-      <DependentUpon>prueba.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="recuperacion.resx">
       <DependentUpon>recuperacion.cs</DependentUpon>
