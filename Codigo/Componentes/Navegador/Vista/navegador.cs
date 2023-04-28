@@ -1,4 +1,5 @@
-﻿using System;
+﻿//Revisado por Ester Lopez fecha 26/02/2023
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,9 +17,10 @@ namespace NavegadorVista
     public partial class Navegador : UserControl
     {
         
-        csControlador cn = new csControlador();
+        //Se cambio los nombres de las variables para que sean más clara la referencia
+        csControlador conexionControlador = new csControlador();
 
-        Seguridad_Controlador.Controlador cnseg = new Seguridad_Controlador.Controlador();
+        Seguridad_Controlador.Controlador conexionSeguridad = new Seguridad_Controlador.Controlador();
         public Navegador()
         {
             InitializeComponent();
@@ -56,16 +58,14 @@ namespace NavegadorVista
             IconButton[] botongc = {btnInsert, btnModificar, btnDelete, btnUpdate, btnConsultar, btnReporte, btnNext,
                 btnBack,btnStart,btnEnd
             };
-           
-            cn.evaluartabla(dtabla);
-            cn.inicializargrid(dtabla);
-            cn.llenartablainicio(dtabla.Tag.ToString(), dtabla, text);
-            cn.evaluartags(text, dtabla, BD);
-            cn.desactivar(actual);
-            bloqStart(botongc);
-            /*cn.bloqueobtn(botongc);*/
-            
 
+            conexionControlador.evaluartabla(dtabla);
+            conexionControlador.inicializargrid(dtabla);
+            conexionControlador.llenartablainicio(dtabla.Tag.ToString(), dtabla, text);
+            conexionControlador.evaluartags(text, dtabla, BD);
+            conexionControlador.desactivar(actual);
+            bloqStart(botongc);
+            
 
         }
         public void bloqEnd(IconButton[] botongc3)
@@ -82,7 +82,7 @@ namespace NavegadorVista
                 botongc[i].Enabled = false;
             }
             
-            int[] permisos= cnseg.getPermisosAplicaion(idApp);
+            int[] permisos= conexionSeguridad.getPermisosAplicaion(idApp);
             if (permisos[0] == 1)//Guardar
             {
                 botongc[0].Enabled = true;
@@ -136,35 +136,35 @@ namespace NavegadorVista
         private void ComponenteNavegador_Load(object sender, EventArgs e)
         {
             IconButton[] botongc = { btnSave, btnCancelar };
-            cn.bloquearbotonesGC(botongc, true);
+            conexionControlador.bloquearbotonesGC(botongc, true);
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            cn.moverseIF(tabla, "b");
-            cn.llenartxt(textbox, tabla);
-            cn.desactivar(actual);
+            conexionControlador.moverseIF(tabla, "b");
+            conexionControlador.llenartxt(textbox, tabla);
+            conexionControlador.desactivar(actual);
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            cn.moverseIF(tabla, "s");
-            cn.llenartxt(textbox, tabla);
-            cn.desactivar(actual);
+            conexionControlador.moverseIF(tabla, "s");
+            conexionControlador.llenartxt(textbox, tabla);
+            conexionControlador.desactivar(actual);
         }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            cn.moverseIF(tabla, "i");
-            cn.llenartxt(textbox, tabla);
-            cn.desactivar(actual);
+            conexionControlador.moverseIF(tabla, "i");
+            conexionControlador.llenartxt(textbox, tabla);
+            conexionControlador.desactivar(actual);
         }
 
         private void btnEnd_Click(object sender, EventArgs e)
         {
-            cn.moverseIF(tabla, "f");
-            cn.llenartxt(textbox, tabla);
-            cn.desactivar(actual);
+            conexionControlador.moverseIF(tabla, "f");
+            conexionControlador.llenartxt(textbox, tabla);
+            conexionControlador.desactivar(actual);
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
@@ -175,10 +175,10 @@ namespace NavegadorVista
             };
             bloqEnd(botongc3);
             opcion = 1;
-            cn.limpiar(actual);
-            cn.activar(actual);
-            cn.crearid(textboxi, tabla);
-            cn.bloquearbotonesGC(botongc, false);
+            conexionControlador.limpiar(actual);
+            conexionControlador.activar(actual);
+            conexionControlador.crearid(textboxi, tabla);
+            conexionControlador.bloquearbotonesGC(botongc, false);
             
 
 
@@ -187,11 +187,11 @@ namespace NavegadorVista
         private void btnDelete_Click(object sender, EventArgs e)
         {
             opcion = 3;
-            int permiso = cn.comprobacionvacio(tabla);
+            int permiso = conexionControlador.comprobacionvacio(tabla);
             if (permiso != 0)
             {
                 IconButton[] botongc = { btnSave, btnCancelar };
-                cn.bloquearbotonesGC(botongc, false);
+                conexionControlador.bloquearbotonesGC(botongc, false);
                 IconButton[] botongc3 = {btnInsert, btnModificar, btnDelete, btnUpdate, btnConsultar, btnReporte, btnNext,
                 btnBack,btnStart,btnEnd
             };
@@ -202,13 +202,13 @@ namespace NavegadorVista
         private void btnModificar_Click(object sender, EventArgs e)
         {
             opcion = 2;
-            int permiso = cn.comprobacionvacio(tabla);
+            int permiso = conexionControlador.comprobacionvacio(tabla);
             if(permiso != 0)
             {
-                cn.activar(actual);
-                cn.enfocar(textboxi);
+                conexionControlador.activar(actual);
+                conexionControlador.enfocar(textboxi);
                 IconButton[] botongc = { btnSave, btnCancelar };
-                cn.bloquearbotonesGC(botongc, false);
+                conexionControlador.bloquearbotonesGC(botongc, false);
                 IconButton[] botongc3 = {btnInsert, btnModificar, btnDelete, btnUpdate, btnConsultar, btnReporte, btnNext,
                 btnBack,btnStart,btnEnd
             };
@@ -223,17 +223,15 @@ namespace NavegadorVista
            
             if (opcion == 1)
             {
-                cn.ingresar(textbox, tabla, botongc, idApp, actual);
+                conexionControlador.ingresar(textbox, tabla, botongc, idApp, actual);
                 IconButton[] botongc2 = {btnInsert, btnModificar, btnDelete, btnUpdate, btnConsultar, btnReporte, btnNext,
                 btnBack,btnStart,btnEnd
                 };
                 bloqStart(botongc2);
-
-                //cn.bloquearbotonesGC(botongc, true);
             }
             else if (opcion == 2)
             {
-                cn.actualizar(textbox, tabla, botongc, idApp, actual);
+                conexionControlador.actualizar(textbox, tabla, botongc, idApp, actual);
                 IconButton[] botongc2 = {btnInsert, btnModificar, btnDelete, btnUpdate, btnConsultar, btnReporte, btnNext,
                 btnBack,btnStart,btnEnd
                 };
@@ -245,8 +243,8 @@ namespace NavegadorVista
                 DialogResult resultado = MessageBox.Show("Desea eliminar el Resgistro", "Eliminar", MessageBoxButtons.YesNo);
                 if(resultado == DialogResult.Yes)
                 {
-                    
-                    cn.delete(textbox, tabla, botongc, idApp, actual);
+
+                    conexionControlador.delete(textbox, tabla, botongc, idApp, actual);
                     IconButton[] botongc2 = {btnInsert, btnModificar, btnDelete, btnUpdate, btnConsultar, btnReporte, btnNext,
                     btnBack,btnStart,btnEnd
                     };
@@ -256,10 +254,10 @@ namespace NavegadorVista
                 else if(resultado == DialogResult.No)
                 {
 
-                    cn.limpiar(actual);
-                    cn.desactivar(actual);
-                    cn.llenartxt(textbox, tabla);
-                    cn.bloquearbotonesGC(botongc, true);
+                    conexionControlador.limpiar(actual);
+                    conexionControlador.desactivar(actual);
+                    conexionControlador.llenartxt(textbox, tabla);
+                    conexionControlador.bloquearbotonesGC(botongc, true);
                 }
                
             }
@@ -267,11 +265,11 @@ namespace NavegadorVista
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            cn.limpiar(actual);
-            cn.desactivar(actual);
-            cn.llenartxt(textbox, tabla);
+            conexionControlador.limpiar(actual);
+            conexionControlador.desactivar(actual);
+            conexionControlador.llenartxt(textbox, tabla);
             IconButton[] botongc = { btnSave, btnCancelar };
-            cn.bloquearbotonesGC(botongc, true);
+            conexionControlador.bloquearbotonesGC(botongc, true);
             opcion = 0;
             IconButton[] botongc2 = {btnInsert, btnModificar, btnDelete, btnUpdate, btnConsultar, btnReporte, btnNext,
                 btnBack,btnStart,btnEnd
@@ -282,8 +280,8 @@ namespace NavegadorVista
         private void btnUpdate_Click(object sender, EventArgs e)
         {
 
-            cn.llenartablainicio(tabla.Tag.ToString(), tabla, textbox);
-            cn.moverseIF(tabla, "i");
+            conexionControlador.llenartablainicio(tabla.Tag.ToString(), tabla, textbox);
+            conexionControlador.moverseIF(tabla, "i");
         }
 
         private void btnHelp_Click(object sender, EventArgs e)
@@ -296,7 +294,7 @@ namespace NavegadorVista
         private void btnConsultar_Click(object sender, EventArgs e)
         {
             consulta();
-            cnseg.setBtitacora(idApp, "Consulta");
+            conexionSeguridad.setBtitacora(idApp, "Consulta");
             
 
 
@@ -305,21 +303,13 @@ namespace NavegadorVista
 
         private void btnReporte_Click(object sender, EventArgs e)
         {
-            cnseg.setBtitacora(idApp, "Reportes");
+            conexionSeguridad.setBtitacora(idApp, "Reportes");
             Report();
-            /*CapaVista.Consulta rp = new CapaVista.Consulta();
-            rp.Show();*/
-            //Reportes.Vista cr = new Reportes.Vista();
-            /*
-             * Form 'fcr' = new 'cr.BusquedaAvanzada';
-             */
         }
 
         public void Report()
         {
-            
-            cn.reporte(idApp);
-
+            conexionControlador.reporte(idApp);
         }
     }
 }

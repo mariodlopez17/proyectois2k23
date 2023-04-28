@@ -1,4 +1,5 @@
-﻿using System;
+﻿//Revisado por Rene Alexander Fecha 26/02/2023
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,13 +22,13 @@ namespace NavegadorModelo
             }
             catch (OdbcException)
             {
-                Console.WriteLine("No Conectó");
+                Console.WriteLine("Sin conexión");
             }
             return conn;
         }
 
         //metodo para cerrar la conexion
-        public void desconexion(OdbcConnection conn)
+        public void cerrar_conexion(OdbcConnection conn)
         {
             try
             {
@@ -35,7 +36,7 @@ namespace NavegadorModelo
             }
             catch (OdbcException)
             {
-                Console.WriteLine("No Conectó");
+                Console.WriteLine("conexion cerrada");
             }
         }
     }
