@@ -30,94 +30,94 @@ namespace CapaVistaReporteria
         private void InitializeComponent()
         {
             this.Nombre = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_nombre = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.tabla_registro = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.tabla_registro)).BeginInit();
+            this.btn_VerReporte = new System.Windows.Forms.Button();
+            this.tbl_regreporteria = new System.Windows.Forms.DataGridView();
+            this.txt_ruta = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.tbl_regreporteria)).BeginInit();
             this.SuspendLayout();
             // 
             // Nombre
             // 
             this.Nombre.AutoSize = true;
-            this.Nombre.Location = new System.Drawing.Point(50, 48);
+            this.Nombre.Location = new System.Drawing.Point(56, 9);
+            this.Nombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Nombre.Name = "Nombre";
-            this.Nombre.Size = new System.Drawing.Size(44, 13);
+            this.Nombre.Size = new System.Drawing.Size(65, 20);
             this.Nombre.TabIndex = 0;
             this.Nombre.Text = "Nombre";
             // 
-            // textBox1
+            // txt_nombre
             // 
-            this.textBox1.Location = new System.Drawing.Point(106, 41);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(180, 20);
-            this.textBox1.TabIndex = 1;
+            this.txt_nombre.Location = new System.Drawing.Point(129, 9);
+            this.txt_nombre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_nombre.Name = "txt_nombre";
+            this.txt_nombre.Size = new System.Drawing.Size(268, 26);
+            this.txt_nombre.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(292, 41);
+            this.button1.Location = new System.Drawing.Point(405, 8);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(112, 35);
             this.button1.TabIndex = 2;
             this.button1.Text = "Buscar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btn_VerReporte
             // 
-            this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(373, 41);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Ver reporte";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btn_VerReporte.Enabled = false;
+            this.btn_VerReporte.Location = new System.Drawing.Point(732, 9);
+            this.btn_VerReporte.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_VerReporte.Name = "btn_VerReporte";
+            this.btn_VerReporte.Size = new System.Drawing.Size(112, 35);
+            this.btn_VerReporte.TabIndex = 3;
+            this.btn_VerReporte.Text = "Ver reporte";
+            this.btn_VerReporte.UseVisualStyleBackColor = true;
+            this.btn_VerReporte.Click += new System.EventHandler(this.button2_Click);
             // 
-            // textBox2
+            // tbl_regreporteria
             // 
-            this.textBox2.Location = new System.Drawing.Point(86, 12);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(255, 20);
-            this.textBox2.TabIndex = 5;
-            this.textBox2.Visible = false;
+            this.tbl_regreporteria.AllowUserToAddRows = false;
+            this.tbl_regreporteria.AllowUserToDeleteRows = false;
+            this.tbl_regreporteria.AllowUserToOrderColumns = true;
+            this.tbl_regreporteria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tbl_regreporteria.Location = new System.Drawing.Point(60, 53);
+            this.tbl_regreporteria.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbl_regreporteria.Name = "tbl_regreporteria";
+            this.tbl_regreporteria.ReadOnly = true;
+            this.tbl_regreporteria.RowHeadersWidth = 62;
+            this.tbl_regreporteria.Size = new System.Drawing.Size(888, 523);
+            this.tbl_regreporteria.TabIndex = 8;
+            this.tbl_regreporteria.DoubleClick += new System.EventHandler(this.tabla_registro_DoubleClick);
             // 
-            // textBox3
+            // txt_ruta
             // 
-            this.textBox3.Location = new System.Drawing.Point(440, 12);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 7;
-            this.textBox3.Visible = false;
-            // 
-            // tabla_registro
-            // 
-            this.tabla_registro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tabla_registro.Location = new System.Drawing.Point(40, 83);
-            this.tabla_registro.Name = "tabla_registro";
-            this.tabla_registro.Size = new System.Drawing.Size(592, 291);
-            this.tabla_registro.TabIndex = 8;
-            this.tabla_registro.DoubleClick += new System.EventHandler(this.tabla_registro_DoubleClick);
+            this.txt_ruta.Location = new System.Drawing.Point(524, 12);
+            this.txt_ruta.Name = "txt_ruta";
+            this.txt_ruta.Size = new System.Drawing.Size(201, 26);
+            this.txt_ruta.TabIndex = 9;
             // 
             // reporteria_usuario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(247)))), ((int)(((byte)(253)))));
-            this.ClientSize = new System.Drawing.Size(683, 400);
-            this.Controls.Add(this.tabla_registro);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(1024, 615);
+            this.Controls.Add(this.txt_ruta);
+            this.Controls.Add(this.tbl_regreporteria);
+            this.Controls.Add(this.btn_VerReporte);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_nombre);
             this.Controls.Add(this.Nombre);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "reporteria_usuario";
             this.Text = "reporteria_usuario";
             this.Load += new System.EventHandler(this.reporteria_usuario_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.tabla_registro)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbl_regreporteria)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,11 +126,10 @@ namespace CapaVistaReporteria
         #endregion
 
         private System.Windows.Forms.Label Nombre;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_nombre;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.DataGridView tabla_registro;
+        private System.Windows.Forms.Button btn_VerReporte;
+        private System.Windows.Forms.DataGridView tbl_regreporteria;
+        private System.Windows.Forms.TextBox txt_ruta;
     }
 }

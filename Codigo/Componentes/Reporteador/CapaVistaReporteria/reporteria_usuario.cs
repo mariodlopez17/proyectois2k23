@@ -7,32 +7,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+
 
 namespace CapaVistaReporteria
 {
     public partial class reporteria_usuario : Form
     {
-        string connectionString = @"Server=colchoneria.mysql.database.azure.com;Database=colchoneria;Uid=administrador;Pwd=Jm123456;";
-        int idregistro = 0;
+        CapaControladorReporteria.Controlador controlador = new CapaControladorReporteria.Controlador();
+        String estado = "";
+
         public reporteria_usuario()
         {
             InitializeComponent();
+            actualizarVistaReportes();
+        }
+
+        private void actualizarVistaReportes()
+        {
+            //mostramos todos los reportes que hay en la base de datos y la desplegamos
+            DataTable data = controlador.MostrarReportes();
+            tbl_regreporteria.DataSource = data;
+            tbl_regreporteria.Columns[0].HeaderText = "Id";
+            tbl_regreporteria.Columns[1].HeaderText = "Ruta";
+            tbl_regreporteria.Columns[2].HeaderText = "Nombre";
+            tbl_regreporteria.Columns[3].HeaderText = "Aplicación";
+            tbl_regreporteria.Columns[4].HeaderText = "Estado";
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            using (MySqlConnection mysqlCon = new MySqlConnection(connectionString))
-            {
-                mysqlCon.Open();
-                MySqlDataAdapter sqlDa = new MySqlDataAdapter("pa_registro_buscarvalor", mysqlCon);
-                sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
-                sqlDa.SelectCommand.Parameters.AddWithValue("_valorbuscar", textBox1.Text);
-                DataTable dtbregistro = new DataTable();
-                sqlDa.Fill(dtbregistro);
-                tabla_registro.DataSource = dtbregistro;
-                tabla_registro.Columns[0].Visible = true;
-            }
+            //mostramos todos los reportes que hay en la base de datos segun lo introducido en el textbox y la desplegamos
+            DataTable data = controlador.queryReporteria(txt_nombre);
+            tbl_regreporteria.DataSource = data;
         }
 
         private void reporteria_usuario_Load(object sender, EventArgs e)
@@ -42,24 +48,33 @@ namespace CapaVistaReporteria
 
         private void tabla_registro_DoubleClick(object sender, EventArgs e)
         {
-            button2.Enabled = true;
-            if (tabla_registro.CurrentRow.Index != -1)
-                textBox3.Text = tabla_registro.CurrentRow.Cells[4].Value.ToString();
-            textBox1.Text = tabla_registro.CurrentRow.Cells[2].Value.ToString();
-            textBox2.Text = tabla_registro.CurrentRow.Cells[1].Value.ToString();
-            idregistro = Convert.ToInt32(tabla_registro.CurrentRow.Cells[0].Value.ToString());
+            //se habilita la funcion de modificar y eliminar para el reporte seleccionado 
+            if (tbl_regreporteria.CurrentRow.Index != -1)
+            {
+                txt_nombre.Text = tbl_regreporteria.CurrentRow.Cells[2].Value.ToString();
+                txt_ruta.Text = tbl_regreporteria.CurrentRow.Cells[1].Value.ToString();
+                estado = tbl_regreporteria.CurrentRow.Cells[4].Value.ToString().ToLower();
+
+                if (estado.Equals("visible"))
+                {
+                    btn_VerReporte.Enabled = true;
+                }
+                else
+                {
+                    btn_VerReporte.Enabled = false;
+                }
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string disp;
-            disp = Convert.ToString(textBox3.Text);
-            if (disp == "Visible")
-            {
 
-                string r = textBox2.Text;
-                visualizar b = new visualizar(r);
-                b.Show();
+            //si el reporte tiene estado visible entonces se ejecuta otra forma para mostrar el reporte
+            if (estado.Equals("visible"))
+            {
+                string ruta = txt_ruta.Text;
+                visualizar newFormVisualizar = new visualizar(ruta);
+                newFormVisualizar.Show();
             }
             else
             {
