@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cobro_Facturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cobro_Facturas.Designer.cs">
+      <DependentUpon>Cobro_Facturas.cs</DependentUpon>
+    </Compile>
     <Compile Include="CPC_MDI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Cobro_Facturas.resx">
+      <DependentUpon>Cobro_Facturas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CPC_MDI.resx">
       <DependentUpon>CPC_MDI.cs</DependentUpon>
     </EmbeddedResource>
