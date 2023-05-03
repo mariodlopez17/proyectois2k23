@@ -8,6 +8,7 @@ using System.Data.Odbc;
 using System.Data;
 using System.Windows.Forms;
 
+//Capa controlador comentado por azael sierra
 namespace Capa_ControladorConsultas 
 {
     public class csControldor
@@ -15,7 +16,7 @@ namespace Capa_ControladorConsultas
         Sentencias sn = new Sentencias();
         //rellena tabla controlador
 
-        //datagread
+        //rellena el datadridview con datos de la tabla tbl_consultainteligente
         public DataTable llenartb2()
         {
             string consulta = "select * from tbl_consultainteligente";
@@ -23,6 +24,19 @@ namespace Capa_ControladorConsultas
             DataTable table = new DataTable();
             dt.Fill(table);
             return table;
+        }
+        //rellena el datadridview con datos de la tabla tbl_consultainteligente en donde el nombre de consulta es la variable "condicion"
+        public void CargarTablas(ComboBox comboBox1, string BD)
+        {
+            OdbcDataAdapter dt = sn.buscartbl(BD);
+            DataTable table = new DataTable();
+            dt.Fill(table);
+            int contador = 0;
+            comboBox1.Items.Clear();
+            foreach (DataRow Row in table.Rows) { 
+                comboBox1.Items.Add(table.Rows[contador][0].ToString());
+                contador++;
+            }
         }
         public DataTable llenartb3(string condicion)
         {
@@ -33,14 +47,14 @@ namespace Capa_ControladorConsultas
             return table;
         }
 
-
+        //elimina una columna de la tabla tbl_consultainteligente en donde el nombre de consulta es la variable "condicion"
         public void ejecutarconsulta(string condicion)
         {
             string sql = "DELETE FROM tbl_consultainteligente where nombre_consulta = " + '"' + condicion + '"' + ";";
             Console.WriteLine(sql);
             sn.insertarconsulta(sql);
         }
-
+        //edita una tabla con los datos especificados
         public void editarconsulta(string nombre_consulta, string tabla_consulta, string campos_consulta, string alias_consulta)
         {
             string sql = "update" +
@@ -48,25 +62,10 @@ namespace Capa_ControladorConsultas
             Console.WriteLine(sql);
             sn.insertarconsulta(sql);
         }
-
+        
         //Josue Amaya
-        public DataTable BuscarBA(string tableN, DataTable dt)
-        {
-            OdbcConnection con = new OdbcConnection("Dsn=Colchoneria");
-            try
-            {
-                con.Open();
-                string cadena = " SELECT  * FROM " + tableN;
-                OdbcDataAdapter datos = new OdbcDataAdapter(cadena, con);
-                datos.Fill(dt);
-            }
-            catch
-            {
-            }
-            con.Close();
-            return dt;
-        }
-
+        
+        //Edita la tabla tbl_consultainteligente1 con los datos especificos
         public void editarconsulta1(string operador_consulta, string campos_consultas, string valor_consultas, string PkId)
         {
             string sql = "update" +
@@ -74,7 +73,7 @@ namespace Capa_ControladorConsultas
             Console.WriteLine(sql);
             sn.insertarconsulta(sql);
         }
-
+        //Edita la tabla tbl_consultainteligente2 con los datos especificos
         public void editarconsulta2(string ordernar_consulta, string campo_consulta)
         {
             string sql = "update" +
@@ -91,39 +90,6 @@ namespace Capa_ControladorConsultas
             sn.insertarconsulta(sql);
         }
 
-
-        //jonathan Xuya 
-        OdbcConnection con = new OdbcConnection("FIL=MS Acces;DSN=colchoneria");
-        public bool InsertBusqueda(string _nomb, string _cons, string _area, string _camp, string _cadena, string _IDE)
-        {
-            using (con)
-            {
-                OdbcCommand cmd = new OdbcCommand();
-                con.Open();
-                cmd.Connection = con;
-
-                #region Query
-                String query = @"INSERT INTO tbl_consultainteligente
-                (nombre_consulta,tabla_consulta,campos_consultas,alias_consultas,cadena_consultas,  Pk_Id) VALUE(?,?,?,?,?,?);";
-                #endregion
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = query;
-
-                cmd.Parameters.Add("@nombre_consulta", OdbcType.VarChar).Value = _nomb;
-                cmd.Parameters.Add("@tabla_consulta", OdbcType.VarChar).Value = _cons;
-                cmd.Parameters.Add("@campos_consultas", OdbcType.VarChar).Value = _area;
-                cmd.Parameters.Add("@alias_consultas", OdbcType.VarChar).Value = _camp;
-                cmd.Parameters.Add("@cadena_consultas", OdbcType.VarChar).Value = _cadena;
-                cmd.Parameters.Add("@Pk_Id", OdbcType.Int).Value = _IDE;
-
-
-                cmd.ExecuteNonQuery();
-                con.Close();
-            }
-            return true;
-        }
-
-        //Josue Amaya
         public DataTable BuscarPor(string datobuscar, string buscaren, string tableN, DataTable dt, Label lbl_cadena)
         {
             OdbcConnection con = new OdbcConnection("Dsn=Colchoneria");
@@ -159,78 +125,81 @@ namespace Capa_ControladorConsultas
             return dt;
         }
 
-        public bool InsertBusquedaCompleja(string _ope, string _camp, string _valo, string _IDE)
+        //Cambios Azael y Mario agregar y modificar
+        public void ingresar(string[] tipos, string [] datos, string tabla)//Crea cadenas de datos para la insercion
         {
-
-            using (con)
-            {
-                OdbcCommand cmda = new OdbcCommand();
-                con.Open();
-                cmda.Connection = con;
-
-                #region Query
-
-
-                String query = @"INSERT INTO tbl_consultainteligente1 (operador_consulta,campos_consulta,valor_consultas,PkId) VALUE(?,?,?,?);";
-
-                #endregion
-                cmda.CommandType = CommandType.Text;
-                cmda.CommandText = query;
-                cmda.Parameters.Add("@operador_consulta", OdbcType.VarChar).Value = _ope;
-                cmda.Parameters.Add("@campos_consulta", OdbcType.VarChar).Value = _camp;
-                cmda.Parameters.Add("@valor_consultas", OdbcType.VarChar).Value = _valo;
-                cmda.Parameters.Add("@PkId", OdbcType.Int).Value = _IDE;
-
-
-                cmda.ExecuteNonQuery();
-                con.Close();
-            }
-            return true;
-        }
-        public bool InsertBusquedaCompleja1(string _camp, string _IDE ,string _ope )
-        {
-            using (con)
-            {
-                OdbcCommand cmd = new OdbcCommand();
-                con.Open();
-                cmd.Connection = con;
-
-                #region Query
-                String query = @"INSERT INTO tbl_consultainteligente2 (ordenar_consulta, campo_consulta,PkId) VALUE(?,?,?);";
-                #endregion
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = query;                
-                cmd.Parameters.Add("@ordenar_consulta", OdbcType.VarChar).Value = _camp;
-                cmd.Parameters.Add("@campo_consulta", OdbcType.VarChar).Value = _IDE;
-                cmd.Parameters.Add("@PkId", OdbcType.Int).Value = _ope;
-                cmd.ExecuteNonQuery();
-                con.Close();
-            }
-            return true;
-        }
-        public DataTable Nconsultas(DataTable dt2)
-        {
-            OdbcConnection conx = new OdbcConnection("Dsn = Colchoneria");
             try
             {
-                conx.Open();
-                OdbcCommand comand = new OdbcCommand();
-                comand.Connection = conx;
-                comand.CommandType = CommandType.Text;
-                string cadena = "SELECT nombre_consulta FROM tbl_consultainteligente";
-                comand.CommandText = cadena;
-                OdbcDataAdapter datos = new OdbcDataAdapter(comand);
-                datos.Fill(dt2);
-                conx.Close();
-            }
-            catch
-            {
+                    string dato = " ";
+                    string tipo = " ";
+                    for (int x = 0; x < datos.Length; x++)
+                    {
 
+                        if (x == datos.Length - 1)
+                        {
+                            dato += "'" + datos[x] + "'";
+                            tipo += tipos[x];
+                        }
+                        else
+                        {
+                            dato += "'" + datos[x] + "',";
+                            tipo += tipos[x] + ",";
+                        }
+
+                    }
+                    sn.insertar(dato, tipo, tabla);
+
+                    MessageBox.Show("Dato Insertado");
+                    
             }
-            return (dt2);
+            catch (Exception e)
+            {
+                MessageBox.Show("Error: " + e);
+            }
+
         }
 
-        
+        public void actualizar(string[] tipos, string[] datos, string tabla, TextBox id)//Crea cadenas de datos para la actualizacion
+        {
+            try
+            {
+                        string dato = " ";
+                        string condicion = "(" + id.Tag.ToString() + " = '" + id.Text + "')";
+
+                        for (int x = 1; x < tipos.Length; x++)
+                        {
+
+                            if (x == tipos.Length - 1)
+                            {
+                                dato += " " + tipos[x] + " = '" + datos[x] + "' ";
+
+                            }
+                            else if (x == 1)
+                            {
+                                dato += "SET " + tipos[x] + " = '" + datos[x] + "', ";
+
+                            }
+                            else
+                            {
+                                dato += " " + tipos[x] + " = '" + datos[x] + "', ";
+
+                            }
+
+                        }
+                        sn.actualizar(dato, condicion, tabla);
+                        
+                        MessageBox.Show("Dato actualizado");             
+               
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error: " + e);
+            }
+
+
+
+        }
+
 
     }
 }
