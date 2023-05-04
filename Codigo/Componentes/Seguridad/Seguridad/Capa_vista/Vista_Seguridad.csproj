@@ -31,18 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CapaVistaNomina, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Modulos\Nominas\MDI_Nominas\CapaVistaNomina\bin\Debug\CapaVistaNomina.dll</HintPath>
-    </Reference>
-    <Reference Include="CapaVistaProduccion">
-      <HintPath>..\..\..\..\Modulos\Produccion\CapaVista\bin\Debug\CapaVistaProduccion.dll</HintPath>
-    </Reference>
-    <Reference Include="Capa_VistaContabilidad">
-      <HintPath>..\..\..\..\Modulos\Contabilidad\Capa_VistaContabilidad\bin\Debug\Capa_VistaContabilidad.dll</HintPath>
-    </Reference>
-    <Reference Include="ComprasVista">
-      <HintPath>..\..\..\..\Modulos\Administracion\Vista\bin\Debug\ComprasVista.dll</HintPath>
+    <Reference Include="CPC_Vista">
+      <HintPath>..\..\..\..\Modulos\CuentasXCobrar\CPC_Vista\bin\Debug\CPC_Vista.dll</HintPath>
     </Reference>
     <Reference Include="CxPVista">
       <HintPath>..\..\..\..\Modulos\CxP\CxP\CxPVista\bin\Debug\CxPVista.dll</HintPath>
@@ -54,7 +44,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Navegador\Vista\bin\Debug\FontAwesome.Sharp.dll</HintPath>
     </Reference>
-    <Reference Include="NavegadorVista">
+    <Reference Include="NavegadorVista, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Navegador\Vista\bin\Debug\NavegadorVista.dll</HintPath>
     </Reference>
     <Reference Include="Seguridad_Controlador">
