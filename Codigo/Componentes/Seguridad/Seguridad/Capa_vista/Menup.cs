@@ -20,17 +20,16 @@ namespace Vista_Seguridad
         {
             InitializeComponent();
 
-            Button[] apps = { btnseguridad, btlogistica, btncompras, btnProduccion, btnnominas, btnBancos, btnContabilidad};
+            Button[] apps = { btnseguridad, btnVentas, btncompras, btnCxC, btnCxP};
             cn.deshabilitarApps(apps);
 
             cn.getAccesoApp(1000, apps[0]);
             cn.getAccesoApp(2000, apps[1]);
             cn.getAccesoApp(3000, apps[2]);
-            cn.getAccesoApp(5000, apps[3]);
-            cn.getAccesoApp(6000, apps[4]);
-            cn.getAccesoApp(7000, apps[5]);
-            cn.getAccesoApp(8000, apps[6]);
-           
+            cn.getAccesoApp(4000, apps[3]);
+            cn.getAccesoApp(5000, apps[4]);
+
+
 
         }
         //Método que ingresa un valor a la bitacora de acuerdo el módulo
@@ -46,7 +45,7 @@ namespace Vista_Seguridad
         {
             /*VistaLogistica.Menu b = new VistaLogistica.Menu();
               b.Show();
-            cn.setBtitacora("2000", "Ingreso Logistica");*/
+            cn.setBtitacora("2000", "Ingreso Ventas");*/
         }
         //Método que ingresa un valor a la bitacora de acuerdo el módulo
         private void btnLogout_Click_1(object sender, EventArgs e)
@@ -68,29 +67,16 @@ namespace Vista_Seguridad
         {
             /*CapaVistaProduccion.inicio b = new CapaVistaProduccion.inicio();
            b.Show();*/
-            cn.setBtitacora("5000", "Ingreso Produccion");
+            cn.setBtitacora("4000", "Ingreso CxC");
         }
         //Método que ingresa un valor a la bitacora de acuerdo el módulo
         private void btnnominas_Click(object sender, EventArgs e)
         {
-           /* CapaVistaNomina.MenuPrincipal b = new CapaVistaNomina.MenuPrincipal();
-            b.Show();*/
-            cn.setBtitacora("6000", "Ingreso Nominas");
+            /*CxPVista.MDICuentasPorPagar b = new CxPVista.MDICuentasPorPagar();
+            b.Show();
+            cn.setBtitacora("5000", "Ingreso CxP");*/
         }
         //Método que ingresa un valor a la bitacora de acuerdo el módulo
-        private void btnBancos_Click(object sender, EventArgs e)
-        {
-           /*Vista_Bancos.Banco_Form b = new Vista_Bancos.Banco_Form();
-           b.Show();*/
-           cn.setBtitacora("7000", "Ingreso Bancos");
-        }
-
-        //Método que ingresa un valor a la bitacora de acuerdo el módulo
-        private void btnContabilidad_Click(object sender, EventArgs e)
-        {
-           /*Capa_VistaContabilidad.Nuevo_MDI b = new Capa_VistaContabilidad.Nuevo_MDI();
-           b.Show();*/
-            cn.setBtitacora("8000", "Ingreso Contabilidad");
-        }
+       
     }
 }
