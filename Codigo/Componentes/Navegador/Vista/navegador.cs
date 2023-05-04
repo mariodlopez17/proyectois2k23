@@ -39,7 +39,7 @@ namespace NavegadorVista
 
             bs.tableN1 = tablan2;
             Console.WriteLine(tablan2);
-            bs.BuscarT();
+            //bs.BuscarT();
             bs.Show();
            
             Console.WriteLine(bs.tableN1);
