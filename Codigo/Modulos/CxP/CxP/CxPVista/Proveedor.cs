@@ -12,11 +12,11 @@ namespace CxPVista
 {
     public partial class Proveedor : Form
     {
-
         public Proveedor()
         {
             InitializeComponent();
         }
+
 
         private void navegador1_Load(object sender, EventArgs e)
         {
