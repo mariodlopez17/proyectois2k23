@@ -30,11 +30,11 @@ namespace CxPVista
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtestado = new System.Windows.Forms.TextBox();
+            this.txtcambio = new System.Windows.Forms.TextBox();
+            this.txtabreviatura = new System.Windows.Forms.TextBox();
+            this.txtnombre = new System.Windows.Forms.TextBox();
+            this.txtid = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,46 +51,52 @@ namespace CxPVista
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(554, 226);
             this.dataGridView1.TabIndex = 31;
+            this.dataGridView1.Tag = "tbl_moneda";
             // 
-            // textBox7
+            // txtestado
             // 
-            this.textBox7.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
-            this.textBox7.Location = new System.Drawing.Point(409, 242);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(37, 25);
-            this.textBox7.TabIndex = 30;
+            this.txtestado.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
+            this.txtestado.Location = new System.Drawing.Point(409, 242);
+            this.txtestado.Name = "txtestado";
+            this.txtestado.Size = new System.Drawing.Size(37, 25);
+            this.txtestado.TabIndex = 30;
+            this.txtestado.Tag = "estado_moneda";
             // 
-            // textBox4
+            // txtcambio
             // 
-            this.textBox4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
-            this.textBox4.Location = new System.Drawing.Point(409, 194);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(138, 25);
-            this.textBox4.TabIndex = 27;
+            this.txtcambio.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
+            this.txtcambio.Location = new System.Drawing.Point(409, 194);
+            this.txtcambio.Name = "txtcambio";
+            this.txtcambio.Size = new System.Drawing.Size(138, 25);
+            this.txtcambio.TabIndex = 27;
+            this.txtcambio.Tag = "cambio_moneda";
             // 
-            // textBox3
+            // txtabreviatura
             // 
-            this.textBox3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
-            this.textBox3.Location = new System.Drawing.Point(118, 269);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(164, 25);
-            this.textBox3.TabIndex = 26;
+            this.txtabreviatura.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
+            this.txtabreviatura.Location = new System.Drawing.Point(118, 269);
+            this.txtabreviatura.Name = "txtabreviatura";
+            this.txtabreviatura.Size = new System.Drawing.Size(164, 25);
+            this.txtabreviatura.TabIndex = 26;
+            this.txtabreviatura.Tag = "simbolo_moneda";
             // 
-            // textBox2
+            // txtnombre
             // 
-            this.textBox2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
-            this.textBox2.Location = new System.Drawing.Point(119, 230);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(164, 25);
-            this.textBox2.TabIndex = 25;
+            this.txtnombre.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
+            this.txtnombre.Location = new System.Drawing.Point(119, 230);
+            this.txtnombre.Name = "txtnombre";
+            this.txtnombre.Size = new System.Drawing.Size(164, 25);
+            this.txtnombre.TabIndex = 25;
+            this.txtnombre.Tag = "nombre_moneda";
             // 
-            // textBox1
+            // txtid
             // 
-            this.textBox1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
-            this.textBox1.Location = new System.Drawing.Point(119, 191);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 25);
-            this.textBox1.TabIndex = 24;
+            this.txtid.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
+            this.txtid.Location = new System.Drawing.Point(119, 191);
+            this.txtid.Name = "txtid";
+            this.txtid.Size = new System.Drawing.Size(100, 25);
+            this.txtid.TabIndex = 24;
+            this.txtid.Tag = "pk_id_moneda";
             // 
             // label7
             // 
@@ -128,9 +134,9 @@ namespace CxPVista
             this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
             this.label2.Location = new System.Drawing.Point(17, 233);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 17);
+            this.label2.Size = new System.Drawing.Size(66, 17);
             this.label2.TabIndex = 18;
-            this.label2.Text = "Descripcion";
+            this.label2.Text = "Nombre";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
@@ -149,6 +155,7 @@ namespace CxPVista
             this.navegador1.Name = "navegador1";
             this.navegador1.Size = new System.Drawing.Size(574, 152);
             this.navegador1.TabIndex = 32;
+            this.navegador1.Load += new System.EventHandler(this.navegador1_Load_1);
             // 
             // Moneda
             // 
@@ -158,11 +165,11 @@ namespace CxPVista
             this.ClientSize = new System.Drawing.Size(593, 571);
             this.Controls.Add(this.navegador1);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtestado);
+            this.Controls.Add(this.txtcambio);
+            this.Controls.Add(this.txtabreviatura);
+            this.Controls.Add(this.txtnombre);
+            this.Controls.Add(this.txtid);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -179,11 +186,11 @@ namespace CxPVista
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtestado;
+        private System.Windows.Forms.TextBox txtcambio;
+        private System.Windows.Forms.TextBox txtabreviatura;
+        private System.Windows.Forms.TextBox txtnombre;
+        private System.Windows.Forms.TextBox txtid;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
