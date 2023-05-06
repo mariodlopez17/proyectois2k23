@@ -24,7 +24,7 @@ namespace CxPVista
       
         private void navegador1_Load_1(object sender, EventArgs e)
         {
-            NavegadorVista.Navegador.idApp = "5003";
+            NavegadorVista.Navegador.idApp = "5002";
             TextBox[] Grupotextbox = { txtid,txtnombre,txtabreviatura,txtcambio,txtestado};
             TextBox[] Idtextbox = { txtid, txtnombre };
             navegador1.textbox = Grupotextbox;

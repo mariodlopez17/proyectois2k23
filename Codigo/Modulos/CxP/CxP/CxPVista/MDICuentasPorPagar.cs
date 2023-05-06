@@ -20,9 +20,9 @@ namespace CxPVista
             cnseg.deshabilitarApps(apps);
 
             cnseg.getAccesoApp(5001, apps[0]);
-            cnseg.getAccesoApp(5002, apps[1]);
+            cnseg.getAccesoApp(5004, apps[1]);
             cnseg.getAccesoApp(5003, apps[2]);
-            cnseg.getAccesoApp(5004, apps[3]);
+            cnseg.getAccesoApp(5002, apps[3]);
             cnseg.getAccesoApp(5101, apps[4]);
             cnseg.getAccesoApp(5102, apps[5]);
             cnseg.getAccesoApp(5103, apps[6]);
