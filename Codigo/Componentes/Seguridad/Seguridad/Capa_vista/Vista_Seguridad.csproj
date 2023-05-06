@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CapaVistaCompras">
+      <HintPath>..\..\..\..\Modulos\Compras\CapaVistaCompras\bin\Debug\CapaVistaCompras.dll</HintPath>
+    </Reference>
     <Reference Include="CPC_Vista">
       <HintPath>..\..\..\..\Modulos\CuentasXCobrar\CPC_Vista\bin\Debug\CPC_Vista.dll</HintPath>
     </Reference>
@@ -44,8 +47,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Navegador\Vista\bin\Debug\FontAwesome.Sharp.dll</HintPath>
     </Reference>
-    <Reference Include="NavegadorVista, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="NavegadorVista">
       <HintPath>..\..\..\Navegador\Vista\bin\Debug\NavegadorVista.dll</HintPath>
     </Reference>
     <Reference Include="Seguridad_Controlador">
