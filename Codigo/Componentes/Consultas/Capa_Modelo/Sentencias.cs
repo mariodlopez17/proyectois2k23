@@ -4,35 +4,55 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Odbc;
-
+//capa modelo sentencias comentado por azael sierra
 namespace Capa_ModeloConsultas
 {
     public class Sentencias
     {
-
         Conexion con = new Conexion();
-
-        public OdbcDataAdapter llenartb1(string tabla) 
+        public OdbcDataAdapter buscartbl( string BD)
         {
-            string sql = tabla;
+            string sql = "SELECT TABLE_NAME From INFORMATION_SCHEMA.TABLES  WHERE TABLE_SCHEMA = '" + BD + "'";
             OdbcDataAdapter datatable = new OdbcDataAdapter(sql, con.conexion());
+
             return datatable;
         }
-        public OdbcDataReader llenarcbotabla(string sql)
+
+        //insertar datos
+        public void insertar(string dato, string tipo, string tabla)
         {
             try
             {
-                OdbcCommand datos = new OdbcCommand(sql, con.conexion());
-                OdbcDataReader leer = datos.ExecuteReader();
-                return leer;
+                string sql = "insert into " + tabla + "(" + tipo + ") values (" + dato + ")";
+                OdbcCommand cmd = new OdbcCommand(sql, con.conexion());
+                cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                Console.WriteLine(ex.Message);
-                return null;
+
             }
 
         }
+
+        //modificar
+        public void actualizar(string dato, string condicion, string tabla)
+        {
+            try
+            {
+                string sql = "Update " + tabla + " " + dato + " where " + condicion;
+                OdbcCommand cmd = new OdbcCommand(sql, con.conexion());
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+
+            }
+
+
+        }
+
+
+
         public void insertarconsulta(string cadena)
         {
             try
@@ -45,40 +65,12 @@ namespace Capa_ModeloConsultas
                 Console.WriteLine("Error en modelo" + Error);
             }
         }
-        public OdbcDataReader validarconsulta(string sql)
-        {
-            try
-            {
-                OdbcCommand datos = new OdbcCommand(sql, con.conexion());
-                OdbcDataReader leer = datos.ExecuteReader();
-                return leer;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return null;
-            }
-
-        }
+  
         public OdbcDataAdapter llenartb2(string sql)         {
             OdbcDataAdapter datatable = new OdbcDataAdapter(sql, con.conexion());
             return datatable;
         }
-        public OdbcDataReader llenarcbonombreconsulta(string sql)
-        {
-            try
-            {
-                OdbcCommand datos = new OdbcCommand(sql, con.conexion());
-                OdbcDataReader leer = datos.ExecuteReader();
-                return leer;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return null;
-            }
-
-        }
+   
     }
 }
 

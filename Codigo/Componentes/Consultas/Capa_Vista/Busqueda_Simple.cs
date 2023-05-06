@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
+//comentado por javier juarez
 namespace Capa_VistaConsultas
 {
     // Josue Amaya 0901-19-12421
@@ -19,68 +19,52 @@ namespace Capa_VistaConsultas
     {
         Capa_ControladorConsultas.csControldor csn = new Capa_ControladorConsultas.csControldor();
 
-        public String tableN1 ="";
+        public String tableN1 = "";
         String datobuscar = "";
-        String buscaren ="";
+        String buscaren = "";
         String cadenaB = "";
-
+        //Muestra el resultado de la Busqueda
         public Busqueda_Simple()
         {
             InitializeComponent();
             panelResultado.Visible = true;
-           
-        }
 
+        }
+        //Boton salir
         private void btn_SalirBA_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
+        // Boton para cancelar la busqueda
         private void btn_CancelarBA_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-        public void BuscarT()
-        {
-            string tableN = tableN1;
-            DataTable dt = new DataTable();
-            csn.BuscarBA(tableN, dt);
-            if (dt.Rows.Count > 0)
-            {
-                panelResultado.Visible = true;
-                dgvDato.DataSource = dt;
-            }
-        }
-
-        private void Busqueda_Avanzada_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pnl_BuscarBA_Paint(object sender, PaintEventArgs e)
-        {
-            cbox_columnas.Items.Clear();
-        }
-
+        //Metodo para realizar busqueda
+        
+        //Carga el resultado de la busqueda
+        
+        //Limpia el panel de busqueda
+       
+        //Muestra el resultado de la búsqueda en la tabla N1
         private void panelResultado_Paint(object sender, PaintEventArgs e)
         {
-            CargarColumnas(cbox_columnas , tableN1);
+            CargarColumnas(cbox_columnas, tableN1);
         }
 
 
-
+        //Metodo para buscar dato y cargarlo en la tabla N1
         private void bnt_buscaPor_Click(object sender, EventArgs e)
         {
             datobuscar = txt_BuscaPor.Text;
             buscaren = cbox_columnas.Text;
 
-            BuscaPor(datobuscar , buscaren , tableN1);
+            BuscaPor(datobuscar, buscaren, tableN1);
             CargarColumnas(cbox_columnas, tableN1);
             cadenaB = "";
 
         }
-
+        //Metodo para obtener datos que se cargaran a la tabla N1
         public void CargarColumnas(ComboBox cbox_columnas, String tableN)
         {
             int ndgv = dgvDato.Columns.Count;
@@ -96,7 +80,7 @@ namespace Capa_VistaConsultas
                 }
             }
         }
-
+        //Metodo para buscar un dato por medio de un atributo especifico
         private void BuscaPor(string datobuscar, string buscaren, string tableN)
         {
             DataTable dt = new DataTable();
@@ -129,3 +113,4 @@ namespace Capa_VistaConsultas
         }
     }
 }
+

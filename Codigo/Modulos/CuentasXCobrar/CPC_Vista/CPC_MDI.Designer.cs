@@ -38,13 +38,11 @@ namespace CPC_Vista
             this.herramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.morasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.catalogoToolStripMenuItem,
@@ -55,7 +53,6 @@ namespace CPC_Vista
             this.cerrarSesiónToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(1378, 33);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
@@ -70,8 +67,7 @@ namespace CPC_Vista
             // 
             this.catalogosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.monedaToolStripMenuItem,
-            this.tipoDePagosToolStripMenuItem,
-            this.morasToolStripMenuItem});
+            this.tipoDePagosToolStripMenuItem});
             this.catalogosToolStripMenuItem.Name = "catalogosToolStripMenuItem";
             this.catalogosToolStripMenuItem.Size = new System.Drawing.Size(108, 29);
             this.catalogosToolStripMenuItem.Text = "Catalogos";
@@ -114,13 +110,6 @@ namespace CPC_Vista
             this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(132, 29);
             this.cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
             // 
-            // morasToolStripMenuItem
-            // 
-            this.morasToolStripMenuItem.Name = "morasToolStripMenuItem";
-            this.morasToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.morasToolStripMenuItem.Text = "Moras";
-            this.morasToolStripMenuItem.Click += new System.EventHandler(this.morasToolStripMenuItem_Click);
-            // 
             // CPC_MDI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -150,6 +139,5 @@ namespace CPC_Vista
         private System.Windows.Forms.ToolStripMenuItem herramientasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem morasToolStripMenuItem;
     }
 }

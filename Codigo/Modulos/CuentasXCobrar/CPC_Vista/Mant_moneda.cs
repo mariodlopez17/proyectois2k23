@@ -17,11 +17,11 @@ namespace CPC_Vista
             InitializeComponent();
         }
 
-        private void navegador1_Load(object sender, EventArgs e)
+        private void navegador1_Load_1(object sender, EventArgs e)
         {
-            NavegadorVista.Navegador.idApp = "6005";
-            TextBox[] Grupotextbox = { txt_id, txt_nombre, txt_simbolo, txt_estado };
-            TextBox[] Idtextbox = { txt_id, txt_nombre, txt_simbolo, txt_estado };
+            NavegadorVista.Navegador.idApp = "4002";
+            TextBox[] Grupotextbox = { txt_id, txt_nombre, txt_simbolo, txt_cambio,txt_estado };
+            TextBox[] Idtextbox = { txt_id, txt_nombre, txt_simbolo, txt_cambio, txt_estado };
             navegador1.textbox = Grupotextbox;
             navegador1.tabla = tbl_Moneda;
             navegador1.textboxi = Idtextbox;

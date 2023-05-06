@@ -173,7 +173,6 @@ namespace Capa_VistaConsultas
             this.Controls.Add(this.panelResultado);
             this.Name = "Busqueda_Simple";
             this.Text = "Consulta Usuario Simple";
-            this.Load += new System.EventHandler(this.Busqueda_Avanzada_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDato)).EndInit();
             this.panelResultado.ResumeLayout(false);
             this.panelResultado.PerformLayout();
