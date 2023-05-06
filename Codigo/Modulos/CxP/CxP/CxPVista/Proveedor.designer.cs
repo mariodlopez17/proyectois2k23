@@ -43,7 +43,7 @@ namespace CxPVista
             this.txtcorreo = new System.Windows.Forms.TextBox();
             this.txtrubro = new System.Windows.Forms.TextBox();
             this.txtestado = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dtgProveedor = new System.Windows.Forms.DataGridView();
             this.navegador1 = new NavegadorVista.Navegador();
             this.txtcargo = new System.Windows.Forms.TextBox();
             this.txtcargoacum = new System.Windows.Forms.TextBox();
@@ -57,7 +57,7 @@ namespace CxPVista
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgProveedor)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -193,14 +193,14 @@ namespace CxPVista
             this.txtestado.TabIndex = 14;
             this.txtestado.Tag = "estado_proveedor";
             // 
-            // dataGridView1
+            // dtgProveedor
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(26, 409);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(801, 226);
-            this.dataGridView1.TabIndex = 15;
-            this.dataGridView1.Tag = "tbl_proveedor";
+            this.dtgProveedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgProveedor.Location = new System.Drawing.Point(24, 413);
+            this.dtgProveedor.Name = "dtgProveedor";
+            this.dtgProveedor.Size = new System.Drawing.Size(801, 226);
+            this.dtgProveedor.TabIndex = 15;
+            this.dtgProveedor.Tag = "tbl_proveedor";
             // 
             // navegador1
             // 
@@ -253,7 +253,7 @@ namespace CxPVista
             this.txtsaldoanterior.Name = "txtsaldoanterior";
             this.txtsaldoanterior.Size = new System.Drawing.Size(138, 25);
             this.txtsaldoanterior.TabIndex = 21;
-            this.txtsaldoanterior.Tag = "saldo_mes_anterior_balanceproveedores";
+            this.txtsaldoanterior.Tag = "saldo_mes_anterior_proveedor";
             // 
             // txtabonoacum
             // 
@@ -262,7 +262,7 @@ namespace CxPVista
             this.txtabonoacum.Name = "txtabonoacum";
             this.txtabonoacum.Size = new System.Drawing.Size(138, 25);
             this.txtabonoacum.TabIndex = 22;
-            this.txtabonoacum.Tag = "abonos_acumulados_proveedors";
+            this.txtabonoacum.Tag = "abonos_acumulados_proveedor";
             // 
             // label8
             // 
@@ -329,7 +329,7 @@ namespace CxPVista
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(93)))), ((int)(((byte)(86)))));
-            this.ClientSize = new System.Drawing.Size(839, 647);
+            this.ClientSize = new System.Drawing.Size(848, 651);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -350,7 +350,7 @@ namespace CxPVista
             this.Controls.Add(this.txtnombre);
             this.Controls.Add(this.txtid);
             this.Controls.Add(this.navegador1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dtgProveedor);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -361,7 +361,7 @@ namespace CxPVista
             this.Name = "Proveedor";
             this.Text = "Proveedor";
             this.Load += new System.EventHandler(this.Proveedor_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgProveedor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -382,7 +382,7 @@ namespace CxPVista
         private System.Windows.Forms.TextBox txtcorreo;
         private System.Windows.Forms.TextBox txtrubro;
         private System.Windows.Forms.TextBox txtestado;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtgProveedor;
         private NavegadorVista.Navegador navegador1;
         private System.Windows.Forms.TextBox txtcargo;
         private System.Windows.Forms.TextBox txtcargoacum;
