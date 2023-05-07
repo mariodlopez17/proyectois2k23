@@ -28,5 +28,15 @@ namespace CapaVistaCompras
             navegador1.actual = this;
             navegador1.cargar(dataGridView1, Grupotextbox, "colchoneria");
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

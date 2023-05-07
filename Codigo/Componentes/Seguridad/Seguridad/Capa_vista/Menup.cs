@@ -58,9 +58,9 @@ namespace Vista_Seguridad
         //Método que ingresa un valor a la bitacora de acuerdo el módulo
         private void btncompras_Click(object sender, EventArgs e)
         {
-            CapaVistaCompras.menu b = new CapaVistaCompras.menu();
+            /* CapaVistaCompras.menu b = new CapaVistaCompras.menu();
             b.Show();
-            cn.setBtitacora("3000", "Ingreso Compras");
+            cn.setBtitacora("3000", "Ingreso Compras"); */
         }
         //Método que ingresa un valor a la bitacora de acuerdo el módulo
         private void btnProduccion_Click(object sender, EventArgs e)
