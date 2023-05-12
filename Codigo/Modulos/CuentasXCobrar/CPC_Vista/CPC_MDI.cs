@@ -40,9 +40,9 @@ namespace CPC_Vista
 
         private void conceptoCuentaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           /*Mant_ConceptoCXC man_ConceptoCXC = new Mant_ConceptoCXC();
+            Mant_conceptoCXC man_ConceptoCXC = new Mant_conceptoCXC();
             man_ConceptoCXC.MdiParent = this;
-            man_ConceptoCXC.Show();*/
+            man_ConceptoCXC.Show();
         }
     }
 }
