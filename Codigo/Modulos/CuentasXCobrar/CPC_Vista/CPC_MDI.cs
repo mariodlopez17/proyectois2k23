@@ -37,5 +37,12 @@ namespace CPC_Vista
             mant_Moras.MdiParent = this;
             mant_Moras.Show();
         }
+
+        private void conceptoCuentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           /*Mant_ConceptoCXC man_ConceptoCXC = new Mant_ConceptoCXC();
+            man_ConceptoCXC.MdiParent = this;
+            man_ConceptoCXC.Show();*/
+        }
     }
 }

@@ -13,7 +13,7 @@ namespace CPC_Modelo
         public OdbcConnection conexion()
         {
 
-            OdbcConnection conexion = new OdbcConnection("Dsn=ingSoftware");
+            OdbcConnection conexion = new OdbcConnection("Dsn=colchoneria");
             try
             {
                 conexion.Open();

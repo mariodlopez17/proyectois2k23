@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CPC_Controlador">
+      <HintPath>..\CPC_Controlador\bin\Debug\CPC_Controlador.dll</HintPath>
+    </Reference>
     <Reference Include="NavegadorVista">
       <HintPath>..\..\..\Componentes\Navegador\Vista\bin\Debug\NavegadorVista.dll</HintPath>
     </Reference>
@@ -58,6 +61,12 @@
     <Compile Include="CPC_MDI.Designer.cs">
       <DependentUpon>CPC_MDI.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mant_conceptoCXC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mant_conceptoCXC.Designer.cs">
+      <DependentUpon>Mant_conceptoCXC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mant_moneda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +93,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CPC_MDI.resx">
       <DependentUpon>CPC_MDI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mant_conceptoCXC.resx">
+      <DependentUpon>Mant_conceptoCXC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mant_moneda.resx">
       <DependentUpon>Mant_moneda.cs</DependentUpon>
