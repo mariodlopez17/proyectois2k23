@@ -29,28 +29,17 @@ namespace CPC_Vista
         /// </summary>
         private void InitializeComponent()
         {
-            this.navegador1 = new NavegadorVista.Navegador();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_id = new System.Windows.Forms.TextBox();
             this.txt_nombre = new System.Windows.Forms.TextBox();
-            this.txt_descripcion = new System.Windows.Forms.TextBox();
             this.txt_estado = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tbl_tipopago = new System.Windows.Forms.DataGridView();
+            this.navegador1 = new NavegadorVista.Navegador();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_tipopago)).BeginInit();
             this.SuspendLayout();
-            // 
-            // navegador1
-            // 
-            this.navegador1.Location = new System.Drawing.Point(48, 14);
-            this.navegador1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.navegador1.Name = "navegador1";
-            this.navegador1.Size = new System.Drawing.Size(861, 234);
-            this.navegador1.TabIndex = 0;
-            this.navegador1.Load += new System.EventHandler(this.navegador1_Load);
             // 
             // label1
             // 
@@ -70,19 +59,10 @@ namespace CPC_Vista
             this.label2.TabIndex = 2;
             this.label2.Text = "NOMBRE";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 344);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(120, 20);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "DESCRIPCION";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 392);
+            this.label4.Location = new System.Drawing.Point(16, 347);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 20);
             this.label4.TabIndex = 4;
@@ -94,7 +74,7 @@ namespace CPC_Vista
             this.txt_id.Name = "txt_id";
             this.txt_id.Size = new System.Drawing.Size(239, 26);
             this.txt_id.TabIndex = 5;
-            this.txt_id.Tag = "id";
+            this.txt_id.Tag = "pk_id_tipopago";
             // 
             // txt_nombre
             // 
@@ -102,28 +82,20 @@ namespace CPC_Vista
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.Size = new System.Drawing.Size(239, 26);
             this.txt_nombre.TabIndex = 6;
-            this.txt_nombre.Tag = "nombre";
-            // 
-            // txt_descripcion
-            // 
-            this.txt_descripcion.Location = new System.Drawing.Point(216, 338);
-            this.txt_descripcion.Name = "txt_descripcion";
-            this.txt_descripcion.Size = new System.Drawing.Size(198, 26);
-            this.txt_descripcion.TabIndex = 7;
-            this.txt_descripcion.Tag = "descripcion";
+            this.txt_nombre.Tag = "nombre_tipopago";
             // 
             // txt_estado
             // 
-            this.txt_estado.Location = new System.Drawing.Point(175, 429);
+            this.txt_estado.Location = new System.Drawing.Point(179, 384);
             this.txt_estado.Name = "txt_estado";
             this.txt_estado.Size = new System.Drawing.Size(239, 26);
             this.txt_estado.TabIndex = 8;
-            this.txt_estado.Tag = "estado";
+            this.txt_estado.Tag = "estado_tipopago";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(171, 392);
+            this.label5.Location = new System.Drawing.Point(175, 347);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(157, 20);
             this.label5.TabIndex = 9;
@@ -145,22 +117,29 @@ namespace CPC_Vista
             this.tbl_tipopago.TabIndex = 10;
             this.tbl_tipopago.Tag = "tbl_tipopago";
             // 
+            // navegador1
+            // 
+            this.navegador1.Location = new System.Drawing.Point(56, 11);
+            this.navegador1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.navegador1.Name = "navegador1";
+            this.navegador1.Size = new System.Drawing.Size(861, 234);
+            this.navegador1.TabIndex = 11;
+            this.navegador1.Load += new System.EventHandler(this.navegador1_Load_1);
+            // 
             // Mant_tipoPago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(978, 638);
+            this.Controls.Add(this.navegador1);
             this.Controls.Add(this.tbl_tipopago);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txt_estado);
-            this.Controls.Add(this.txt_descripcion);
             this.Controls.Add(this.txt_nombre);
             this.Controls.Add(this.txt_id);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.navegador1);
             this.Name = "Mant_tipoPago";
             this.Text = "Mant_tipoPago";
             ((System.ComponentModel.ISupportInitialize)(this.tbl_tipopago)).EndInit();
@@ -170,17 +149,14 @@ namespace CPC_Vista
         }
 
         #endregion
-
-        private NavegadorVista.Navegador navegador1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txt_id;
         private System.Windows.Forms.TextBox txt_nombre;
-        private System.Windows.Forms.TextBox txt_descripcion;
         private System.Windows.Forms.TextBox txt_estado;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView tbl_tipopago;
+        private NavegadorVista.Navegador navegador1;
     }
 }
