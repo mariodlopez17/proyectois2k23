@@ -31,15 +31,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CPC_Controlador">
       <HintPath>..\CPC_Controlador\bin\Debug\CPC_Controlador.dll</HintPath>
     </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="NavegadorVista">
       <HintPath>..\..\..\Componentes\Navegador\Vista\bin\Debug\NavegadorVista.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -60,6 +67,24 @@
     </Compile>
     <Compile Include="CPC_MDI.Designer.cs">
       <DependentUpon>CPC_MDI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReportConcepto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportConcepto.Designer.cs">
+      <DependentUpon>frmReportConcepto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReportMoneda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportMoneda.Designer.cs">
+      <DependentUpon>frmReportMoneda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReportTipoPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportTipoPago.Designer.cs">
+      <DependentUpon>frmReportTipoPago.cs</DependentUpon>
     </Compile>
     <Compile Include="Mant_conceptoCXC.cs">
       <SubType>Form</SubType>
@@ -86,6 +111,24 @@
       <DependentUpon>Mant_tipoPago.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportConceptoCxC.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportConceptoCxC.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportMoneda.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportMoneda.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportTipoPago.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportTipoPago.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Cobro_Facturas.resx">
@@ -93,6 +136,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CPC_MDI.resx">
       <DependentUpon>CPC_MDI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReportConcepto.resx">
+      <DependentUpon>frmReportConcepto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReportMoneda.resx">
+      <DependentUpon>frmReportMoneda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReportTipoPago.resx">
+      <DependentUpon>frmReportTipoPago.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mant_conceptoCXC.resx">
       <DependentUpon>Mant_conceptoCXC.cs</DependentUpon>
@@ -106,6 +158,21 @@
     <EmbeddedResource Include="Mant_tipoPago.resx">
       <DependentUpon>Mant_tipoPago.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportConceptoCxC.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportConceptoCxC.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportMoneda.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportMoneda.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportTipoPago.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportTipoPago.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
