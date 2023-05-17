@@ -44,5 +44,12 @@ namespace CPC_Vista
             man_ConceptoCXC.MdiParent = this;
             man_ConceptoCXC.Show();
         }
+
+        private void cobroDeDeudaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Pcs_CobroCuenta cobroCuenta = new Pcs_CobroCuenta();
+            cobroCuenta.MdiParent = this;
+            cobroCuenta.Show();
+        }
     }
 }
