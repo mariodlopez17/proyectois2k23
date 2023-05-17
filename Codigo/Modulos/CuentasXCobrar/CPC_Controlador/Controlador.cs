@@ -42,14 +42,13 @@ namespace CPC_Controlador
             foreach (string cliente in datos)
             {
                 string[] infoSaldos = cliente.Split('-');
-                int salgoMes = int.Parse(infoSaldos[0]);
-                int totalCargos = int.Parse(infoSaldos[1]);
-                int abonosActuales = int.Parse(infoSaldos[2]);
-                int nuevoAbono = int.Parse(abono);
-                int nuevoTotalAbonado = abonosActuales + nuevoAbono;
-                int nuevoSaldoMensual = nuevoTotalAbonado - totalCargos;
+                float totalCargos = float.Parse(infoSaldos[1]);
+                float abonosActuales = float.Parse(infoSaldos[2]);
+                float nuevoAbono = float.Parse(abono);
+                float nuevoTotalAbonado = abonosActuales + nuevoAbono;
+                float nuevoSaldoMensual = nuevoTotalAbonado - totalCargos;
                 sentencias.updateCargosClientes(id_cliente, nuevoTotalAbonado.ToString());
-                sentencias.updateSaldoMensual(id_cliente, nuevoTotalAbonado.ToString());
+                sentencias.updateSaldoMensual(id_cliente, nuevoSaldoMensual.ToString());
             }
         }
         public string generarID()
@@ -61,13 +60,10 @@ namespace CPC_Controlador
         public void llenarCbxAlmacen(ComboBox comboBox)
         {
             comboBox.Items.Clear();
-            string[] almacenes = sentencias.getAlmacenes();
+            List<string> almacenes = sentencias.getAlmacenes();
             foreach (string almacen in almacenes)
             {
-                if (almacen != null)
-                {
-                    comboBox.Items.Add(almacen);
-                }
+                 comboBox.Items.Add(almacen);
             }
         }
         public void buscarCliente(string id_cliente, TextBox textBox)
@@ -96,6 +92,15 @@ namespace CPC_Controlador
                 comboBox.Items.Add(conceptoxc);
             }
         }
+        public void llenarCbxTipoDePago(ComboBox comboBox)
+        {
+            comboBox.Items.Clear();
+            List<string> datos = sentencias.getTiposDePago();
+            foreach (string tipo in datos)
+            {
+                comboBox.Items.Add(tipo);
+            }
+        }
         public Boolean validarPagosAnteriores(string id_factura, string id_almacen)
         {
             string[] datos = sentencias.getUltimoPago(id_factura, id_almacen);
@@ -105,6 +110,11 @@ namespace CPC_Controlador
             }
             return false;
         }
+        
+       public void eliminarPago(string id_comprobante)
+        {
+            sentencias.deletePago(id_comprobante);
+        } 
         public string[] getDatosPagoAnterior(string id_factura, string id_almacen)
         {
             string[] datos = sentencias.getUltimoPago(id_factura, id_almacen);
@@ -128,6 +138,63 @@ namespace CPC_Controlador
 
                 textBoxes[0].Text = infoVenta[1];
                 textBoxes[1].Text = infoVenta[2];
+            }
+        }
+        public void getPago(string id_comprobante, DateTimePicker[] dateTimePicker, TextBox[] textBoxes, ComboBox[] comboBox)
+        {
+            string[] datos = sentencias.queryPago(id_comprobante);
+            
+            if (datos[6] != null)
+            {
+                DateTime FechaFactura = Convert.ToDateTime(datos[6]);
+                DateTime FechaPago = Convert.ToDateTime(datos[7]);
+
+                List<string> datoAlmacen = sentencias.getAlmacenes();
+                foreach (string almacen in datoAlmacen)
+                {
+                    string[] infoAlmacen = almacen.Split('-');
+                    if (infoAlmacen[0].Equals(datos[1]))
+                    {
+                        comboBox[0].SelectedItem = almacen;
+                    }
+                }
+
+                List<string> datoTipoPago = sentencias.getTiposDePago();
+                foreach (string tipo in datoTipoPago)
+                {
+                    string[] infoMoneda = tipo.Split('-');
+                    if (infoMoneda[0].Equals(datos[3]))
+                    {
+                        comboBox[1].SelectedItem = tipo;
+                    }
+                }
+
+                List<string> datoMoneda = sentencias.getMoneda();
+                foreach (string moneda in datoMoneda)
+                {
+                    string[] infoMoneda = moneda.Split('-');
+                    if (infoMoneda[0].Equals(datos[4]))
+                    {
+                        comboBox[2].SelectedItem = moneda;
+                    }
+                }
+
+                List<string> datosConcept = sentencias.getConceptoXCobrar();
+                foreach (string concepto in datosConcept)
+                {
+                    string[] infoConcepto = concepto.Split('/');
+                    if (infoConcepto[0].Equals(datos[5]))
+                    {
+                        comboBox[3].SelectedItem = concepto;
+                    }
+                }
+
+                textBoxes[0].Text = datos[0];
+                textBoxes[1].Text = datos[2];
+                dateTimePicker[0].Value = FechaFactura;
+                dateTimePicker[1].Value = FechaPago;
+                textBoxes[2].Text = datos[8];
+                textBoxes[3].Text = datos[9];
             }
         }
     }

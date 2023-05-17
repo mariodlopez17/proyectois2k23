@@ -62,11 +62,23 @@ namespace CPC_Modelo
         }
 
 
+
         public void newPago(string values)
         {
             string campos = "pk_comprobante_cxc,fk_id_factura,fk_id_almacen_venta,fk_id_almacen_pago,fk_id_cliente,fk_id_tipoPago," +
                 "fk_id_moneda,fk_id_concepto_cxc,fecha_emision_cxc,fecha_pago_cxc,cambio_moneda_pago_cxc,monto_cobro_cxc,monto_pago_cxc,estado_cxc";
             string sql = "INSERT INTO tbl_CuentaPorCobrar(" + campos + ") VALUES (" + values + ");";
+            try
+            {
+                OdbcCommand command = new OdbcCommand(sql, conexion.conexion());
+                OdbcDataReader reader = command.ExecuteReader();
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message.ToString() + " \nError en insertar en la tabla de tbl_CuentaPorCobrar"); }
+        }
+
+        public void deletePago(string id_comprobante)
+        {
+            string sql = "UPDATE tbl_cuentaporcobrar SET `estado_cxc` = '2' WHERE (`pk_comprobante_cxc` = '"+ id_comprobante + "');";
             try
             {
                 OdbcCommand command = new OdbcCommand(sql, conexion.conexion());
@@ -92,20 +104,17 @@ namespace CPC_Modelo
             return id;
         }
 
-        public string[] getAlmacenes()
+        public List<string> getAlmacenes()
         {
-            string[] datos = new string[3];
-
+            List<string> datos = new List<string>();
             string sql = "SELECT codigo_almacen, nombre_almacen FROM tbl_almacen WHERE estatus_almacen = 1;";
             try
             {
                 OdbcCommand command = new OdbcCommand(sql, conexion.conexion());
                 OdbcDataReader reader = command.ExecuteReader();
-                int i = 0;
                 while (reader.Read())
                 {
-                    datos[i] = reader.GetValue(0).ToString() + "-" + reader.GetValue(1).ToString();
-                    i++;
+                    datos.Add(reader.GetValue(0).ToString() + "-" + reader.GetValue(1).ToString());
                 }
             }
             catch (Exception ex) { Console.WriteLine(ex.Message.ToString() + " \nError en obtener el almacen de la tabla de tbl_almacen"); }
@@ -114,11 +123,26 @@ namespace CPC_Modelo
             return datos;
         }
 
+        public List<string> getTiposDePago()
+        {
+            List<string> datos = new List<string>();
+            string sql = "SELECT pk_id_tipopago, nombre_tipopago FROM tbl_tipopago WHERE estado_tipopago = 1;";
+            try
+            {
+                OdbcCommand command = new OdbcCommand(sql, conexion.conexion());
+                OdbcDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    datos.Add(reader.GetValue(0).ToString() + "-" + reader.GetValue(1).ToString());
+                }
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message.ToString() + " \nError en obtener los tipos de pago de la tabla de tbl_tipopago"); }
+            return datos;
+        }
+        
         public List<string> getSaldoCliente(string id_cliente)
         {
             List<string> datos = new List<string>();
-
-
             string sql = "SELECT SActual_clientes, CargoMes_clientes, AbonosMes_clientes FROM tbl_clientes WHERE Pk_idClientes = " + id_cliente + ";";
             try
             {
@@ -131,28 +155,6 @@ namespace CPC_Modelo
             }
             catch (Exception ex) { Console.WriteLine(ex.Message.ToString() + " \nError en obtener el saldo de los clientes de la tabla de tbl_clientes"); }
             return datos;
-        }
-
-        public void updateCargosClientes(string id_cliente, string saldo)
-        {
-            string sql = "UPDATE tbl_clientes SET AbonosMes_clientes = '"+saldo+"' WHERE (`Pk_idClientes` = "+id_cliente+");";
-            try
-            {
-                OdbcCommand command = new OdbcCommand(sql, conexion.conexion());
-                OdbcDataReader reader = command.ExecuteReader();
-            }
-            catch (Exception ex) { Console.WriteLine(ex.Message.ToString() + " \nError en actualizar en la tabla de tbl_clientes"); }
-        }
-
-        public void updateSaldoMensual(string id_cliente, string saldo)
-        {
-            string sql = "UPDATE tbl_clientes SET SActual_clientes = '" + saldo + "' WHERE (`Pk_idClientes` = " + id_cliente + ");";
-            try
-            {
-                OdbcCommand command = new OdbcCommand(sql, conexion.conexion());
-                OdbcDataReader reader = command.ExecuteReader();
-            }
-            catch (Exception ex) { Console.WriteLine(ex.Message.ToString() + " \nError en actualizar en la tabla de tbl_clientes"); }
         }
 
         public List<string> getClientes(string id_cliente)
@@ -214,7 +216,7 @@ namespace CPC_Modelo
         {
             List<string> datos = new List<string>();
 
-            string sql = "SELECT fecha_venta, Total_venta, Pk_idClientes FROM tbl_venta WHERE Pk_idVenta = " + id_venta + " and codigo_almacen = " + id_almacen + ";";
+            string sql = "SELECT fecha_venta, Total_venta, Pk_idClientes FROM tbl_venta WHERE Pk_idVenta = " + id_venta + " AND codigo_almacen = " + id_almacen + " AND Estado_fac_venta = 1;";
             try
             {
                 OdbcCommand command = new OdbcCommand(sql, conexion.conexion());
@@ -228,11 +230,33 @@ namespace CPC_Modelo
             return datos;
         }
 
+        public void updateCargosClientes(string id_cliente, string saldo)
+        {
+            string sql = "UPDATE tbl_clientes SET AbonosMes_clientes = '"+saldo+"' WHERE (`Pk_idClientes` = "+id_cliente+");";
+            try
+            {
+                OdbcCommand command = new OdbcCommand(sql, conexion.conexion());
+                OdbcDataReader reader = command.ExecuteReader();
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message.ToString() + " \nError en actualizar en la tabla de tbl_clientes"); }
+        }
+
+        public void updateSaldoMensual(string id_cliente, string saldo)
+        {
+            string sql = "UPDATE tbl_clientes SET SActual_clientes = '" + saldo + "' WHERE (`Pk_idClientes` = " + id_cliente + ");";
+            try
+            {
+                OdbcCommand command = new OdbcCommand(sql, conexion.conexion());
+                OdbcDataReader reader = command.ExecuteReader();
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message.ToString() + " \nError en actualizar en la tabla de tbl_clientes"); }
+        }
+
         public string[] getUltimoPago(string id_factura, string id_almacen)
         {
             string[] datos = new string[4];
 
-            string sql = "SELECT fk_id_cliente, fecha_emision_cxc, monto_cobro_cxc, monto_pago_cxc FROM tbl_CuentaPorCobrar WHERE fk_id_factura = " + id_factura + " AND fk_id_almacen_venta = " + id_almacen + " ORDER BY pk_comprobante_cxc DESC LIMIT 1; ";
+            string sql = "SELECT fk_id_cliente, fecha_emision_cxc, monto_cobro_cxc, monto_pago_cxc FROM tbl_CuentaPorCobrar WHERE estado_cxc = 1 AND fk_id_factura = " + id_factura + " AND fk_id_almacen_venta = " + id_almacen + " ORDER BY pk_comprobante_cxc DESC LIMIT 1; ";
             try
             {
                 OdbcCommand command = new OdbcCommand(sql, conexion.conexion());
@@ -248,6 +272,33 @@ namespace CPC_Modelo
             catch (Exception ex) { Console.WriteLine(ex.Message.ToString() + " \nError en obtener el pago anterior de la tabla de tbl_CuentaPorCobrar"); }
 
 
+            return datos;
+        }
+
+        public string[] queryPago(string id_comprobante)
+        {
+            string[] datos = new string[10];
+
+            string sql = "SELECT * FROM tbl_CuentaPorCobrar WHERE pk_comprobante_cxc = " + id_comprobante + " AND estado_cxc = 1;";
+            try
+            {
+                OdbcCommand command = new OdbcCommand(sql, conexion.conexion());
+                OdbcDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    datos[0] = reader.GetValue(1).ToString()+"-"+ reader.GetValue(2).ToString();
+                    datos[1] = reader.GetValue(3).ToString();
+                    datos[2] = reader.GetValue(4).ToString();
+                    datos[3] = reader.GetValue(5).ToString();
+                    datos[4] = reader.GetValue(6).ToString();
+                    datos[5] = reader.GetValue(7).ToString();
+                    datos[6] = reader.GetValue(8).ToString();
+                    datos[7] = reader.GetValue(9).ToString();
+                    datos[8] = reader.GetValue(11).ToString();
+                    datos[9] = reader.GetValue(12).ToString();
+                }
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message.ToString() + " \nError en obtener el pago de la tabla de tbl_CuentaPorCobrar"); }
             return datos;
         }
 
