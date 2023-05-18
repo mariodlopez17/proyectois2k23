@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CapaVistaReporteria">
+      <HintPath>..\..\..\Componentes\Reporteador\CapaVistaReporteria\bin\Debug\CapaVistaReporteria.dll</HintPath>
+    </Reference>
     <Reference Include="CPC_Modelo">
       <HintPath>..\CPC_Modelo\bin\Debug\CPC_Modelo.dll</HintPath>
     </Reference>

@@ -51,5 +51,11 @@ namespace CPC_Vista
             cobroCuenta.MdiParent = this;
             cobroCuenta.Show();
         }
+
+        private void reporteDeEstadoDeCuentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CPC_Controlador.Controlador controlador = new CPC_Controlador.Controlador();
+            controlador.displayReporte("4201");
+        }
     }
 }

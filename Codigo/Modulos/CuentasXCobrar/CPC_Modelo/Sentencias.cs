@@ -4,6 +4,7 @@ using System.Data.Odbc;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CPC_Modelo
 {
@@ -104,6 +105,32 @@ namespace CPC_Modelo
             return id;
         }
 
+        public List<string> queryReportw(string id_aplicacion)
+        {
+            List<string> datos = new List<string>();
+            string sql = "SELECT ruta, estado FROM tbl_regreporteria WHERE aplicacion = " + id_aplicacion + ";";
+            try
+            {
+                OdbcCommand command = new OdbcCommand(sql, conexion.conexion());
+                OdbcDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    if (reader.GetValue(1).ToString().ToLower().Equals("visible"))
+                    {
+                        datos.Add(reader.GetValue(0).ToString());
+                    }
+                    else
+                    {
+                        MessageBox.Show("El reporte esta con estado no visible");
+                    }
+                }
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message.ToString() + " \nError en obtener el almacen de la tabla de tbl_almacen"); }
+
+
+            return datos;
+        }
+
         public List<string> getAlmacenes()
         {
             List<string> datos = new List<string>();
@@ -150,7 +177,7 @@ namespace CPC_Modelo
                 OdbcDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    datos.Add(reader.GetValue(0).ToString()+"-"+ reader.GetValue(1).ToString() + "-" + reader.GetValue(2).ToString());
+                    datos.Add(reader.GetValue(0).ToString()+"/"+ reader.GetValue(1).ToString() + "/" + reader.GetValue(2).ToString());
                 }
             }
             catch (Exception ex) { Console.WriteLine(ex.Message.ToString() + " \nError en obtener el saldo de los clientes de la tabla de tbl_clientes"); }
@@ -170,6 +197,25 @@ namespace CPC_Modelo
                 while (reader.Read())
                 {
                     datos.Add(reader.GetValue(0).ToString() + " " + reader.GetValue(1).ToString());
+                }
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message.ToString() + " \nError en obtener los clientes de la tabla de tbl_clientes"); }
+            return datos;
+        }
+
+        public List<string> getAllClientes()
+        {
+            List<string> datos = new List<string>();
+
+
+            string sql = "SELECT Pk_idClientes, Nombres_clientes, Apellidos_clientes FROM tbl_clientes ;";
+            try
+            {
+                OdbcCommand command = new OdbcCommand(sql, conexion.conexion());
+                OdbcDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    datos.Add(reader.GetValue(0).ToString() + "-" + reader.GetValue(1).ToString() + " "+ reader.GetValue(2).ToString());
                 }
             }
             catch (Exception ex) { Console.WriteLine(ex.Message.ToString() + " \nError en obtener los clientes de la tabla de tbl_clientes"); }

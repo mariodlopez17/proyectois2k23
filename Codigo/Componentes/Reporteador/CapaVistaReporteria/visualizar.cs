@@ -31,6 +31,7 @@ namespace CapaVistaReporteria
             try
             {
                 crystalrpt.Load(Path.GetFullPath("..\\..\\..\\..\\..\\..\\..\\Reportes\\" + direccion_reporte.Text));
+                crystalrpt.Refresh();
                 crystalReportViewer1.ReportSource = crystalrpt;
                 crystalReportViewer1.Refresh();
             }

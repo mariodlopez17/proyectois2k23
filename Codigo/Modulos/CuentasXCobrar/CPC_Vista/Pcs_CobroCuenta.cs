@@ -201,10 +201,16 @@ namespace CPC_Vista
                     try
                     {
                         string pago = txt_monto_pago.Text;
+                        float cargo = float.Parse(txt_monto_cargo.Text);
                         float nuevoMontoPago = float.Parse(infoMoneda[2]) * float.Parse(pago);
-                        float vuelto = nuevoMontoPago - float.Parse(txt_monto_cargo.Text);
+                        if (cargo < nuevoMontoPago)
+                        {
+                            float vuelto = nuevoMontoPago - cargo;
+                            txt_monto_pago.Text = nuevoMontoPago.ToString();
+                            txt_vuelto.Text = vuelto.ToString();
+                        }
                         txt_monto_pago.Text = nuevoMontoPago.ToString();
-                        txt_vuelto.Text = vuelto.ToString();
+                        txt_vuelto.Text = "0";
                     }
                     catch (FormatException)
                     {

@@ -68,6 +68,12 @@
     <Compile Include="CPC_MDI.Designer.cs">
       <DependentUpon>CPC_MDI.cs</DependentUpon>
     </Compile>
+    <Compile Include="EstadoDeCuenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EstadoDeCuenta.Designer.cs">
+      <DependentUpon>EstadoDeCuenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mant_conceptoCXC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CPC_MDI.resx">
       <DependentUpon>CPC_MDI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EstadoDeCuenta.resx">
+      <DependentUpon>EstadoDeCuenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mant_conceptoCXC.resx">
       <DependentUpon>Mant_conceptoCXC.cs</DependentUpon>
