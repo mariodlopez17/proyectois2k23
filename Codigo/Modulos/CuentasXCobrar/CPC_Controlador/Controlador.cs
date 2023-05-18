@@ -41,7 +41,7 @@ namespace CPC_Controlador
             List<string> datos = sentencias.getSaldoCliente(id_cliente);
             foreach (string cliente in datos)
             {
-                string[] infoSaldos = cliente.Split('-');
+                string[] infoSaldos = cliente.Split('/');
                 float totalCargos = float.Parse(infoSaldos[1]);
                 float abonosActuales = float.Parse(infoSaldos[2]);
                 float nuevoAbono = float.Parse(abono);
@@ -51,6 +51,17 @@ namespace CPC_Controlador
                 sentencias.updateSaldoMensual(id_cliente, nuevoSaldoMensual.ToString());
             }
         }
+
+        public void displayReporte(string id_aplicacion)
+        {
+            List<string> reporte = sentencias.queryReportw(id_aplicacion);
+            foreach (string path in reporte)
+            {
+                CapaVistaReporteria.visualizar b = new CapaVistaReporteria.visualizar(path);
+                b.Show();
+            }
+        }
+
         public string generarID()
         {
             int newId = 0;
@@ -101,6 +112,17 @@ namespace CPC_Controlador
                 comboBox.Items.Add(tipo);
             }
         }
+
+        public void llenarCbxClientes(ComboBox comboBox)
+        {
+            comboBox.Items.Clear();
+            List<string> datos = sentencias.getAllClientes();
+            foreach (string cliente in datos)
+            {
+                comboBox.Items.Add(cliente);
+            }
+        }
+
         public Boolean validarPagosAnteriores(string id_factura, string id_almacen)
         {
             string[] datos = sentencias.getUltimoPago(id_factura, id_almacen);
