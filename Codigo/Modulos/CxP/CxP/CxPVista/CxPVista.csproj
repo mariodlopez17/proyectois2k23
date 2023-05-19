@@ -63,6 +63,36 @@
     <Compile Include="Antiguedad de saldos.designer.cs">
       <DependentUpon>Antiguedad de saldos.cs</DependentUpon>
     </Compile>
+    <Compile Include="AyudaConcepto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AyudaConcepto.designer.cs">
+      <DependentUpon>AyudaConcepto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AyudaFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AyudaFactura.designer.cs">
+      <DependentUpon>AyudaFactura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AyudaFactura2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AyudaFactura2.designer.cs">
+      <DependentUpon>AyudaFactura2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AyudaMoneda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AyudaMoneda.designer.cs">
+      <DependentUpon>AyudaMoneda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AyudaTipoPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AyudaTipoPago.designer.cs">
+      <DependentUpon>AyudaTipoPago.cs</DependentUpon>
+    </Compile>
     <Compile Include="Balance.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +165,21 @@
     <EmbeddedResource Include="Antiguedad de saldos.resx">
       <DependentUpon>Antiguedad de saldos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AyudaConcepto.resx">
+      <DependentUpon>AyudaConcepto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AyudaFactura.resx">
+      <DependentUpon>AyudaFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AyudaFactura2.resx">
+      <DependentUpon>AyudaFactura2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AyudaMoneda.resx">
+      <DependentUpon>AyudaMoneda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AyudaTipoPago.resx">
+      <DependentUpon>AyudaTipoPago.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Balance.resx">
       <DependentUpon>Balance.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Concepto.resx">
       <DependentUpon>Concepto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Factura.resx">
+      <DependentUpon>Factura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDICuentasPorPagar.resx">
       <DependentUpon>MDICuentasPorPagar.cs</DependentUpon>

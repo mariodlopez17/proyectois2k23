@@ -30,47 +30,50 @@ namespace CxPVista
         private void InitializeComponent()
         {
             this.gpbProveedor = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.txtIdProveedor = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gpbConcepto = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtTipoConcepto = new System.Windows.Forms.TextBox();
+            this.txtConcepto = new System.Windows.Forms.TextBox();
+            this.txtIdConcepto = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtEmision = new System.Windows.Forms.TextBox();
+            this.txtEstado = new System.Windows.Forms.TextBox();
+            this.txtIdCuenta = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtIdAlmacen = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtMonto = new System.Windows.Forms.TextBox();
+            this.txtSaldo = new System.Windows.Forms.TextBox();
+            this.txtIdFatura = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.btncancelar = new FontAwesome.Sharp.IconButton();
+            this.btninsertar = new FontAwesome.Sharp.IconButton();
             this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
+            this.btnTipoPago = new System.Windows.Forms.Button();
+            this.txtCambio = new System.Windows.Forms.TextBox();
+            this.txtMoneda = new System.Windows.Forms.TextBox();
+            this.txtIdMoneda = new System.Windows.Forms.TextBox();
+            this.txtNombreTipo = new System.Windows.Forms.TextBox();
+            this.txtIdTipo = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.btnHelp = new FontAwesome.Sharp.IconButton();
-            this.btncancelar = new FontAwesome.Sharp.IconButton();
-            this.btninsertar = new FontAwesome.Sharp.IconButton();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtMovimiento = new System.Windows.Forms.TextBox();
             this.gpbProveedor.SuspendLayout();
             this.gpbConcepto.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -79,43 +82,24 @@ namespace CxPVista
             // 
             // gpbProveedor
             // 
-            this.gpbProveedor.Controls.Add(this.textBox2);
-            this.gpbProveedor.Controls.Add(this.textBox1);
-            this.gpbProveedor.Controls.Add(this.label2);
+            this.gpbProveedor.Controls.Add(this.txtIdProveedor);
             this.gpbProveedor.Controls.Add(this.label1);
             this.gpbProveedor.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
-            this.gpbProveedor.Location = new System.Drawing.Point(25, 187);
+            this.gpbProveedor.Location = new System.Drawing.Point(410, 65);
             this.gpbProveedor.Name = "gpbProveedor";
-            this.gpbProveedor.Size = new System.Drawing.Size(339, 134);
+            this.gpbProveedor.Size = new System.Drawing.Size(287, 110);
             this.gpbProveedor.TabIndex = 0;
             this.gpbProveedor.TabStop = false;
             this.gpbProveedor.Text = "Datos del Proveedor";
             // 
-            // textBox2
+            // txtIdProveedor
             // 
-            this.textBox2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
-            this.textBox2.Location = new System.Drawing.Point(107, 80);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(122, 25);
-            this.textBox2.TabIndex = 8;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
-            this.textBox1.Location = new System.Drawing.Point(107, 47);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 25);
-            this.textBox1.TabIndex = 7;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
-            this.label2.Location = new System.Drawing.Point(16, 87);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 17);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Proveedor";
+            this.txtIdProveedor.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
+            this.txtIdProveedor.Location = new System.Drawing.Point(129, 43);
+            this.txtIdProveedor.Name = "txtIdProveedor";
+            this.txtIdProveedor.Size = new System.Drawing.Size(122, 25);
+            this.txtIdProveedor.TabIndex = 7;
+            this.txtIdProveedor.Tag = "pk_id_proveedor";
             // 
             // label1
             // 
@@ -123,21 +107,21 @@ namespace CxPVista
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
             this.label1.Location = new System.Drawing.Point(16, 46);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(22, 17);
+            this.label1.Size = new System.Drawing.Size(107, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Id";
+            this.label1.Text = "Id  Proveedor";
             // 
             // gpbConcepto
             // 
             this.gpbConcepto.Controls.Add(this.button2);
-            this.gpbConcepto.Controls.Add(this.textBox5);
-            this.gpbConcepto.Controls.Add(this.textBox4);
-            this.gpbConcepto.Controls.Add(this.textBox3);
+            this.gpbConcepto.Controls.Add(this.txtTipoConcepto);
+            this.gpbConcepto.Controls.Add(this.txtConcepto);
+            this.gpbConcepto.Controls.Add(this.txtIdConcepto);
             this.gpbConcepto.Controls.Add(this.label5);
             this.gpbConcepto.Controls.Add(this.label3);
             this.gpbConcepto.Controls.Add(this.label4);
             this.gpbConcepto.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
-            this.gpbConcepto.Location = new System.Drawing.Point(447, 187);
+            this.gpbConcepto.Location = new System.Drawing.Point(416, 181);
             this.gpbConcepto.Name = "gpbConcepto";
             this.gpbConcepto.Size = new System.Drawing.Size(281, 134);
             this.gpbConcepto.TabIndex = 2;
@@ -154,30 +138,32 @@ namespace CxPVista
             this.button2.TabIndex = 13;
             this.button2.Text = "?";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // textBox5
+            // txtTipoConcepto
             // 
-            this.textBox5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
-            this.textBox5.Location = new System.Drawing.Point(97, 100);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(151, 25);
-            this.textBox5.TabIndex = 11;
+            this.txtTipoConcepto.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
+            this.txtTipoConcepto.Location = new System.Drawing.Point(97, 100);
+            this.txtTipoConcepto.Name = "txtTipoConcepto";
+            this.txtTipoConcepto.Size = new System.Drawing.Size(151, 25);
+            this.txtTipoConcepto.TabIndex = 11;
             // 
-            // textBox4
+            // txtConcepto
             // 
-            this.textBox4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
-            this.textBox4.Location = new System.Drawing.Point(100, 65);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(148, 25);
-            this.textBox4.TabIndex = 10;
+            this.txtConcepto.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
+            this.txtConcepto.Location = new System.Drawing.Point(100, 65);
+            this.txtConcepto.Name = "txtConcepto";
+            this.txtConcepto.Size = new System.Drawing.Size(148, 25);
+            this.txtConcepto.TabIndex = 10;
             // 
-            // textBox3
+            // txtIdConcepto
             // 
-            this.textBox3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
-            this.textBox3.Location = new System.Drawing.Point(97, 32);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(65, 25);
-            this.textBox3.TabIndex = 9;
+            this.txtIdConcepto.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
+            this.txtIdConcepto.Location = new System.Drawing.Point(97, 32);
+            this.txtIdConcepto.Name = "txtIdConcepto";
+            this.txtIdConcepto.Size = new System.Drawing.Size(65, 25);
+            this.txtIdConcepto.TabIndex = 9;
+            this.txtIdConcepto.Tag = "fk_id_conceptocuentaporpagar";
             // 
             // label5
             // 
@@ -211,11 +197,19 @@ namespace CxPVista
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label19);
+            this.groupBox1.Controls.Add(this.txtEmision);
+            this.groupBox1.Controls.Add(this.txtEstado);
+            this.groupBox1.Controls.Add(this.txtIdCuenta);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.txtIdAlmacen);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.textBox9);
-            this.groupBox1.Controls.Add(this.textBox8);
-            this.groupBox1.Controls.Add(this.textBox6);
+            this.groupBox1.Controls.Add(this.txtMonto);
+            this.groupBox1.Controls.Add(this.gpbConcepto);
+            this.groupBox1.Controls.Add(this.gpbProveedor);
+            this.groupBox1.Controls.Add(this.txtSaldo);
+            this.groupBox1.Controls.Add(this.txtIdFatura);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
@@ -223,53 +217,115 @@ namespace CxPVista
             this.groupBox1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
             this.groupBox1.Location = new System.Drawing.Point(25, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(703, 160);
+            this.groupBox1.Size = new System.Drawing.Size(703, 321);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Movimiento";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
+            this.label19.Location = new System.Drawing.Point(15, 270);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(58, 17);
+            this.label19.TabIndex = 22;
+            this.label19.Text = "Estado";
+            // 
+            // txtEmision
+            // 
+            this.txtEmision.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
+            this.txtEmision.Location = new System.Drawing.Point(412, 20);
+            this.txtEmision.Name = "txtEmision";
+            this.txtEmision.Size = new System.Drawing.Size(285, 25);
+            this.txtEmision.TabIndex = 22;
+            this.txtEmision.Tag = "fecha_emision_cuentaporpagar";
+            // 
+            // txtEstado
+            // 
+            this.txtEstado.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
+            this.txtEstado.Location = new System.Drawing.Point(133, 267);
+            this.txtEstado.Name = "txtEstado";
+            this.txtEstado.Size = new System.Drawing.Size(159, 25);
+            this.txtEstado.TabIndex = 21;
+            this.txtEstado.Tag = "estado_cuentaporpagar";
+            // 
+            // txtIdCuenta
+            // 
+            this.txtIdCuenta.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
+            this.txtIdCuenta.Location = new System.Drawing.Point(133, 33);
+            this.txtIdCuenta.Name = "txtIdCuenta";
+            this.txtIdCuenta.Size = new System.Drawing.Size(55, 25);
+            this.txtIdCuenta.TabIndex = 20;
+            this.txtIdCuenta.Tag = "pk_id_cuentaporpagar";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
+            this.label11.Location = new System.Drawing.Point(18, 39);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(116, 17);
+            this.label11.TabIndex = 19;
+            this.label11.Text = "No.Documento";
+            // 
+            // txtIdAlmacen
+            // 
+            this.txtIdAlmacen.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
+            this.txtIdAlmacen.Location = new System.Drawing.Point(133, 132);
+            this.txtIdAlmacen.Name = "txtIdAlmacen";
+            this.txtIdAlmacen.Size = new System.Drawing.Size(159, 25);
+            this.txtIdAlmacen.TabIndex = 18;
+            this.txtIdAlmacen.Tag = "pk_id_almacen";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
+            this.label6.Location = new System.Drawing.Point(15, 135);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(90, 17);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Id Almacen";
             // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(22)))), ((int)(((byte)(14)))));
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button3.Location = new System.Drawing.Point(194, 32);
+            this.button3.Location = new System.Drawing.Point(193, 86);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(16, 25);
             this.button3.TabIndex = 14;
             this.button3.Text = "?";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // dateTimePicker1
+            // txtMonto
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
-            this.dateTimePicker1.Location = new System.Drawing.Point(428, 30);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(261, 25);
-            this.dateTimePicker1.TabIndex = 16;
+            this.txtMonto.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
+            this.txtMonto.Location = new System.Drawing.Point(133, 225);
+            this.txtMonto.Name = "txtMonto";
+            this.txtMonto.Size = new System.Drawing.Size(159, 25);
+            this.txtMonto.TabIndex = 15;
+            this.txtMonto.Tag = "monto_pago_cuentaporpagar\t";
             // 
-            // textBox9
+            // txtSaldo
             // 
-            this.textBox9.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
-            this.textBox9.Location = new System.Drawing.Point(134, 126);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(159, 25);
-            this.textBox9.TabIndex = 15;
+            this.txtSaldo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
+            this.txtSaldo.Location = new System.Drawing.Point(133, 180);
+            this.txtSaldo.Name = "txtSaldo";
+            this.txtSaldo.Size = new System.Drawing.Size(159, 25);
+            this.txtSaldo.TabIndex = 14;
+            this.txtSaldo.Tag = "saldo_pago_cuentaporpagar";
             // 
-            // textBox8
+            // txtIdFatura
             // 
-            this.textBox8.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
-            this.textBox8.Location = new System.Drawing.Point(134, 81);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(159, 25);
-            this.textBox8.TabIndex = 14;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
-            this.textBox6.Location = new System.Drawing.Point(134, 30);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(55, 25);
-            this.textBox6.TabIndex = 12;
+            this.txtIdFatura.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
+            this.txtIdFatura.Location = new System.Drawing.Point(133, 84);
+            this.txtIdFatura.Name = "txtIdFatura";
+            this.txtIdFatura.Size = new System.Drawing.Size(55, 25);
+            this.txtIdFatura.TabIndex = 12;
+            this.txtIdFatura.Tag = "pk_id_factura";
             // 
             // label10
             // 
@@ -277,15 +333,15 @@ namespace CxPVista
             this.label10.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
             this.label10.Location = new System.Drawing.Point(283, 33);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(139, 17);
+            this.label10.Size = new System.Drawing.Size(114, 17);
             this.label10.TabIndex = 4;
-            this.label10.Text = "Fecha Movimiento";
+            this.label10.Text = "Fecha Emisión";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
-            this.label9.Location = new System.Drawing.Point(16, 129);
+            this.label9.Location = new System.Drawing.Point(15, 228);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(112, 17);
             this.label9.TabIndex = 3;
@@ -295,7 +351,7 @@ namespace CxPVista
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
-            this.label8.Location = new System.Drawing.Point(16, 89);
+            this.label8.Location = new System.Drawing.Point(15, 183);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 17);
             this.label8.TabIndex = 2;
@@ -305,7 +361,7 @@ namespace CxPVista
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
-            this.label7.Location = new System.Drawing.Point(16, 36);
+            this.label7.Location = new System.Drawing.Point(15, 90);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(83, 17);
             this.label7.TabIndex = 0;
@@ -315,16 +371,13 @@ namespace CxPVista
             // 
             this.groupBox2.Controls.Add(this.btncancelar);
             this.groupBox2.Controls.Add(this.btninsertar);
-            this.groupBox2.Controls.Add(this.textBox16);
             this.groupBox2.Controls.Add(this.button5);
-            this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.textBox15);
-            this.groupBox2.Controls.Add(this.textBox14);
-            this.groupBox2.Controls.Add(this.textBox13);
-            this.groupBox2.Controls.Add(this.textBox12);
-            this.groupBox2.Controls.Add(this.textBox11);
-            this.groupBox2.Controls.Add(this.textBox10);
-            this.groupBox2.Controls.Add(this.label14);
+            this.groupBox2.Controls.Add(this.btnTipoPago);
+            this.groupBox2.Controls.Add(this.txtCambio);
+            this.groupBox2.Controls.Add(this.txtMoneda);
+            this.groupBox2.Controls.Add(this.txtIdMoneda);
+            this.groupBox2.Controls.Add(this.txtNombreTipo);
+            this.groupBox2.Controls.Add(this.txtIdTipo);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.label15);
@@ -338,12 +391,43 @@ namespace CxPVista
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos del Pago";
             // 
-            // textBox16
+            // btncancelar
             // 
-            this.textBox16.Location = new System.Drawing.Point(506, 185);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(30, 25);
-            this.textBox16.TabIndex = 70;
+            this.btncancelar.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btncancelar.FlatAppearance.BorderSize = 2;
+            this.btncancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btncancelar.IconChar = FontAwesome.Sharp.IconChar.XmarkCircle;
+            this.btncancelar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.btncancelar.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btncancelar.IconSize = 40;
+            this.btncancelar.Location = new System.Drawing.Point(181, 148);
+            this.btncancelar.Name = "btncancelar";
+            this.btncancelar.Size = new System.Drawing.Size(69, 61);
+            this.btncancelar.TabIndex = 72;
+            this.btncancelar.Text = "Cancelar";
+            this.btncancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btncancelar.UseVisualStyleBackColor = true;
+            this.btncancelar.Click += new System.EventHandler(this.btncancelar_Click);
+            // 
+            // btninsertar
+            // 
+            this.btninsertar.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btninsertar.FlatAppearance.BorderSize = 2;
+            this.btninsertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btninsertar.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btninsertar.IconChar = FontAwesome.Sharp.IconChar.FloppyDisk;
+            this.btninsertar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(180)))), ((int)(((byte)(227)))));
+            this.btninsertar.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btninsertar.IconSize = 40;
+            this.btninsertar.Location = new System.Drawing.Point(59, 148);
+            this.btninsertar.Name = "btninsertar";
+            this.btninsertar.Size = new System.Drawing.Size(69, 61);
+            this.btninsertar.TabIndex = 71;
+            this.btninsertar.Text = "Insertar";
+            this.btninsertar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btninsertar.UseVisualStyleBackColor = true;
+            this.btninsertar.Click += new System.EventHandler(this.btninsertar_Click);
             // 
             // button5
             // 
@@ -355,69 +439,57 @@ namespace CxPVista
             this.button5.TabIndex = 69;
             this.button5.Text = "?";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button4
+            // btnTipoPago
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(22)))), ((int)(((byte)(14)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button4.Location = new System.Drawing.Point(175, 36);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(16, 25);
-            this.button4.TabIndex = 18;
-            this.button4.Text = "?";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnTipoPago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(22)))), ((int)(((byte)(14)))));
+            this.btnTipoPago.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnTipoPago.Location = new System.Drawing.Point(175, 36);
+            this.btnTipoPago.Name = "btnTipoPago";
+            this.btnTipoPago.Size = new System.Drawing.Size(16, 25);
+            this.btnTipoPago.TabIndex = 18;
+            this.btnTipoPago.Text = "?";
+            this.btnTipoPago.UseVisualStyleBackColor = false;
+            this.btnTipoPago.Click += new System.EventHandler(this.btnTipoPago_Click);
             // 
-            // textBox15
+            // txtCambio
             // 
-            this.textBox15.Location = new System.Drawing.Point(542, 185);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(205, 25);
-            this.textBox15.TabIndex = 21;
+            this.txtCambio.Location = new System.Drawing.Point(526, 98);
+            this.txtCambio.Name = "txtCambio";
+            this.txtCambio.Size = new System.Drawing.Size(146, 25);
+            this.txtCambio.TabIndex = 20;
+            this.txtCambio.Tag = "cambio_moneda_cuentaporpagar";
             // 
-            // textBox14
+            // txtMoneda
             // 
-            this.textBox14.Location = new System.Drawing.Point(526, 98);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(146, 25);
-            this.textBox14.TabIndex = 20;
+            this.txtMoneda.Location = new System.Drawing.Point(526, 68);
+            this.txtMoneda.Name = "txtMoneda";
+            this.txtMoneda.Size = new System.Drawing.Size(146, 25);
+            this.txtMoneda.TabIndex = 19;
             // 
-            // textBox13
+            // txtIdMoneda
             // 
-            this.textBox13.Location = new System.Drawing.Point(526, 68);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(146, 25);
-            this.textBox13.TabIndex = 19;
+            this.txtIdMoneda.Location = new System.Drawing.Point(526, 35);
+            this.txtIdMoneda.Name = "txtIdMoneda";
+            this.txtIdMoneda.Size = new System.Drawing.Size(100, 25);
+            this.txtIdMoneda.TabIndex = 18;
+            this.txtIdMoneda.Tag = "fk_id_moneda";
             // 
-            // textBox12
+            // txtNombreTipo
             // 
-            this.textBox12.Location = new System.Drawing.Point(526, 35);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(100, 25);
-            this.textBox12.TabIndex = 18;
+            this.txtNombreTipo.Location = new System.Drawing.Point(111, 67);
+            this.txtNombreTipo.Name = "txtNombreTipo";
+            this.txtNombreTipo.Size = new System.Drawing.Size(139, 25);
+            this.txtNombreTipo.TabIndex = 17;
             // 
-            // textBox11
+            // txtIdTipo
             // 
-            this.textBox11.Location = new System.Drawing.Point(111, 67);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(139, 25);
-            this.textBox11.TabIndex = 17;
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(111, 36);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(58, 25);
-            this.textBox10.TabIndex = 16;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(372, 193);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(128, 17);
-            this.label14.TabIndex = 6;
-            this.label14.Text = "Total Convertido";
-            this.label14.Click += new System.EventHandler(this.label14_Click);
+            this.txtIdTipo.Location = new System.Drawing.Point(111, 36);
+            this.txtIdTipo.Name = "txtIdTipo";
+            this.txtIdTipo.Size = new System.Drawing.Size(58, 25);
+            this.txtIdTipo.TabIndex = 16;
+            this.txtIdTipo.Tag = "fk_id_tipopago\t";
             // 
             // label12
             // 
@@ -482,41 +554,23 @@ namespace CxPVista
             this.btnHelp.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnHelp.UseVisualStyleBackColor = true;
             // 
-            // btncancelar
+            // label18
             // 
-            this.btncancelar.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.btncancelar.FlatAppearance.BorderSize = 2;
-            this.btncancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btncancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btncancelar.IconChar = FontAwesome.Sharp.IconChar.TimesCircle;
-            this.btncancelar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.btncancelar.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btncancelar.IconSize = 40;
-            this.btncancelar.Location = new System.Drawing.Point(181, 148);
-            this.btncancelar.Name = "btncancelar";
-            this.btncancelar.Size = new System.Drawing.Size(69, 61);
-            this.btncancelar.TabIndex = 72;
-            this.btncancelar.Text = "Cancelar";
-            this.btncancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btncancelar.UseVisualStyleBackColor = true;
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
+            this.label18.Location = new System.Drawing.Point(610, 123);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(0, 17);
+            this.label18.TabIndex = 21;
             // 
-            // btninsertar
+            // txtMovimiento
             // 
-            this.btninsertar.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.btninsertar.FlatAppearance.BorderSize = 2;
-            this.btninsertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btninsertar.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btninsertar.IconChar = FontAwesome.Sharp.IconChar.FloppyDisk;
-            this.btninsertar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(180)))), ((int)(((byte)(227)))));
-            this.btninsertar.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btninsertar.IconSize = 40;
-            this.btninsertar.Location = new System.Drawing.Point(59, 148);
-            this.btninsertar.Name = "btninsertar";
-            this.btninsertar.Size = new System.Drawing.Size(69, 61);
-            this.btninsertar.TabIndex = 71;
-            this.btninsertar.Text = "Insertar";
-            this.btninsertar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btninsertar.UseVisualStyleBackColor = true;
+            this.txtMovimiento.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
+            this.txtMovimiento.Location = new System.Drawing.Point(734, 156);
+            this.txtMovimiento.Name = "txtMovimiento";
+            this.txtMovimiento.Size = new System.Drawing.Size(121, 25);
+            this.txtMovimiento.TabIndex = 74;
+            this.txtMovimiento.Tag = "fecha_movimiento_cuentaporpagar";
             // 
             // Moviminetos_CxP
             // 
@@ -524,11 +578,11 @@ namespace CxPVista
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(93)))), ((int)(((byte)(86)))));
             this.ClientSize = new System.Drawing.Size(861, 600);
+            this.Controls.Add(this.txtMovimiento);
+            this.Controls.Add(this.label18);
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.gpbConcepto);
-            this.Controls.Add(this.gpbProveedor);
             this.Name = "Moviminetos_CxP";
             this.Text = "Moviminetos_CxP";
             this.Load += new System.EventHandler(this.Moviminetos_CxP_Load);
@@ -541,13 +595,13 @@ namespace CxPVista
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.GroupBox gpbProveedor;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox gpbConcepto;
         private System.Windows.Forms.Label label3;
@@ -558,22 +612,8 @@ namespace CxPVista
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtNombreTipo;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label15;
@@ -581,12 +621,30 @@ namespace CxPVista
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.Button btnTipoPago;
         private System.Windows.Forms.Label label17;
         private FontAwesome.Sharp.IconButton btncancelar;
         private FontAwesome.Sharp.IconButton btninsertar;
         private FontAwesome.Sharp.IconButton btnHelp;
+        public System.Windows.Forms.TextBox txtIdTipo;
+        public System.Windows.Forms.TextBox txtCambio;
+        public System.Windows.Forms.TextBox txtMoneda;
+        public System.Windows.Forms.TextBox txtIdMoneda;
+        public System.Windows.Forms.TextBox txtTipoConcepto;
+        public System.Windows.Forms.TextBox txtConcepto;
+        public System.Windows.Forms.TextBox txtIdConcepto;
+        private System.Windows.Forms.Label label6;
+        public System.Windows.Forms.TextBox txtIdProveedor;
+        public System.Windows.Forms.TextBox txtSaldo;
+        public System.Windows.Forms.TextBox txtIdFatura;
+        public System.Windows.Forms.TextBox txtIdAlmacen;
+        public System.Windows.Forms.TextBox txtIdCuenta;
+        private System.Windows.Forms.Label label11;
+        public System.Windows.Forms.TextBox txtMonto;
+        private System.Windows.Forms.Label label19;
+        public System.Windows.Forms.TextBox txtEstado;
+        public System.Windows.Forms.TextBox txtEmision;
+        private System.Windows.Forms.Label label18;
+        public System.Windows.Forms.TextBox txtMovimiento;
     }
 }
