@@ -125,7 +125,7 @@ namespace CPC_Modelo
                     }
                 }
             }
-            catch (Exception ex) { Console.WriteLine(ex.Message.ToString() + " \nError en obtener el almacen de la tabla de tbl_almacen"); }
+            catch (Exception ex) { Console.WriteLine(ex.Message.ToString() + " \nError en obtener el reporte de la tabla de tbl_regreporteria"); }
 
 
             return datos;
@@ -134,7 +134,7 @@ namespace CPC_Modelo
         public List<string> getAlmacenes()
         {
             List<string> datos = new List<string>();
-            string sql = "SELECT codigo_almacen, nombre_almacen FROM tbl_almacen WHERE estatus_almacen = 1;";
+            string sql = "SELECT pk_codigo_almacen, nombre_almacen FROM tbl_almacen WHERE estatus_almacen = 1;";
             try
             {
                 OdbcCommand command = new OdbcCommand(sql, conexion.conexion());
