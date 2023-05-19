@@ -63,6 +63,12 @@
     <Compile Include="Antiguedad de saldos.designer.cs">
       <DependentUpon>Antiguedad de saldos.cs</DependentUpon>
     </Compile>
+    <Compile Include="AyudaFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AyudaFactura.Designer.cs">
+      <DependentUpon>AyudaFactura.cs</DependentUpon>
+    </Compile>
     <Compile Include="Balance.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,9 @@
     <EmbeddedResource Include="Antiguedad de saldos.resx">
       <DependentUpon>Antiguedad de saldos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AyudaFactura.resx">
+      <DependentUpon>AyudaFactura.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Balance.resx">
       <DependentUpon>Balance.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Concepto.resx">
       <DependentUpon>Concepto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Factura.resx">
+      <DependentUpon>Factura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDICuentasPorPagar.resx">
       <DependentUpon>MDICuentasPorPagar.cs</DependentUpon>
