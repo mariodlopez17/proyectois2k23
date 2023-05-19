@@ -64,7 +64,7 @@ namespace Modelo_Seguridad
         public void insertBitacora(string values)
         {
             string campos = "fk_id_usuario, fk_id_aplicacion, fecha_bitacora, hora_bitacora, host_bitacora, ip_bitacora, accion_bitacora";
-            string sql = "INSERT INTO tbl_bitacoraDeEventos (" + campos + ") values (" + values + ");";
+            string sql = "INSERT INTO tbl_bitacoraDeEventos (" + campos + ") values (" + values + ");";;
             try
             {
                 OdbcCommand cmd = new OdbcCommand(sql, con.conexion());

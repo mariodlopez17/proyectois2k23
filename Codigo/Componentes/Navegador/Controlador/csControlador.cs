@@ -685,7 +685,7 @@ namespace NavegadorControlador
                 string estado1 = "";
                 estado1 = sentencia.reporteestado(id1);
                 ubicacion1 = sentencia.reporteestado1(id1);
-            if (estado1 == "Visible")
+            if (estado1 == "visible")
             {
                CapaVistaReporteria.visualizar b = new CapaVistaReporteria.visualizar(ubicacion1);
                 b.Show();

@@ -31,12 +31,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CPC_Controlador">
+      <HintPath>..\CPC_Controlador\bin\Debug\CPC_Controlador.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="NavegadorVista">
       <HintPath>..\..\..\Componentes\Navegador\Vista\bin\Debug\NavegadorVista.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,11 +56,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cobro_Facturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cobro_Facturas.Designer.cs">
+      <DependentUpon>Cobro_Facturas.cs</DependentUpon>
+    </Compile>
     <Compile Include="CPC_MDI.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CPC_MDI.Designer.cs">
       <DependentUpon>CPC_MDI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EstadoCuenta.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EstadoCuenta.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EstadoDeCuenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EstadoDeCuenta.Designer.cs">
+      <DependentUpon>EstadoDeCuenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mant_conceptoCXC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mant_conceptoCXC.Designer.cs">
+      <DependentUpon>Mant_conceptoCXC.cs</DependentUpon>
     </Compile>
     <Compile Include="Mant_moneda.cs">
       <SubType>Form</SubType>
@@ -70,11 +104,30 @@
     <Compile Include="Mant_tipoPago.Designer.cs">
       <DependentUpon>Mant_tipoPago.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pcs_CobroCuenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pcs_CobroCuenta.Designer.cs">
+      <DependentUpon>Pcs_CobroCuenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Cobro_Facturas.resx">
+      <DependentUpon>Cobro_Facturas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CPC_MDI.resx">
       <DependentUpon>CPC_MDI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EstadoCuenta.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>EstadoCuenta.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EstadoDeCuenta.resx">
+      <DependentUpon>EstadoDeCuenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mant_conceptoCXC.resx">
+      <DependentUpon>Mant_conceptoCXC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mant_moneda.resx">
       <DependentUpon>Mant_moneda.cs</DependentUpon>
@@ -85,6 +138,12 @@
     <EmbeddedResource Include="Mant_tipoPago.resx">
       <DependentUpon>Mant_tipoPago.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pcs_CobroCuenta.resx">
+      <DependentUpon>Pcs_CobroCuenta.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

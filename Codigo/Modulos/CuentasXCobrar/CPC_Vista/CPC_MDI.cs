@@ -37,5 +37,25 @@ namespace CPC_Vista
             mant_Moras.MdiParent = this;
             mant_Moras.Show();
         }
+
+        private void conceptoCuentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Mant_conceptoCXC man_ConceptoCXC = new Mant_conceptoCXC();
+            man_ConceptoCXC.MdiParent = this;
+            man_ConceptoCXC.Show();
+        }
+
+        private void cobroDeDeudaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Pcs_CobroCuenta cobroCuenta = new Pcs_CobroCuenta();
+            cobroCuenta.MdiParent = this;
+            cobroCuenta.Show();
+        }
+
+        private void reporteDeEstadoDeCuentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CPC_Controlador.Controlador controlador = new CPC_Controlador.Controlador();
+            controlador.displayReporte("4201");
+        }
     }
 }

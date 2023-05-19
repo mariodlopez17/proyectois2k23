@@ -34,15 +34,19 @@ namespace CPC_Vista
             this.catalogosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.monedaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tipoDePagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.conceptoCuentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.procesosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cobroDeDeudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.herramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteDeEstadoDeCuentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.catalogoToolStripMenuItem,
@@ -67,7 +71,8 @@ namespace CPC_Vista
             // 
             this.catalogosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.monedaToolStripMenuItem,
-            this.tipoDePagosToolStripMenuItem});
+            this.tipoDePagosToolStripMenuItem,
+            this.conceptoCuentaToolStripMenuItem});
             this.catalogosToolStripMenuItem.Name = "catalogosToolStripMenuItem";
             this.catalogosToolStripMenuItem.Size = new System.Drawing.Size(108, 29);
             this.catalogosToolStripMenuItem.Text = "Catalogos";
@@ -86,14 +91,32 @@ namespace CPC_Vista
             this.tipoDePagosToolStripMenuItem.Text = "Tipo de Pagos";
             this.tipoDePagosToolStripMenuItem.Click += new System.EventHandler(this.tipoDePagosToolStripMenuItem_Click);
             // 
+            // conceptoCuentaToolStripMenuItem
+            // 
+            this.conceptoCuentaToolStripMenuItem.Name = "conceptoCuentaToolStripMenuItem";
+            this.conceptoCuentaToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.conceptoCuentaToolStripMenuItem.Text = "Concepto Cuenta";
+            this.conceptoCuentaToolStripMenuItem.Click += new System.EventHandler(this.conceptoCuentaToolStripMenuItem_Click);
+            // 
             // procesosToolStripMenuItem
             // 
+            this.procesosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cobroDeDeudaToolStripMenuItem});
             this.procesosToolStripMenuItem.Name = "procesosToolStripMenuItem";
             this.procesosToolStripMenuItem.Size = new System.Drawing.Size(99, 29);
             this.procesosToolStripMenuItem.Text = "Procesos";
             // 
+            // cobroDeDeudaToolStripMenuItem
+            // 
+            this.cobroDeDeudaToolStripMenuItem.Name = "cobroDeDeudaToolStripMenuItem";
+            this.cobroDeDeudaToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.cobroDeDeudaToolStripMenuItem.Text = "Cobro de Deuda";
+            this.cobroDeDeudaToolStripMenuItem.Click += new System.EventHandler(this.cobroDeDeudaToolStripMenuItem_Click);
+            // 
             // herramientasToolStripMenuItem
             // 
+            this.herramientasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reporteDeEstadoDeCuentaToolStripMenuItem});
             this.herramientasToolStripMenuItem.Name = "herramientasToolStripMenuItem";
             this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(133, 29);
             this.herramientasToolStripMenuItem.Text = "Herramientas";
@@ -109,6 +132,13 @@ namespace CPC_Vista
             this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
             this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(132, 29);
             this.cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
+            // 
+            // reporteDeEstadoDeCuentaToolStripMenuItem
+            // 
+            this.reporteDeEstadoDeCuentaToolStripMenuItem.Name = "reporteDeEstadoDeCuentaToolStripMenuItem";
+            this.reporteDeEstadoDeCuentaToolStripMenuItem.Size = new System.Drawing.Size(345, 34);
+            this.reporteDeEstadoDeCuentaToolStripMenuItem.Text = "Reporte de Estado de Cuenta";
+            this.reporteDeEstadoDeCuentaToolStripMenuItem.Click += new System.EventHandler(this.reporteDeEstadoDeCuentaToolStripMenuItem_Click);
             // 
             // CPC_MDI
             // 
@@ -139,5 +169,8 @@ namespace CPC_Vista
         private System.Windows.Forms.ToolStripMenuItem herramientasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem conceptoCuentaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cobroDeDeudaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporteDeEstadoDeCuentaToolStripMenuItem;
     }
 }
