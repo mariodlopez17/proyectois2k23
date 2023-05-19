@@ -263,6 +263,7 @@ namespace CxPVista
             this.txtabonoacum.Size = new System.Drawing.Size(138, 25);
             this.txtabonoacum.TabIndex = 22;
             this.txtabonoacum.Tag = "abonos_acumulados_proveedor";
+            this.txtabonoacum.TextChanged += new System.EventHandler(this.txtabonoacum_TextChanged);
             // 
             // label8
             // 

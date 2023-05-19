@@ -6,12 +6,14 @@ using System.Drawing;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CxPControlador;
 
 namespace CxPVista
 {
     public partial class MDICuentasPorPagar : Form
     {
         Seguridad_Controlador.Controlador cnseg = new Seguridad_Controlador.Controlador();
+        TControlador controlador = new TControlador();
         public MDICuentasPorPagar()
         {
             InitializeComponent();
@@ -82,12 +84,14 @@ namespace CxPVista
 
         private void btnreportemovimientos_Click(object sender, EventArgs e)
         {
-            //Codigo
+            /*Codigo
             Reporte_Cuentas_Por_Pagar rmoviminetos = new Reporte_Cuentas_Por_Pagar();
             rmoviminetos.MdiParent = this;
             rmoviminetos.Show();
             //Ocultar submenu
-            hideSubMenu();
+            hideSubMenu();*/
+            
+            controlador.displayReporte("5201");
         }
 
         private void btnProveedor_Click_1(object sender, EventArgs e)

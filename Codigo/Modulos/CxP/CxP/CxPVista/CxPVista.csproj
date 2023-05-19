@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="FontAwesome.Sharp, Version=6.1.1.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.6.1.1\lib\net472\FontAwesome.Sharp.dll</HintPath>
     </Reference>
@@ -62,6 +65,36 @@
     </Compile>
     <Compile Include="Antiguedad de saldos.designer.cs">
       <DependentUpon>Antiguedad de saldos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AyudaConcepto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AyudaConcepto.designer.cs">
+      <DependentUpon>AyudaConcepto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AyudaFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AyudaFactura.designer.cs">
+      <DependentUpon>AyudaFactura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AyudaFactura2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AyudaFactura2.designer.cs">
+      <DependentUpon>AyudaFactura2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AyudaMoneda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AyudaMoneda.designer.cs">
+      <DependentUpon>AyudaMoneda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AyudaTipoPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AyudaTipoPago.designer.cs">
+      <DependentUpon>AyudaTipoPago.cs</DependentUpon>
     </Compile>
     <Compile Include="Balance.cs">
       <SubType>Form</SubType>
@@ -112,11 +145,41 @@
     <Compile Include="Proveedor.designer.cs">
       <DependentUpon>Proveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReporteConcepto.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteConcepto.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReporteEstadoCuentaProveedor.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteEstadoCuentaProveedor.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReporteMoneda.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteMoneda.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reporte Cuentas Por Pagar.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reporte Cuentas Por Pagar.designer.cs">
       <DependentUpon>Reporte Cuentas Por Pagar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReporteProveedor.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteProveedor.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReporteTipoPago.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteTipoPago.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="TipoPago.cs">
       <SubType>Form</SubType>
@@ -135,6 +198,21 @@
     <EmbeddedResource Include="Antiguedad de saldos.resx">
       <DependentUpon>Antiguedad de saldos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AyudaConcepto.resx">
+      <DependentUpon>AyudaConcepto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AyudaFactura.resx">
+      <DependentUpon>AyudaFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AyudaFactura2.resx">
+      <DependentUpon>AyudaFactura2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AyudaMoneda.resx">
+      <DependentUpon>AyudaMoneda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AyudaTipoPago.resx">
+      <DependentUpon>AyudaTipoPago.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Balance.resx">
       <DependentUpon>Balance.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Concepto.resx">
       <DependentUpon>Concepto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Factura.resx">
+      <DependentUpon>Factura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDICuentasPorPagar.resx">
       <DependentUpon>MDICuentasPorPagar.cs</DependentUpon>
@@ -156,8 +237,28 @@
     <EmbeddedResource Include="Proveedor.resx">
       <DependentUpon>Proveedor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReporteConcepto.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteConcepto.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteEstadoCuentaProveedor.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteEstadoCuentaProveedor.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteMoneda.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteMoneda.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reporte Cuentas Por Pagar.resx">
       <DependentUpon>Reporte Cuentas Por Pagar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteProveedor.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteProveedor.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteTipoPago.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteTipoPago.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="TipoPago.resx">
       <DependentUpon>TipoPago.cs</DependentUpon>
@@ -165,6 +266,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
