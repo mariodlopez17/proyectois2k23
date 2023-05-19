@@ -152,5 +152,15 @@ namespace CxPControlador
             sn.actualizartransaccion(datos, condicion, tabla);
         }
 
+        public void displayReporte(string id_aplicacion)
+        {
+            List<string> reporte = sn.queryReportw(id_aplicacion);
+            foreach (string path in reporte)
+            {
+                CapaVistaReporteria.visualizar b = new CapaVistaReporteria.visualizar(path);
+                b.Show();
+            }
+        }
+
     }
 }

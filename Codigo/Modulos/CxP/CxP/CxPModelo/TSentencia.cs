@@ -135,5 +135,31 @@ namespace CxPModelo
 
         }
 
+        public List<string> queryReportw(string id_aplicacion)
+        {
+            List<string> datos = new List<string>();
+            string sql = "SELECT ruta, estado FROM tbl_regreporteria WHERE aplicacion = " + id_aplicacion + ";";
+            try
+            {
+                OdbcCommand command = new OdbcCommand(sql, con.conexion());
+                OdbcDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    if (reader.GetValue(1).ToString().ToLower().Equals("visible"))
+                    {
+                        datos.Add(reader.GetValue(0).ToString());
+                    }
+                    else
+                    {
+                        MessageBox.Show("El reporte esta con estado no visible");
+                    }
+                }
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message.ToString() + " \nError en obtener el almacen de la tabla de tbl_almacen"); }
+
+
+            return datos;
+        }
+
     }
 }
