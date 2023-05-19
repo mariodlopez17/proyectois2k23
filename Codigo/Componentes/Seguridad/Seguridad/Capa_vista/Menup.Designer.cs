@@ -38,6 +38,7 @@ namespace Vista_Seguridad
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnseguridad = new System.Windows.Forms.Button();
+            this.btnInventario = new System.Windows.Forms.Button();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelSideMenu.SuspendLayout();
@@ -79,7 +80,7 @@ namespace Vista_Seguridad
             this.btnVentas.Text = "VENTAS";
             this.btnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVentas.UseVisualStyleBackColor = false;
-            this.btnVentas.Click += new System.EventHandler(this.btlogistica_Click);
+            this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click);
             // 
             // btncompras
             // 
@@ -109,7 +110,7 @@ namespace Vista_Seguridad
             this.btnCxC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCxC.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCxC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.btnCxC.Location = new System.Drawing.Point(0, 165);
+            this.btnCxC.Location = new System.Drawing.Point(0, 204);
             this.btnCxC.Name = "btnCxC";
             this.btnCxC.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
             this.btnCxC.Size = new System.Drawing.Size(250, 39);
@@ -128,7 +129,7 @@ namespace Vista_Seguridad
             this.btnCxP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCxP.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCxP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.btnCxP.Location = new System.Drawing.Point(0, 204);
+            this.btnCxP.Location = new System.Drawing.Point(0, 243);
             this.btnCxP.Name = "btnCxP";
             this.btnCxP.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
             this.btnCxP.Size = new System.Drawing.Size(250, 39);
@@ -147,6 +148,7 @@ namespace Vista_Seguridad
             this.panelSideMenu.Controls.Add(this.btnseguridad);
             this.panelSideMenu.Controls.Add(this.btnCxP);
             this.panelSideMenu.Controls.Add(this.btnCxC);
+            this.panelSideMenu.Controls.Add(this.btnInventario);
             this.panelSideMenu.Controls.Add(this.btncompras);
             this.panelSideMenu.Controls.Add(this.btnVentas);
             this.panelSideMenu.Controls.Add(this.panelLogo);
@@ -165,7 +167,7 @@ namespace Vista_Seguridad
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.btnLogout.Location = new System.Drawing.Point(0, 282);
+            this.btnLogout.Location = new System.Drawing.Point(0, 321);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
             this.btnLogout.Size = new System.Drawing.Size(250, 39);
@@ -184,7 +186,7 @@ namespace Vista_Seguridad
             this.btnseguridad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnseguridad.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnseguridad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.btnseguridad.Location = new System.Drawing.Point(0, 243);
+            this.btnseguridad.Location = new System.Drawing.Point(0, 282);
             this.btnseguridad.Name = "btnseguridad";
             this.btnseguridad.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
             this.btnseguridad.Size = new System.Drawing.Size(250, 39);
@@ -194,6 +196,25 @@ namespace Vista_Seguridad
             this.btnseguridad.UseVisualStyleBackColor = false;
             this.btnseguridad.Click += new System.EventHandler(this.btnlogout_Click);
             // 
+            // btnInventario
+            // 
+            this.btnInventario.BackColor = System.Drawing.Color.SlateGray;
+            this.btnInventario.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnInventario.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnInventario.FlatAppearance.BorderSize = 0;
+            this.btnInventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInventario.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInventario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.btnInventario.Location = new System.Drawing.Point(0, 165);
+            this.btnInventario.Name = "btnInventario";
+            this.btnInventario.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
+            this.btnInventario.Size = new System.Drawing.Size(250, 39);
+            this.btnInventario.TabIndex = 15;
+            this.btnInventario.Text = "INVENTARIO";
+            this.btnInventario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInventario.UseVisualStyleBackColor = false;
+            this.btnInventario.Click += new System.EventHandler(this.btnInventario_Click);
+            // 
             // Menup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -201,7 +222,7 @@ namespace Vista_Seguridad
             this.ClientSize = new System.Drawing.Size(778, 474);
             this.Controls.Add(this.panelSideMenu);
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Menup";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menup";
@@ -223,5 +244,6 @@ namespace Vista_Seguridad
         public System.Windows.Forms.Button btnCxP;
         public System.Windows.Forms.Button btnseguridad;
         public System.Windows.Forms.Button btnLogout;
+        public System.Windows.Forms.Button btnInventario;
     }
 }
