@@ -16,14 +16,14 @@ namespace CxPVista {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class ReporteConcepto : ReportClass {
+    public class ConceptoCXP : ReportClass {
         
-        public ReporteConcepto() {
+        public ConceptoCXP() {
         }
         
         public override string ResourceName {
             get {
-                return "ReporteConcepto.rpt";
+                return "ConceptoCXP.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace CxPVista {
         
         public override string FullResourceName {
             get {
-                return "CxPVista.ReporteConcepto.rpt";
+                return "CxPVista.ConceptoCXP.rpt";
             }
             set {
                 // Do nothing
@@ -66,7 +66,7 @@ namespace CxPVista {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupHeaderSection1 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
             get {
                 return this.ReportDefinition.Sections[2];
             }
@@ -74,7 +74,7 @@ namespace CxPVista {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,33 +82,17 @@ namespace CxPVista {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupFooterSection1 {
-            get {
-                return this.ReportDefinition.Sections[4];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
-            get {
-                return this.ReportDefinition.Sections[5];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section Section5 {
             get {
-                return this.ReportDefinition.Sections[6];
+                return this.ReportDefinition.Sections[4];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedReporteConcepto : Component, ICachedReport {
+    public class CachedConceptoCXP : Component, ICachedReport {
         
-        public CachedReporteConcepto() {
+        public CachedConceptoCXP() {
         }
         
         [Browsable(false)]
@@ -145,7 +129,7 @@ namespace CxPVista {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            ReporteConcepto rpt = new ReporteConcepto();
+            ConceptoCXP rpt = new ConceptoCXP();
             rpt.Site = this.Site;
             return rpt;
         }

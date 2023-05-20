@@ -114,6 +114,12 @@
     <Compile Include="Concepto.designer.cs">
       <DependentUpon>Concepto.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConceptoCXP.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConceptoCXP.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Factura.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,11 +151,11 @@
     <Compile Include="Proveedor.designer.cs">
       <DependentUpon>Proveedor.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReporteConcepto.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ReporteConcepto.rpt</DependentUpon>
-      <SubType>Component</SubType>
+    <Compile Include="Reporte Cuentas Por Pagar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte Cuentas Por Pagar.designer.cs">
+      <DependentUpon>Reporte Cuentas Por Pagar.cs</DependentUpon>
     </Compile>
     <Compile Include="ReporteEstadoCuentaProveedor.cs">
       <AutoGen>True</AutoGen>
@@ -162,12 +168,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReporteMoneda.rpt</DependentUpon>
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reporte Cuentas Por Pagar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reporte Cuentas Por Pagar.designer.cs">
-      <DependentUpon>Reporte Cuentas Por Pagar.cs</DependentUpon>
     </Compile>
     <Compile Include="ReporteProveedor.cs">
       <AutoGen>True</AutoGen>
@@ -222,6 +222,10 @@
     <EmbeddedResource Include="Concepto.resx">
       <DependentUpon>Concepto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ConceptoCXP.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ConceptoCXP.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Factura.resx">
       <DependentUpon>Factura.cs</DependentUpon>
     </EmbeddedResource>
@@ -237,9 +241,8 @@
     <EmbeddedResource Include="Proveedor.resx">
       <DependentUpon>Proveedor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReporteConcepto.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>ReporteConcepto.cs</LastGenOutput>
+    <EmbeddedResource Include="Reporte Cuentas Por Pagar.resx">
+      <DependentUpon>Reporte Cuentas Por Pagar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReporteEstadoCuentaProveedor.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -248,9 +251,6 @@
     <EmbeddedResource Include="ReporteMoneda.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReporteMoneda.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reporte Cuentas Por Pagar.resx">
-      <DependentUpon>Reporte Cuentas Por Pagar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReporteProveedor.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
