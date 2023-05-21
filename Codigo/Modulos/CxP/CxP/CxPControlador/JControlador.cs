@@ -39,7 +39,8 @@ namespace CxPControlador
                 string dato = " ";
                 string tipo = " ";
                 string datocxp = ingresarcxp(textbox);
-    
+                string proveedor = ingresarcambiosfactura(textbox);
+
                 for (int x = 0; x < textbox.Length; x++)
                 {
 
@@ -57,7 +58,7 @@ namespace CxPControlador
                 }
                 //sn.insertar(dato, tipo, tabla.Tag.ToString());
     
-                sn.actualizartransaccion(dato, tipo, tabla.Tag.ToString(), datocxp);
+                sn.actualizartransaccion(dato, tipo, tabla.Tag.ToString(), datocxp, proveedor );
             }
             catch (Exception e)
             {
@@ -66,16 +67,28 @@ namespace CxPControlador
 
         }
 
-        public string ingresarcxp(TextBox[] textbox)//Crea cadenas de datos para la insercion
+        string ingresarcxp(TextBox[] textbox)//Crea cadenas de datos para la insercion
         {
                 string dato;
             //string tipo = " ";
             string idcxp = crearidwo("tbl_cuentaporpagar", "pk_id_cuentaporpagar");
             dato = " "+ idcxp + " , " + textbox[1].Text + " , " + textbox[2].Text + " , " + textbox[0].Text + " , 1, 1, 1, 1 " + " , '" + textbox[5].Text + "' , '" + textbox[5].Text + "' , " + textbox[3].Text + " , 0, 1 ";
 
-            
-
                 return dato;
+
+        }
+        public string ingresarcambiosfactura(TextBox[] textbox)//Crea cadenas de datos para la insercion
+        {
+            string sql;
+            string idProveedor = textbox[2].Text;
+            string[] datosProveedor = sn.datosProveedor(idProveedor);
+
+            double nuevosaldo = Convert.ToDouble(datosProveedor[0]) + Convert.ToDouble(textbox[3].Text);
+            double nuevocargo = Convert.ToDouble(datosProveedor[1]) + Convert.ToDouble(textbox[3].Text);
+
+
+            sql = "Update tbl_proveedor Set saldo_actual_proveedor = " + nuevosaldo + ", cargo_del_mes_proveedor = " + nuevocargo + " where pk_id_proveedor = " + idProveedor + " ;";
+            return sql;
 
         }
 

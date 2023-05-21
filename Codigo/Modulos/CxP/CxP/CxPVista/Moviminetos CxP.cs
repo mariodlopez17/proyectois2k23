@@ -62,8 +62,8 @@ namespace CxPVista
         private void btninsertar_Click(object sender, EventArgs e)
         {
             TextBox[] Grupo = { txtIdCuenta, txtIdAlmacen, txtIdProveedor, txtIdFatura, txtIdTipo, txtIdMoneda, txtIdConcepto, txtCambio, txtEmision, txtMovimiento, txtSaldo, txtMonto, txtEstado };
-            Double[] Montos = { Convert.ToDouble(txtSaldo.Text), Convert.ToDouble(txtMonto.Text) };
-            cn.operacionCxP(Grupo, "tbl_cuentaporpagar",Montos,txtIdProveedor.Text);
+            Double Monto = Convert.ToDouble(txtMonto.Text) ;
+            cn.operacionCxP(Grupo, "tbl_cuentaporpagar",Monto,txtIdProveedor.Text,txtIdFatura.Text,txtIdAlmacen.Text);
             TextBox[] Grupo2 = { txtMovimiento,txtMoneda,txtNombreTipo,txtMovimiento,txtConcepto,txtTipoConcepto,txtNombreTipo,txtMovimiento,txtMoneda, txtIdCuenta, txtIdAlmacen, txtIdProveedor, txtIdFatura, txtIdTipo, txtIdMoneda, txtIdConcepto, txtCambio, txtEmision, txtMovimiento, txtSaldo, txtMonto, txtEstado };
             cn.Inicio(txtIdCuenta,txtMovimiento,Grupo2);
 
