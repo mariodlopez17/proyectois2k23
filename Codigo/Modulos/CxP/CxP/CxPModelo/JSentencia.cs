@@ -24,7 +24,7 @@ namespace CxPModelo
 
         public OdbcDataAdapter llenartablaAlmacen(string tabla)
         {
-            string sql = "select codigo_almacen as ID, nombre_almacen as Nombre from " + tabla;
+            string sql = "select pk_codigo_almacen as ID, nombre_almacen as Nombre from " + tabla;
             /*string sql = "select * from " + tabla + " where " + tipodato + " like ('" + dato + "%');"; */
             OdbcDataAdapter datatable = new OdbcDataAdapter(sql, con.conexion());
             return datatable;
@@ -61,7 +61,7 @@ namespace CxPModelo
         }*/
 
 
-        public void actualizartransaccion(string dato, string tipo, string tabla, string datocxp)
+        public void actualizartransaccion(string dato, string tipo, string tabla, string datocxp, string proveedor)
         {
 
             OdbcCommand command = new OdbcCommand();
@@ -85,7 +85,12 @@ namespace CxPModelo
                 command.CommandText = sqlcxp;
                 command.ExecuteNonQuery();
 
+                
+                command.CommandText = proveedor;
+                command.ExecuteNonQuery();
+
                 transaction.Commit();
+                MessageBox.Show("Realizado con Exito");
                 Console.WriteLine("guardado en base de datos");
                 conn.Close();
             }
@@ -194,5 +199,30 @@ namespace CxPModelo
             return dato;
         }
 
+        
+            public string[] datosProveedor(string idproveedor)
+        {
+            string[] dato = new string[2];
+            try
+            {
+
+                string sql = "select saldo_actual_proveedor, cargo_del_mes_proveedor from tbl_proveedor where pk_id_proveedor =  " + idproveedor + " ;";
+                OdbcCommand cmd = new OdbcCommand(sql, con.conexion());
+                OdbcDataReader lr = cmd.ExecuteReader();
+                while (lr.Read())
+                {
+                    dato[0] = lr.GetString(0);
+                    dato[1] = lr.GetString(1);
+
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error: " + e);
+            }
+
+
+            return dato;
+        }
     }
 }

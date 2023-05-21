@@ -55,6 +55,7 @@ namespace CxPModelo
 
                 transaction.Commit();
                 Console.WriteLine("guardado en base de datos");
+                MessageBox.Show("Realizado con Exito");
                 conn.Close();
             }
             catch (Exception ex)
@@ -145,6 +146,33 @@ namespace CxPModelo
                 dato = lr.GetString(0);
 
             }
+            return dato;
+        }
+
+        public string[] datosProveedor(string idproveedor)
+        {
+            string[] dato = new string[4];
+            try
+            {
+
+                string sql = "select saldo_mes_anterior_proveedor, saldo_actual_proveedor, cargo_del_mes_proveedor, abonos_del_mes_proveedor from tbl_proveedor where pk_id_proveedor =  " + idproveedor + " ;";
+                OdbcCommand cmd = new OdbcCommand(sql, con.conexion());
+                OdbcDataReader lr = cmd.ExecuteReader();
+                while (lr.Read())
+                {
+                    dato[0] = lr.GetString(0);
+                    dato[1] = lr.GetString(1);
+                    dato[2] = lr.GetString(2);
+                    dato[3] = lr.GetString(3);
+
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error: " + e);
+            }
+
+
             return dato;
         }
     }

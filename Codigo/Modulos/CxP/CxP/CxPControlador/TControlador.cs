@@ -95,27 +95,20 @@ namespace CxPControlador
                 double CargosAcumulados = Convert.ToDouble(tabla.Rows[fila].Cells[6].Value);
                 double AbonosAcumulados = Convert.ToDouble(tabla.Rows[fila].Cells[7].Value);
                 string id = tabla.Rows[fila].Cells[0].Value.ToString();
-                if (cargoMes != 0 && abonoMes != 0 )
-                {
-                    double balanceMes = cargoMes - abonoMes;
-                    if(saldoActual >= balanceMes)
-                    {
-                        datos[1] = (saldoActual - balanceMes).ToString();
-                    }else
-                    {
-                        datos[1] = "0";
-                    }
-                    datos[0] = (saldoAnterior + saldoActual).ToString(); MessageBox.Show(datos[0]);
+               
+                   
                     
-                    datos[2] = "0";
-                    datos[3] = "0";
-                    datos[4] = (CargosAcumulados + cargoMes).ToString();
-                    datos[5] = (AbonosAcumulados + abonoMes).ToString();
-                    string condicion = " pk_id_proveedor = "+ id + " ;";
+                 datos[0] = saldoActual.ToString();
+                 datos[1] = saldoActual.ToString();
+                 datos[2] = "0";
+                 datos[3] = "0";
+                 datos[4] = (CargosAcumulados + cargoMes).ToString();
+                 datos[5] = (AbonosAcumulados + abonoMes).ToString();
+                 string condicion = " pk_id_proveedor = "+ id + " ;";
                    
                     actualizacion(campos, datos, condicion, "tbl_Proveedor");
                     llenardatosproveedor("tbl_Proveedor", tabla);
-                }
+                
                 
                 
 
