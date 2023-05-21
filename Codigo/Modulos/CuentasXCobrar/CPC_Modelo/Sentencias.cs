@@ -348,5 +348,148 @@ namespace CPC_Modelo
             return datos;
         }
 
+        // Inicio de Estado Cuenta -------------------------------------------------------------------------------------------------------------------------------
+
+        public OdbcDataReader getNombre(string id_cliente)
+        {
+            string sql = "select Nombres_clientes from tbl_clientes where Pk_idClientes = '" + id_cliente + "';";
+            try
+            {
+                OdbcCommand cmd = new OdbcCommand(sql, conexion.conexion());
+                OdbcDataReader leer = cmd.ExecuteReader();
+                return leer;
+            }catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + "\nError en obtener el nombre de la tabla tbl_clientes");
+                return null;
+            }
+        }
+
+        public OdbcDataReader getNit(string id_cliente)
+        {
+            string sql = "select nit_clientes from tbl_clientes where Pk_idClientes = '" + id_cliente + "';";
+            try
+            {
+                OdbcCommand cmd = new OdbcCommand(sql, conexion.conexion());
+                OdbcDataReader leer = cmd.ExecuteReader();
+                return leer;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + "\nError en obtener el NIT de la tabla tbl_clientes");
+                return null;
+            }
+        }
+
+        public OdbcDataReader getDpi(string id_cliente)
+        {
+            string sql = "select Dpi_clientes from tbl_clientes where Pk_idClientes = '" + id_cliente + "';";
+            try
+            {
+                OdbcCommand cmd = new OdbcCommand(sql, conexion.conexion());
+                OdbcDataReader leer = cmd.ExecuteReader();
+                return leer;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + "\nError en obtener el DPI de la tabla tbl_clientes");
+                return null;
+            }
+        }
+
+        public OdbcDataReader getTelefono(string id_cliente)
+        {
+            string sql = "select telefono_clientes from tbl_clientes where Pk_idClientes = '" + id_cliente + "';";
+            try
+            {
+                OdbcCommand cmd = new OdbcCommand(sql, conexion.conexion());
+                OdbcDataReader leer = cmd.ExecuteReader();
+                return leer;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + "\nError en obtener el Telefono de la tabla tbl_clientes");
+                return null;
+            }
+        }
+
+        public OdbcDataReader getDireccion(string id_cliente)
+        {
+            string sql = "select direccion_clientes from tbl_clientes where Pk_idClientes = '" + id_cliente + "';";
+            try
+            {
+                OdbcCommand cmd = new OdbcCommand(sql, conexion.conexion());
+                OdbcDataReader leer = cmd.ExecuteReader();
+                return leer;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + "\nError en obtener el Direccion de la tabla tbl_clientes");
+                return null;
+            }
+        }
+
+        public OdbcDataReader getAnterior(string id_cliente)
+        {
+            string sql = "select SActual_clientes from tbl_clientes where Pk_idClientes = '" + id_cliente + "';";
+            try
+            {
+                OdbcCommand cmd = new OdbcCommand(sql, conexion.conexion());
+                OdbcDataReader leer = cmd.ExecuteReader();
+                return leer;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + "\nError en obtener el Saldo Actual de la tabla tbl_clientes");
+                return null;
+            }
+        }
+
+        public OdbcDataReader getCargo(string id_cliente)
+        {
+            string sql = "select CargoMes_clientes from tbl_clientes where Pk_idClientes = '" + id_cliente + "';";
+            try
+            {
+                OdbcCommand cmd = new OdbcCommand(sql, conexion.conexion());
+                OdbcDataReader leer = cmd.ExecuteReader();
+                return leer;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + "\nError en obtener el Cargo del Mes de la tabla tbl_clientes");
+                return null;
+            }
+        }
+
+        public OdbcDataReader getAbono(string id_cliente)
+        {
+            string sql = "select AbonosMes_clientes from tbl_clientes where Pk_idClientes = '" + id_cliente + "';";
+            try
+            {
+                OdbcCommand cmd = new OdbcCommand(sql, conexion.conexion());
+                OdbcDataReader leer = cmd.ExecuteReader();
+                return leer;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + "\nError en obtener el Abono del Mes de la tabla tbl_clientes");
+                return null;
+            }
+        }
+
+        public void modificarSaldoMes(string saldo, string id_cliente)
+        {
+            string sql = "update tbl_clientes set SMesAnterior_clientes = '" + saldo + "' where (Pk_idClientes = '" + id_cliente + "');";
+            try
+            {
+                OdbcCommand cmd = new OdbcCommand(sql, conexion.conexion());
+                cmd.ExecuteNonQuery();
+            }catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + "\nError en actualizar el dato de la tabla tbl_clientes");
+            }
+        }
+
+        // Fin de Estado Cuenta ----------------------------------------------------------------------------------------------------------------------------------
     }
 }
