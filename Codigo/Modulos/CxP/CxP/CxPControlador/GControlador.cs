@@ -136,7 +136,7 @@ namespace CxPControlador
 
        
 
-        public void operacionCxP(TextBox[] textbox, string tabla, double monto, string idProveedor)
+        public void operacionCxP(TextBox[] textbox, string tabla, double monto, string idProveedor,string factura, string almacen)
         {
             string sql = "";
             
@@ -151,7 +151,7 @@ namespace CxPControlador
                 sql = ingresar(textbox, tabla);
             }
 
-            string cambioProveedor = movimientoProveedor(idProveedor, monto);
+            string cambioProveedor = movimientoProveedor(idProveedor, monto,factura,almacen);
             
             sn.actualizartransaccion(sql, cambioProveedor);
         }
@@ -164,7 +164,7 @@ namespace CxPControlador
 
         }
 
-        string movimientoProveedor(string idProveedor, double abono)
+        string movimientoProveedor2(string idProveedor, double abono)
         {
             string sql;
             string[] datos = sn.datosProveedor(idProveedor);
@@ -248,7 +248,7 @@ namespace CxPControlador
 
         public double operacionConcepto(double[] montos, string factura, string almacen, string proveedor)
         {
-            double saldoactual = 0;
+            double saldoactual = montos[0];
             string idMoneda = sn.idMoneda(factura, almacen, proveedor);
             string tipo = sn.tipomoneda(Convert.ToInt32(idMoneda));
             if (montos[1] != 0)
@@ -268,6 +268,43 @@ namespace CxPControlador
 
 
             return saldoactual;
+        }
+
+        string movimientoProveedor(string idProveedor, double abono, string factura,string almacen)
+        {
+            string sql;
+            string idMoneda = sn.idMoneda(factura, almacen, idProveedor);
+            string tipo = sn.tipomoneda(Convert.ToInt32(idMoneda));
+            string[] datos = sn.datosProveedor(idProveedor);
+            double abonosuma = abono + Convert.ToDouble(datos[3]);
+            double cargo = Convert.ToDouble(datos[2]);
+            double saldoanterior = Convert.ToDouble(datos[0]);
+            double saldoactual = Convert.ToDouble(datos[1]);
+            double nuevosaldo = 0;
+            if (tipo.Equals("abono", StringComparison.OrdinalIgnoreCase))
+            {
+                if ((cargo - abonosuma) == 0)
+                {
+                    nuevosaldo = saldoanterior + (cargo - abonosuma);
+                }
+                else if ((cargo - abonosuma) < 0)
+                {
+                    nuevosaldo = saldoactual - abono;
+                }
+                else
+                {
+                    nuevosaldo = cargo - abonosuma;
+                }
+
+            }
+            else if (tipo.Equals("cargo", StringComparison.OrdinalIgnoreCase))
+            {
+                 nuevosaldo = saldoactual - abono;
+            }
+              
+            sql = "update tbl_proveedor set saldo_actual_proveedor = " + nuevosaldo + " , abonos_del_mes_proveedor = " + abonosuma + " where pk_id_proveedor = " + idProveedor + " ;";
+
+            return sql;
         }
 
     }

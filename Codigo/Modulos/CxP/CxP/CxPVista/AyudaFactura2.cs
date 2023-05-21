@@ -42,7 +42,7 @@ namespace CxPVista
                 txtIdProveedor.Text = datos[2];
                 txtIdFactura.Text = datos[3];
                 txtEmision.Text = datos[4];
-                txtSaldo.Text = (Convert.ToDouble(datos[5])- Convert.ToDouble(datos[6])).ToString();
+                txtSaldo.Text = nuevoSaldo.ToString(); //(Convert.ToDouble(datos[5])- Convert.ToDouble(datos[6])).ToString();
                 //txtMonto.Text = datos[6];
                 cn.IDS = Convert.ToDouble(datos[6]);
                 this.Close();
