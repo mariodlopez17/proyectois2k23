@@ -48,6 +48,7 @@ namespace CxPVista
             this.btnDelete = new FontAwesome.Sharp.IconButton();
             this.btnSave = new FontAwesome.Sharp.IconButton();
             this.txtfecha = new System.Windows.Forms.TextBox();
+            this.btnHelp = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFactura)).BeginInit();
             this.SuspendLayout();
             // 
@@ -236,13 +237,14 @@ namespace CxPVista
             this.btnDelete.IconColor = System.Drawing.Color.DimGray;
             this.btnDelete.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnDelete.IconSize = 40;
-            this.btnDelete.Location = new System.Drawing.Point(378, 264);
+            this.btnDelete.Location = new System.Drawing.Point(441, 264);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(69, 61);
             this.btnDelete.TabIndex = 77;
             this.btnDelete.Text = "Eliminar";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Visible = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnSave
@@ -255,7 +257,7 @@ namespace CxPVista
             this.btnSave.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(180)))), ((int)(((byte)(227)))));
             this.btnSave.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnSave.IconSize = 40;
-            this.btnSave.Location = new System.Drawing.Point(288, 264);
+            this.btnSave.Location = new System.Drawing.Point(355, 264);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(69, 61);
             this.btnSave.TabIndex = 78;
@@ -272,6 +274,26 @@ namespace CxPVista
             this.txtfecha.Size = new System.Drawing.Size(100, 25);
             this.txtfecha.TabIndex = 81;
             this.txtfecha.Tag = "fecha_emision_factura";
+            this.txtfecha.Visible = false;
+            // 
+            // btnHelp
+            // 
+            this.btnHelp.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnHelp.FlatAppearance.BorderSize = 2;
+            this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHelp.IconChar = FontAwesome.Sharp.IconChar.Question;
+            this.btnHelp.IconColor = System.Drawing.Color.DimGray;
+            this.btnHelp.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnHelp.IconSize = 40;
+            this.btnHelp.Location = new System.Drawing.Point(691, 12);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(69, 61);
+            this.btnHelp.TabIndex = 82;
+            this.btnHelp.Text = "Ayuda";
+            this.btnHelp.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
             // Factura
             // 
@@ -279,6 +301,7 @@ namespace CxPVista
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(93)))), ((int)(((byte)(86)))));
             this.ClientSize = new System.Drawing.Size(772, 569);
+            this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.txtfecha);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnDelete);
@@ -327,5 +350,6 @@ namespace CxPVista
         private FontAwesome.Sharp.IconButton btnDelete;
         private FontAwesome.Sharp.IconButton btnSave;
         private System.Windows.Forms.TextBox txtfecha;
+        private FontAwesome.Sharp.IconButton btnHelp;
     }
 }
