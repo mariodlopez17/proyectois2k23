@@ -31,7 +31,6 @@ namespace CPC_Vista
         {
             this.label1 = new System.Windows.Forms.Label();
             this.cbxIdCliente = new System.Windows.Forms.ComboBox();
-            this.navegador1 = new NavegadorVista.Navegador();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtFechaCobrar = new System.Windows.Forms.TextBox();
@@ -62,29 +61,22 @@ namespace CPC_Vista
             this.label15 = new System.Windows.Forms.Label();
             this.cbxCuntaEmpresa = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.btnCobrar = new System.Windows.Forms.Button();
             this.txtMonto = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.txtNombreCliente = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(46, 178);
+            this.label1.Location = new System.Drawing.Point(40, 52);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 13);
@@ -94,24 +86,16 @@ namespace CPC_Vista
             // cbxIdCliente
             // 
             this.cbxIdCliente.FormattingEnabled = true;
-            this.cbxIdCliente.Location = new System.Drawing.Point(43, 194);
+            this.cbxIdCliente.Location = new System.Drawing.Point(37, 68);
             this.cbxIdCliente.Name = "cbxIdCliente";
             this.cbxIdCliente.Size = new System.Drawing.Size(106, 21);
             this.cbxIdCliente.TabIndex = 5;
             this.cbxIdCliente.SelectedIndexChanged += new System.EventHandler(this.cbxIdCliente_SelectedIndexChanged);
             // 
-            // navegador1
-            // 
-            this.navegador1.Location = new System.Drawing.Point(167, 12);
-            this.navegador1.Name = "navegador1";
-            this.navegador1.Size = new System.Drawing.Size(574, 152);
-            this.navegador1.TabIndex = 6;
-            this.navegador1.Load += new System.EventHandler(this.navegador1_Load);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(164, 178);
+            this.label2.Location = new System.Drawing.Point(158, 52);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 13);
@@ -121,7 +105,7 @@ namespace CPC_Vista
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(482, 178);
+            this.label3.Location = new System.Drawing.Point(476, 52);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 13);
@@ -130,7 +114,7 @@ namespace CPC_Vista
             // 
             // txtFechaCobrar
             // 
-            this.txtFechaCobrar.Location = new System.Drawing.Point(485, 194);
+            this.txtFechaCobrar.Location = new System.Drawing.Point(479, 68);
             this.txtFechaCobrar.Name = "txtFechaCobrar";
             this.txtFechaCobrar.Size = new System.Drawing.Size(111, 20);
             this.txtFechaCobrar.TabIndex = 10;
@@ -138,7 +122,7 @@ namespace CPC_Vista
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(608, 178);
+            this.label4.Location = new System.Drawing.Point(602, 52);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(107, 13);
@@ -147,7 +131,7 @@ namespace CPC_Vista
             // 
             // txtFechaOperacion
             // 
-            this.txtFechaOperacion.Location = new System.Drawing.Point(611, 194);
+            this.txtFechaOperacion.Location = new System.Drawing.Point(605, 68);
             this.txtFechaOperacion.Name = "txtFechaOperacion";
             this.txtFechaOperacion.Size = new System.Drawing.Size(104, 20);
             this.txtFechaOperacion.TabIndex = 12;
@@ -155,7 +139,7 @@ namespace CPC_Vista
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(728, 178);
+            this.label5.Location = new System.Drawing.Point(722, 52);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(81, 13);
@@ -168,7 +152,7 @@ namespace CPC_Vista
             this.cbxMetodoPago.Items.AddRange(new object[] {
             "Efectivo",
             "Tajeta de Credito"});
-            this.cbxMetodoPago.Location = new System.Drawing.Point(731, 195);
+            this.cbxMetodoPago.Location = new System.Drawing.Point(725, 69);
             this.cbxMetodoPago.Name = "cbxMetodoPago";
             this.cbxMetodoPago.Size = new System.Drawing.Size(98, 21);
             this.cbxMetodoPago.TabIndex = 14;
@@ -191,7 +175,7 @@ namespace CPC_Vista
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtIdCuenta);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Location = new System.Drawing.Point(28, 234);
+            this.groupBox1.Location = new System.Drawing.Point(22, 108);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(841, 145);
             this.groupBox1.TabIndex = 15;
@@ -560,7 +544,7 @@ namespace CPC_Vista
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.cbxCuntaEmpresa);
             this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Location = new System.Drawing.Point(28, 385);
+            this.groupBox2.Location = new System.Drawing.Point(22, 259);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(476, 81);
             this.groupBox2.TabIndex = 16;
@@ -608,48 +592,12 @@ namespace CPC_Vista
             this.label14.TabIndex = 0;
             this.label14.Text = "Cuenta:";
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.dataGridView1);
-            this.groupBox3.Location = new System.Drawing.Point(28, 489);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(380, 158);
-            this.groupBox3.TabIndex = 17;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Cobros Pendientes";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 19);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(368, 133);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.dataGridView2);
-            this.groupBox4.Location = new System.Drawing.Point(426, 492);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(443, 152);
-            this.groupBox4.TabIndex = 18;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Saldo Vencido Vinculado al Cobro";
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(6, 19);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(431, 127);
-            this.dataGridView2.TabIndex = 0;
-            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.btnCobrar);
             this.groupBox5.Controls.Add(this.txtMonto);
             this.groupBox5.Controls.Add(this.label16);
-            this.groupBox5.Location = new System.Drawing.Point(525, 386);
+            this.groupBox5.Location = new System.Drawing.Point(519, 260);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(344, 80);
             this.groupBox5.TabIndex = 19;
@@ -684,28 +632,37 @@ namespace CPC_Vista
             // txtNombreCliente
             // 
             this.txtNombreCliente.FormattingEnabled = true;
-            this.txtNombreCliente.Location = new System.Drawing.Point(167, 194);
+            this.txtNombreCliente.Location = new System.Drawing.Point(161, 68);
             this.txtNombreCliente.Name = "txtNombreCliente";
             this.txtNombreCliente.Size = new System.Drawing.Size(310, 21);
             this.txtNombreCliente.TabIndex = 20;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(449, 194);
+            this.textBox1.Location = new System.Drawing.Point(443, 68);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(27, 20);
             this.textBox1.TabIndex = 21;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(326, 9);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(239, 31);
+            this.label17.TabIndex = 22;
+            this.label17.Text = "Cobro de Facturas";
             // 
             // Cobro_Facturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(887, 662);
+            this.ClientSize = new System.Drawing.Size(887, 358);
+            this.Controls.Add(this.label17);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.txtNombreCliente);
             this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cbxMetodoPago);
@@ -715,7 +672,6 @@ namespace CPC_Vista
             this.Controls.Add(this.txtFechaCobrar);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.navegador1);
             this.Controls.Add(this.cbxIdCliente);
             this.Controls.Add(this.label1);
             this.Name = "Cobro_Facturas";
@@ -724,10 +680,6 @@ namespace CPC_Vista
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
@@ -739,7 +691,6 @@ namespace CPC_Vista
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbxIdCliente;
-        private NavegadorVista.Navegador navegador1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtFechaCobrar;
@@ -769,10 +720,6 @@ namespace CPC_Vista
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox cbxCuntaEmpresa;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button btnCobrar;
         private System.Windows.Forms.TextBox txtMonto;
@@ -780,5 +727,6 @@ namespace CPC_Vista
         private System.Windows.Forms.ComboBox txtNombreCliente;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label17;
     }
 }

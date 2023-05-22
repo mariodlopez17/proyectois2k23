@@ -219,5 +219,54 @@ namespace CPC_Controlador
                 textBoxes[3].Text = datos[9];
             }
         }
+
+        // Inicio Estdo Cuenta ------------------------------------------------------------------------------------------------------------------------------------
+
+        public OdbcDataReader llenarcbxNom(string id_cliente)
+        {
+            return sentencias.getNombre(id_cliente);
+        }
+
+        public OdbcDataReader llenarcbxNit(string id_cliente)
+        {
+            return sentencias.getNit(id_cliente);
+        }
+
+        public OdbcDataReader llenarcbxDpi(string id_cliente)
+        {
+            return sentencias.getDpi(id_cliente);
+        }
+
+        public OdbcDataReader llenarcbxTel(string id_cliente)
+        {
+            return sentencias.getTelefono(id_cliente);
+        }
+
+        public OdbcDataReader llenarcbxDir(string id_cliente)
+        {
+            return sentencias.getDireccion(id_cliente);
+        }
+
+        public OdbcDataReader llenarcbxAnt(string id_cliente)
+        {
+            return sentencias.getAnterior(id_cliente);
+        }
+
+        public OdbcDataReader llenarcbxCar(string id_cliente)
+        {
+            return sentencias.getCargo(id_cliente);
+        }
+
+        public OdbcDataReader llenarcbxAbo(string id_cliente)
+        {
+            return sentencias.getAbono(id_cliente);
+        }
+
+        public void ModificacionSMesAnterior(string saldo, string id_cliente)
+        {
+            sentencias.modificarSaldoMes(saldo, id_cliente);
+        }
+
+        // Final Estado Cuenta ------------------------------------------------------------------------------------------------------------------------------------
     }
 }
