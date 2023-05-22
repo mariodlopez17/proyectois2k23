@@ -37,7 +37,7 @@ namespace CxPVista
         {
             //Codigo
             AyudaFactura ayudafactura = new AyudaFactura();
-            ayudafactura.Show();
+            ayudafactura.ShowDialog();
             //Ocultar submenu
             //hideSubMenu();
         }
@@ -149,10 +149,20 @@ namespace CxPVista
         private void btnDelete_Click(object sender, EventArgs e)
         {
 
-            TextBox[] Grupo = { txtid, txtIdAlmacen, txtIdProveedor, txtEstatus, txtfecha, txtTotalFactura };
+            /*TextBox[] Grupo = { txtid, txtIdAlmacen, txtIdProveedor, txtEstatus, txtfecha, txtTotalFactura };
             cn.delete(Grupo, dgvFactura);
             actualizardataview();
-            limpiezaTextBox();
+            limpiezaTextBox();*/
+        }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+
+            //System.Diagnostics.Process.Start("CxPVista/bin/Debug/AyudaFactura/AyudaFactura.chm");
+
+                string rutaAyuda = "../../../../../../../Ayuda/Modulos/CxP/AyudaFactura/AyudaFactura.chm";
+                Help.ShowHelp(ParentForm, rutaAyuda, "Factura.html");
+
         }
     }
 }
