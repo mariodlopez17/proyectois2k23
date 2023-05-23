@@ -16,7 +16,7 @@ namespace Launcher
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CPC_Vista.CPC_MDI());
+            Application.Run(new CPC_Vista.Estado_Cuenta());
         }
     }
 }

@@ -41,22 +41,24 @@ namespace CPC_Vista
             this.display.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.display.Cursor = System.Windows.Forms.Cursors.Default;
             this.display.DisplayStatusBar = false;
-            this.display.Location = new System.Drawing.Point(12, 12);
+            this.display.Location = new System.Drawing.Point(8, 8);
+            this.display.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.display.Name = "display";
             this.display.ShowGroupTreeButton = false;
             this.display.ShowLogo = false;
             this.display.ShowParameterPanelButton = false;
             this.display.ShowTextSearchButton = false;
-            this.display.Size = new System.Drawing.Size(776, 426);
+            this.display.Size = new System.Drawing.Size(1016, 529);
             this.display.TabIndex = 4;
             this.display.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
             // EstadoDeCuenta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1031, 543);
             this.Controls.Add(this.display);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "EstadoDeCuenta";
             this.Text = "EstadoDeCuenta";
             this.ResumeLayout(false);

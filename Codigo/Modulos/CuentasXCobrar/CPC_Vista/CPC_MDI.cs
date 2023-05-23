@@ -57,5 +57,12 @@ namespace CPC_Vista
             CPC_Controlador.Controlador controlador = new CPC_Controlador.Controlador();
             controlador.displayReporte("4201");
         }
+
+        private void estadoCuentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Estado_Cuenta estado = new Estado_Cuenta();
+            estado.MdiParent = this;
+            estado.Show();
+        }
     }
 }

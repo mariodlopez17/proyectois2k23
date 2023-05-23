@@ -140,7 +140,7 @@ namespace CPC_Controlador
         public string[] getDatosPagoAnterior(string id_factura, string id_almacen)
         {
             string[] datos = sentencias.getUltimoPago(id_factura, id_almacen);
-            int nuevoPago = int.Parse(datos[2]) - int.Parse(datos[3]);
+            float nuevoPago = float.Parse(datos[2]) - float.Parse(datos[3]);
             if (nuevoPago > 0)
             {
                 return datos;
@@ -219,5 +219,64 @@ namespace CPC_Controlador
                 textBoxes[3].Text = datos[9];
             }
         }
+
+        // Inicio Estdo Cuenta ------------------------------------------------------------------------------------------------------------------------------------
+
+        public OdbcDataReader llenarcbxNom(string id_cliente)
+        {
+            return sentencias.getNombre(id_cliente);
+        }
+
+        public OdbcDataReader llenarcbxNit(string id_cliente)
+        {
+            return sentencias.getNit(id_cliente);
+        }
+
+        public OdbcDataReader llenarcbxDpi(string id_cliente)
+        {
+            return sentencias.getDpi(id_cliente);
+        }
+
+        public OdbcDataReader llenarcbxTel(string id_cliente)
+        {
+            return sentencias.getTelefono(id_cliente);
+        }
+
+        public OdbcDataReader llenarcbxDir(string id_cliente)
+        {
+            return sentencias.getDireccion(id_cliente);
+        }
+
+        public OdbcDataReader llenarcbxAnt(string id_cliente)
+        {
+            return sentencias.getAnterior(id_cliente);
+        }
+
+        public OdbcDataReader llenarcbxCar(string id_cliente)
+        {
+            return sentencias.getCargo(id_cliente);
+        }
+
+        public OdbcDataReader llenarcbxAbo(string id_cliente)
+        {
+            return sentencias.getAbono(id_cliente);
+        }
+
+        public OdbcDataReader llenarcbxCarg(string id_cliente)
+        {
+            return sentencias.getCargos(id_cliente);
+        }
+
+        public OdbcDataReader llenarcbxAbon(string id_cliente)
+        {
+            return sentencias.getAbonos(id_cliente);
+        }
+
+        public void Modificarsaldosclientes(string saldo1, string saldo2, string saldo3, string saldo4, string id_cliente)
+        {
+            sentencias.modificarsaldoscliente(saldo1, saldo2, saldo3, saldo4, id_cliente);
+        }
+
+        // Final Estado Cuenta ------------------------------------------------------------------------------------------------------------------------------------
     }
 }

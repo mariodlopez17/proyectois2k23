@@ -80,6 +80,12 @@
     <Compile Include="EstadoDeCuenta.Designer.cs">
       <DependentUpon>EstadoDeCuenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Estado_Cuenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estado_Cuenta.Designer.cs">
+      <DependentUpon>Estado_Cuenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mant_conceptoCXC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EstadoDeCuenta.resx">
       <DependentUpon>EstadoDeCuenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estado_Cuenta.resx">
+      <DependentUpon>Estado_Cuenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mant_conceptoCXC.resx">
       <DependentUpon>Mant_conceptoCXC.cs</DependentUpon>
