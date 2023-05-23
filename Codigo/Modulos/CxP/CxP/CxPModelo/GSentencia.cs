@@ -175,5 +175,20 @@ namespace CxPModelo
 
             return dato;
         }
+
+        public string TipoConcepto(string id)
+        {
+            string dato = " ";
+            string sql = "select tipoconcepto_conceptocuentaporpagar from tbl_conceptocuentaporpagar where pk_id_conceptocuentaporpagar = " + id + " ;";
+            OdbcCommand cmd = new OdbcCommand(sql, con.conexion());
+            OdbcDataReader lr = cmd.ExecuteReader();
+            while (lr.Read())
+            {
+
+                dato = lr.GetString(0);
+
+            }
+            return dato;
+        }
     }
 }
