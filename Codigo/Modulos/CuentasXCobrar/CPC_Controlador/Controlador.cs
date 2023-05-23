@@ -140,7 +140,7 @@ namespace CPC_Controlador
         public string[] getDatosPagoAnterior(string id_factura, string id_almacen)
         {
             string[] datos = sentencias.getUltimoPago(id_factura, id_almacen);
-            int nuevoPago = int.Parse(datos[2]) - int.Parse(datos[3]);
+            float nuevoPago = float.Parse(datos[2]) - float.Parse(datos[3]);
             if (nuevoPago > 0)
             {
                 return datos;
