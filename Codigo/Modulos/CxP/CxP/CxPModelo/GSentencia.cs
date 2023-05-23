@@ -25,7 +25,7 @@ namespace CxPModelo
         }
         public OdbcDataAdapter llenartabla3(string idFactura, string proveedor, string almacen)
         {
-            string sql = "select pk_id_cuentaporpagar,pk_id_almacen,pk_id_proveedor,pk_id_factura,fecha_emision_cuentaporpagar,saldo_pago_cuentaporpagar,monto_pago_cuentaporpagar from tbl_cuentaporpagar where pk_id_factura = " + idFactura + " and pk_id_almacen= " + almacen + " and pk_id_proveedor= " + proveedor + " ;";
+            string sql = "select pk_id_cuentaporpagar,pk_id_almacen,pk_id_proveedor,pk_id_factura,DATE_FORMAT(fecha_emision_cuentaporpagar, '%Y-%m-%d'),saldo_pago_cuentaporpagar,monto_pago_cuentaporpagar from tbl_cuentaporpagar where pk_id_factura = " + idFactura + " and pk_id_almacen= " + almacen + " and pk_id_proveedor= " + proveedor + " ;";
             OdbcDataAdapter datatable = new OdbcDataAdapter(sql, con.conexion());
             return datatable;
         }
@@ -173,6 +173,21 @@ namespace CxPModelo
             }
 
 
+            return dato;
+        }
+
+        public string TipoConcepto(string id)
+        {
+            string dato = " ";
+            string sql = "select tipoconcepto_conceptocuentaporpagar from tbl_conceptocuentaporpagar where pk_id_conceptocuentaporpagar = " + id + " ;";
+            OdbcCommand cmd = new OdbcCommand(sql, con.conexion());
+            OdbcDataReader lr = cmd.ExecuteReader();
+            while (lr.Read())
+            {
+
+                dato = lr.GetString(0);
+
+            }
             return dato;
         }
     }
