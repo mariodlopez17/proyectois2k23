@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,9 +36,18 @@ namespace CxPVista
             {
                 
                 
+
+
+              
+
                 string[] datos = cn.llenartabla3(Dgv_ayudaFactura.CurrentRow.Cells[0].Value.ToString(), Dgv_ayudaFactura.CurrentRow.Cells[2].Value.ToString(), Dgv_ayudaFactura.CurrentRow.Cells[1].Value.ToString());
                 double[] montos = { Convert.ToDouble(datos[5]),Convert.ToDouble(datos[6])};
                 double nuevoSaldo = cn.operacionConcepto(montos, Dgv_ayudaFactura.CurrentRow.Cells[0].Value.ToString(), Dgv_ayudaFactura.CurrentRow.Cells[1].Value.ToString(), Dgv_ayudaFactura.CurrentRow.Cells[2].Value.ToString());
+                
+               
+
+                
+
                 txtIdAlmacen.Text = datos[1];
                 txtIdProveedor.Text = datos[2];
                 txtIdFactura.Text = datos[3];
