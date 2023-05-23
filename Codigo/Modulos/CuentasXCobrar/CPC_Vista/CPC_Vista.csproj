@@ -68,12 +68,6 @@
     <Compile Include="CPC_MDI.Designer.cs">
       <DependentUpon>CPC_MDI.cs</DependentUpon>
     </Compile>
-    <Compile Include="EstadoCuenta.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EstadoCuenta.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="EstadoDeCuenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,10 +118,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CPC_MDI.resx">
       <DependentUpon>CPC_MDI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EstadoCuenta.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>EstadoCuenta.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="EstadoDeCuenta.resx">
       <DependentUpon>EstadoDeCuenta.cs</DependentUpon>

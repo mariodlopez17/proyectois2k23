@@ -46,7 +46,7 @@ namespace CPC_Controlador
                 float abonosActuales = float.Parse(infoSaldos[2]);
                 float nuevoAbono = float.Parse(abono);
                 float nuevoTotalAbonado = abonosActuales + nuevoAbono;
-                float nuevoSaldoMensual = nuevoTotalAbonado - totalCargos;
+                float nuevoSaldoMensual =  totalCargos - nuevoTotalAbonado;
                 sentencias.updateCargosClientes(id_cliente, nuevoTotalAbonado.ToString());
                 sentencias.updateSaldoMensual(id_cliente, nuevoSaldoMensual.ToString());
             }
