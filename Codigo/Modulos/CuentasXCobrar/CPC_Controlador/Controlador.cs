@@ -262,9 +262,19 @@ namespace CPC_Controlador
             return sentencias.getAbono(id_cliente);
         }
 
-        public void ModificacionSMesAnterior(string saldo, string id_cliente)
+        public OdbcDataReader llenarcbxCarg(string id_cliente)
         {
-            sentencias.modificarSaldoMes(saldo, id_cliente);
+            return sentencias.getCargos(id_cliente);
+        }
+
+        public OdbcDataReader llenarcbxAbon(string id_cliente)
+        {
+            return sentencias.getAbonos(id_cliente);
+        }
+
+        public void Modificarsaldosclientes(string saldo1, string saldo2, string saldo3, string saldo4, string id_cliente)
+        {
+            sentencias.modificarsaldoscliente(saldo1, saldo2, saldo3, saldo4, id_cliente);
         }
 
         // Final Estado Cuenta ------------------------------------------------------------------------------------------------------------------------------------

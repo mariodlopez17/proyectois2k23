@@ -477,14 +477,48 @@ namespace CPC_Modelo
             }
         }
 
-        public void modificarSaldoMes(string saldo, string id_cliente)
+        public OdbcDataReader getCargos(string id_cliente)
         {
-            string sql = "update tbl_clientes set SMesAnterior_clientes = '" + saldo + "' where (Pk_idClientes = '" + id_cliente + "');";
+            string sql = "select CargosAcumulados_clientes from tbl_clientes where Pk_idClientes = '" + id_cliente + "';";
+            try
+            {
+                OdbcCommand cmd = new OdbcCommand(sql, conexion.conexion());
+                OdbcDataReader leer = cmd.ExecuteReader();
+                return leer;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + "\nError en obtener el Cargos Acumulados de la tabla tbl_clientes");
+                return null;
+            }
+        }
+
+        public OdbcDataReader getAbonos(string id_cliente)
+        {
+            string sql = "select AbonosAcumulados_clientes from tbl_clientes where Pk_idClientes = '" + id_cliente + "';";
+            try
+            {
+                OdbcCommand cmd = new OdbcCommand(sql, conexion.conexion());
+                OdbcDataReader leer = cmd.ExecuteReader();
+                return leer;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + "\nError en obtener el Abonos Acumulados de la tabla tbl_clientes");
+                return null;
+            }
+        }
+
+        public void modificarsaldoscliente(string saldo1, string saldo2, string saldo3, string saldo4, string id_cliente)
+        {
+            string sql = "update tbl_clientes set SMesAnterior_clientes = '" + saldo1 + "', SActual_clientes = '"+ saldo1 + "', CargoMes_clientes = '"+ saldo2 + "', AbonosMes_clientes = '"+ saldo2 + "', CargosAcumulados_clientes = '" + saldo3 + "', AbonosAcumulados_clientes = '" + saldo4 + "'  where(Pk_idClientes = '" + id_cliente + "');";
             try
             {
                 OdbcCommand cmd = new OdbcCommand(sql, conexion.conexion());
                 cmd.ExecuteNonQuery();
-            }catch (Exception ex)
+                MessageBox.Show("Balance Generado con Exito");
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message.ToString() + "\nError en actualizar el dato de la tabla tbl_clientes");
             }
