@@ -35,6 +35,7 @@ namespace CxPVista
             this.btnreportemovimientos = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
             this.panelProcesos = new System.Windows.Forms.Panel();
+            this.btnFactura = new System.Windows.Forms.Button();
             this.btnBalance = new System.Windows.Forms.Button();
             this.btnMoviminetos = new System.Windows.Forms.Button();
             this.btnProcesos = new System.Windows.Forms.Button();
@@ -45,7 +46,7 @@ namespace CxPVista
             this.btnProveedor = new System.Windows.Forms.Button();
             this.btnCatalogos = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
-            this.btnFactura = new System.Windows.Forms.Button();
+            this.btnCardex = new System.Windows.Forms.Button();
             this.panelSideMenu.SuspendLayout();
             this.panelReportes.SuspendLayout();
             this.panelProcesos.SuspendLayout();
@@ -73,6 +74,7 @@ namespace CxPVista
             // panelReportes
             // 
             this.panelReportes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(28)))), ((int)(((byte)(18)))));
+            this.panelReportes.Controls.Add(this.btnCardex);
             this.panelReportes.Controls.Add(this.btnAntiguedad);
             this.panelReportes.Controls.Add(this.btnreportemovimientos);
             this.panelReportes.Dock = System.Windows.Forms.DockStyle.Top;
@@ -92,7 +94,7 @@ namespace CxPVista
             this.btnAntiguedad.Padding = new System.Windows.Forms.Padding(64, 0, 0, 0);
             this.btnAntiguedad.Size = new System.Drawing.Size(237, 50);
             this.btnAntiguedad.TabIndex = 1;
-            this.btnAntiguedad.Text = "Antiguedad de Saldos";
+            this.btnAntiguedad.Text = "Balance";
             this.btnAntiguedad.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAntiguedad.UseVisualStyleBackColor = true;
             this.btnAntiguedad.Click += new System.EventHandler(this.btnAntiguedad_Click);
@@ -108,7 +110,7 @@ namespace CxPVista
             this.btnreportemovimientos.Padding = new System.Windows.Forms.Padding(64, 0, 0, 0);
             this.btnreportemovimientos.Size = new System.Drawing.Size(237, 35);
             this.btnreportemovimientos.TabIndex = 0;
-            this.btnreportemovimientos.Text = "Moviminetos CxP";
+            this.btnreportemovimientos.Text = "Estado de Cuenta";
             this.btnreportemovimientos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnreportemovimientos.UseVisualStyleBackColor = true;
             this.btnreportemovimientos.Click += new System.EventHandler(this.btnreportemovimientos_Click);
@@ -143,6 +145,22 @@ namespace CxPVista
             this.panelProcesos.Name = "panelProcesos";
             this.panelProcesos.Size = new System.Drawing.Size(237, 143);
             this.panelProcesos.TabIndex = 3;
+            // 
+            // btnFactura
+            // 
+            this.btnFactura.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnFactura.FlatAppearance.BorderSize = 0;
+            this.btnFactura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFactura.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFactura.Location = new System.Drawing.Point(0, 70);
+            this.btnFactura.Name = "btnFactura";
+            this.btnFactura.Padding = new System.Windows.Forms.Padding(64, 0, 0, 0);
+            this.btnFactura.Size = new System.Drawing.Size(237, 35);
+            this.btnFactura.TabIndex = 2;
+            this.btnFactura.Text = "Ingreso Factura";
+            this.btnFactura.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFactura.UseVisualStyleBackColor = true;
+            this.btnFactura.Click += new System.EventHandler(this.btnFactura_Click);
             // 
             // btnBalance
             // 
@@ -300,21 +318,21 @@ namespace CxPVista
             this.panelLogo.Size = new System.Drawing.Size(237, 70);
             this.panelLogo.TabIndex = 0;
             // 
-            // btnFactura
+            // btnCardex
             // 
-            this.btnFactura.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnFactura.FlatAppearance.BorderSize = 0;
-            this.btnFactura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFactura.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFactura.Location = new System.Drawing.Point(0, 70);
-            this.btnFactura.Name = "btnFactura";
-            this.btnFactura.Padding = new System.Windows.Forms.Padding(64, 0, 0, 0);
-            this.btnFactura.Size = new System.Drawing.Size(237, 35);
-            this.btnFactura.TabIndex = 2;
-            this.btnFactura.Text = "Ingreso Factura";
-            this.btnFactura.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFactura.UseVisualStyleBackColor = true;
-            this.btnFactura.Click += new System.EventHandler(this.btnFactura_Click);
+            this.btnCardex.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCardex.FlatAppearance.BorderSize = 0;
+            this.btnCardex.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCardex.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCardex.Location = new System.Drawing.Point(0, 85);
+            this.btnCardex.Name = "btnCardex";
+            this.btnCardex.Padding = new System.Windows.Forms.Padding(64, 0, 0, 0);
+            this.btnCardex.Size = new System.Drawing.Size(237, 42);
+            this.btnCardex.TabIndex = 2;
+            this.btnCardex.Text = "Cardex";
+            this.btnCardex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCardex.UseVisualStyleBackColor = true;
+            this.btnCardex.Click += new System.EventHandler(this.button1_Click);
             // 
             // MDICuentasPorPagar
             // 
@@ -353,5 +371,6 @@ namespace CxPVista
         private System.Windows.Forms.Button btnAntiguedad;
         private System.Windows.Forms.Button btnBalance;
         private System.Windows.Forms.Button btnFactura;
+        private System.Windows.Forms.Button btnCardex;
     }
 }

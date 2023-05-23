@@ -28,10 +28,15 @@ namespace CxPVista
             navegador1.tabla = dtgProveedor;
             navegador1.textboxi = Idtextbox;
             navegador1.actual = this;
-            navegador1.cargar(dtgProveedor, Grupotextbox, "CxP");
+            navegador1.cargar(dtgProveedor, Grupotextbox, "colchoneria");
         }
 
         private void Proveedor_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtabonoacum_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -6,17 +6,19 @@ using System.Drawing;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CxPControlador;
 
 namespace CxPVista
 {
     public partial class MDICuentasPorPagar : Form
     {
         Seguridad_Controlador.Controlador cnseg = new Seguridad_Controlador.Controlador();
+        TControlador controlador = new TControlador();
         public MDICuentasPorPagar()
         {
             InitializeComponent();
             customizeDesing();
-            Button[] apps = { btnProveedor, btnConcepto, btnTipoPago, btnMoneda, btnMoviminetos, btnBalance,btnFactura, btnreportemovimientos, btnAntiguedad };
+            Button[] apps = { btnProveedor, btnConcepto, btnTipoPago, btnMoneda, btnMoviminetos, btnBalance,btnFactura, btnreportemovimientos, btnAntiguedad,btnCardex };
             cnseg.deshabilitarApps(apps);
 
             cnseg.getAccesoApp(5001, apps[0]);
@@ -28,6 +30,7 @@ namespace CxPVista
             cnseg.getAccesoApp(5103, apps[6]);
             cnseg.getAccesoApp(5201, apps[7]);
             cnseg.getAccesoApp(5202, apps[8]);
+            cnseg.getAccesoApp(5202, apps[9]);
         }
 
         private void customizeDesing()
@@ -82,12 +85,14 @@ namespace CxPVista
 
         private void btnreportemovimientos_Click(object sender, EventArgs e)
         {
-            //Codigo
+            /*Codigo
             Reporte_Cuentas_Por_Pagar rmoviminetos = new Reporte_Cuentas_Por_Pagar();
             rmoviminetos.MdiParent = this;
             rmoviminetos.Show();
             //Ocultar submenu
-            hideSubMenu();
+            hideSubMenu();*/
+            
+            controlador.displayReporte("5201");
         }
 
         private void btnProveedor_Click_1(object sender, EventArgs e)
@@ -138,12 +143,13 @@ namespace CxPVista
 
         private void btnAntiguedad_Click(object sender, EventArgs e)
         {
-            //Codigo
+            /*//Codigo
             Antiguedad_de_saldos antiguedad = new Antiguedad_de_saldos();
             antiguedad.MdiParent = this;
             antiguedad.Show();
             //Ocultar submenu
-            hideSubMenu();
+            hideSubMenu();*/
+            controlador.displayReporte("5202");
         }
 
         private void btnBalance_Click(object sender, EventArgs e)
@@ -165,6 +171,11 @@ namespace CxPVista
             factura.Show();
             //Ocultar submenu
             hideSubMenu();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            controlador.displayReporte("5203");
         }
     }
 }
