@@ -64,5 +64,11 @@ namespace CPC_Vista
             estado.MdiParent = this;
             estado.Show();
         }
+
+        private void reporteDeEstadoDeCuentaCardexToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CPC_Controlador.Controlador controlador = new CPC_Controlador.Controlador();
+            controlador.displayReporte("4202");
+        }
     }
 }

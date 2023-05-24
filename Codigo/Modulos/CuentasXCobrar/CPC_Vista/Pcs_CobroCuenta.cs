@@ -66,6 +66,7 @@ namespace CPC_Vista
             txt_monto_cargo.Text = "";
             txt_monto_pago.Text = "";
             txt_no_cuenta.Text = "";
+            txt_no_cuenta.Enabled = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -119,6 +120,8 @@ namespace CPC_Vista
                 DateTime fechaPago = DateTime.ParseExact(txt_fecha_pago.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 string fechaPagoFormateado = fechaPago.ToString("yyyy-MM-dd");
 
+                float nuevoSaldo = float.Parse(infoConcepto[2]) * float.Parse(txt_monto_pago.Text);
+
                 List<string> datos = new List<string>();
                 datos.Add(txt_comprante.Text);
                 datos.Add(infoIdFactura[0]);
@@ -132,10 +135,10 @@ namespace CPC_Vista
                 datos.Add(fechaPagoFormateado);
                 datos.Add(infoMoneda[2]);
                 datos.Add(txt_monto_cargo.Text);
-                datos.Add(txt_monto_pago.Text);
+                datos.Add(nuevoSaldo.ToString());
                 datos.Add("1");
                 controlador.guardarPago(datos);
-                controlador.actualizarSaldo(txt_id_cliente.Text, txt_monto_pago.Text);
+                controlador.actualizarSaldo(txt_id_cliente.Text, nuevoSaldo.ToString());
                 MessageBox.Show("Pago realizado correctamente");
                 limpiar();
             }
@@ -156,6 +159,10 @@ namespace CPC_Vista
                     if (infoTipoPago[1].ToLower() != "efectivo")
                     {
                         txt_no_cuenta.Enabled = true;
+                    }
+                    else
+                    {
+                        txt_no_cuenta.Enabled = false;
                     }
                 }
             }
