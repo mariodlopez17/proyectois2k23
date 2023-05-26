@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B5254852-CB03-4F25-94C4-71CFE28AF2C3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CapaVistaInventario</RootNamespace>
+    <AssemblyName>CapaVistaInventario</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CapaControladorInventario">
+      <HintPath>..\CapaControladorInventario\bin\Debug\CapaControladorInventario.dll</HintPath>
+    </Reference>
+    <Reference Include="NavegadorVista">
+      <HintPath>..\..\..\Componentes\Navegador\Vista\bin\Debug\NavegadorVista.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="mantenimiento_almacen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mantenimiento_almacen.Designer.cs">
+      <DependentUpon>mantenimiento_almacen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mantenimiento_linea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mantenimiento_linea.Designer.cs">
+      <DependentUpon>mantenimiento_linea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mantenimiento_marca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mantenimiento_marca.Designer.cs">
+      <DependentUpon>mantenimiento_marca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mantenimiento_producto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mantenimiento_producto.Designer.cs">
+      <DependentUpon>mantenimiento_producto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="menu_inventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="menu_inventario.Designer.cs">
+      <DependentUpon>menu_inventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="mantenimiento_almacen.resx">
+      <DependentUpon>mantenimiento_almacen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mantenimiento_linea.resx">
+      <DependentUpon>mantenimiento_linea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mantenimiento_marca.resx">
+      <DependentUpon>mantenimiento_marca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mantenimiento_producto.resx">
+      <DependentUpon>mantenimiento_producto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="menu_inventario.resx">
+      <DependentUpon>menu_inventario.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
