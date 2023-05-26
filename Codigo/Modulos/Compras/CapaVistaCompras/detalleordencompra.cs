@@ -290,6 +290,7 @@ namespace CapaVistaCompras
             button9.Enabled = false;
             button14.Enabled = false;
 
+
             cn.insertardatagrid(dataGridView1,textBox7.Text, textBox8.Text, textBox5.Text, textBox6.Text, textBox1.Text, textBox2.Text, textBox39,textBox40,groupBox2);
             textBox18.Text = textBox39.Text;
 
@@ -435,6 +436,16 @@ namespace CapaVistaCompras
             button7.Enabled = true;
             button9.Enabled = true;
             button14.Enabled = false;
+        }
+
+        private void textBox37_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox38_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
