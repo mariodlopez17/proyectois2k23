@@ -46,7 +46,7 @@ namespace CxPVista
             this.btninsertar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(180)))), ((int)(((byte)(227)))));
             this.btninsertar.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btninsertar.IconSize = 40;
-            this.btninsertar.Location = new System.Drawing.Point(610, 30);
+            this.btninsertar.Location = new System.Drawing.Point(492, 38);
             this.btninsertar.Name = "btninsertar";
             this.btninsertar.Size = new System.Drawing.Size(69, 61);
             this.btninsertar.TabIndex = 68;
@@ -58,9 +58,9 @@ namespace CxPVista
             // Dgv_ayudaFactura
             // 
             this.Dgv_ayudaFactura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dgv_ayudaFactura.Location = new System.Drawing.Point(21, 158);
+            this.Dgv_ayudaFactura.Location = new System.Drawing.Point(12, 105);
             this.Dgv_ayudaFactura.Name = "Dgv_ayudaFactura";
-            this.Dgv_ayudaFactura.Size = new System.Drawing.Size(759, 274);
+            this.Dgv_ayudaFactura.Size = new System.Drawing.Size(549, 205);
             this.Dgv_ayudaFactura.TabIndex = 67;
             // 
             // Dgv_ayudaProveedores
@@ -71,16 +71,17 @@ namespace CxPVista
             this.Dgv_ayudaProveedores.Size = new System.Drawing.Size(213, 125);
             this.Dgv_ayudaProveedores.TabIndex = 75;
             // 
-            // AyudaFactura
+            // AyudaFactura2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(93)))), ((int)(((byte)(86)))));
-            this.ClientSize = new System.Drawing.Size(799, 447);
+            this.ClientSize = new System.Drawing.Size(572, 316);
             this.Controls.Add(this.Dgv_ayudaProveedores);
             this.Controls.Add(this.btninsertar);
             this.Controls.Add(this.Dgv_ayudaFactura);
-            this.Name = "AyudaFactura";
+            this.Name = "AyudaFactura2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AyudaFactura";
             this.Load += new System.EventHandler(this.AyudaFactura_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_ayudaFactura)).EndInit();

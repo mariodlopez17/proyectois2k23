@@ -226,13 +226,13 @@ namespace CxPControlador
 
             return resultado;
         }
-        public void Inicio(TextBox id, TextBox fecha, TextBox[] group)
+        public void Inicio(TextBox id, TextBox fecha, TextBox[] group, ComboBox cmbEstado)
         {
             limpiar(group);
             crearid(id, "tbl_cuentaporpagar", " ", "pk_id_cuentaporpagar");
             IDS = -1;
             fecha.Text = DateTime.Now.Date.ToString("yyyy-MM-dd");
-
+            cmbEstado.SelectedIndex = -1; // O cualquier otro valor predeterminado
 
         }
         void limpiar(TextBox[] group)
