@@ -222,6 +222,11 @@ namespace CPC_Controlador
 
         // Inicio Estdo Cuenta ------------------------------------------------------------------------------------------------------------------------------------
 
+        public OdbcDataReader llenaridcliente()
+        {
+            return sentencias.getid();
+        }
+
         public OdbcDataReader llenarcbxNom(string id_cliente)
         {
             return sentencias.getNombre(id_cliente);
@@ -278,5 +283,41 @@ namespace CPC_Controlador
         }
 
         // Final Estado Cuenta ------------------------------------------------------------------------------------------------------------------------------------
+
+        // Incio Venta --------------------------------------------------------------------------------------------------------------------------------------------
+
+        public OdbcDataReader llenarnalmacen()
+        {
+            return sentencias.getNAlmacen();
+        }
+
+        public OdbcDataReader llenaridalmacen(string nombre)
+        {
+            return sentencias.getidAlmacen(nombre);
+        }
+
+        public OdbcDataReader llenarnmoneda()
+        {
+            return sentencias.getNMoneda();
+        }
+
+        public OdbcDataReader llenaridmoneda(string nombre)
+        {
+            return sentencias.getidMoneda(nombre);
+        }
+
+        public OdbcDataReader llenarnclientes()
+        {
+            return sentencias.getNCliente();
+        }
+
+        public OdbcDataReader llenaridclientes(string nombre)
+        {
+            return sentencias.getidCliente(nombre);
+        }
+
+        // Fin Venta ----------------------------------------------------------------------------------------------------------------------------------------------
+
+
     }
 }

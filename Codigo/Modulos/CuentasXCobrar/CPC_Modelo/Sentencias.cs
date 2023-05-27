@@ -350,6 +350,22 @@ namespace CPC_Modelo
 
         // Inicio de Estado Cuenta -------------------------------------------------------------------------------------------------------------------------------
 
+        public OdbcDataReader getid()
+        {
+            string sql = "select Pk_idClientes from tbl_clientes;";
+            try
+            {
+                OdbcCommand cmd = new OdbcCommand(sql, conexion.conexion());
+                OdbcDataReader leer = cmd.ExecuteReader();
+                return leer;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + "\nError en obtener el nombre de la tabla tbl_clientes");
+                return null;
+            }
+        }
+
         public OdbcDataReader getNombre(string id_cliente)
         {
             string sql = "select Nombres_clientes from tbl_clientes where Pk_idClientes = '" + id_cliente + "';";
@@ -358,7 +374,8 @@ namespace CPC_Modelo
                 OdbcCommand cmd = new OdbcCommand(sql, conexion.conexion());
                 OdbcDataReader leer = cmd.ExecuteReader();
                 return leer;
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message.ToString() + "\nError en obtener el nombre de la tabla tbl_clientes");
                 return null;
@@ -511,7 +528,7 @@ namespace CPC_Modelo
 
         public void modificarsaldoscliente(string saldo1, string saldo2, string saldo3, string saldo4, string id_cliente)
         {
-            string sql = "update tbl_clientes set SMesAnterior_clientes = '" + saldo1 + "', SActual_clientes = '"+ saldo1 + "', CargoMes_clientes = '"+ saldo2 + "', AbonosMes_clientes = '"+ saldo2 + "', CargosAcumulados_clientes = '" + saldo3 + "', AbonosAcumulados_clientes = '" + saldo4 + "'  where(Pk_idClientes = '" + id_cliente + "');";
+            string sql = "update tbl_clientes set SMesAnterior_clientes = '" + saldo1 + "', SActual_clientes = '" + saldo2 + "', CargoMes_clientes = '" + saldo2 + "', AbonosMes_clientes = '" + saldo2 + "', CargosAcumulados_clientes = '" + saldo3 + "', AbonosAcumulados_clientes = '" + saldo4 + "'  where(Pk_idClientes = '" + id_cliente + "');";
             try
             {
                 OdbcCommand cmd = new OdbcCommand(sql, conexion.conexion());
@@ -525,5 +542,107 @@ namespace CPC_Modelo
         }
 
         // Fin de Estado Cuenta ----------------------------------------------------------------------------------------------------------------------------------
+
+        // Inicio Venta ------------------------------------------------------------------------------------------------------------------------------------------
+
+        public OdbcDataReader getNAlmacen()
+        {
+            string sql = "select  nombre_almacen from tbl_almacen;";
+            try
+            {
+                OdbcCommand cmd = new OdbcCommand(sql, conexion.conexion());
+                OdbcDataReader leer = cmd.ExecuteReader();
+                return leer;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + "\nError en obtener nombre de almacen de la tabla tbl_almacen");
+                return null;
+            }
+        }
+
+        public OdbcDataReader getidAlmacen(string nombre)
+        {
+            string sql = "select codigo_almacen from tbl_almacen where nombre_almacen = '" + nombre + "';";
+            try
+            {
+                OdbcCommand cmd = new OdbcCommand(sql, conexion.conexion());
+                OdbcDataReader leer = cmd.ExecuteReader();
+                return leer;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + "\nError en obtener id de almacen de la tabla tbl_almacen");
+                return null;
+            }
+        }
+
+        public OdbcDataReader getNMoneda()
+        {
+            string sql = "select nombre_moneda from tbl_moneda;";
+            try
+            {
+                OdbcCommand cmd = new OdbcCommand(sql, conexion.conexion());
+                OdbcDataReader leer = cmd.ExecuteReader();
+                return leer;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + "\nError en obtener nombre de moneda de la tabla tbl_moneda");
+                return null;
+            }
+        }
+
+        public OdbcDataReader getidMoneda(string nombre)
+        {
+            string sql = "select pk_id_moneda from tbl_moneda where nombre_moneda = '" + nombre + "';";
+            try
+            {
+                OdbcCommand cmd = new OdbcCommand(sql, conexion.conexion());
+                OdbcDataReader leer = cmd.ExecuteReader();
+                return leer;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + "\nError en obtener id de moneda de la tabla tbl_moneda");
+                return null;
+            }
+        }
+
+        public OdbcDataReader getNCliente()
+        {
+            string sql = "select Nombres_clientes from tbl_clientes;";
+            try
+            {
+                OdbcCommand cmd = new OdbcCommand(sql, conexion.conexion());
+                OdbcDataReader leer = cmd.ExecuteReader();
+                return leer;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + "\nError en obtener id de cliente de la tabla tbl_clientes");
+                return null;
+            }
+        }
+
+        public OdbcDataReader getidCliente(string nombre)
+        {
+            string sql = "select Pk_idClientes from tbl_clientes where Nombres_clientes = '" + nombre + "';";
+            try
+            {
+                OdbcCommand cmd = new OdbcCommand(sql, conexion.conexion());
+                OdbcDataReader leer = cmd.ExecuteReader();
+                return leer;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + "\nError en obtener id de cliente de la tabla tbl_clientes");
+                return null;
+            }
+        }
+
+        // Fin de Venta ------------------------------------------------------------------------------------------------------------------------------------------
+
+
     }
 }

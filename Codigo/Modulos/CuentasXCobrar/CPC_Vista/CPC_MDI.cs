@@ -58,17 +58,24 @@ namespace CPC_Vista
             controlador.displayReporte("4201");
         }
 
-        private void estadoCuentaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Estado_Cuenta estado = new Estado_Cuenta();
-            estado.MdiParent = this;
-            estado.Show();
-        }
-
         private void reporteDeEstadoDeCuentaCardexToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CPC_Controlador.Controlador controlador = new CPC_Controlador.Controlador();
             controlador.displayReporte("4202");
+        }
+
+        private void cierreCuentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Estado_Cuenta estado = new Estado_Cuenta();
+            estado.MdiParent = this;
+            estado.Show();           
+        }
+
+        private void ventaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Mant_venta venta = new Mant_venta();
+            venta.MdiParent = this;
+            venta.Show();
         }
     }
 }
