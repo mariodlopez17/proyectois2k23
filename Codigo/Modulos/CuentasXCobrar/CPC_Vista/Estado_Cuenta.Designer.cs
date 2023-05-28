@@ -30,8 +30,6 @@ namespace CPC_Vista
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.txt_id = new System.Windows.Forms.TextBox();
-            this.btn_buscar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_nombre = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -85,7 +83,7 @@ namespace CPC_Vista
             this.btn_guardar = new System.Windows.Forms.Button();
             this.btn_balance = new System.Windows.Forms.Button();
             this.cbx_nombre = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbx_id = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -100,27 +98,10 @@ namespace CPC_Vista
             this.label1.TabIndex = 1;
             this.label1.Text = "ID CLIENTE";
             // 
-            // txt_id
-            // 
-            this.txt_id.Location = new System.Drawing.Point(82, 6);
-            this.txt_id.Name = "txt_id";
-            this.txt_id.Size = new System.Drawing.Size(81, 20);
-            this.txt_id.TabIndex = 2;
-            // 
-            // btn_buscar
-            // 
-            this.btn_buscar.Location = new System.Drawing.Point(169, 4);
-            this.btn_buscar.Name = "btn_buscar";
-            this.btn_buscar.Size = new System.Drawing.Size(75, 23);
-            this.btn_buscar.TabIndex = 3;
-            this.btn_buscar.Text = "Buscar";
-            this.btn_buscar.UseVisualStyleBackColor = true;
-            this.btn_buscar.Click += new System.EventHandler(this.btn_buscar_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(256, 9);
+            this.label2.Location = new System.Drawing.Point(205, 9);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(102, 13);
@@ -129,9 +110,9 @@ namespace CPC_Vista
             // 
             // txt_nombre
             // 
-            this.txt_nombre.Location = new System.Drawing.Point(363, 4);
+            this.txt_nombre.Location = new System.Drawing.Point(312, 5);
             this.txt_nombre.Name = "txt_nombre";
-            this.txt_nombre.Size = new System.Drawing.Size(348, 20);
+            this.txt_nombre.Size = new System.Drawing.Size(277, 20);
             this.txt_nombre.TabIndex = 5;
             // 
             // panel1
@@ -594,7 +575,7 @@ namespace CPC_Vista
             // 
             // btn_guardar
             // 
-            this.btn_guardar.Location = new System.Drawing.Point(594, 429);
+            this.btn_guardar.Location = new System.Drawing.Point(344, 432);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.Size = new System.Drawing.Size(117, 23);
             this.btn_guardar.TabIndex = 9;
@@ -604,38 +585,38 @@ namespace CPC_Vista
             // 
             // btn_balance
             // 
-            this.btn_balance.Location = new System.Drawing.Point(339, 429);
+            this.btn_balance.Location = new System.Drawing.Point(595, 4);
             this.btn_balance.Name = "btn_balance";
-            this.btn_balance.Size = new System.Drawing.Size(134, 23);
+            this.btn_balance.Size = new System.Drawing.Size(121, 23);
             this.btn_balance.TabIndex = 10;
-            this.btn_balance.Text = "Generar Balance";
+            this.btn_balance.Text = "Visualizar Cierre";
             this.btn_balance.UseVisualStyleBackColor = true;
             this.btn_balance.Click += new System.EventHandler(this.btn_balance_Click);
             // 
             // cbx_nombre
             // 
             this.cbx_nombre.FormattingEnabled = true;
-            this.cbx_nombre.Location = new System.Drawing.Point(363, 4);
+            this.cbx_nombre.Location = new System.Drawing.Point(312, 5);
             this.cbx_nombre.Name = "cbx_nombre";
-            this.cbx_nombre.Size = new System.Drawing.Size(348, 21);
+            this.cbx_nombre.Size = new System.Drawing.Size(277, 21);
             this.cbx_nombre.TabIndex = 11;
             this.cbx_nombre.SelectedIndexChanged += new System.EventHandler(this.cbx_nombre_SelectedIndexChanged);
             // 
-            // comboBox1
+            // cbx_id
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(82, 6);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(81, 21);
-            this.comboBox1.TabIndex = 12;
+            this.cbx_id.FormattingEnabled = true;
+            this.cbx_id.Location = new System.Drawing.Point(82, 6);
+            this.cbx_id.Name = "cbx_id";
+            this.cbx_id.Size = new System.Drawing.Size(115, 21);
+            this.cbx_id.TabIndex = 12;
+            this.cbx_id.SelectedIndexChanged += new System.EventHandler(this.cbx_id_SelectedIndexChanged);
             // 
             // Estado_Cuenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(722, 467);
-            this.Controls.Add(this.txt_id);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbx_id);
             this.Controls.Add(this.txt_nombre);
             this.Controls.Add(this.cbx_nombre);
             this.Controls.Add(this.btn_balance);
@@ -643,12 +624,11 @@ namespace CPC_Vista
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btn_buscar);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
             this.Name = "Estado_Cuenta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Estado Cuenta";
+            this.Text = "Cierre Cunta";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -661,8 +641,6 @@ namespace CPC_Vista
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txt_id;
-        private System.Windows.Forms.Button btn_buscar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_nombre;
         private System.Windows.Forms.Panel panel1;
@@ -694,7 +672,7 @@ namespace CPC_Vista
         private System.Windows.Forms.ComboBox cbx_anterior;
         private System.Windows.Forms.ComboBox cbx_nombre;
         private System.Windows.Forms.ComboBox cbx_final;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbx_id;
         private System.Windows.Forms.ComboBox cbx_saldomesanterior;
         private System.Windows.Forms.ComboBox cbx_saldoabonosacumulados;
         private System.Windows.Forms.ComboBox cbx_saldocargosacumulados;
