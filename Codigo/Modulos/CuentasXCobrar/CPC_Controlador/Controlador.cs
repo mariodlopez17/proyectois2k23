@@ -6,6 +6,7 @@ using System.Data.Odbc;
 using System.Threading.Tasks;
 using CPC_Modelo;
 using System.Windows.Forms;
+using System.Data;
 
 namespace CPC_Controlador
 {
@@ -19,9 +20,83 @@ namespace CPC_Controlador
             return sentencias.llenarcbxIdCliente();
         }
 
-        public OdbcDataReader llenartxtCli(string id_cliente)
+        public DataTable MostrarProductos()
         {
-            return sentencias.llenartxtNCliente(id_cliente);
+            OdbcDataAdapter data = sentencias.displayProductos();
+            DataTable tabla = new DataTable();
+            data.Fill(tabla);
+            return tabla;
+        }
+        public void llenarCbxCliente(ComboBox comboBox)
+        {
+            comboBox.Items.Clear();
+            List<string> almacenes = sentencias.getAllClientes();
+            foreach (string almacen in almacenes)
+            {
+                comboBox.Items.Add(almacen);
+            }
+        }
+        public string getIdVentas(string id_almacen)
+        {
+            int newId = 0;
+            newId = sentencias.getNewIdVenta(id_almacen) + 1;
+            return newId.ToString();
+        }
+
+        public void registrarVenta(List<string> encabezado, List<string> detalle)
+        {
+            char[] caracteresEliminar = { ',' };
+                string valuesEncabezado = "";
+                string valuesDetalle = "";
+
+                foreach (string datos in encabezado)
+                {
+                    valuesEncabezado += "'" + datos + "',";
+                }
+                valuesEncabezado = valuesEncabezado.TrimEnd(caracteresEliminar);
+
+                foreach (string datos in detalle)
+                {
+                    valuesDetalle += datos + ",";
+                }
+                valuesDetalle = valuesDetalle.TrimEnd(caracteresEliminar);
+
+                sentencias.newEncabezado(valuesEncabezado);
+                sentencias.newDetalle(valuesDetalle);
+        }
+        public void actualizarSaldoVenta(string id_cliente, string deuda)
+        {
+            List<string> datos = sentencias.getSaldoCliente(id_cliente);
+            foreach (string cliente in datos)
+            {
+                string[] infoSaldos = cliente.Split('/');
+                float totalCargos = float.Parse(infoSaldos[1]) + float.Parse(deuda);
+                float abonosActuales = float.Parse(infoSaldos[2]);
+                float nuevoSaldoMensual = totalCargos - abonosActuales;
+
+                sentencias.updateCargosClientes(id_cliente, totalCargos.ToString());
+                sentencias.updateSaldoMensual(id_cliente, nuevoSaldoMensual.ToString());
+            }
+        }
+        public void actualizarExistencias(List<string> data)
+        {
+            List<string> productos = sentencias.buscarExistencias();
+            foreach (string datos in data)
+            {
+                foreach (string datos2 in productos)
+                {
+
+                    string[] infoProducto = datos.Split('-');
+                    string[] infoProducto2 = datos2.Split('-');
+                    if (infoProducto[0].Equals(infoProducto2[0]))
+                    {
+                        string total = (float.Parse(infoProducto2[1])-float.Parse(infoProducto[1])).ToString();
+                        sentencias.updateExistencias(infoProducto[0], total);
+                    }
+
+                }
+            }
+
         }
 
         public void guardarPago(List<string> lista)
@@ -47,7 +122,7 @@ namespace CPC_Controlador
                 float nuevoAbono = float.Parse(abono);
                 float nuevoTotalAbonado = abonosActuales + nuevoAbono;
                 float nuevoSaldoMensual =  totalCargos - nuevoTotalAbonado;
-                sentencias.updateCargosClientes(id_cliente, nuevoTotalAbonado.ToString());
+                sentencias.updateAbonosClientes(id_cliente, nuevoTotalAbonado.ToString());
                 sentencias.updateSaldoMensual(id_cliente, nuevoSaldoMensual.ToString());
             }
         }
