@@ -71,9 +71,9 @@ namespace CPC_Vista
             estado.Show();           
         }
 
-        private void ventaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ventaToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            Mant_venta venta = new Mant_venta();
+            Pcs_venta venta = new Pcs_venta();
             venta.MdiParent = this;
             venta.Show();
         }
