@@ -32,6 +32,9 @@ namespace CxPVista
 
         private void Moviminetos_CxP_Load(object sender, EventArgs e)
         {
+            this.dtpEmision.Visible = false;
+            porDefecto.Text = "00/00/0000";
+            porDefecto.Visible = true;
             TextBox[] Grupo = { txtMovimiento, txtNombreTipo, txtMovimiento, txtMoneda, txtIdCuenta, txtIdAlmacen, txtIdProveedor, txtIdFatura, txtIdTipo, txtIdMoneda, txtIdConcepto, txtCambio, txtEmision, txtMovimiento, txtSaldo, txtMonto, txtEstado };
             cn.Inicio(txtIdCuenta, txtMovimiento,Grupo, cmbEstado);
         }
@@ -56,7 +59,7 @@ namespace CxPVista
 
         private void button3_Click(object sender, EventArgs e)
         {
-            AyudaFactura2 ayudaFactura = new AyudaFactura2("tbl_factura", txtIdFatura, txtIdAlmacen, txtSaldo,txtIdProveedor,txtEmision,txtIdCuenta,txtMonto);
+            AyudaFactura2 ayudaFactura = new AyudaFactura2("tbl_factura", txtIdFatura, txtIdAlmacen, txtSaldo,txtIdProveedor,txtEmision,txtIdCuenta,txtMonto,dtpEmision,porDefecto);
             ayudaFactura.Show();
         }
 
@@ -66,11 +69,14 @@ namespace CxPVista
             char primerCaracter = valorSeleccionado[0];
             txtEstado.Text = primerCaracter.ToString();
 
-            TextBox[] Grupo = { txtIdCuenta, txtIdAlmacen, txtIdProveedor, txtIdFatura, txtIdTipo, txtIdMoneda, txtIdConcepto, txtCambio, txtEmision, txtMovimiento, txtSaldo, txtMonto, txtEstado };
+            TextBox[] Grupo = { txtIdCuenta, txtIdAlmacen, txtIdProveedor, txtIdFatura, txtIdTipo, txtIdMoneda, txtIdConcepto, txtCambio, txtEmision, txtMovimiento, txtSaldo, txtMonto, txtEstado};
             Double Monto = Convert.ToDouble(txtMonto.Text) ;
             cn.operacionCxP(Grupo, "tbl_cuentaporpagar",Monto,txtIdProveedor.Text,txtIdConcepto.Text );
+
             TextBox[] Grupo2 = { txtMovimiento,txtMoneda,txtNombreTipo,txtMovimiento,txtConcepto,txtTipoConcepto,txtNombreTipo,txtMovimiento,txtMoneda, txtIdCuenta, txtIdAlmacen, txtIdProveedor, txtIdFatura, txtIdTipo, txtIdMoneda, txtIdConcepto, txtCambio, txtEmision, txtMovimiento, txtSaldo, txtMonto, txtEstado };
             cn.Inicio(txtIdCuenta,txtMovimiento,Grupo2, cmbEstado);
+            dtpEmision.Visible = false;
+            porDefecto.Visible = true;
 
         }
 
@@ -78,6 +84,9 @@ namespace CxPVista
         {
             TextBox[] Grupo = {txtMovimiento,txtMoneda,txtNombreTipo,txtMovimiento,txtConcepto,txtTipoConcepto,txtNombreTipo,txtMovimiento,txtMoneda, txtIdCuenta, txtIdAlmacen, txtIdProveedor, txtIdFatura, txtIdTipo, txtIdMoneda, txtIdConcepto, txtCambio, txtEmision, txtMovimiento, txtSaldo, txtMonto, txtEstado };
             cn.Inicio(txtIdCuenta, txtMovimiento,Grupo,cmbEstado);
+            porDefecto.Visible = true;
+            dtpEmision.Visible = false;
+            
         }
 
         private void btnHelp_Click_1(object sender, EventArgs e)
