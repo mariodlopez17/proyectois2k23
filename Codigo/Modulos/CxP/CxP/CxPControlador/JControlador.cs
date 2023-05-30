@@ -67,7 +67,7 @@ namespace CxPControlador
 
         }
 
-        string ingresarcxp(TextBox[] textbox)//Crea cadenas de datos para la insercion
+         string ingresarcxp(TextBox[] textbox)//Crea cadenas de datos para la insercion
         {
                 string dato;
             //string tipo = " ";
@@ -109,6 +109,7 @@ namespace CxPControlador
 
         } //Fin codigo Almacen
 
+
         public void fillTableProveedor(string ntabla, DataGridView tabla)//Funcion para llenar tabla
         {
             try
@@ -136,7 +137,7 @@ namespace CxPControlador
             }
         }
 
-        public void inicio(TextBox id, DateTimePicker emision, TextBox almacen, TextBox proveedor, TextBox estado, TextBox fecha, TextBox total)
+        public void inicio(TextBox id, Button ayudafact, DateTimePicker emision, DateTimePicker vencimiento, TextBox almacen, TextBox proveedor, TextBox estado, TextBox fecha, TextBox fechaVencimiento,TextBox total)
         {
            /* emision.Enabled = false;
             almacen.Enabled = false;
@@ -147,10 +148,13 @@ namespace CxPControlador
 
             emision.Enabled = false;
             almacen.Enabled = false;
+            vencimiento.Enabled = false;
             proveedor.Enabled = false;
             estado.Enabled = false;
             fecha.Enabled = false;
+            fechaVencimiento.Enabled = false;
             total.Enabled = false;
+            ayudafact.Enabled = false;
 
             id.Enabled = false;
 
@@ -250,6 +254,48 @@ namespace CxPControlador
                 MessageBox.Show("Error: " + e);
             }
 
+        }
+
+        public string[] llenartablaAlmacen2(string almacen)//Funcion para llenar tabla
+        {
+            string[] datos = new string[1];
+            try
+            {
+                OdbcDataAdapter dt = sn.llenartablaAlmacen2(almacen);
+                DataTable table = new DataTable();
+                dt.Fill(table);
+                for (int x = 0; x < datos.Length; x++)
+                {
+                    datos[x] = table.Rows[table.Rows.Count - 1][x].ToString();
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error:" + e);
+            }
+            return datos;
+        }
+
+        public string[] llenartablaProveedor2(string almacen)//Funcion para llenar tabla
+        {
+            string[] datos = new string[1];
+            try
+            {
+                OdbcDataAdapter dt = sn.llenartablaProveedor2(almacen);
+                DataTable table = new DataTable();
+                dt.Fill(table);
+                for (int x = 0; x < datos.Length; x++)
+                {
+                    datos[x] = table.Rows[table.Rows.Count - 1][x].ToString();
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error:" + e);
+            }
+            return datos;
         }
 
 
