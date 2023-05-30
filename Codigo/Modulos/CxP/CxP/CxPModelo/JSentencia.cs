@@ -96,7 +96,7 @@ namespace CxPModelo
         }
 
 
-        public void eliminardatos(int clave, string campo, string tabla)
+        public void eliminardatos(string idfactura, string idproveedor, string idalmacen, string proveedor)
         {
 
             OdbcCommand command = new OdbcCommand();
@@ -110,12 +110,61 @@ namespace CxPModelo
                 command.Connection = conn;
                 command.Transaction = transaction;
 
-                string sql = "delete from " + tabla + " where " + campo + "=" + clave + ";";
-                string sqlcxp = "delete from tbl_CuentaPorPagar where " + campo + "=" + clave + ";";
+                command.CommandText = proveedor;
+                command.ExecuteNonQuery();
+
+                string sqlcxp = "delete from tbl_CuentaPorPagar where pk_id_factura = " + idfactura + " and pk_id_proveedor = " + idproveedor + " and pk_id_almacen = " + idalmacen + " ;";
+                command.CommandText = sqlcxp;
+                command.ExecuteNonQuery();
+
+                string sql = "delete from tbl_factura where pk_id_factura = " + idfactura + " and pk_id_proveedor = " + idproveedor + " and pk_id_almacen = " + idalmacen + " ;";
                 //string sql = "delete from " + tabla + "(" + tipo + ") values (" + dato + ")";
 
                 command.CommandText = sql;
                 command.ExecuteNonQuery();
+
+                transaction.Commit();
+                Console.WriteLine("Datos eliminados");
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                try
+                {
+
+                    transaction.Rollback();
+                }
+                catch
+                {
+
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+
+
+        }
+
+        public void eliminardatoscxp(int clave, string campo, string tabla)
+        {
+
+            OdbcCommand command = new OdbcCommand();
+            OdbcTransaction transaction = null;
+            OdbcConnection conn = con.connection;
+            command.Connection = conn;
+            try
+            {
+                conn.Open();
+                transaction = conn.BeginTransaction();
+                command.Connection = conn;
+                command.Transaction = transaction;
+
+                 string sqlcxp = "delete from " + tabla + " where " + campo + "=" + clave + ";";
+                 command.CommandText = sqlcxp;
+                 command.ExecuteNonQuery();
 
                 transaction.Commit();
                 Console.WriteLine("Datos eliminados");

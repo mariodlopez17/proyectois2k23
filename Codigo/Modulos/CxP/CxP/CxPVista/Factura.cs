@@ -58,6 +58,7 @@ namespace CxPVista
             dtpVencimientoFactura.Enabled = true;
             cb_estado.Enabled = true;
             btnAyudaFactura.Enabled = true;
+            btnSave.Enabled = true;
         }
 
         public void limpiezaTextBox() {
@@ -111,9 +112,14 @@ namespace CxPVista
                 txtIdAlmacen.Text = dgvFactura.CurrentRow.Cells[1].Value.ToString();
                 txtIdProveedor.Text = dgvFactura.CurrentRow.Cells[2].Value.ToString();
                 txtfecha.Text = dgvFactura.CurrentRow.Cells[3].Value.ToString();
+                dtpEmisionFactura.Text = dgvFactura.CurrentRow.Cells[3].Value.ToString();
+                txtVencimiento.Text = dgvFactura.CurrentRow.Cells[4].Value.ToString();
+                dtpVencimientoFactura.Text = dgvFactura.CurrentRow.Cells[4].Value.ToString();
                 //dtpEmisionFactura.Text = dgvFactura.CurrentRow.Cells[1].Value.ToString();
-                txtTotalFactura.Text = dgvFactura.CurrentRow.Cells[4].Value.ToString();
-                txtEstatus.Text = dgvFactura.CurrentRow.Cells[5].Value.ToString();
+                txtTotalFactura.Text = dgvFactura.CurrentRow.Cells[5].Value.ToString();
+                txtEstatus.Text = dgvFactura.CurrentRow.Cells[6].Value.ToString();
+                cb_estado.Text = dgvFactura.CurrentRow.Cells[6].Value.ToString();
+                btnSave.Enabled = false;
             }
             catch { 
             
@@ -156,7 +162,7 @@ namespace CxPVista
         private void btnDelete_Click(object sender, EventArgs e)
         {
 
-            TextBox[] Grupo = { txtid, txtIdAlmacen, txtIdProveedor, txtEstatus, txtfecha, txtTotalFactura };
+            TextBox[] Grupo = { txtid, txtIdAlmacen, txtIdProveedor, txtTotalFactura };
             cn.delete(Grupo, dgvFactura);
             actualizardataview();
             limpiezaTextBox();
