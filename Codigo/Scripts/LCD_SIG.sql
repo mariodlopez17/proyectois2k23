@@ -71,6 +71,7 @@ SELECT
     f.pk_id_almacen AS Almacen,
     COALESCE(cp.pk_id_cuentaporpagar, 0)  AS Documento,
     f.fecha_emision_factura AS f_factura,
+	f.fecha_vencimiento_factura AS f_vencimiento,
     CASE WHEN cp.fecha_movimiento_cuentaporpagar IS NOT NULL THEN cp.fecha_movimiento_cuentaporpagar ELSE NULL END AS f_movimiento,
     COALESCE(cp.saldo_pago_cuentaporpagar, f.total_factura) AS Deuda,
     COALESCE(cp.monto_pago_cuentaporpagar, 0) AS Ingreso,
@@ -94,15 +95,15 @@ DROP procedure IF EXISTS `EstadoCuentaProveedor`;
 DELIMITER $$
 USE `sig`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `EstadoCuentaProveedor`(in id_proveedor int, fecha_corte date)
-BEGIN
 SELECT
     pk_id_factura AS Factura,
     pk_id_almacen AS Almacen,
     fecha_emision_factura AS f_factura,
+    fecha_vencimiento_factura AS f_vencimiento,
     total_factura as TotalFactura,
-	(select if ((select ccp.tipoconcepto_conceptocuentaporpagar FROM tbl_conceptocuentaporpagar ccp inner join tbl_cuentaporpagar cp ON ccp.pk_id_conceptocuentaporpagar = cp.fk_id_conceptocuentaporpagar  inner join tbl_factura  f on cp.pk_id_proveedor = f.pk_id_proveedor order by cp.pk_id_cuentaporpagar  desc limit 1)= "cargo",
-	(select sum(saldo_pago_cuentaporpagar+monto_pago_cuentaporpagar) from tbl_cuentaporpagar  where pk_id_cuentaporpagar =  (select pk_id_cuentaporpagar from tbl_cuentaporpagar where pk_id_factura = pk_id_factura order by pk_id_cuentaporpagar  desc limit 1)),
-    (select sum(saldo_pago_cuentaporpagar-monto_pago_cuentaporpagar) from tbl_cuentaporpagar  where pk_id_cuentaporpagar =  (select pk_id_cuentaporpagar from tbl_cuentaporpagar where pk_id_factura = pk_id_factura order by pk_id_cuentaporpagar  desc limit 1)))) AS Deuda
+	(select if ((select ccp.tipoconcepto_conceptocuentaporpagar FROM tbl_conceptocuentaporpagar ccp inner join tbl_cuentaporpagar cp ON ccp.pk_id_conceptocuentaporpagar = cp.fk_id_conceptocuentaporpagar  inner join tbl_factura  f on cp.pk_id_proveedor = f.pk_id_proveedor and cp.pk_id_factura = f.pk_id_factura where f.pk_id_factura=Factura order  by cp.pk_id_cuentaporpagar desc limit 1)= "cargo",
+	(select sum(saldo_pago_cuentaporpagar+monto_pago_cuentaporpagar) from tbl_cuentaporpagar  where pk_id_cuentaporpagar =  (select pk_id_cuentaporpagar from tbl_cuentaporpagar where pk_id_factura = Factura order by pk_id_cuentaporpagar  desc limit 1)),
+    (select sum(saldo_pago_cuentaporpagar-monto_pago_cuentaporpagar) from tbl_cuentaporpagar  where pk_id_cuentaporpagar =  (select pk_id_cuentaporpagar from tbl_cuentaporpagar where pk_id_factura = Factura order by pk_id_cuentaporpagar  desc limit 1)))) AS Deuda
 FROM
     tbl_factura 
 WHERE
