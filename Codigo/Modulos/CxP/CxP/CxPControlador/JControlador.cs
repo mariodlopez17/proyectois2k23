@@ -248,9 +248,6 @@ namespace CxPControlador
         }
 
 
-
-
-
         /*-----------BOTON BORRAR----------*/
 
         public void  delete(TextBox[] textbox, DataGridView tabla)
@@ -271,7 +268,6 @@ namespace CxPControlador
         }
 
        
-
         public string[] llenartablaAlmacen2(string almacen)//Funcion para llenar tabla
         {
             string[] datos = new string[1];
