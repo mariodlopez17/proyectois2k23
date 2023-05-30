@@ -19,6 +19,22 @@ namespace CxPControlador
             get { return ids; }
             set { ids = value; }
         }
+
+        public void llenarmitabla(string ntabla, DataGridView tabla, string idProveedor)//Funcion para llenar tabla
+        {
+            try
+            {
+                OdbcDataAdapter dt = sn.llenarmitabla(ntabla, idProveedor);
+                DataTable table = new DataTable();
+                dt.Fill(table);
+                tabla.DataSource = table;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error:" + e);
+            }
+
+        }
         public void llenartablaa2(string ntabla, DataGridView tabla)//Funcion para llenar tabla
         {
             try
