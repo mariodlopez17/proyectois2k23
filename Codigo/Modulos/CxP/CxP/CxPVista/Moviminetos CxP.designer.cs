@@ -75,6 +75,8 @@ namespace CxPVista
             this.btnHelp = new FontAwesome.Sharp.IconButton();
             this.label18 = new System.Windows.Forms.Label();
             this.txtMovimiento = new System.Windows.Forms.TextBox();
+            this.dtpEmision = new System.Windows.Forms.DateTimePicker();
+            this.porDefecto = new System.Windows.Forms.TextBox();
             this.gpbProveedor.SuspendLayout();
             this.gpbConcepto.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -198,9 +200,10 @@ namespace CxPVista
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.porDefecto);
+            this.groupBox1.Controls.Add(this.dtpEmision);
             this.groupBox1.Controls.Add(this.cmbEstado);
             this.groupBox1.Controls.Add(this.label19);
-            this.groupBox1.Controls.Add(this.txtEmision);
             this.groupBox1.Controls.Add(this.txtIdCuenta);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.txtIdAlmacen);
@@ -247,7 +250,7 @@ namespace CxPVista
             // txtEmision
             // 
             this.txtEmision.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
-            this.txtEmision.Location = new System.Drawing.Point(526, 31);
+            this.txtEmision.Location = new System.Drawing.Point(485, 634);
             this.txtEmision.Name = "txtEmision";
             this.txtEmision.Size = new System.Drawing.Size(157, 25);
             this.txtEmision.TabIndex = 22;
@@ -334,7 +337,7 @@ namespace CxPVista
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
-            this.label10.Location = new System.Drawing.Point(406, 31);
+            this.label10.Location = new System.Drawing.Point(419, 33);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(114, 17);
             this.label10.TabIndex = 4;
@@ -585,16 +588,32 @@ namespace CxPVista
             this.txtMovimiento.TabIndex = 74;
             this.txtMovimiento.Tag = "fecha_movimiento_cuentaporpagar";
             // 
+            // dtpEmision
+            // 
+            this.dtpEmision.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpEmision.Location = new System.Drawing.Point(539, 30);
+            this.dtpEmision.Name = "dtpEmision";
+            this.dtpEmision.Size = new System.Drawing.Size(141, 25);
+            this.dtpEmision.TabIndex = 26;
+            // 
+            // porDefecto
+            // 
+            this.porDefecto.Location = new System.Drawing.Point(539, 31);
+            this.porDefecto.Name = "porDefecto";
+            this.porDefecto.Size = new System.Drawing.Size(140, 25);
+            this.porDefecto.TabIndex = 27;
+            // 
             // Moviminetos_CxP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(93)))), ((int)(((byte)(86)))));
-            this.ClientSize = new System.Drawing.Size(835, 579);
+            this.ClientSize = new System.Drawing.Size(842, 579);
             this.Controls.Add(this.txtMovimiento);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.txtEmision);
             this.Controls.Add(this.txtEstado);
             this.Controls.Add(this.groupBox1);
             this.Name = "Moviminetos_CxP";
@@ -661,5 +680,7 @@ namespace CxPVista
         private System.Windows.Forms.Label label18;
         public System.Windows.Forms.TextBox txtMovimiento;
         public System.Windows.Forms.ComboBox cmbEstado;
+        public System.Windows.Forms.DateTimePicker dtpEmision;
+        private System.Windows.Forms.TextBox porDefecto;
     }
 }
