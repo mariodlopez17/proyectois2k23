@@ -79,7 +79,7 @@ namespace CxPVista
                 else
                 {
                     // Si no es una fecha válida, muestra un mensaje de error o realiza alguna otra acción
-                    MessageBox.Show("El valor ingresado no es una fecha válida.");
+                    //MessageBox.Show("El valor ingresado no es una fecha válida.");
                 }
                 
                 this.Close();
