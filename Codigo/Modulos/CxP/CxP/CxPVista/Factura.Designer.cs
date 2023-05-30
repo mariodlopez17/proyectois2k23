@@ -369,7 +369,7 @@ namespace CxPVista
             this.Controls.Add(this.txtid);
             this.Controls.Add(this.label1);
             this.Name = "Factura";
-            this.Text = "Factura";
+            this.Text = "Ingreso Factura";
             this.Load += new System.EventHandler(this.Factura_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFactura)).EndInit();
             this.ResumeLayout(false);

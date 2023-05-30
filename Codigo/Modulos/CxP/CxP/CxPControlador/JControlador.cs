@@ -92,6 +92,21 @@ namespace CxPControlador
 
         }
 
+        public string ingresarcambiosfactura2(TextBox[] textbox)//Crea cadenas de datos para la insercion
+        {
+            string sql;
+            string idProveedor = textbox[2].Text;
+            string[] datosProveedor = sn.datosProveedor(idProveedor);
+
+            double nuevosaldo = Convert.ToDouble(datosProveedor[0]) - Convert.ToDouble(textbox[3].Text);
+            double nuevocargo = Convert.ToDouble(datosProveedor[1]) - Convert.ToDouble(textbox[3].Text);
+
+
+            sql = "Update tbl_proveedor Set saldo_actual_proveedor = " + nuevosaldo + ", cargo_del_mes_proveedor = " + nuevocargo + " where pk_id_proveedor = " + idProveedor + " ;";
+            return sql;
+
+        }
+
         public void fillTableAlmacen(string ntabla, DataGridView tabla)//Funcion para llenar tabla
         {
             try
@@ -238,14 +253,13 @@ namespace CxPControlador
 
         /*-----------BOTON BORRAR----------*/
 
-        public void delete(TextBox[] textbox, DataGridView tabla)
+        public void  delete(TextBox[] textbox, DataGridView tabla)
         {
             try
             {
-                string campo = textbox[0].Tag.ToString();
-                int clave = int.Parse(textbox[0].Text);
-                sn.eliminardatos(clave, campo, tabla.Tag.ToString());
-
+                string sqlProveedor = ingresarcambiosfactura2(textbox);
+                sn.eliminardatos(textbox[0].Text, textbox[2].Text, textbox[1].Text, sqlProveedor);
+                
 
 
             }
@@ -255,6 +269,8 @@ namespace CxPControlador
             }
 
         }
+
+       
 
         public string[] llenartablaAlmacen2(string almacen)//Funcion para llenar tabla
         {
@@ -276,7 +292,6 @@ namespace CxPControlador
             }
             return datos;
         }
-
         public string[] llenartablaProveedor2(string almacen)//Funcion para llenar tabla
         {
             string[] datos = new string[1];
