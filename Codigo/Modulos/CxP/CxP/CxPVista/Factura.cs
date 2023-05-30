@@ -36,7 +36,7 @@ namespace CxPVista
         private void button1_Click(object sender, EventArgs e)
         {
             //Codigo
-            AyudaFactura ayudafactura = new AyudaFactura();
+            AyudaFactura ayudafactura = new AyudaFactura("tbl_factura", txtIdAlmacen, txtIdProveedor);
             ayudafactura.ShowDialog();
             //Ocultar submenu
             //hideSubMenu();
@@ -48,13 +48,16 @@ namespace CxPVista
         }
 
         public void habilitarTextBox() {
-            txtIdAlmacen.Enabled = true;
-            txtIdProveedor.Enabled = true;
+            txtIdAlmacen.Enabled = false;
+            txtIdProveedor.Enabled = false;
             txtEstatus.Enabled = true;
             txtfecha.Enabled = true;
-            txtEstatus.Enabled = true;
+            txtEstatus.Enabled = false;
             txtTotalFactura.Enabled = true;
             dtpEmisionFactura.Enabled = true;
+            dtpVencimientoFactura.Enabled = true;
+            cb_estado.Enabled = true;
+            btnAyudaFactura.Enabled = true;
         }
 
         public void limpiezaTextBox() {
@@ -82,7 +85,10 @@ namespace CxPVista
 
         private void Factura_Load(object sender, EventArgs e)
         {
-            cn.inicio(txtid, dtpEmisionFactura, txtIdAlmacen, txtIdProveedor, txtEstatus, txtfecha, txtTotalFactura);
+            cb_estado.Items.Add("0) Inactivo");
+            cb_estado.Items.Add("1) Activo");
+            
+            cn.inicio(txtid, btnAyudaFactura, dtpEmisionFactura,dtpVencimientoFactura, txtIdAlmacen, txtIdProveedor, txtEstatus, txtfecha, txtVencimiento ,txtTotalFactura);
             actualizardataview();
         }
 
@@ -121,12 +127,13 @@ namespace CxPVista
             try
             {
                 txtfecha.Text = dtpEmisionFactura.Value.ToString("yyyy-MM-dd");
-                TextBox[] Grupo = { txtid, txtIdAlmacen, txtIdProveedor, txtTotalFactura, txtEstatus, txtfecha };
+                txtVencimiento.Text = dtpVencimientoFactura.Value.ToString("yyyy-MM-dd");
+                TextBox[] Grupo = { txtid, txtIdAlmacen, txtIdProveedor, txtTotalFactura, txtEstatus, txtfecha, txtVencimiento };
                 cn.ingresar(Grupo, dgvFactura);
                 //cn.ingresarcxp(Grupo);
                 actualizardataview();
                 limpiezaTextBox();
-                cn.inicio(txtid, dtpEmisionFactura, txtIdAlmacen, txtIdProveedor, txtEstatus, txtfecha, txtTotalFactura);
+                cn.inicio(txtid, btnAyudaFactura, dtpEmisionFactura, dtpVencimientoFactura, txtIdAlmacen, txtIdProveedor, txtEstatus, txtfecha, txtVencimiento, txtTotalFactura);
             }
             catch (Exception es)
             {
@@ -149,10 +156,10 @@ namespace CxPVista
         private void btnDelete_Click(object sender, EventArgs e)
         {
 
-            /*TextBox[] Grupo = { txtid, txtIdAlmacen, txtIdProveedor, txtEstatus, txtfecha, txtTotalFactura };
+            TextBox[] Grupo = { txtid, txtIdAlmacen, txtIdProveedor, txtEstatus, txtfecha, txtTotalFactura };
             cn.delete(Grupo, dgvFactura);
             actualizardataview();
-            limpiezaTextBox();*/
+            limpiezaTextBox();
         }
 
         private void btnHelp_Click(object sender, EventArgs e)
@@ -163,6 +170,19 @@ namespace CxPVista
                 string rutaAyuda = "../../../../../../../Ayuda/Modulos/CxP/AyudaFactura/AyudaFactura.chm";
                 Help.ShowHelp(ParentForm, rutaAyuda, "Factura.html");
 
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //txtEstatus.Text = cb_estado.SelectedItem.ToString();
+            if (cb_estado.SelectedIndex == 0)
+            {
+                txtEstatus.Text = "0";
+            }
+            else if (cb_estado.SelectedIndex == 1)
+            {
+                txtEstatus.Text = "1";
+            }
         }
     }
 }
