@@ -109,26 +109,6 @@ namespace CxPControlador
 
         } //Fin codigo Almacen
 
-        public string[] fillTableProveedor2(string proveedor)//Funcion para llenar tabla
-        {
-            string[] datos = new string[7];
-            try
-            {
-                OdbcDataAdapter dt = sn.llenartablaProveedor2(proveedor);
-                DataTable table = new DataTable();
-                dt.Fill(table);
-                for (int x = 0; x < datos.Length; x++)
-                {
-                    datos[x] = table.Rows[table.Rows.Count - 1][x].ToString();
-                }
-
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Error:" + e);
-            }
-            return datos;
-        }
 
         public void fillTableProveedor(string ntabla, DataGridView tabla)//Funcion para llenar tabla
         {

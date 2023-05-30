@@ -61,7 +61,7 @@ namespace CxPVista
         }
 
         public void limpiezaTextBox() {
-            TextBox[] textBoxes = { txtid, txtIdAlmacen, txtIdProveedor, txtTotalFactura, txtEstatus, txtfecha };
+            TextBox[] textBoxes = { txtIdAlmacen, txtIdProveedor, txtTotalFactura, txtEstatus, txtfecha };
             cn.limpiarTextbox(textBoxes);
         }
         private void btnInsert_Click(object sender, EventArgs e)
