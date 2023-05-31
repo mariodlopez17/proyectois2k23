@@ -12,6 +12,7 @@ namespace CxPControlador
 {
     public class GControlador
     {
+        Seguridad_Controlador.Controlador cnseg = new Seguridad_Controlador.Controlador();
         GSentencia sn = new GSentencia();
         private static double ids;
         public double IDS
@@ -170,6 +171,7 @@ namespace CxPControlador
             string cambioProveedor = movimientoProveedor(idProveedor, monto, idconcepto);
             
             sn.actualizartransaccion(sql, cambioProveedor);
+            cnseg.setBtitacora("5101", "Ingreso Movimiento de CxP");
         }
 
         string actualizar2(string cargo, string abono, string proveedor)//Crea cadenas de datos para la actualizacion

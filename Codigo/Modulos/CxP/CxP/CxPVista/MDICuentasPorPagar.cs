@@ -93,6 +93,7 @@ namespace CxPVista
             hideSubMenu();*/
             
             controlador.displayReporte("5201");
+            cnseg.setBtitacora("5201", "Reporte Estado de cuenta");
         }
 
         private void btnProveedor_Click_1(object sender, EventArgs e)
@@ -150,6 +151,7 @@ namespace CxPVista
             //Ocultar submenu
             hideSubMenu();*/
             controlador.displayReporte("5202");
+            cnseg.setBtitacora("5202", "Reporte Balance");
         }
 
         private void btnBalance_Click(object sender, EventArgs e)
@@ -176,11 +178,13 @@ namespace CxPVista
         private void button1_Click(object sender, EventArgs e)
         {
             controlador.displayReporte("5203");
+            cnseg.setBtitacora("5203", "Reporte de Kardex");
         }
 
         private void btnantiguedadsaldos_Click(object sender, EventArgs e)
         {
             controlador.displayReporte("5204");
+            cnseg.setBtitacora("5204", "Reporte de antiguedad de saldos ");
         }
     }
 }

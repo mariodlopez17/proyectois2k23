@@ -13,6 +13,8 @@ INSERT INTO `tbl_modulos` VALUES
 
 -- -----APLICACIONES
 INSERT INTO `tbl_aplicaciones` VALUES
+('1', 'Menu', 'Ingreso Login', '1'),
+('999', 'Cerrar Sesion', 'Cerrar Sesion', '1'),
 ('1000', 'MDI SEGURIDAD', 'PARA SEGURIDAD', '1'),
 ('1001', 'Mant. Usuario', 'PARA SEGURIDAD', '1'),
 ('1002', 'Mant. Aplicación', 'PARA SEGURIDAD', '1'),

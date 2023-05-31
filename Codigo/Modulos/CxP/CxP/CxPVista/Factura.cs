@@ -132,14 +132,25 @@ namespace CxPVista
         {
             try
             {
+                TextBox[] Grupo = { txtid, txtIdAlmacen, txtIdProveedor, txtTotalFactura, txtEstatus, txtfecha, txtVencimiento };
                 txtfecha.Text = dtpEmisionFactura.Value.ToString("yyyy-MM-dd");
                 txtVencimiento.Text = dtpVencimientoFactura.Value.ToString("yyyy-MM-dd");
-                TextBox[] Grupo = { txtid, txtIdAlmacen, txtIdProveedor, txtTotalFactura, txtEstatus, txtfecha, txtVencimiento };
-                cn.ingresar(Grupo, dgvFactura);
-                //cn.ingresarcxp(Grupo);
-                actualizardataview();
-                limpiezaTextBox();
-                cn.inicio(txtid, btnAyudaFactura, dtpEmisionFactura, dtpVencimientoFactura, txtIdAlmacen, txtIdProveedor, txtEstatus, txtfecha, txtVencimiento, txtTotalFactura);
+
+                bool valido = validacionllenado(Grupo);
+                if(valido == true)
+                {
+                   
+                    cn.ingresar(Grupo, dgvFactura);
+                    //cn.ingresarcxp(Grupo);
+                    actualizardataview();
+                    limpiezaTextBox();
+                    cn.inicio(txtid, btnAyudaFactura, dtpEmisionFactura, dtpVencimientoFactura, txtIdAlmacen, txtIdProveedor, txtEstatus, txtfecha, txtVencimiento, txtTotalFactura);
+                }
+                else
+                {
+                    MessageBox.Show("Por Favor llenar todos los campos");
+                }
+
             }
             catch (Exception es)
             {
@@ -161,11 +172,21 @@ namespace CxPVista
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-
             TextBox[] Grupo = { txtid, txtIdAlmacen, txtIdProveedor, txtTotalFactura };
-            cn.delete(Grupo, dgvFactura);
-            actualizardataview();
-            limpiezaTextBox();
+            bool valido = validacionllenado(Grupo);
+            if (valido == true)
+            {
+               
+                cn.delete(Grupo, dgvFactura);
+                actualizardataview();
+                limpiezaTextBox();
+            }
+            else
+            {
+                MessageBox.Show("Por Favor llenar todos los campos");
+            }
+
+            
         }
 
         private void btnHelp_Click(object sender, EventArgs e)
@@ -189,6 +210,25 @@ namespace CxPVista
             {
                 txtEstatus.Text = "1";
             }
+        }
+
+        bool validacionllenado(TextBox[] textBoxes)
+        {
+            bool validacion = false;
+
+            for (int x = 0; x < textBoxes.Length; x++)
+            {
+                if (textBoxes[x].TextLength == 0)
+                {
+                    validacion = false;
+                    break;
+                }
+                else
+                {
+                    validacion = true;
+                }
+            }
+            return validacion;
         }
     }
 }
