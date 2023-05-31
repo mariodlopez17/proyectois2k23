@@ -177,5 +177,10 @@ namespace CxPVista
         {
             controlador.displayReporte("5203");
         }
+
+        private void btnantiguedadsaldos_Click(object sender, EventArgs e)
+        {
+            controlador.displayReporte("5204");
+        }
     }
 }

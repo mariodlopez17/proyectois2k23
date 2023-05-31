@@ -9,11 +9,11 @@ namespace CxPModelo
 {
     public class Conexion
     {//Clase de conexion --------------
-        public OdbcConnection connection = new OdbcConnection("Dsn=colchoneria");
+        public OdbcConnection connection = new OdbcConnection("Dsn=sig");
         public OdbcConnection conexion()
         {
             //creacion de la conexion via ODBC
-            OdbcConnection conn = new OdbcConnection("Dsn=colchoneria");
+            OdbcConnection conn = new OdbcConnection("Dsn=sig");
 
             try
             {

@@ -1,0 +1,15 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=AyudaMoneda.chm
+Contents file=AyudaMoneda.hhc
+Display compile progress=No
+Index file=AyudaMoneda.hhk
+Language=0x100a Español (Guatemala)
+Title=AyudaMoneda
+
+
+[FILES]
+Moneda.html
+
+[INFOTYPES]
+

@@ -44,7 +44,7 @@ namespace CxPVista
             this.btninsertar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(180)))), ((int)(((byte)(227)))));
             this.btninsertar.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btninsertar.IconSize = 40;
-            this.btninsertar.Location = new System.Drawing.Point(348, 18);
+            this.btninsertar.Location = new System.Drawing.Point(499, 41);
             this.btninsertar.Name = "btninsertar";
             this.btninsertar.Size = new System.Drawing.Size(69, 61);
             this.btninsertar.TabIndex = 66;
@@ -56,9 +56,9 @@ namespace CxPVista
             // Dgv_ayudaTipo
             // 
             this.Dgv_ayudaTipo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dgv_ayudaTipo.Location = new System.Drawing.Point(21, 158);
+            this.Dgv_ayudaTipo.Location = new System.Drawing.Point(8, 108);
             this.Dgv_ayudaTipo.Name = "Dgv_ayudaTipo";
-            this.Dgv_ayudaTipo.Size = new System.Drawing.Size(759, 274);
+            this.Dgv_ayudaTipo.Size = new System.Drawing.Size(564, 203);
             this.Dgv_ayudaTipo.TabIndex = 65;
             // 
             // AyudaTipoPago
@@ -66,10 +66,11 @@ namespace CxPVista
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(93)))), ((int)(((byte)(86)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(580, 319);
             this.Controls.Add(this.btninsertar);
             this.Controls.Add(this.Dgv_ayudaTipo);
             this.Name = "AyudaTipoPago";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AyudaTipoPago";
             this.Load += new System.EventHandler(this.AyudaTipoPago_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_ayudaTipo)).EndInit();

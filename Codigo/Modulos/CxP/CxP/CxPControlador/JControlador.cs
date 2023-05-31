@@ -67,7 +67,7 @@ namespace CxPControlador
 
         }
 
-        string ingresarcxp(TextBox[] textbox)//Crea cadenas de datos para la insercion
+         string ingresarcxp(TextBox[] textbox)//Crea cadenas de datos para la insercion
         {
                 string dato;
             //string tipo = " ";
@@ -92,6 +92,21 @@ namespace CxPControlador
 
         }
 
+        public string ingresarcambiosfactura2(TextBox[] textbox)//Crea cadenas de datos para la insercion
+        {
+            string sql;
+            string idProveedor = textbox[2].Text;
+            string[] datosProveedor = sn.datosProveedor(idProveedor);
+
+            double nuevosaldo = Convert.ToDouble(datosProveedor[0]) - Convert.ToDouble(textbox[3].Text);
+            double nuevocargo = Convert.ToDouble(datosProveedor[1]) - Convert.ToDouble(textbox[3].Text);
+
+
+            sql = "Update tbl_proveedor Set saldo_actual_proveedor = " + nuevosaldo + ", cargo_del_mes_proveedor = " + nuevocargo + " where pk_id_proveedor = " + idProveedor + " ;";
+            return sql;
+
+        }
+
         public void fillTableAlmacen(string ntabla, DataGridView tabla)//Funcion para llenar tabla
         {
             try
@@ -108,6 +123,7 @@ namespace CxPControlador
 
 
         } //Fin codigo Almacen
+
 
         public void fillTableProveedor(string ntabla, DataGridView tabla)//Funcion para llenar tabla
         {
@@ -136,7 +152,7 @@ namespace CxPControlador
             }
         }
 
-        public void inicio(TextBox id, DateTimePicker emision, TextBox almacen, TextBox proveedor, TextBox estado, TextBox fecha, TextBox total)
+        public void inicio(TextBox id, Button ayudafact, DateTimePicker emision, DateTimePicker vencimiento, TextBox almacen, TextBox proveedor, TextBox estado, TextBox fecha, TextBox fechaVencimiento,TextBox total)
         {
            /* emision.Enabled = false;
             almacen.Enabled = false;
@@ -147,10 +163,13 @@ namespace CxPControlador
 
             emision.Enabled = false;
             almacen.Enabled = false;
+            vencimiento.Enabled = false;
             proveedor.Enabled = false;
             estado.Enabled = false;
             fecha.Enabled = false;
+            fechaVencimiento.Enabled = false;
             total.Enabled = false;
+            ayudafact.Enabled = false;
 
             id.Enabled = false;
 
@@ -229,19 +248,15 @@ namespace CxPControlador
         }
 
 
-
-
-
         /*-----------BOTON BORRAR----------*/
 
-        public void delete(TextBox[] textbox, DataGridView tabla)
+        public void  delete(TextBox[] textbox, DataGridView tabla)
         {
             try
             {
-                string campo = textbox[0].Tag.ToString();
-                int clave = int.Parse(textbox[0].Text);
-                sn.eliminardatos(clave, campo, tabla.Tag.ToString());
-
+                string sqlProveedor = ingresarcambiosfactura2(textbox);
+                sn.eliminardatos(textbox[0].Text, textbox[2].Text, textbox[1].Text, sqlProveedor);
+                
 
 
             }
@@ -250,6 +265,48 @@ namespace CxPControlador
                 MessageBox.Show("Error: " + e);
             }
 
+        }
+
+       
+        public string[] llenartablaAlmacen2(string almacen)//Funcion para llenar tabla
+        {
+            string[] datos = new string[1];
+            try
+            {
+                OdbcDataAdapter dt = sn.llenartablaAlmacen2(almacen);
+                DataTable table = new DataTable();
+                dt.Fill(table);
+                for (int x = 0; x < datos.Length; x++)
+                {
+                    datos[x] = table.Rows[table.Rows.Count - 1][x].ToString();
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error:" + e);
+            }
+            return datos;
+        }
+        public string[] llenartablaProveedor2(string almacen)//Funcion para llenar tabla
+        {
+            string[] datos = new string[1];
+            try
+            {
+                OdbcDataAdapter dt = sn.llenartablaProveedor2(almacen);
+                DataTable table = new DataTable();
+                dt.Fill(table);
+                for (int x = 0; x < datos.Length; x++)
+                {
+                    datos[x] = table.Rows[table.Rows.Count - 1][x].ToString();
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error:" + e);
+            }
+            return datos;
         }
 
 

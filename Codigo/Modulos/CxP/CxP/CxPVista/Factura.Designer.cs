@@ -42,13 +42,17 @@ namespace CxPVista
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAyudaFactura = new System.Windows.Forms.Button();
             this.btncancelar = new FontAwesome.Sharp.IconButton();
             this.btnInsert = new FontAwesome.Sharp.IconButton();
             this.btnDelete = new FontAwesome.Sharp.IconButton();
             this.btnSave = new FontAwesome.Sharp.IconButton();
             this.txtfecha = new System.Windows.Forms.TextBox();
             this.btnHelp = new FontAwesome.Sharp.IconButton();
+            this.cb_estado = new System.Windows.Forms.ComboBox();
+            this.txtVencimiento = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dtpVencimientoFactura = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFactura)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,7 +117,7 @@ namespace CxPVista
             // txtTotalFactura
             // 
             this.txtTotalFactura.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
-            this.txtTotalFactura.Location = new System.Drawing.Point(601, 155);
+            this.txtTotalFactura.Location = new System.Drawing.Point(601, 222);
             this.txtTotalFactura.Name = "txtTotalFactura";
             this.txtTotalFactura.Size = new System.Drawing.Size(100, 25);
             this.txtTotalFactura.TabIndex = 24;
@@ -122,11 +126,12 @@ namespace CxPVista
             // txtEstatus
             // 
             this.txtEstatus.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
-            this.txtEstatus.Location = new System.Drawing.Point(174, 150);
+            this.txtEstatus.Location = new System.Drawing.Point(174, 190);
             this.txtEstatus.Name = "txtEstatus";
             this.txtEstatus.Size = new System.Drawing.Size(44, 25);
             this.txtEstatus.TabIndex = 25;
             this.txtEstatus.Tag = "estatus_factura";
+            this.txtEstatus.Visible = false;
             // 
             // label2
             // 
@@ -162,7 +167,7 @@ namespace CxPVista
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
-            this.label5.Location = new System.Drawing.Point(551, 163);
+            this.label5.Location = new System.Drawing.Point(551, 230);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(44, 17);
             this.label5.TabIndex = 29;
@@ -172,22 +177,22 @@ namespace CxPVista
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
-            this.label6.Location = new System.Drawing.Point(42, 158);
+            this.label6.Location = new System.Drawing.Point(44, 167);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 17);
             this.label6.TabIndex = 30;
             this.label6.Text = "Estado";
             // 
-            // button1
+            // btnAyudaFactura
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(280, 90);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(22, 24);
-            this.button1.TabIndex = 31;
-            this.button1.Text = "?";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnAyudaFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAyudaFactura.Location = new System.Drawing.Point(280, 90);
+            this.btnAyudaFactura.Name = "btnAyudaFactura";
+            this.btnAyudaFactura.Size = new System.Drawing.Size(22, 24);
+            this.btnAyudaFactura.TabIndex = 31;
+            this.btnAyudaFactura.Text = "?";
+            this.btnAyudaFactura.UseVisualStyleBackColor = true;
+            this.btnAyudaFactura.Click += new System.EventHandler(this.button1_Click);
             // 
             // btncancelar
             // 
@@ -244,7 +249,6 @@ namespace CxPVista
             this.btnDelete.Text = "Eliminar";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Visible = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnSave
@@ -269,7 +273,7 @@ namespace CxPVista
             // txtfecha
             // 
             this.txtfecha.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
-            this.txtfecha.Location = new System.Drawing.Point(495, 102);
+            this.txtfecha.Location = new System.Drawing.Point(495, 89);
             this.txtfecha.Name = "txtfecha";
             this.txtfecha.Size = new System.Drawing.Size(100, 25);
             this.txtfecha.TabIndex = 81;
@@ -295,19 +299,62 @@ namespace CxPVista
             this.btnHelp.UseVisualStyleBackColor = true;
             this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
+            // cb_estado
+            // 
+            this.cb_estado.FormattingEnabled = true;
+            this.cb_estado.Location = new System.Drawing.Point(174, 163);
+            this.cb_estado.Name = "cb_estado";
+            this.cb_estado.Size = new System.Drawing.Size(121, 21);
+            this.cb_estado.TabIndex = 83;
+            this.cb_estado.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // txtVencimiento
+            // 
+            this.txtVencimiento.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
+            this.txtVencimiento.Location = new System.Drawing.Point(495, 163);
+            this.txtVencimiento.Name = "txtVencimiento";
+            this.txtVencimiento.Size = new System.Drawing.Size(100, 25);
+            this.txtVencimiento.TabIndex = 86;
+            this.txtVencimiento.Tag = "fecha_vencimiento_factura";
+            this.txtVencimiento.Visible = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
+            this.label7.Location = new System.Drawing.Point(485, 117);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(169, 17);
+            this.label7.TabIndex = 85;
+            this.label7.Text = "Fecha de Vencimiento";
+            // 
+            // dtpVencimientoFactura
+            // 
+            this.dtpVencimientoFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpVencimientoFactura.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpVencimientoFactura.Location = new System.Drawing.Point(488, 137);
+            this.dtpVencimientoFactura.Name = "dtpVencimientoFactura";
+            this.dtpVencimientoFactura.Size = new System.Drawing.Size(150, 24);
+            this.dtpVencimientoFactura.TabIndex = 84;
+            this.dtpVencimientoFactura.Tag = "";
+            // 
             // Factura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(93)))), ((int)(((byte)(86)))));
             this.ClientSize = new System.Drawing.Size(772, 569);
+            this.Controls.Add(this.txtVencimiento);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.dtpVencimientoFactura);
+            this.Controls.Add(this.cb_estado);
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.txtfecha);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnInsert);
             this.Controls.Add(this.btncancelar);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAyudaFactura);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -322,7 +369,7 @@ namespace CxPVista
             this.Controls.Add(this.txtid);
             this.Controls.Add(this.label1);
             this.Name = "Factura";
-            this.Text = "Factura";
+            this.Text = "Ingreso Factura";
             this.Load += new System.EventHandler(this.Factura_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFactura)).EndInit();
             this.ResumeLayout(false);
@@ -334,8 +381,6 @@ namespace CxPVista
         private System.Windows.Forms.TextBox txtid;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvFactura;
-        private System.Windows.Forms.TextBox txtIdAlmacen;
-        private System.Windows.Forms.TextBox txtIdProveedor;
         private System.Windows.Forms.DateTimePicker dtpEmisionFactura;
         private System.Windows.Forms.TextBox txtTotalFactura;
         private System.Windows.Forms.TextBox txtEstatus;
@@ -344,12 +389,18 @@ namespace CxPVista
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAyudaFactura;
         private FontAwesome.Sharp.IconButton btncancelar;
         private FontAwesome.Sharp.IconButton btnInsert;
         private FontAwesome.Sharp.IconButton btnDelete;
         private FontAwesome.Sharp.IconButton btnSave;
         private System.Windows.Forms.TextBox txtfecha;
         private FontAwesome.Sharp.IconButton btnHelp;
+        private System.Windows.Forms.ComboBox cb_estado;
+        private System.Windows.Forms.TextBox txtVencimiento;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DateTimePicker dtpVencimientoFactura;
+        public System.Windows.Forms.TextBox txtIdAlmacen;
+        public System.Windows.Forms.TextBox txtIdProveedor;
     }
 }
