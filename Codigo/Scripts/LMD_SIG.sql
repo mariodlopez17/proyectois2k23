@@ -66,8 +66,9 @@ INSERT INTO `tbl_aplicaciones` VALUES
 ('5102', 'Pcs. Balance Saldos', 'PARA CxP', '1'),
 ('5103', 'Pcs. Ingreso Factura', 'PARA CxP', '1'),
 ('5201', 'Rep. Estado de Cuenta', 'PARA CxP', '1'),
-('5202', 'Rep. Antiguedad de saldos', 'PARA CxP', '1'),
+('5202', 'Rep. Balance de saldos', 'PARA CxP', '1'),
 ('5203', 'Rep. Cardex', 'PARA CxP', '1'),
+('5204', 'Antigüedad de saldos', 'PARA CxP', '1'),
 ('6000', 'MDI INVENTARIO', 'PARA INVENTARIO', '1'),
 ('6001', 'Mant. Producto', 'PARA INVENTARIO', '1'),
 ('6002', 'Mant. Linea', 'PARA INVENTARIO', '1'),
@@ -153,6 +154,7 @@ INSERT INTO `tbl_asignacionmoduloaplicacion` VALUES
 ('5000', '5201'),
 ('5000', '5202'),
 ('5000', '5203'),
+('5000', '5204'),
 ('6000', '6000'),
 ('6000', '6001'),
 ('6000', '6002'),
@@ -217,6 +219,7 @@ INSERT INTO `tbl_permisosAplicacionPerfil` VALUES
 ('1', '5201', '1', '1', '1', '1', '1'),
 ('1', '5202', '1', '1', '1', '1', '1'),
 ('1', '5203', '1', '1', '1', '1', '1'),
+('1', '5204', '1', '1', '1', '1', '1'),
 ('1', '6000', '1', '1', '1', '1', '1'),
 ('1', '6001', '1', '1', '1', '1', '1'),
 ('1', '6002', '1', '1', '1', '1', '1'),
@@ -277,6 +280,7 @@ INSERT INTO `tbl_permisosAplicacionPerfil` VALUES
 ('6', '5201', '1', '1', '1', '1', '1'),
 ('6', '5202', '1', '1', '1', '1', '1'),
 ('6', '5203', '1', '1', '1', '1', '1'),
+('6', '5204', '1', '1', '1', '1', '1'),
 ('7', '6000', '1', '1', '1', '1', '1'),
 ('7', '6001', '1', '1', '1', '1', '1'),
 ('7', '6002', '1', '1', '1', '1', '1'),
@@ -311,6 +315,7 @@ insert into tbl_regreporteria(ruta, nombre_archivo, aplicacion, estado) values (
 insert into tbl_regreporteria(ruta, nombre_archivo, aplicacion, estado) values ('Modulos\\CxP\\EstadodeCuenta.rpt','ReporteEstadoCuentaProveedor','5201','visible');
 insert into tbl_regreporteria(ruta, nombre_archivo, aplicacion, estado) values ('Modulos\\CxP\\ReporteBalance.rpt','ReporteBalance','5202','visible');
 insert into tbl_regreporteria(ruta, nombre_archivo, aplicacion, estado) values ('Modulos\\CxP\\CardexProveedor.rpt','ReporteCardexProveedor','5203','visible');
+insert into tbl_regreporteria(ruta, nombre_archivo, aplicacion, estado) values ('Modulos\\CxP\\AntiguedadProveedor.rpt','ReporteAntiguedadSaldosProveedor','5204','visible');
 
 INSERT INTO `tbl_almacen` (`pk_codigo_almacen`, `nombre_almacen`, `estatus_almacen`) VALUES 
 ('1', 'la bendición', '1'),
