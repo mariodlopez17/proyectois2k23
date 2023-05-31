@@ -38,5 +38,12 @@ namespace CxPVista
         {
             controlador.balance(DgvProveedor);
         }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+
+            string rutaAyuda = "../../../../../../../Ayuda/Modulos/CxP/Balance/ayudaBalance.chm";
+            Help.ShowHelp(ParentForm, rutaAyuda, "Balance.html");
+        }
     }
 }
