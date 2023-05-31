@@ -30,6 +30,8 @@ namespace CapaVistaCompras
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button17 = new System.Windows.Forms.Button();
+            this.button16 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -71,6 +73,7 @@ namespace CapaVistaCompras
             this.textBox15 = new System.Windows.Forms.TextBox();
             this.textBox16 = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button14 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.textBox17 = new System.Windows.Forms.TextBox();
@@ -93,6 +96,9 @@ namespace CapaVistaCompras
             this.label25 = new System.Windows.Forms.Label();
             this.textBox25 = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button15 = new System.Windows.Forms.Button();
+            this.textBox40 = new System.Windows.Forms.TextBox();
+            this.button13 = new System.Windows.Forms.Button();
             this.textBox39 = new System.Windows.Forms.TextBox();
             this.label37 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -130,12 +136,6 @@ namespace CapaVistaCompras
             this.label33 = new System.Windows.Forms.Label();
             this.textBox34 = new System.Windows.Forms.TextBox();
             this.textBox38 = new System.Windows.Forms.TextBox();
-            this.button13 = new System.Windows.Forms.Button();
-            this.textBox40 = new System.Windows.Forms.TextBox();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -151,20 +151,17 @@ namespace CapaVistaCompras
             this.groupBox2.Controls.Add(this.button12);
             this.groupBox2.Controls.Add(this.button10);
             this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.textBox2);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.textBox5);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.textBox6);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.textBox7);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.textBox8);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(544, 25);
@@ -173,6 +170,28 @@ namespace CapaVistaCompras
             this.groupBox2.TabIndex = 51;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Detalle Orden de compra";
+            // 
+            // button17
+            // 
+            this.button17.Location = new System.Drawing.Point(0, 254);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(85, 52);
+            this.button17.TabIndex = 65;
+            this.button17.Text = "prueba";
+            this.button17.UseVisualStyleBackColor = true;
+            this.button17.Visible = false;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
+            // 
+            // button16
+            // 
+            this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button16.Location = new System.Drawing.Point(427, 34);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(29, 24);
+            this.button16.TabIndex = 64;
+            this.button16.Text = "?";
+            this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
             // button12
             // 
@@ -208,7 +227,7 @@ namespace CapaVistaCompras
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(425, 236);
+            this.button3.Location = new System.Drawing.Point(920, 5);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(29, 24);
             this.button3.TabIndex = 55;
@@ -268,9 +287,9 @@ namespace CapaVistaCompras
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(251, 234);
+            this.textBox5.Location = new System.Drawing.Point(746, 3);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(168, 26);
+            this.textBox5.Size = new System.Drawing.Size(168, 20);
             this.textBox5.TabIndex = 46;
             this.textBox5.Visible = false;
             this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
@@ -336,7 +355,7 @@ namespace CapaVistaCompras
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(117, 239);
+            this.label9.Location = new System.Drawing.Point(612, 8);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(131, 17);
             this.label9.TabIndex = 45;
@@ -562,7 +581,7 @@ namespace CapaVistaCompras
             // 
             // textBox16
             // 
-            this.textBox16.Location = new System.Drawing.Point(689, 8);
+            this.textBox16.Location = new System.Drawing.Point(952, 8);
             this.textBox16.Name = "textBox16";
             this.textBox16.Size = new System.Drawing.Size(168, 20);
             this.textBox16.TabIndex = 58;
@@ -575,10 +594,6 @@ namespace CapaVistaCompras
             this.groupBox3.Controls.Add(this.groupBox2);
             this.groupBox3.Controls.Add(this.button9);
             this.groupBox3.Controls.Add(this.button7);
-            this.groupBox3.Controls.Add(this.textBox17);
-            this.groupBox3.Controls.Add(this.label17);
-            this.groupBox3.Controls.Add(this.textBox18);
-            this.groupBox3.Controls.Add(this.label18);
             this.groupBox3.Controls.Add(this.button8);
             this.groupBox3.Controls.Add(this.textBox19);
             this.groupBox3.Controls.Add(this.label19);
@@ -602,6 +617,16 @@ namespace CapaVistaCompras
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Orden de compra";
             // 
+            // button14
+            // 
+            this.button14.Location = new System.Drawing.Point(334, 30);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(34, 28);
+            this.button14.TabIndex = 62;
+            this.button14.Text = "?";
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
+            // 
             // button9
             // 
             this.button9.Location = new System.Drawing.Point(334, 93);
@@ -624,9 +649,9 @@ namespace CapaVistaCompras
             // 
             // textBox17
             // 
-            this.textBox17.Location = new System.Drawing.Point(200, 295);
+            this.textBox17.Location = new System.Drawing.Point(558, 0);
             this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(54, 26);
+            this.textBox17.Size = new System.Drawing.Size(54, 20);
             this.textBox17.TabIndex = 59;
             this.textBox17.Text = "1";
             this.textBox17.Visible = false;
@@ -635,7 +660,7 @@ namespace CapaVistaCompras
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(3, 300);
+            this.label17.Location = new System.Drawing.Point(361, 5);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(191, 17);
             this.label17.TabIndex = 58;
@@ -645,9 +670,9 @@ namespace CapaVistaCompras
             // textBox18
             // 
             this.textBox18.Enabled = false;
-            this.textBox18.Location = new System.Drawing.Point(182, 263);
+            this.textBox18.Location = new System.Drawing.Point(187, 3);
             this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(168, 26);
+            this.textBox18.Size = new System.Drawing.Size(168, 20);
             this.textBox18.TabIndex = 57;
             this.textBox18.Text = "0";
             this.textBox18.Visible = false;
@@ -656,7 +681,7 @@ namespace CapaVistaCompras
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(3, 268);
+            this.label18.Location = new System.Drawing.Point(8, 8);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(173, 17);
             this.label18.TabIndex = 56;
@@ -809,6 +834,35 @@ namespace CapaVistaCompras
             this.groupBox4.TabIndex = 60;
             this.groupBox4.TabStop = false;
             // 
+            // button15
+            // 
+            this.button15.Location = new System.Drawing.Point(1010, 252);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(93, 52);
+            this.button15.TabIndex = 67;
+            this.button15.Text = "Cancelar";
+            this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
+            // 
+            // textBox40
+            // 
+            this.textBox40.Location = new System.Drawing.Point(374, 265);
+            this.textBox40.Name = "textBox40";
+            this.textBox40.Size = new System.Drawing.Size(168, 26);
+            this.textBox40.TabIndex = 66;
+            this.textBox40.Visible = false;
+            this.textBox40.TextChanged += new System.EventHandler(this.textBox40_TextChanged);
+            // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(911, 252);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(93, 52);
+            this.button13.TabIndex = 65;
+            this.button13.Text = "Guardar";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
+            // 
             // textBox39
             // 
             this.textBox39.Enabled = false;
@@ -923,6 +977,7 @@ namespace CapaVistaCompras
             this.textBox37.Name = "textBox37";
             this.textBox37.Size = new System.Drawing.Size(168, 26);
             this.textBox37.TabIndex = 68;
+            this.textBox37.TextChanged += new System.EventHandler(this.textBox37_TextChanged);
             // 
             // label36
             // 
@@ -1141,79 +1196,26 @@ namespace CapaVistaCompras
             this.textBox38.Size = new System.Drawing.Size(168, 20);
             this.textBox38.TabIndex = 61;
             this.textBox38.Visible = false;
-            // 
-            // button13
-            // 
-            this.button13.Location = new System.Drawing.Point(911, 252);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(93, 52);
-            this.button13.TabIndex = 65;
-            this.button13.Text = "Guardar";
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
-            // 
-            // textBox40
-            // 
-            this.textBox40.Location = new System.Drawing.Point(374, 265);
-            this.textBox40.Name = "textBox40";
-            this.textBox40.Size = new System.Drawing.Size(168, 26);
-            this.textBox40.TabIndex = 66;
-            this.textBox40.Visible = false;
-            this.textBox40.TextChanged += new System.EventHandler(this.textBox40_TextChanged);
-            // 
-            // button14
-            // 
-            this.button14.Location = new System.Drawing.Point(334, 30);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(34, 28);
-            this.button14.TabIndex = 62;
-            this.button14.Text = "?";
-            this.button14.UseVisualStyleBackColor = true;
-            this.button14.Click += new System.EventHandler(this.button14_Click);
-            // 
-            // button15
-            // 
-            this.button15.Location = new System.Drawing.Point(1010, 252);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(93, 52);
-            this.button15.TabIndex = 67;
-            this.button15.Text = "Cancelar";
-            this.button15.UseVisualStyleBackColor = true;
-            this.button15.Click += new System.EventHandler(this.button15_Click);
-            // 
-            // button16
-            // 
-            this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button16.Location = new System.Drawing.Point(427, 34);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(29, 24);
-            this.button16.TabIndex = 64;
-            this.button16.Text = "?";
-            this.button16.UseVisualStyleBackColor = true;
-            this.button16.Click += new System.EventHandler(this.button16_Click);
-            // 
-            // button17
-            // 
-            this.button17.Location = new System.Drawing.Point(0, 254);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(85, 52);
-            this.button17.TabIndex = 65;
-            this.button17.Text = "prueba";
-            this.button17.UseVisualStyleBackColor = true;
-            this.button17.Visible = false;
-            this.button17.Click += new System.EventHandler(this.button17_Click);
+            this.textBox38.TextChanged += new System.EventHandler(this.textBox38_TextChanged);
             // 
             // detalleordencompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1134, 690);
+            this.ClientSize = new System.Drawing.Size(1129, 690);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.textBox38);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.textBox17);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.textBox18);
+            this.Controls.Add(this.label18);
             this.Controls.Add(this.textBox16);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.label9);
             this.Name = "detalleordencompra";
             this.Text = "detalleordencompra";
             this.Load += new System.EventHandler(this.detalleordencompra_Load);
