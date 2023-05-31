@@ -1,0 +1,14 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=AyudaTipoPago.chm
+Contents file=AyudaTipoPago.hhc
+Display compile progress=No
+Index file=AyudaTipoPago.hhk
+Language=0x100a Español (Guatemala)
+
+
+[FILES]
+TipoPago.html
+
+[INFOTYPES]
+
