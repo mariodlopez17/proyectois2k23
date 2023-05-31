@@ -39,6 +39,7 @@
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="NavegadorVista">
       <HintPath>..\..\..\Componentes\Navegador\Vista\bin\Debug\NavegadorVista.dll</HintPath>
     </Reference>
@@ -77,7 +78,7 @@
     <Compile Include="Estado_Cuenta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Estado_Cuenta.Designer.cs">
+    <Compile Include="Estado_Cuenta.designer.cs">
       <DependentUpon>Estado_Cuenta.cs</DependentUpon>
     </Compile>
     <Compile Include="Mant_conceptoCXC.cs">
@@ -104,11 +105,23 @@
     <Compile Include="Mant_tipoPago.Designer.cs">
       <DependentUpon>Mant_tipoPago.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mant_venta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mant_venta.designer.cs">
+      <DependentUpon>Mant_venta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pcs_CobroCuenta.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Pcs_CobroCuenta.Designer.cs">
       <DependentUpon>Pcs_CobroCuenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pcs_venta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pcs_venta.Designer.cs">
+      <DependentUpon>Pcs_venta.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -137,8 +150,14 @@
     <EmbeddedResource Include="Mant_tipoPago.resx">
       <DependentUpon>Mant_tipoPago.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Mant_venta.resx">
+      <DependentUpon>Mant_venta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pcs_CobroCuenta.resx">
       <DependentUpon>Pcs_CobroCuenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pcs_venta.resx">
+      <DependentUpon>Pcs_venta.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -13,7 +13,7 @@ namespace Capa_ModeloConsultas
             public OdbcConnection conexion()
             {
                 //creacion de la conexion via ODBC
-                OdbcConnection conn = new OdbcConnection("Dsn=Colchoneria");
+                OdbcConnection conn = new OdbcConnection("Dsn=sig");
                 try
                 {
                     conn.Open();

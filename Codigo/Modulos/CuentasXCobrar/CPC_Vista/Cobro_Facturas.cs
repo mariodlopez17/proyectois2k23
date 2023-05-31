@@ -46,25 +46,10 @@ namespace CPC_Vista
 
         public void llenartxtnombrecliente()
         {
-            try
-            {
-                txtNombreCliente.Items.Clear();
-                OdbcDataReader datareader = controlador.llenartxtCli(cbxIdCliente.Text);
-                while (datareader.Read())
-                {
-                    txtNombreCliente.Items.Add(datareader[0].ToString());
-                }
-                txtNombreCliente.SelectedIndex = 0;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error : " + ex);
-            }
         }
 
         private void cbxIdCliente_SelectedIndexChanged(object sender, EventArgs e)
         {
-            llenartxtnombrecliente();
         }
     }
 }
