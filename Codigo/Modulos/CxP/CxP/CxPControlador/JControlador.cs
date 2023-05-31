@@ -14,7 +14,7 @@ namespace CxPControlador
     public class JControlador
     {
         JSentencia sn = new JSentencia();
-
+        Seguridad_Controlador.Controlador cnseg = new Seguridad_Controlador.Controlador();
         public void fillTableFactura(string ntabla, DataGridView tabla)
         {
             //llenamos nuestro dataTable, entre consulta y el datagridview
@@ -59,6 +59,7 @@ namespace CxPControlador
                 //sn.insertar(dato, tipo, tabla.Tag.ToString());
     
                 sn.actualizartransaccion(dato, tipo, tabla.Tag.ToString(), datocxp, proveedor );
+                cnseg.setBtitacora("5103", "Ingreso Factura");
             }
             catch (Exception e)
             {
@@ -256,7 +257,7 @@ namespace CxPControlador
             {
                 string sqlProveedor = ingresarcambiosfactura2(textbox);
                 sn.eliminardatos(textbox[0].Text, textbox[2].Text, textbox[1].Text, sqlProveedor);
-                
+                cnseg.setBtitacora("5103", "Eliminar Factura");
 
 
             }

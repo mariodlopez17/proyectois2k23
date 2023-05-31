@@ -67,16 +67,27 @@ namespace CxPVista
         {
             string valorSeleccionado = cmbEstado.SelectedItem.ToString();
             char primerCaracter = valorSeleccionado[0];
+            Double Monto = Convert.ToDouble(txtMonto.Text);
             txtEstado.Text = primerCaracter.ToString();
+            TextBox[] Grupo2 = { txtMovimiento, txtMoneda, txtNombreTipo, txtMovimiento, txtConcepto, txtTipoConcepto, txtNombreTipo, txtMovimiento, txtMoneda, txtIdCuenta, txtIdAlmacen, txtIdProveedor, txtIdFatura, txtIdTipo, txtIdMoneda, txtIdConcepto, txtCambio, txtEmision, txtMovimiento, txtSaldo, txtMonto, txtEstado };
+            bool valido = validacionllenado(Grupo2);
+            if (valido == true)
+            {
 
-            TextBox[] Grupo = { txtIdCuenta, txtIdAlmacen, txtIdProveedor, txtIdFatura, txtIdTipo, txtIdMoneda, txtIdConcepto, txtCambio, txtEmision, txtMovimiento, txtSaldo, txtMonto, txtEstado};
-            Double Monto = Convert.ToDouble(txtMonto.Text) ;
-            cn.operacionCxP(Grupo, "tbl_cuentaporpagar",Monto,txtIdProveedor.Text,txtIdConcepto.Text );
+                TextBox[] Grupo = { txtIdCuenta, txtIdAlmacen, txtIdProveedor, txtIdFatura, txtIdTipo, txtIdMoneda, txtIdConcepto, txtCambio, txtEmision, txtMovimiento, txtSaldo, txtMonto, txtEstado };
+                cn.operacionCxP(Grupo, "tbl_cuentaporpagar", Monto, txtIdProveedor.Text, txtIdConcepto.Text);
+                cn.Inicio(txtIdCuenta, txtMovimiento, Grupo2, cmbEstado);
+                dtpEmision.Visible = false;
+                porDefecto.Visible = true;
 
-            TextBox[] Grupo2 = { txtMovimiento,txtMoneda,txtNombreTipo,txtMovimiento,txtConcepto,txtTipoConcepto,txtNombreTipo,txtMovimiento,txtMoneda, txtIdCuenta, txtIdAlmacen, txtIdProveedor, txtIdFatura, txtIdTipo, txtIdMoneda, txtIdConcepto, txtCambio, txtEmision, txtMovimiento, txtSaldo, txtMonto, txtEstado };
-            cn.Inicio(txtIdCuenta,txtMovimiento,Grupo2, cmbEstado);
-            dtpEmision.Visible = false;
-            porDefecto.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("Por Favor llenar todos los campos");
+            }
+
+
+            
 
         }
 
@@ -93,6 +104,25 @@ namespace CxPVista
         {
             string rutaAyuda = "../../../../../../../Ayuda/Modulos/CxP/MovimientosCxP/AyudaCxP.chm";
             Help.ShowHelp(ParentForm, rutaAyuda, "CuentasPorPagar.html");
+        }
+
+        bool validacionllenado(TextBox[] textBoxes)
+        {
+            bool validacion = false;
+
+            for (int x = 0; x < textBoxes.Length; x++)
+            {
+                if (textBoxes[x].TextLength == 0)
+                {
+                    validacion = false;
+                    break;
+                }
+                else
+                {
+                    validacion = true;
+                }
+            }
+            return validacion;
         }
     }
 }
