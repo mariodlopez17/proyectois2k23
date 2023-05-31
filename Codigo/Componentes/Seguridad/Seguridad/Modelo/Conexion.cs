@@ -14,7 +14,7 @@ namespace Modelo_Seguridad
         public OdbcConnection conexion()
         {
 
-            OdbcConnection conn = new OdbcConnection("Dsn=colchoneria");
+            OdbcConnection conn = new OdbcConnection("Dsn=sig");
             try
             {
                 conn.Open();
