@@ -12,12 +12,29 @@ namespace CxPControlador
 {
     public class GControlador
     {
+        Seguridad_Controlador.Controlador cnseg = new Seguridad_Controlador.Controlador();
         GSentencia sn = new GSentencia();
         private static double ids;
         public double IDS
         {
             get { return ids; }
             set { ids = value; }
+        }
+
+        public void llenarmitabla(string ntabla, DataGridView tabla, string idProveedor)//Funcion para llenar tabla
+        {
+            try
+            {
+                OdbcDataAdapter dt = sn.llenarmitabla(ntabla, idProveedor);
+                DataTable table = new DataTable();
+                dt.Fill(table);
+                tabla.DataSource = table;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error:" + e);
+            }
+
         }
         public void llenartablaa2(string ntabla, DataGridView tabla)//Funcion para llenar tabla
         {
@@ -154,6 +171,7 @@ namespace CxPControlador
             string cambioProveedor = movimientoProveedor(idProveedor, monto, idconcepto);
             
             sn.actualizartransaccion(sql, cambioProveedor);
+            cnseg.setBtitacora("5101", "Ingreso Movimiento de CxP");
         }
 
         string actualizar2(string cargo, string abono, string proveedor)//Crea cadenas de datos para la actualizacion
@@ -226,13 +244,13 @@ namespace CxPControlador
 
             return resultado;
         }
-        public void Inicio(TextBox id, TextBox fecha, TextBox[] group)
+        public void Inicio(TextBox id, TextBox fecha, TextBox[] group, ComboBox cmbEstado)
         {
             limpiar(group);
             crearid(id, "tbl_cuentaporpagar", " ", "pk_id_cuentaporpagar");
             IDS = -1;
             fecha.Text = DateTime.Now.Date.ToString("yyyy-MM-dd");
-
+            cmbEstado.SelectedIndex = -1; // O cualquier otro valor predeterminado
 
         }
         void limpiar(TextBox[] group)

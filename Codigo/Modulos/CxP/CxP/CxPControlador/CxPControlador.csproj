@@ -34,6 +34,9 @@
     <Reference Include="CapaVistaReporteria">
       <HintPath>..\..\..\..\Componentes\Reporteador\CapaVistaReporteria\bin\Debug\CapaVistaReporteria.dll</HintPath>
     </Reference>
+    <Reference Include="Seguridad_Controlador">
+      <HintPath>C:\Users\luist\Desktop\proyecto\proyectois2k23\Codigo\Componentes\Seguridad\Seguridad\Capa_controlador\bin\Debug\Seguridad_Controlador.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms" />
