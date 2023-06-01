@@ -1,0 +1,23 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=Ayudacompras.chm
+Contents file=ayudacompras.hhc
+Default Window=AyudaCompras
+Display compile progress=No
+Language=0x100a Español (Guatemala)
+
+[WINDOWS]
+AyudaCompras="ayuda para modulo compras","ayudacompras.hhc",,"Ordencompra.html","Ordencompra.html","Compra.html","Compra","MantenimientoProv.html","MantenimientoProv",0x23520,,0xc387e,,,,,,,,0
+
+
+[FILES]
+Compra.html
+Mantenimientoalmacen.html
+Mantenimientolinea.html
+Mantenimientomarca.html
+MantenimientoProd.html
+MantenimientoProv.html
+Ordencompra.html
+
+[INFOTYPES]
+
