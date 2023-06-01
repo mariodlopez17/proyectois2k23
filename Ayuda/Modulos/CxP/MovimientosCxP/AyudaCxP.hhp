@@ -1,0 +1,11 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=AyudaCxP.chm
+Contents file=CuentasPorPagar.hhc
+Display compile progress=No
+Index file=CuentasPorPagar.hhk
+Language=0x100a Español (Guatemala)
+
+
+[INFOTYPES]
+

@@ -44,7 +44,7 @@ namespace CxPVista
             this.btninsertar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(180)))), ((int)(((byte)(227)))));
             this.btninsertar.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btninsertar.IconSize = 40;
-            this.btninsertar.Location = new System.Drawing.Point(348, 18);
+            this.btninsertar.Location = new System.Drawing.Point(499, 45);
             this.btninsertar.Name = "btninsertar";
             this.btninsertar.Size = new System.Drawing.Size(69, 61);
             this.btninsertar.TabIndex = 70;
@@ -56,9 +56,9 @@ namespace CxPVista
             // Dgv_ayudaConcepto
             // 
             this.Dgv_ayudaConcepto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dgv_ayudaConcepto.Location = new System.Drawing.Point(21, 158);
+            this.Dgv_ayudaConcepto.Location = new System.Drawing.Point(12, 112);
             this.Dgv_ayudaConcepto.Name = "Dgv_ayudaConcepto";
-            this.Dgv_ayudaConcepto.Size = new System.Drawing.Size(759, 274);
+            this.Dgv_ayudaConcepto.Size = new System.Drawing.Size(560, 201);
             this.Dgv_ayudaConcepto.TabIndex = 69;
             // 
             // AyudaConcepto
@@ -66,10 +66,11 @@ namespace CxPVista
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(93)))), ((int)(((byte)(86)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(580, 321);
             this.Controls.Add(this.btninsertar);
             this.Controls.Add(this.Dgv_ayudaConcepto);
             this.Name = "AyudaConcepto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AyudaConcepto";
             this.Load += new System.EventHandler(this.AyudaConcepto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_ayudaConcepto)).EndInit();

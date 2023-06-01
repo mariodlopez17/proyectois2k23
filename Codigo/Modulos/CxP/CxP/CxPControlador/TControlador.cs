@@ -13,6 +13,7 @@ namespace CxPControlador
     public class TControlador
     {
         TSentencia sn = new TSentencia();
+        Seguridad_Controlador.Controlador cnseg = new Seguridad_Controlador.Controlador();
 
         void llenartablaProveedores(string ntabla, DataGridView tabla, string campos, string condicion)//Funcion para llenar tabla
         {
@@ -105,8 +106,8 @@ namespace CxPControlador
                  datos[4] = (CargosAcumulados + cargoMes).ToString();
                  datos[5] = (AbonosAcumulados + abonoMes).ToString();
                  string condicion = " pk_id_proveedor = "+ id + " ;";
-                   
-                    actualizacion(campos, datos, condicion, "tbl_Proveedor");
+                
+                actualizacion(campos, datos, condicion, "tbl_Proveedor");
                     llenardatosproveedor("tbl_Proveedor", tabla);
                 
                 
@@ -115,7 +116,7 @@ namespace CxPControlador
 
 
             }
-
+            cnseg.setBtitacora("5102", "Balance general proveedores");
         }
 
       void actualizacion(string[] campo, string[] dato, string condicion, string tabla)

@@ -11,6 +11,13 @@ namespace CxPModelo
     public class GSentencia
     {
         Conexion con = new Conexion();
+
+        public OdbcDataAdapter llenarmitabla(string tabla,string idProveedor)
+        {
+            string sql = "select * from " + tabla + " where pk_id_proveedor = "+idProveedor+";";
+            OdbcDataAdapter datatable = new OdbcDataAdapter(sql, con.conexion());
+            return datatable;
+        }
         public OdbcDataAdapter llenartabla2(string tabla)
         {
             string sql = "select * from " + tabla + ";";
@@ -190,5 +197,7 @@ namespace CxPModelo
             }
             return dato;
         }
+
+
     }
 }

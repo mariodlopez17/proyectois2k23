@@ -1,0 +1,14 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=AyudaConcepto.chm
+Contents file=AyudaConcepto.hhc
+Display compile progress=No
+Index file=AyudaConcepto.hhk
+Language=0x100a Español (Guatemala)
+
+
+[FILES]
+Concepto.html
+
+[INFOTYPES]
+

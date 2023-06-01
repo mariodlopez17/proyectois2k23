@@ -41,9 +41,9 @@ namespace CxPVista
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
             this.txtEmision = new System.Windows.Forms.TextBox();
-            this.txtEstado = new System.Windows.Forms.TextBox();
             this.txtIdCuenta = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtIdAlmacen = new System.Windows.Forms.TextBox();
@@ -56,6 +56,7 @@ namespace CxPVista
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtEstado = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btncancelar = new FontAwesome.Sharp.IconButton();
             this.btninsertar = new FontAwesome.Sharp.IconButton();
@@ -74,6 +75,8 @@ namespace CxPVista
             this.btnHelp = new FontAwesome.Sharp.IconButton();
             this.label18 = new System.Windows.Forms.Label();
             this.txtMovimiento = new System.Windows.Forms.TextBox();
+            this.dtpEmision = new System.Windows.Forms.DateTimePicker();
+            this.porDefecto = new System.Windows.Forms.TextBox();
             this.gpbProveedor.SuspendLayout();
             this.gpbConcepto.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -197,9 +200,10 @@ namespace CxPVista
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.porDefecto);
+            this.groupBox1.Controls.Add(this.dtpEmision);
+            this.groupBox1.Controls.Add(this.cmbEstado);
             this.groupBox1.Controls.Add(this.label19);
-            this.groupBox1.Controls.Add(this.txtEmision);
-            this.groupBox1.Controls.Add(this.txtEstado);
             this.groupBox1.Controls.Add(this.txtIdCuenta);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.txtIdAlmacen);
@@ -222,6 +226,17 @@ namespace CxPVista
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Movimiento";
             // 
+            // cmbEstado
+            // 
+            this.cmbEstado.FormattingEnabled = true;
+            this.cmbEstado.Items.AddRange(new object[] {
+            "1 - Activo",
+            "0 - No activo"});
+            this.cmbEstado.Location = new System.Drawing.Point(133, 267);
+            this.cmbEstado.Name = "cmbEstado";
+            this.cmbEstado.Size = new System.Drawing.Size(159, 25);
+            this.cmbEstado.TabIndex = 25;
+            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -235,20 +250,11 @@ namespace CxPVista
             // txtEmision
             // 
             this.txtEmision.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
-            this.txtEmision.Location = new System.Drawing.Point(412, 20);
+            this.txtEmision.Location = new System.Drawing.Point(485, 634);
             this.txtEmision.Name = "txtEmision";
-            this.txtEmision.Size = new System.Drawing.Size(285, 25);
+            this.txtEmision.Size = new System.Drawing.Size(157, 25);
             this.txtEmision.TabIndex = 22;
             this.txtEmision.Tag = "fecha_emision_cuentaporpagar";
-            // 
-            // txtEstado
-            // 
-            this.txtEstado.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
-            this.txtEstado.Location = new System.Drawing.Point(133, 267);
-            this.txtEstado.Name = "txtEstado";
-            this.txtEstado.Size = new System.Drawing.Size(159, 25);
-            this.txtEstado.TabIndex = 21;
-            this.txtEstado.Tag = "estado_cuentaporpagar";
             // 
             // txtIdCuenta
             // 
@@ -331,7 +337,7 @@ namespace CxPVista
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
-            this.label10.Location = new System.Drawing.Point(283, 33);
+            this.label10.Location = new System.Drawing.Point(419, 33);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(114, 17);
             this.label10.TabIndex = 4;
@@ -366,6 +372,15 @@ namespace CxPVista
             this.label7.Size = new System.Drawing.Size(83, 17);
             this.label7.TabIndex = 0;
             this.label7.Text = "Id Factura";
+            // 
+            // txtEstado
+            // 
+            this.txtEstado.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
+            this.txtEstado.Location = new System.Drawing.Point(648, 634);
+            this.txtEstado.Name = "txtEstado";
+            this.txtEstado.Size = new System.Drawing.Size(159, 25);
+            this.txtEstado.TabIndex = 21;
+            this.txtEstado.Tag = "estado_cuentaporpagar";
             // 
             // groupBox2
             // 
@@ -553,6 +568,7 @@ namespace CxPVista
             this.btnHelp.Text = "Ayuda";
             this.btnHelp.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click_1);
             // 
             // label18
             // 
@@ -566,22 +582,39 @@ namespace CxPVista
             // txtMovimiento
             // 
             this.txtMovimiento.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
-            this.txtMovimiento.Location = new System.Drawing.Point(734, 156);
+            this.txtMovimiento.Location = new System.Drawing.Point(813, 634);
             this.txtMovimiento.Name = "txtMovimiento";
             this.txtMovimiento.Size = new System.Drawing.Size(121, 25);
             this.txtMovimiento.TabIndex = 74;
             this.txtMovimiento.Tag = "fecha_movimiento_cuentaporpagar";
+            // 
+            // dtpEmision
+            // 
+            this.dtpEmision.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpEmision.Location = new System.Drawing.Point(539, 30);
+            this.dtpEmision.Name = "dtpEmision";
+            this.dtpEmision.Size = new System.Drawing.Size(141, 25);
+            this.dtpEmision.TabIndex = 26;
+            // 
+            // porDefecto
+            // 
+            this.porDefecto.Location = new System.Drawing.Point(539, 31);
+            this.porDefecto.Name = "porDefecto";
+            this.porDefecto.Size = new System.Drawing.Size(140, 25);
+            this.porDefecto.TabIndex = 27;
             // 
             // Moviminetos_CxP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(93)))), ((int)(((byte)(86)))));
-            this.ClientSize = new System.Drawing.Size(861, 600);
+            this.ClientSize = new System.Drawing.Size(842, 579);
             this.Controls.Add(this.txtMovimiento);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.txtEmision);
+            this.Controls.Add(this.txtEstado);
             this.Controls.Add(this.groupBox1);
             this.Name = "Moviminetos_CxP";
             this.Text = "Moviminetos_CxP";
@@ -646,5 +679,8 @@ namespace CxPVista
         public System.Windows.Forms.TextBox txtEmision;
         private System.Windows.Forms.Label label18;
         public System.Windows.Forms.TextBox txtMovimiento;
+        public System.Windows.Forms.ComboBox cmbEstado;
+        public System.Windows.Forms.DateTimePicker dtpEmision;
+        private System.Windows.Forms.TextBox porDefecto;
     }
 }

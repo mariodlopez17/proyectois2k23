@@ -73,7 +73,7 @@ namespace Vista_Seguridad
         //Método que ingresa un valor a la bitacora de acuerdo el módulo
         private void btnnominas_Click(object sender, EventArgs e)
         {
-            /*CxPVista.MDICuentasPorPagar b = new CxPVista.MDICuentasPorPagar();
+           /*CxPVista.MDICuentasPorPagar b = new CxPVista.MDICuentasPorPagar();
             b.Show();
             cn.setBtitacora("5000", "Ingreso CxP");*/
         }
