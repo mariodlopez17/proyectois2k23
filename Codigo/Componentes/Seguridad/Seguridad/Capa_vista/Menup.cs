@@ -59,9 +59,9 @@ namespace Vista_Seguridad
         //Método que ingresa un valor a la bitacora de acuerdo el módulo
         private void btncompras_Click(object sender, EventArgs e)
         {
-            /*ComprasVista.central_Compra b = new ComprasVista.central_Compra();
-            b.Show();*/
-            cn.setBtitacora("3000", "Ingreso Compras");
+            /*CapaVistaCompras.menu b = new CapaVistaCompras.menu();
+            b.Show();
+            cn.setBtitacora("3000", "Ingreso Compras");*/
         }
         //Método que ingresa un valor a la bitacora de acuerdo el módulo
         private void btnProduccion_Click(object sender, EventArgs e)
@@ -80,7 +80,7 @@ namespace Vista_Seguridad
 
         private void btnInventario_Click(object sender, EventArgs e)
         {
-            /*CxPVista.MDICuentasPorPagar b = new CxPVista.MDICuentasPorPagar();
+            /*CapaVistaInventario.menu_inventario b = new CapaVistaInventario.menu_inventario();
             b.Show();
             cn.setBtitacora("6000", "Ingreso Inventario");*/
         }

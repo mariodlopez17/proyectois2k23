@@ -273,5 +273,11 @@ namespace CapaVistaCompras
         {
             this.Close();
         }
+
+        private void ayudaMantenimientoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string rutaAyuda = "../../../../../../../Ayuda/Modulos/Compras/AyudaRisko/Ayudacompras.chm";
+            Help.ShowHelp(ParentForm, rutaAyuda, "MantenimientoProv.html");
+        }
     }
 }

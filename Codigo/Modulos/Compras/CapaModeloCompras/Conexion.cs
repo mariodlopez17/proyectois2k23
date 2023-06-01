@@ -9,6 +9,7 @@ namespace CapaModeloCompras
 {
     class Conexion
     {
+        public OdbcConnection connection = new OdbcConnection("Dsn=sig");
         //Clase de conexion --------------
         public OdbcConnection conexion()
         {

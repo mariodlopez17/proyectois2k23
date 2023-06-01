@@ -291,10 +291,11 @@ namespace CapaVistaCompras
             button14.Enabled = false;
 
 
-            cn.insertardatagrid(dataGridView1,textBox7.Text, textBox8.Text, textBox5.Text, textBox6.Text, textBox1.Text, textBox2.Text, textBox39,textBox40,groupBox2);
+            cn.insertardatagrid(dataGridView1,textBox7.Text, textBox8.Text, textBox5.Text,
+                textBox6.Text, textBox1.Text, textBox2.Text, textBox39,textBox40,groupBox2);
             textBox18.Text = textBox39.Text;
 
-            try{
+          /*  try{
                 int n1, ns2, r2;
                 n1 = Convert.ToInt32(textBox40.Text);
                 ns2 = Convert.ToInt32(textBox38.Text);
@@ -306,11 +307,13 @@ namespace CapaVistaCompras
             }catch (Exception i)
             {
                 MessageBox.Show("Error: " + i);
-            }
+            }*/
+
+            
 
 
-   
-             
+
+
         }
 
         private void button13_Click(object sender, EventArgs e)
@@ -340,14 +343,6 @@ namespace CapaVistaCompras
                 cn.insertarbddetalle(dataGridView1);
 
                 //modificar tabla producto
-                string[] datos2 = { textBox34.Text, textBox31.Text, textBox32.Text, textBox30.Text,
-                textBox29.Text, textBox28.Text, textBox27.Text, textBox26.Text, textBox35.Text, textBox36.Text,
-                textBox37.Text };
-                string[] tipos2 = { "nombre_producto", "fk_codigo_linea",
-                "fk_codigo_marca", "existencia_producto", "costouni_producto", "preciouni_producto",
-                "fechaultentrada_marca", "fechaultsalida_marca", "estatus_producto", "fecha_aprox_ingreso",
-                "productos_por_ingresar"};
-                cn.actualizar(tipos2, datos2, "tbl_producto", textBox33);
 
                 //Limpiar tabla
                 dataGridView1.Rows.Clear();
@@ -446,6 +441,12 @@ namespace CapaVistaCompras
         private void textBox38_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            string rutaAyuda = "../../../../../../../Ayuda/Modulos/Compras/AyudaRisko/Ayudacompras.chm";
+            Help.ShowHelp(ParentForm, rutaAyuda, "Ordencompra.html");
         }
     }
 }

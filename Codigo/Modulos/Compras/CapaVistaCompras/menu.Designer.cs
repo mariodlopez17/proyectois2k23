@@ -34,7 +34,6 @@ namespace CapaVistaCompras
             this.mantenimientosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.realizarCompraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.detalleOrdenCompraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.confirmarCompraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.devolucionCompraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,6 +41,7 @@ namespace CapaVistaCompras
             this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ayudaMantenimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,7 +85,6 @@ namespace CapaVistaCompras
             // comprasToolStripMenuItem
             // 
             this.comprasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.realizarCompraToolStripMenuItem,
             this.detalleOrdenCompraToolStripMenuItem,
             this.confirmarCompraToolStripMenuItem,
             this.devolucionCompraToolStripMenuItem});
@@ -93,36 +92,31 @@ namespace CapaVistaCompras
             this.comprasToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.comprasToolStripMenuItem.Text = "Procesos";
             // 
-            // realizarCompraToolStripMenuItem
-            // 
-            this.realizarCompraToolStripMenuItem.Name = "realizarCompraToolStripMenuItem";
-            this.realizarCompraToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
-            this.realizarCompraToolStripMenuItem.Text = "Orden de Compra";
-            this.realizarCompraToolStripMenuItem.Click += new System.EventHandler(this.realizarCompraToolStripMenuItem_Click);
-            // 
             // detalleOrdenCompraToolStripMenuItem
             // 
             this.detalleOrdenCompraToolStripMenuItem.Name = "detalleOrdenCompraToolStripMenuItem";
-            this.detalleOrdenCompraToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
-            this.detalleOrdenCompraToolStripMenuItem.Text = "Detalle Orden de Compra";
+            this.detalleOrdenCompraToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.detalleOrdenCompraToolStripMenuItem.Text = "Orden de Compra";
             this.detalleOrdenCompraToolStripMenuItem.Click += new System.EventHandler(this.detalleOrdenCompraToolStripMenuItem_Click);
             // 
             // confirmarCompraToolStripMenuItem
             // 
             this.confirmarCompraToolStripMenuItem.Name = "confirmarCompraToolStripMenuItem";
-            this.confirmarCompraToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
-            this.confirmarCompraToolStripMenuItem.Text = "Confirmar compra";
+            this.confirmarCompraToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.confirmarCompraToolStripMenuItem.Text = "Compras";
             this.confirmarCompraToolStripMenuItem.Click += new System.EventHandler(this.confirmarCompraToolStripMenuItem_Click);
             // 
             // devolucionCompraToolStripMenuItem
             // 
             this.devolucionCompraToolStripMenuItem.Name = "devolucionCompraToolStripMenuItem";
-            this.devolucionCompraToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.devolucionCompraToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.devolucionCompraToolStripMenuItem.Text = "Devolucion compra";
             this.devolucionCompraToolStripMenuItem.Click += new System.EventHandler(this.devolucionCompraToolStripMenuItem_Click);
             // 
             // herramientasToolStripMenuItem
             // 
+            this.herramientasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ayudaMantenimientoToolStripMenuItem});
             this.herramientasToolStripMenuItem.Name = "herramientasToolStripMenuItem";
             this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.herramientasToolStripMenuItem.Text = "Herramientas";
@@ -149,6 +143,13 @@ namespace CapaVistaCompras
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
+            // ayudaMantenimientoToolStripMenuItem
+            // 
+            this.ayudaMantenimientoToolStripMenuItem.Name = "ayudaMantenimientoToolStripMenuItem";
+            this.ayudaMantenimientoToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.ayudaMantenimientoToolStripMenuItem.Text = "Ayuda Mantenimiento";
+            this.ayudaMantenimientoToolStripMenuItem.Click += new System.EventHandler(this.ayudaMantenimientoToolStripMenuItem_Click);
+            // 
             // menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,7 +171,6 @@ namespace CapaVistaCompras
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem comprasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem realizarCompraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem confirmarCompraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem devolucionCompraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem;
@@ -181,5 +181,6 @@ namespace CapaVistaCompras
         private System.Windows.Forms.ToolStripMenuItem archivosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem herramientasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ayudaMantenimientoToolStripMenuItem;
     }
 }

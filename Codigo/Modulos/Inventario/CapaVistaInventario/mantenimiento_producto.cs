@@ -21,7 +21,7 @@ namespace CapaVistaInventario
         {
             NavegadorVista.Navegador.idApp = "6001";
             TextBox[] Grupotextbox = { textBox1, textBox2, textBox3, textBox6, textBox5, textBox4,textBox9
-            , textBox8, textBox7, textBox10 };
+            , textBox8, textBox7, textBox10, textBox11, textBox12 };
             TextBox[] Idtextbox = { textBox1, textBox2 };
             navegador1.textbox = Grupotextbox;
             navegador1.tabla = dataGridView1;

@@ -55,6 +55,18 @@
     <Compile Include="ayudacodigoalmacen.Designer.cs">
       <DependentUpon>ayudacodigoalmacen.cs</DependentUpon>
     </Compile>
+    <Compile Include="ayudacompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ayudacompra.Designer.cs">
+      <DependentUpon>ayudacompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ayudadetallecompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ayudadetallecompra.Designer.cs">
+      <DependentUpon>ayudadetallecompra.cs</DependentUpon>
+    </Compile>
     <Compile Include="ayudadetalleordencompra.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +90,12 @@
     </Compile>
     <Compile Include="ayudaproveedor.Designer.cs">
       <DependentUpon>ayudaproveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ayudatipopago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ayudatipopago.Designer.cs">
+      <DependentUpon>ayudatipopago.cs</DependentUpon>
     </Compile>
     <Compile Include="confirmarcompra.cs">
       <SubType>Form</SubType>
@@ -164,6 +182,12 @@
     <EmbeddedResource Include="ayudacodigoalmacen.resx">
       <DependentUpon>ayudacodigoalmacen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ayudacompra.resx">
+      <DependentUpon>ayudacompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ayudadetallecompra.resx">
+      <DependentUpon>ayudadetallecompra.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ayudadetalleordencompra.resx">
       <DependentUpon>ayudadetalleordencompra.cs</DependentUpon>
     </EmbeddedResource>
@@ -175,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ayudaproveedor.resx">
       <DependentUpon>ayudaproveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ayudatipopago.resx">
+      <DependentUpon>ayudatipopago.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="confirmarcompra.resx">
       <DependentUpon>confirmarcompra.cs</DependentUpon>

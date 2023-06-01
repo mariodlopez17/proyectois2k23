@@ -662,3 +662,27 @@ CREATE TABLE if not exists tbl_CuentaPorCobrar(
   FOREIGN KEY (fk_id_moneda) REFERENCES tbl_Moneda(pk_id_moneda),
   FOREIGN KEY (fk_id_concepto_cxc) REFERENCES tbl_ConceptoCuentaPorCobrar(pk_id_concepto_cxc)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*------------------------Alter Table-----------------*/
+ALTER TABLE `sig`.`tbl_detalle_compra` 
+DROP FOREIGN KEY `fk_id_productos_detalle_compra`;
+ALTER TABLE `sig`.`tbl_detalle_compra` 
+ADD INDEX `fk_id_productos_detalle_compra_idx` (`fk_id_listado_productos` ASC) ,
+DROP INDEX `fk_id_productos_detalle_compra_idx` ;
+;
+ALTER TABLE `sig`.`tbl_detalle_compra` 
+ADD CONSTRAINT `fk_id_productos_detalle_compra`
+  FOREIGN KEY (`fk_id_listado_productos`)
+  REFERENCES `sig`.`tbl_producto` (`pk_codigo_producto`);
+
+
+ALTER TABLE `sig`.`tbl_detalle_orden_compra` 
+DROP FOREIGN KEY `fk_id_productos_detalle_orden`;
+ALTER TABLE `sig`.`tbl_detalle_orden_compra` 
+ADD INDEX `fk_id_productos_detalle_orden_idx` (`fk_id_listado_productos` ASC) ,
+DROP INDEX `fk_id_productos_detalle_orden_idx` ;
+;
+ALTER TABLE `sig`.`tbl_detalle_orden_compra` 
+ADD CONSTRAINT `fk_id_productos_detalle_orden`
+  FOREIGN KEY (`fk_id_listado_productos`)
+  REFERENCES `sig`.`tbl_producto` (`pk_codigo_producto`);
