@@ -95,6 +95,7 @@ DROP procedure IF EXISTS `EstadoCuentaProveedor`;
 DELIMITER $$
 USE `sig`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `EstadoCuentaProveedor`(in id_proveedor int, fecha_corte date)
+BEGIN
 SELECT
     pk_id_factura AS Factura,
     pk_id_almacen AS Almacen,
@@ -116,7 +117,7 @@ DELIMITER ;
 ;
 
 USE `sig`;
-DROP procedure IF EXISTS `EstadoCuentaProveedor`;
+DROP procedure IF EXISTS `AntiguedadSaldosProveedor`;
 ;
 DELIMITER $$
 USE `sig`$$
